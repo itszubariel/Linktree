@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <title>@_zubr.l</title>
+    <meta name="description" content="This is a Website Made for Zubariel, by star!" />
+    <meta name="keywords" content="HTML, CSS, JS, Portfolio, Developer, Zubariel" />
+    <meta name="author" content="Zubariel" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/images/2pfp.jpg" type="image/x-icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Unbounded:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <script>
+      if (location.hostname === "zubariel.netlify.app") {
+        const newUrl = location.href.replace("zubariel.netlify.app", "zubariel.is-a.dev");
+        location.replace(newUrl); 
+      }
+    </script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              mono: ["JetBrains Mono", "monospace"],
+              display: ["Unbounded", "Inter", "ui-sans-serif"],
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.6s ease-out forwards',
+              'slide-up': 'slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'scale-in': 'scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'gradient-pan': 'gradient-pan 5s ease infinite',
+            },
+            keyframes: {
+              fadeIn: { 'from': { opacity: '0' }, 'to': { opacity: '1' }, },
+              slideUp: { 'from': { opacity: '0', transform: 'translateY(40px)' }, 'to': { opacity: '1', transform: 'translateY(0)' }, },
+              scaleIn: { 'from': { opacity: '0', transform: 'scale(0.9)' }, 'to': { opacity: '1', transform: 'scale(1)' }, },
+              'gradient-pan': { '0%': { 'background-position': '0% 50%' }, '50%': { 'background-position': '100% 50%' }, '100%': { 'background-position': '0% 50%' }, }
+            }
+          },
+        },
+      };
+    </script>
+    
+    <style>
+        :root {
+            --bg-primary: #050505;
+            --bg-secondary: #101010;
+            --bg-tertiary: #191919;
+            --bg-card: rgba(22, 22, 22, 0.5);
+            --border-subtle: rgba(255, 255, 255, 0.05);
+            --border-medium: rgba(255, 255, 255, 0.1);
+            --text-primary: #e4e4e7;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --accent: #8b5cf6;
+            --accent-light: #a78bfa;
+            --accent-dark: #6d28d9;
+            --accent-gradient: linear-gradient(90deg, var(--accent-light), var(--accent));
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        ::-webkit-scrollbar-thumb { background: var(--border-medium); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+        html { background-color: var(--bg-primary); }
+
+        body {
+            background-color: var(--bg-primary); color: var(--text-primary);
+            font-family: 'Inter', sans-serif; font-weight: 400; line-height: 1.6;
+            -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.025) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+
+        .section-title {
+            font-family: 'Unbounded', sans-serif; font-size: 2.5rem; font-weight: 800;
+            letter-spacing: -0.04em; text-align: center; margin-bottom: 4rem;
+            color: var(--text-primary); position: relative;
+        }
+        .section-title::after {
+            content: ''; position: absolute; bottom: -0.75rem; left: 50%;
+            transform: translateX(-50%); width: 4rem; height: 3px;
+            background: var(--accent-gradient); border-radius: 2px;
+        }
+        @media (min-width: 768px) { .section-title { font-size: 3.5rem; } }
+
+        .site-header {
+            background-color: rgba(5, 5, 5, 0.7); backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-subtle);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link {
+            position: relative; color: var(--text-secondary); font-weight: 500;
+            font-size: 0.9rem; padding: 0.25rem 0.125rem;
+            transition: color 0.3s ease; text-decoration: none;
+        }
+        .nav-link:hover, .nav-link.active { color: var(--text-primary); }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 2px; bottom: -4px;
+            left: 0; background: var(--accent);
+            transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            gap: 0.5rem; font-weight: 600; font-size: 0.9rem; padding: 0.75rem 1.75rem;
+            border-radius: 0.5rem; text-decoration: none;
+            transition: all 0.2s ease; cursor: pointer; border: 1px solid transparent;
+        }
+        .btn-primary { background: var(--accent); color: white; box-shadow: 0 4px 14px rgba(139, 92, 246, 0.25); }
+        .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 7px 20px rgba(167, 139, 250, 0.3); }
+        .btn-secondary { background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border-medium); }
+        .btn-secondary:hover { background: var(--bg-tertiary); border-color: var(--accent-light); color: var(--accent-light); transform: translateY(-2px); }
+        
+        .animated-element { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .animated-element.visible { opacity: 1; transform: translateY(0); }
+        
+        .hero-gradient-bg { background: var(--bg-primary); position: relative; overflow: hidden; }
+        .hero-gradient-bg::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at 50% 30%, rgba(109, 40, 217, 0.15), transparent 60%);
+            pointer-events: none;
+        }
+
+        .profile-image-wrapper { position: relative; width: 18rem; height: 18rem; }
+        @media (min-width: 1024px) { .profile-image-wrapper { width: 21rem; height: 21rem; } }
+        .profile-image-wrapper::before {
+            content: ""; position: absolute; inset: 0; border-radius: 1.25rem; padding: 2px;
+            background: var(--accent-gradient); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor; mask-composite: exclude; animation: gradient-pan 5s ease infinite; background-size: 200% 200%;
+        }
+        .profile-image { border-radius: 1.25rem; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); }
+
+        .gradient-text { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-fill-color: transparent; }
+        .social-link { color: var(--text-secondary); font-size: 1.5rem; transition: all 0.3s ease; }
+        .social-link:hover { color: var(--accent-light); transform: translateY(-3px); }
+    </style>
+</head>
+
+<body>
+    <header id="site-header" class="site-header fixed top-0 w-full z-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="#home" class="font-mono font-semibold text-2xl tracking-tight">zubariel<span class="text-accent">.</span></a>
+                </div>
+                <nav class="hidden md:flex items-center space-x-10">
+                    <a href="#profile" class="nav-link">Profile</a>
+                    <a href="/portfolio" class="nav-link">Portfolio</a>
+                    <a href="/now" class="nav-link">Now</a>
+                    <a href="/snippet" class="nav-link">Snippets</a>
+                    <a href="/projects" class="nav-link">Projects</a>
+                </nav>
+                <div class="hidden md:block">
+                    <a href="/contact" target="_blank" class="btn btn-primary">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="hamburgerBtn" class="text-2xl p-2 focus:outline-none">
+                        <i class="fa-solid fa-bars-staggered"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-border-subtle bg-bg-primary">
+            <nav class="px-6 py-6 space-y-4">
+                <a href="#profile" class="nav-link block py-2 text-lg">Profile</a>
+                <a href="/portfolio" class="nav-link block py-2 text-lg">Portfolio</a>
+                <a href="/now" class="nav-link block py-2 text-lg">Now</a>
+                <a href="/snippet" class="nav-link block py-2 text-lg">Snippets</a>
+                <a href="/projects" class="nav-link block py-2 text-lg">Projects</a>
+                <a href="/contact" target="_blank" class="btn btn-primary inline-block mt-4 w-full">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 pt-20">
+        <section id="home" class="min-h-[95vh] flex items-center py-20 hero-gradient-bg -mx-6 px-6">
+            <div class="grid lg:grid-cols-5 gap-16 items-center w-full">
+                <div class="lg:col-span-3 order-2 lg:order-1">
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 animate-slide-up" style="animation-delay: 200ms; font-family: 'Unbounded', sans-serif;">
+                         <span class="gradient-text">Zubariel</span>. 
+                    </h1>
+                    <p class="text-lg text-text-secondary max-w-xl mb-10 animate-slide-up" style="animation-delay: 300ms;">
+                        <b>Multiple Years</b> of Experience with Web Based Languages. Navigate Using The Buttons On Top.
+                    </p>
+                    <p class="text-sm text-text-muted max-w-xl mb-10 animate-slide-up" style="animation-delay: 400ms;">
+                        (Note: This website is a self-made site using HTML, CSS and JS. Hosted using "Vercel" and domain by "is-a.dev")
+                    </p>
+                </div>
+                <div class="lg:col-span-2 order-1 lg:order-2 flex justify-center lg:justify-end animate-scale-in" style="animation-delay: 500ms;">
+                    <div class="profile-image-wrapper">
+                      <img src="/images/1pfp.jpg" alt="Zubariel's Profile" class="w-full h-full object-cover profile-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="profile" class="py-24">
+  <h2 class="section-title animated-element">My Profile</h2>
+  <div class="max-w-4xl mx-auto animated-element">
+    <div class="bg-bg-secondary border border-border-medium rounded-2xl overflow-hidden shadow-2xl">
+      <!-- Banner Image perfectly fitted -->
+      <img src="/images/banner.png" alt="Profile Banner" class="w-full h-64 object-cover">
+
+      <div class="p-8 -mt-16 relative">
+        <div class="flex flex-col sm:flex-row sm:items-end gap-6">
+          <img src="/images/1pfp.jpg" alt="Zubariel" class="w-32 h-32 rounded-full border-4 border-bg-secondary object-cover shadow-lg">
+          <div class="flex-grow">
+            <div class="flex items-baseline gap-2">
+              <h3 class="text-3xl font-bold text-text-primary">Zubariel</h3>
+              <span class="text-3xl font-mono text-text-muted">#0</span>
+            </div>
+            <p class="font-mono text-text-secondary mt-1">_zubr.l • Do NOT dm me for support.</p>
+          </div>
+          <a href="/contact" class="btn btn-primary mt-4 sm:mt-0">
+            <i class="fas fa-envelope"></i> Message
+          </a>
+        </div>
+
+        <div class="flex items-center flex-wrap gap-2 mt-4" title="User Badges">
+          <img src="https://cdn.discordapp.com/emojis/764167044596891689.png" class="h-6 w-6" title="Hype Squad">
+          <img src="https://cdn.discordapp.com/emojis/1222721325215518740.png" class="h-6 w-6" title="Active Developer">
+          <img src="https://cdn.discordapp.com/emojis/1374807052987400362.png" class="h-6 w-6" title="Early Verified Developer">
+          <img src="https://cdn.discordapp.com/emojis/1374806299178434781.png" class="h-6 w-6" title="Completed a Quest">
+          <img src="https://cdn.discordapp.com/emojis/1374806727832113152.png" class="h-6 w-6" title="Legacy Username">
+        </div>
+
+        <hr class="border-border-subtle my-8">
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h4 class="font-bold text-lg text-accent mb-4">ABOUT ME</h4>
+            <div class="text-text-secondary space-y-4">
+              <p>I'm Zubariel, a random guy who does JS, PY, TS, and C#.</p>
+                <!-- <p>With the love of my life <img src="https://cdn.discordapp.com/emojis/944245743521239061.gif" alt="emoji" class="h-5 inline-block align-middle"></p> -->
+              <div class="mt-4">
+                <p class="text-xs text-text-muted uppercase tracking-wider">MEMBER SINCE</p>
+                <p class="font-medium text-text-primary">2 Jul 2021</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg text-accent mb-4">CURRENT ACTIVITY</h4>
+            <div class="flex items-center gap-4 p-4 bg-bg-tertiary rounded-lg border border-border-subtle">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="Visual Studio Code" class="w-12 h-12">
+              <div>
+                <p class="font-semibold text-text-primary">Visual Studio Code</p>
+                <p class="text-sm text-text-secondary">Editing index.html</p>
+                <p class="text-xs text-text-muted">Workspace: MyProject</p>
+              </div>
+            </div>
+          </div>
+          <div class="md:col-span-2">
+            <h4 class="font-bold text-lg text-accent mb-4">CONNECTIONS</h4>
+            <div class="flex flex-wrap gap-4">
+              <a href="https://github.com/itszubariel" target="_blank" class="btn btn-secondary"><i class="fab fa-github"></i> itszubariel</a>
+              <a href="https://open.spotify.com/user/31kp6ucolzeg4azdeva6w72ghvje?si=636096b1471c47e9" target="_blank" class="btn btn-secondary"><i class="fab fa-spotify"></i> Zubariel</a>
+              <a href="#" class="btn btn-secondary"><i class="fab fa-twitch"></i> zubariel</a>
+              <a href="https://www.youtube.com/channel/UCfzevkQDWFTmAo07B0rR9Jw" target="_blank" class="btn btn-secondary"><i class="fab fa-youtube"></i> Zubariel</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    </main>
+
+    <footer class="border-t border-border-subtle mt-16">
+        <div class="max-w-7xl mx-auto px-6 py-16">
+            <div class="text-center">
+                 <h3 class="text-4xl font-extrabold mb-4 gradient-text">Let's Connect</h3>
+                 <p class="max-w-lg mx-auto mb-10 text-text-secondary">Have a project in mind, a question, or just want to say hi? My inbox is always open.</p>
+                 <div class="flex justify-center gap-8 mb-12">
+                    <a href="https://github.com/itszubariel" target="_blank" class="social-link"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://open.spotify.com/user/31kp6ucolzeg4azdeva6w72ghvje?si=636096b1471c47e9" target="_blank" class="social-link"><i class="fa-brands fa-spotify"></i></a>
+                    <a href="#" target="_blank" class="social-link"><i class="fa-brands fa-twitch"></i></a>
+                    <a href="https://www.youtube.com/channel/UCfzevkQDWFTmAo07B0rR9Jw" target="_blank" class="social-link"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                 <a href="/contact" target="_blank" class="btn btn-primary mb-12">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Get In Touch
+                </a>
+                <p class="text-sm text-text-muted font-mono">© Zubariel 2023-2026. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelectorAll('#mobile-menu a');
+
+        hamburgerBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+        navLinks.forEach(link => { link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); }); });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const animatedEls = document.querySelectorAll('.animated-element');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.transitionDelay = `${index * 100}ms`;
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            animatedEls.forEach(el => observer.observe(el));
+        });
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glassmorphism Card Snippet</title>
+  <link rel="icon" href="/images/2pfp.jpg" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    :root {
+      --bg-primary: #050505;
+      --bg-secondary: #101010;
+      --text-primary: #e4e4e7;
+      --text-secondary: #a1a1aa;
+      --accent: #8b5cf6;
+      --accent-glow: rgba(139, 92, 246, 0.2);
+      --border-color: rgba(255, 255, 255, 0.05);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    body {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+    }
+    .stagger-load > * {
+      opacity: 0;
+      animation: fadeIn 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+    }
+    .stagger-load > *:nth-child(1) { animation-delay: 0.1s; }
+    .stagger-load > *:nth-child(2) { animation-delay: 0.2s; }
+    .stagger-load > *:nth-child(3) { animation-delay: 0.3s; }
+    .stagger-load > *:nth-child(4) { animation-delay: 0.4s; }
+    .stagger-load > *:nth-child(5) { animation-delay: 0.5s; }
+    .code-container { position: relative; }
+    pre {
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      overflow-x: auto;
+      background: var(--bg-secondary) !important;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+      line-height: 1.6;
+      margin: 0;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      will-change: border-color, box-shadow;
+    }
+    pre:hover {
+      border-color: rgba(139, 92, 246, 0.4);
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+    code.custom-highlight {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .tab-btn {
+      background: var(--bg-secondary);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text-secondary);
+      transition: all 0.25s ease-out;
+      transform: translateY(0);
+      will-change: transform, color, background-color, box-shadow;
+    }
+    .tab-btn:hover { transform: translateY(-2px); color: var(--text-primary); }
+    .tab-btn.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px var(--accent-glow);
+    }
+    .nav-link {
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      position: relative;
+      display: inline-block;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 1px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--accent);
+      transform-origin: bottom right;
+      transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .nav-link:hover { color: var(--text-primary); }
+    .nav-link:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+    .copy-button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background: #333333;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 50px;
+      transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.2s ease-out;
+      will-change: transform, box-shadow;
+    }
+    .copy-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px var(--accent-glow);
+      background-color: #3f3f46;
+    }
+    .copy-button:active {
+      transform: scale(0.98) translateY(-1px);
+      box-shadow: 0 2px 5px var(--accent-glow);
+    }
+    .text-accent { color: var(--accent); }
+    .code-tab {
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      opacity: 1; transform: translateY(0);
+      will-change: opacity, transform;
+    }
+    .code-tab.is-hidden {
+      opacity: 0; transform: translateY(10px);
+      position: absolute; pointer-events: none;
+      height: 0; overflow: hidden;
+    }
+  </style>
+</head>
+<body class="p-8">
+  <div class="max-w-4xl mx-auto stagger-load">
+    <div class="mb-8">
+      <a href="/snippet" class="nav-link text-sm"><i class="fa-solid fa-arrow-left mr-1"></i>Back to Snippets</a>
+    </div>
+
+    <h1 class="text-3xl font-bold mb-6">Glassmorphism Card <span class="text-accent">Snippet</span>.</h1>
+
+    <p class="mb-6" style="color:var(--text-secondary);">
+      A frosted-glass profile card built with pure CSS
+      <code style="color:var(--accent);font-size:0.85em;">backdrop-filter</code>.
+      Features animated background blobs, a hover lift effect, avatar, stats row, and a glass button.
+      No JavaScript required.
+      <br><br>
+      <strong style="color:var(--text-primary);">How to Use?</strong><br>
+      Paste the HTML into your page and add the CSS. Place the
+      <code style="color:var(--accent);font-size:0.85em;">.scene</code> wrapper over any colorful or blurred background
+      for the glass effect to show. Swap out the avatar, name, and stats with your own content.
+      <br><br>
+      <strong style="color:var(--text-primary);">Credits</strong><br>
+      Built using CSS <code style="color:var(--accent);font-size:0.85em;">backdrop-filter</code>,
+      <code style="color:var(--accent);font-size:0.85em;">rgba</code> backgrounds, and CSS keyframe animations.
+    </p>
+
+    <div class="flex gap-2 mb-4">
+      <button class="tab-btn px-4 py-2 rounded active" onclick="showTab('tab-1', event)">HTML</button>
+      <button class="tab-btn px-4 py-2 rounded" onclick="showTab('tab-2', event)">CSS</button>
+    </div>
+
+    <div class="code-container">
+
+      <div id="tab-1" class="code-tab">
+        <pre><code class="html-code">&lt;div class="scene"&gt;
+  &lt;div class="glass-card"&gt;
+    &lt;div class="card-avatar"&gt;
+      &lt;img src="https://i.pravatar.cc/80" alt="avatar" /&gt;
+    &lt;/div&gt;
+    &lt;h2 class="card-name"&gt;Alex Rivera&lt;/h2&gt;
+    &lt;p class="card-role"&gt;UI Designer &amp; Developer&lt;/p&gt;
+    &lt;div class="card-stats"&gt;
+      &lt;div class="stat"&gt;
+        &lt;span class="stat-value"&gt;248&lt;/span&gt;
+        &lt;span class="stat-label"&gt;Projects&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class="stat-divider"&gt;&lt;/div&gt;
+      &lt;div class="stat"&gt;
+        &lt;span class="stat-value"&gt;14k&lt;/span&gt;
+        &lt;span class="stat-label"&gt;Followers&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class="stat-divider"&gt;&lt;/div&gt;
+      &lt;div class="stat"&gt;
+        &lt;span class="stat-value"&gt;91%&lt;/span&gt;
+        &lt;span class="stat-label"&gt;Rating&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button class="card-btn"&gt;Follow&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fa-solid fa-copy mr-2"></i>Copy Code</button>
+      </div>
+
+      <div id="tab-2" class="code-tab is-hidden">
+        <pre><code class="css-code">* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.scene {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a0533, #0f0c29, #0d1b4b);
+  position: relative;
+  overflow: hidden;
+}
+
+.scene::before,
+.scene::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.45;
+  animation: blob-float 8s ease-in-out infinite alternate;
+}
+
+.scene::before {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, #8b5cf6, #6d28d9);
+  top: -100px;
+  left: -80px;
+}
+
+.scene::after {
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, #ec4899, #be185d);
+  bottom: -80px;
+  right: -60px;
+  animation-delay: -4s;
+}
+
+@keyframes blob-float {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(30px, 20px) scale(1.1); }
+}
+
+.glass-card {
+  width: 300px;
+  padding: 2rem 1.75rem;
+  border-radius: 1.5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.04)
+  );
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: #f1f5f9;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 24px 48px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.card-avatar img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  margin-bottom: 1rem;
+  object-fit: cover;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.card-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.card-role {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1.5rem;
+}
+
+.card-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 0.85rem 1rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.stat-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.card-btn {
+  padding: 0.6rem 2.25rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.7), rgba(109, 40, 217, 0.7));
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+.card-btn:hover {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 1), rgba(109, 40, 217, 1));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(139, 92, 246, 0.55);
+}</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fa-solid fa-copy mr-2"></i>Copy Code</button>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <div class="text-center">
+        <p class="text-sm font-mono" style="color:var(--text-secondary);">© 2023-2026 Zubariel. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function copyCode(btn) {
+      const tab = btn.closest('.code-tab');
+      const raw = tab ? tab.querySelector('.raw-code') : null;
+      const text = raw ? raw.value : '';
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = btn.innerHTML;
+        btn.innerHTML = '<i class="fa-solid fa-check mr-2"></i>Copied!';
+        setTimeout(() => btn.innerHTML = orig, 2000);
+      }).catch(() => alert('Failed to copy.'));
+    }
+
+    function showTab(tabId, event) {
+      document.querySelectorAll('.code-tab').forEach(el => el.classList.add('is-hidden'));
+      document.getElementById(tabId).classList.remove('is-hidden');
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+  </script>
+
+  <script>
+  const CustomHighlighter = (function () {
+  function escapeHtml(html) {
+    return html
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function style(color, fontWeight, fontStyle) {
+    fontWeight = fontWeight || 'normal';
+    fontStyle = fontStyle || 'normal';
+    return "style='color:"+color+";font-weight:"+fontWeight+";font-style:"+fontStyle+"'";
+  }
+
+  function highlightHTML(code) {
+    let escaped = escapeHtml(code);
+    escaped = escaped.replace(/(&lt;!--[\s\S]*?--&gt;)/g, '<span '+style('#6b7280', 'normal', 'italic')+'>$1</span>');
+    escaped = escaped.replace(/(&lt;\/?[a-zA-Z0-9\-:]+)/g, '<span '+style('#f472b6')+'>$1</span>');
+    escaped = escaped.replace(/([a-zA-Z\-:]+)(=)(&quot;[^&]*?&quot;)/g, function(_, attr, eq, val) {
+      return '<span '+style('#facc15')+'>'+attr+'</span>'+eq+'<span '+style('#34d399')+'>'+val+'</span>';
+    });
+    return escaped;
+  }
+
+  function highlightCSS(code) {
+    let escaped = escapeHtml(code);
+    escaped = escaped.replace(/(\/\*[\s\S]*?\*\/)/g, '<span '+style('#6b7280', 'normal', 'italic')+'>$1</span>');
+    escaped = escaped.replace(/([a-zA-Z\-]+)(\s*:\s*)([^;]+)(;?)/g, function(_, prop, sep, val, end) {
+      return '<span '+style('#facc15')+'>'+prop+'</span>'+sep+'<span '+style('#34d399')+'>'+val+'</span>'+end;
+    });
+    return escaped;
+  }
+
+  function highlightJS(code) {
+    const escaped = escapeHtml(code);
+    return escaped
+      .replace(/(\/\/[^\n]*)/g, '<span '+style('#6b7280', 'normal', 'italic')+'>$1</span>')
+      .replace(/(['"`])(?:\\[\s\S]|(?!\1).)*\1/g, function(match) {
+        return '<span '+style('#34d399')+'>'+match+'</span>';
+      })
+      .replace(/\b(let|const|var|function|return|if|else|for|while|class|new|this|try|catch|finally|await|async|import|from|export|throw|typeof|instanceof|in|of|break|continue|switch|case|default|delete)\b/g,
+        '<span '+style('#60a5fa', 'bold')+'>$1</span>')
+      .replace(/\b(true|false|null|undefined|NaN|Infinity)\b/g, '<span '+style('#f472b6')+'>$1</span>')
+      .replace(/\b(\d+(\.\d+)?(e[+-]?\d+)?)\b/gi, '<span '+style('#fbbf24')+'>$1</span>')
+      .replace(/\b([a-zA-Z_][a-zA-Z0-9_]*)\s*(?=\()/g, '<span '+style('#a78bfa')+'>$1</span>')
+      .replace(/(\.)([a-zA-Z_][a-zA-Z0-9_]*)/g, function(_, dot, prop) {
+        return dot+'<span '+style('#22d3ee')+'>'+prop+'</span>';
+      });
+  }
+
+  function highlight(code, lang) {
+    switch (lang) {
+      case 'html': return highlightHTML(code);
+      case 'css': return highlightCSS(code);
+      case 'js': return highlightJS(code);
+      default: return escapeHtml(code);
+    }
+  }
+
+  return { highlight: highlight };
+})();
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('code').forEach(function(codeBlock) {
+      const pre = codeBlock.parentElement;
+      if (!pre || pre.tagName !== 'PRE') return;
+      const raw = codeBlock.textContent;
+      let lang = null;
+      if (codeBlock.classList.contains('html-code'))     lang = 'html';
+      else if (codeBlock.classList.contains('css-code')) lang = 'css';
+      else if (codeBlock.classList.contains('js-code'))  lang = 'js';
+      if (lang) {
+        const tab = pre.closest('.code-tab');
+        if (tab && !tab.querySelector('.raw-code')) {
+          const ta = document.createElement('textarea');
+          ta.className = 'raw-code';
+          ta.style.display = 'none';
+          ta.value = raw;
+          tab.appendChild(ta);
+        }
+        const highlighted = CustomHighlighter.highlight(raw, lang);
+        pre.outerHTML = '<pre><code class="custom-highlight">'+highlighted+'</code></pre>';
+      }
+    });
+  });
+  </script>
+</body>
+</html>

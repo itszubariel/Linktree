@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Functions/Callback Snippet</title>
+  <link rel="icon" href="/images/2pfp.jpg" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    :root {
+      --bg-primary: #050505;
+      --bg-secondary: #101010;
+      --text-primary: #e4e4e7;
+      --text-secondary: #a1a1aa;
+      --accent: #8b5cf6;
+      --accent-glow: rgba(139, 92, 246, 0.2);
+      --border-color: rgba(255, 255, 255, 0.05);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    body {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+    }
+    .stagger-load > * {
+      opacity: 0;
+      animation: fadeIn 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+    }
+    .stagger-load > *:nth-child(1) { animation-delay: 0.1s; }
+    .stagger-load > *:nth-child(2) { animation-delay: 0.2s; }
+    .stagger-load > *:nth-child(3) { animation-delay: 0.3s; }
+    .stagger-load > *:nth-child(4) { animation-delay: 0.4s; }
+    .stagger-load > *:nth-child(5) { animation-delay: 0.5s; }
+
+    .code-container {
+      position: relative;
+    }
+    pre {
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      overflow-x: auto;
+      background: var(--bg-secondary) !important;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+      line-height: 1.6;
+      margin: 0;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      will-change: border-color, box-shadow;
+    }
+    pre:hover {
+        border-color: rgba(139, 92, 246, 0.4);
+        box-shadow: 0 0 20px var(--accent-glow);
+    }
+    code.bdscript-highlight {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    .tab-btn {
+      background: var(--bg-secondary);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text-secondary);
+      transition: all 0.25s ease-out;
+      transform: translateY(0);
+      will-change: transform, color, background-color, box-shadow;
+    }
+    .tab-btn:hover {
+      transform: translateY(-2px);
+      color: var(--text-primary);
+    }
+    .tab-btn.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px var(--accent-glow);
+    }
+    .nav-link {
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      position: relative;
+      display: inline-block;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 1px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--accent);
+      transform-origin: bottom right;
+      transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .nav-link:hover {
+      color: var(--text-primary);
+    }
+    .nav-link:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+    .copy-button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background: #333333;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 50px;
+      transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.2s ease-out;
+      will-change: transform, box-shadow;
+    }
+    .copy-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px var(--accent-glow);
+      background-color: #3f3f46;
+    }
+    .copy-button:active {
+      transform: scale(0.98) translateY(-1px);
+      box-shadow: 0 2px 5px var(--accent-glow);
+    }
+    .text-accent { color: var(--accent); }
+    .code-tab {
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      opacity: 1;
+      transform: translateY(0);
+      will-change: opacity, transform;
+    }
+    .code-tab.is-hidden {
+      opacity: 0;
+      transform: translateY(10px);
+      position: absolute;
+      pointer-events: none;
+      height: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="p-8">
+  <div class="max-w-4xl mx-auto stagger-load">
+    <div class="mb-8">
+      <a href="/snippet" class="nav-link text-sm"><i class="fa-solid fa-arrow-left mr-1"></i>Back to Snippets</a>
+    </div>
+    <h1 class="text-3xl font-bold mb-6">Functions/Callback <span class="text-accent">Snippet</span>.</h1>
+<p class="mb-6" style="color:var(--text-secondary);">
+This snippet lets you search and browse through <strong>BDFD Functions</strong> and <strong>Callbacks</strong> right inside your bot using modals and buttons.  
+It auto-fetches the latest tags from the BDFD API for a fully dynamic list.
+  <br><br>
+  <strong style="color:var(--text-primary);">How to Use?</strong><br>
+Add the command with it's trigger to your BDFD app<br>
+Do not change anything unless you know what you’re doing<br>
+This also includes pagination for large lists with <code>Next</code> and <code>Back</code> buttons.<br>  
+Avoid editing unless you know exactly what you’re doing.
+  <br><br>
+  <strong style="color:var(--text-primary);">Credits</strong><br>
+Powered by the official BDFD API and a little bit of my magic. 
+</p>
+
+    <div class="flex gap-2 mb-4">
+      <button class="tab-btn px-4 py-2 rounded active" onclick="showTab('tab-1', event)">!bdfd</button>
+      <button class="tab-btn px-4 py-2 rounded" onclick="showTab('tab-2', event)">$onInteraction[bdfd-modal]</button>
+      <button class="tab-btn px-4 py-2 rounded" onclick="showTab('tab-3', event)">$onInteraction</button>
+    </div>
+    <div class="code-container">
+      <div id="tab-1" class="code-tab">
+        <pre><code class="bdfd-code">$nomention
+
+$title[BDFD Functions/Callbacks]
+$description[Use **Search** button below to search for any/every bdfd function available in the [BDFD\](https://botdesignerdiscord.com/) application, or the **Function/Callback List** button to list all the functions/callbacks in bdfd.]
+$color[#36393e]                 $c[Change the color of the embed]
+
+$addButton[no;bdfd-$authorID;Search;secondary;no;]
+$addButton[no;function-bdfd-list-$authorID;Function List;secondary;no;]
+$addButton[no;callback-bdfd-list-$authorID;Callback List;secondary;no;]</code></pre><button class="copy-button" onclick="copyCode(this)">
+          <i class="fa-solid fa-copy mr-2"></i>Copy Code
+        </button>
+      </div>
+      <div id="tab-2" class="code-tab is-hidden">
+        <pre><code class="bdfd-code">$var[color;#36393e]                $c[Change the color of the embeds]
+
+$nomention
+$ephemeral
+$suppressErrors[The function/callback doesn't exist or invalid arguments.
+Example Usage:
+`%{DOL}%addButton` :x:
+`%{DOL}%addButton[\]` :white_check_mark: ]
+
+$if[$checkContains[$input[bdfdInput1];%{DOL}%awaitedCommand;%{DOL}%awaitedCommandError;%{DOL}%onJoined;%{DOL}%onLeave;%{DOL}%onBanAdd;%{DOL}%onBanRemove;%{DOL}%onMessageDelete;%{DOL}%onInteraction[\];%{DOL}%onInteraction;%{DOL}%alwaysReply;%{DOL}%reaction;%{DOL}%messageContains]==true]
+$httpGet[https://botdesignerdiscord.com/public/api/callback/$input[bdfdInput1]]
+
+$var[cmd;$replaceText[$replaceText[$replaceText[$input[bdfdInput1];%{DOL}%;];[;];\];]]
+$if[$httpResult[is_premium]==false]
+$var[link;https://nilpointer-software.github.io/bdfd-wiki/nightly/callbacks/$var[cmd].html]
+$else
+$var[link;https://nilpointer-software.github.io/bdfd-wiki/nightly/premium/$var[cmd].html]
+$endif
+
+$title[BDFD Callback Searcher]
+$description[>>> **Tag**: ```$httpResult[name]```
+**Description**: $httpResult[description]
+**Intents**: $httpResult[intents]
+**Premium**: $httpResult[is_premium]]
+$color[$var[color]]  
+$addButton[no;$var[link];Wiki;link;no;]
+$if[$httpResult[arguments;0;name]!=]
+$addField[$httpResult[arguments;0;name];
+> Type: $httpResult[arguments;0;type]
+> Required: $httpResult[arguments;0;required]
+> Empty: false
+;yes]$endif
+
+$if[$httpResult[arguments;1;name]!=]
+$addField[$httpResult[arguments;1;name];
+> Type: $httpResult[arguments;1;type]
+> Required: $httpResult[arguments;1;required]
+> Empty: false
+;yes]$endif
+
+$if[$httpResult[arguments;2;name]!=]
+$addField[$httpResult[arguments;2;name];
+> Type: $httpResult[arguments;2;type]
+> Required: $httpResult[arguments;2;required]
+> Empty: false
+;yes]$endif
+
+$if[$httpResult[arguments;3;name]!=]
+$addField[$httpResult[arguments;3;name];
+> Type: $httpResult[arguments;3;type]
+> Required: $httpResult[arguments;3;required]
+> Empty: false
+;yes]$endif
+
+$if[$httpResult[arguments;4;name]!=]
+$addField[$httpResult[arguments;4;name];
+> Type: $httpResult[arguments;4;type]
+> Required: $httpResult[arguments;4;required]
+> Empty: false
+;yes]$endif
+
+$if[$httpResult[arguments;5;name]!=]
+$addField[$httpResult[arguments;5;name];
+> Type: $httpResult[arguments;5;type]
+> Required: $httpResult[arguments;5;required]
+> Empty: false
+;yes]$endif
+
+$else
+$httpGet[https://botdesignerdiscord.com/public/api/function/$input[bdfdInput1]]
+
+$var[cmd;$replaceText[$replaceText[$replaceText[$input[bdfdInput1];%{DOL}%;];[;];\];]]
+$if[$httpResult[premium]==false]
+$var[link;https://nilpointer-software.github.io/bdfd-wiki/nightly/bdscript/$var[cmd].html]
+$else
+$var[link;https://nilpointer-software.github.io/bdfd-wiki/nightly/premium/$var[cmd].html]
+$endif
+
+$title[BDFD Function Searcher]
+$description[>>> **Tag**: ```$httpResult[tag]```
+**Description**: $httpResult[shortDescription]
+**Intents**: $httpResult[intents]
+**Premium**: $httpResult[premium]]
+$color[$var[color]] 
+$addButton[no;$var[link];Wiki;link;no;]
+$if[$httpResult[arguments;0;name]!=]
+$addField[$httpResult[arguments;0;name];
+> Type: $httpResult[arguments;0;type]
+> Required: $httpResult[arguments;0;required]
+> Empty: $httpResult[arguments;0;empty]
+;yes]$endif
+
+$if[$httpResult[arguments;1;name]!=]
+$addField[$httpResult[arguments;1;name];
+> Type: $httpResult[arguments;1;type]
+> Required: $httpResult[arguments;1;required]
+> Empty: $httpResult[arguments;1;empty]
+;yes]$endif
+
+$if[$httpResult[arguments;2;name]!=]
+$addField[$httpResult[arguments;2;name];
+> Type: $httpResult[arguments;2;type]
+> Required: $httpResult[arguments;2;required]
+> Empty: $httpResult[arguments;2;empty]
+;yes]$endif
+
+$if[$httpResult[arguments;3;name]!=]
+$addField[$httpResult[arguments;3;name];
+> Type: $httpResult[arguments;3;type]
+> Required: $httpResult[arguments;3;required]
+> Empty: $httpResult[arguments;3;empty]
+;yes]$endif
+
+$if[$httpResult[arguments;4;name]!=]
+$addField[$httpResult[arguments;4;name];
+> Type: $httpResult[arguments;4;type]
+> Required: $httpResult[arguments;4;required]
+> Empty: $httpResult[arguments;4;empty]
+;yes]$endif
+
+$if[$httpResult[arguments;5;name]!=]
+$addField[$httpResult[arguments;5;name];
+> Type: $httpResult[arguments;5;type]
+> Required: $httpResult[arguments;5;required]
+> Empty: $httpResult[arguments;5;empty]
+;yes]$endif
+
+$if[$httpResult[arguments;6;name]!=]
+$addField[$httpResult[arguments;6;name];
+> Type: $httpResult[arguments;6;type]
+> Required: $httpResult[arguments;6;required]
+> Empty: $httpResult[arguments;6;empty]
+;yes]$endif
+
+$if[$httpResult[arguments;7;name]!=]
+$addField[$httpResult[arguments;7;name];
+> Type: $httpResult[arguments;7;type]
+> Required: $httpResult[arguments;7;required]
+> Empty: $httpResult[arguments;7;empty]
+;yes]$endif
+
+$if[$httpResult[arguments;8;name]!=]
+$addField[$httpResult[arguments;8;name];
+> Type: $httpResult[arguments;8;type]
+> Required: $httpResult[arguments;8;required]
+> Empty: $httpResult[arguments;8;empty]
+;yes]$endif
+
+$if[$httpResult[arguments;9;name]!=]
+$addField[$httpResult[arguments;9;name];
+> Type: $httpResult[arguments;9;type]
+> Required: $httpResult[arguments;9;required]
+> Empty: $httpResult[arguments;9;empty]
+;yes]$endif
+
+$if[$httpResult[arguments;10;name]!=]
+$addField[$httpResult[arguments;10;name];
+> Type: $httpResult[arguments;10;type]
+> Required: $httpResult[arguments;10;required]
+> Empty: $httpResult[arguments;10;empty]
+;yes]$endif
+
+$if[$httpResult[arguments;11;name]!=]
+$addField[$httpResult[arguments;11;name];
+> Type: $httpResult[arguments;11;type]
+> Required: $httpResult[arguments;11;required]
+> Empty: $httpResult[arguments;11;empty]
+;yes]$endif
+
+$if[$httpResult[arguments;12;name]!=]
+$addField[$httpResult[arguments;12;name];
+> Type: $httpResult[arguments;12;type]
+> Required: $httpResult[arguments;12;required]
+> Empty: $httpResult[arguments;12;empty]
+;yes]$endif
+
+$if[$httpResult[arguments;13;name]!=]
+$addField[$httpResult[arguments;13;name];
+> Type: $httpResult[arguments;13;type]
+> Required: $httpResult[arguments;13;required]
+> Empty: $httpResult[arguments;13;empty]
+;yes]$endif
+
+$if[$httpResult[arguments;14;name]!=]
+$addField[$httpResult[arguments;14;name];
+> Type: $httpResult[arguments;14;type]
+> Required: $httpResult[arguments;14;required]
+> Empty: $httpResult[arguments;14;empty]
+;yes]$endif
+
+$if[$httpResult[arguments;15;name]!=]
+$addField[$httpResult[arguments;15;name];
+> Type: $httpResult[arguments;15;type]
+> Required: $httpResult[arguments;15;required]
+> Empty: $httpResult[arguments;15;empty]
+;yes]$endif</code></pre>
+        <button class="copy-button" onclick="copyCode(this)">
+          <i class="fa-solid fa-copy mr-2"></i>Copy Code
+        </button>
+      </div>
+      <div id="tab-3" class="code-tab is-hidden">
+        <pre><code class="bdfd-code">$var[color;#36393e]                $c[Change the color of the embeds]
+
+$nomention
+$if[$customID==bdfd-$authorID]
+$ephemeral
+$newModal[bdfd-modal;BDFD Function Searcher]
+$addTextInput[bdfdInput1;short;Function/Callback;3;50;yes;;Example: %{DOL}%addButton[\], %{DOL}%sendEmbedMessage[\]]
+$endif
+
+$if[$customID==callback-bdfd-list-$authorID]
+$ephemeral
+$removeButtons
+$httpGet[https://botdesignerdiscord.com/public/api/callback_tag_list]
+
+$textSplit[$replaceText[$replaceText[$replaceText[$httpResult;";;-1];[;;1];\];;0];,]
+$editSplitText[11;.]
+$textSplit[$joinSplitText[
+];.]
+$var[1;$splitText[1]%{DOL}%onInteraction]
+$title[BDFD Callback List]
+$description[$var[1]]
+$color[$var[color]]
+$endif
+
+$if[$customID==function-bdfd-list-$authorID]
+$ephemeral
+$removeButtons
+$httpGet[https://botdesignerdiscord.com/public/api/function_tag_list]
+
+$textSplit[$replaceText[$replaceText[$replaceText[$httpResult;";;-1];[;;1];\];;0];,]
+$editSplitText[31;.]
+$textSplit[$joinSplitText[
+];.]
+$var[1;$splitText[1]]
+$title[BDFD Function List  (Page 1)]
+$description[$var[1]]
+$color[$var[color]]
+$footer[Page 1/16]  
+$addButton[no;more-function-list-bdfd;Next ▶︎;secondary;no;]
+$endif
+
+$if[$customID==1-function-bdfd-list-$authorID]
+$removeButtons
+$httpGet[https://botdesignerdiscord.com/public/api/function_tag_list]
+
+$textSplit[$replaceText[$replaceText[$replaceText[$httpResult;";;-1];[;;1];\];;0];,]
+$editSplitText[31;.]
+$textSplit[$joinSplitText[
+];.]
+$var[1;$splitText[1]]
+$title[BDFD Function List  (Page 1)]
+$description[$var[1]]
+$color[$var[color]]
+$footer[Page 1/16]
+$addButton[no;more-function-list-bdfd;Next ▶︎;secondary;no;]
+$endif
+
+$if[$customID==more-function-list-bdfd]
+$removeButtons
+$httpGet[https://botdesignerdiscord.com/public/api/function_tag_list]
+
+$textSplit[$replaceText[$replaceText[$replaceText[$httpResult;";;-1];[;;1];\];;0];,]
+$editSplitText[30;.] $editSplitText[61;.]
+$textSplit[$joinSplitText[
+];.]
+$var[1;$splitText[2]]
+$title[BDFD Function List (Page 2)]
+$description[$var[1]]
+$color[$var[color]]
+$footer[Page 2/16]  
+$addButton[no;1-function-bdfd-list-$authorID;Back ◀︎;secondary;no;]
+$addButton[no;1more-function-list-bdfd;Next ▶︎;secondary;no;]
+$endif
+
+$if[$customID==1more-function-list-bdfd]
+$removeButtons
+$httpGet[https://botdesignerdiscord.com/public/api/function_tag_list]
+
+$textSplit[$replaceText[$replaceText[$replaceText[$httpResult;";;-1];[;;1];\];;0];,]
+$editSplitText[30;.] $editSplitText[60;.] $editSplitText[91;.]
+$textSplit[$joinSplitText[
+];.]
+$var[1;$splitText[3]]
+$title[BDFD Function List (Page 3)]
+$description[$var[1]]
+$color[$var[color]]
+$footer[Page 3/16]  
+$addButton[no;more-function-list-bdfd;Back ◀︎;secondary;no;]
+$addButton[no;2more-function-list-bdfd;Next ▶︎;secondary;no;]
+$endif
+
+$if[$customID==2more-function-list-bdfd]
+$removeButtons
+$httpGet[https://botdesignerdiscord.com/public/api/function_tag_list]
+
+$textSplit[$replaceText[$replaceText[$replaceText[$httpResult;";;-1];[;;1];\];;0];,]
+$editSplitText[30;.] $editSplitText[60;.] $editSplitText[90;.] $editSplitText[121;.]
+$textSplit[$joinSplitText[
+];.]
+$var[1;$splitText[4]]
+$title[BDFD Function List (Page 4)]
+$description[$var[1]]
+$color[$var[color]]
+$footer[Page 4/16]  
+$addButton[no;1more-function-list-bdfd;Back ◀︎;secondary;no;]
+$addButton[no;3more-function-list-bdfd;Next ▶︎;secondary;no;]
+$endif
+
+$if[$customID==3more-function-list-bdfd]
+$removeButtons
+$httpGet[https://botdesignerdiscord.com/public/api/function_tag_list]
+
+$textSplit[$replaceText[$replaceText[$replaceText[$httpResult;";;-1];[;;1];\];;0];,]
+$editSplitText[30;.] $editSplitText[60;.] $editSplitText[90;.] $editSplitText[120;.] $editSplitText[151;.]
+$textSplit[$joinSplitText[
+];.]
+$var[1;$splitText[5]]
+$title[BDFD Function List (Page 5)]
+$description[$var[1]]
+$color[$var[color]]
+$footer[Page 5/16] 
+$addButton[no;2more-function-list-bdfd;Back ◀︎;secondary;no;]
+$addButton[no;4more-function-list-bdfd;Next ▶︎;secondary;no;]
+$endif
+
+$if[$customID==4more-function-list-bdfd]
+$removeButtons
+$httpGet[https://botdesignerdiscord.com/public/api/function_tag_list]
+
+$textSplit[$replaceText[$replaceText[$replaceText[$httpResult;";;-1];[;;1];\];;0];,]
+$editSplitText[30;.] $editSplitText[60;.] $editSplitText[90;.] $editSplitText[120;.] $editSplitText[150;.] $editSplitText[181;.]
+$textSplit[$joinSplitText[
+];.]
+$var[1;$splitText[6]]
+$title[BDFD Function List (Page 6)]
+$description[$var[1]]
+$color[$var[color]]
+$footer[Page 6/16] 
+$addButton[no;3more-function-list-bdfd;Back ◀︎;secondary;no;]
+$addButton[no;5more-function-list-bdfd;Next ▶︎;secondary;no;]
+$endif
+
+$if[$customID==5more-function-list-bdfd]
+$removeButtons
+$httpGet[https://botdesignerdiscord.com/public/api/function_tag_list]
+
+$textSplit[$replaceText[$replaceText[$replaceText[$httpResult;";;-1];[;;1];\];;0];,]
+$editSplitText[30;.] $editSplitText[60;.] $editSplitText[90;.] $editSplitText[120;.] $editSplitText[150;.] $editSplitText[180;.] $editSplitText[211;.]
+$textSplit[$joinSplitText[
+];.]
+$var[1;$splitText[7]]
+$title[BDFD Function List (Page 7)]
+$description[$var[1]]
+$color[$var[color]]
+$footer[Page 7/16] 
+$addButton[no;4more-function-list-bdfd;Back ◀︎;secondary;no;]
+$addButton[no;6more-function-list-bdfd;Next ▶︎;secondary;no;]
+$endif
+
+$if[$customID==6more-function-list-bdfd]
+$removeButtons
+$httpGet[https://botdesignerdiscord.com/public/api/function_tag_list]
+
+$textSplit[$replaceText[$replaceText[$replaceText[$httpResult;";;-1];[;;1];\];;0];,]
+$editSplitText[30;.] $editSplitText[60;.] $editSplitText[90;.] $editSplitText[120;.] $editSplitText[150;.] $editSplitText[180;.] $editSplitText[210;.] $editSplitText[241;.]
+$textSplit[$joinSplitText[
+];.]
+$var[1;$splitText[8]]
+$title[BDFD Function List (Page 8)]
+$description[$var[1]]
+$color[$var[color]]
+$footer[Page 8/16] 
+$addButton[no;5more-function-list-bdfd;Back ◀︎;secondary;no;]
+$addButton[no;7more-function-list-bdfd;Next ▶︎;secondary;no;]
+$endif
+
+$if[$customID==7more-function-list-bdfd]
+$removeButtons
+$httpGet[https://botdesignerdiscord.com/public/api/function_tag_list]
+
+$textSplit[$replaceText[$replaceText[$replaceText[$httpResult;";;-1];[;;1];\];;0];,]
+$editSplitText[30;.] $editSplitText[60;.] $editSplitText[90;.] $editSplitText[120;.] $editSplitText[150;.] $editSplitText[180;.] $editSplitText[210;.] $editSplitText[240;.] $editSplitText[271;.]
+$textSplit[$joinSplitText[
+];.]
+$var[1;$splitText[9]]
+$title[BDFD Function List (Page 9)]
+$description[$var[1]]
+$color[$var[color]]
+$footer[Page 9/16] 
+$addButton[no;6more-function-list-bdfd;Back ◀︎;secondary;no;]
+$addButton[no;8more-function-list-bdfd;Next ▶︎;secondary;no;]
+$endif
+
+$if[$customID==8more-function-list-bdfd]
+$removeButtons
+$httpGet[https://botdesignerdiscord.com/public/api/function_tag_list]
+
+$textSplit[$replaceText[$replaceText[$replaceText[$httpResult;";;-1];[;;1];\];;0];,]
+$editSplitText[30;.] $editSplitText[60;.] $editSplitText[90;.] $editSplitText[120;.] $editSplitText[150;.] $editSplitText[180;.] $editSplitText[210;.] $editSplitText[240;.] $editSplitText[270;.] $editSplitText[301;.]
+$textSplit[$joinSplitText[
+];.]
+$var[1;$splitText[10]]
+$title[BDFD Function List (Page 10)]
+$description[$var[1]]
+$color[$var[color]]
+$footer[Page 10/16] 
+$addButton[no;7more-function-list-bdfd;Back ◀︎;secondary;no;]
+$addButton[no;9more-function-list-bdfd;Next ▶︎;secondary;no;]
+$endif
+
+$if[$customID==9more-function-list-bdfd]
+$removeButtons
+$httpGet[https://botdesignerdiscord.com/public/api/function_tag_list]
+
+$textSplit[$replaceText[$replaceText[$replaceText[$httpResult;";;-1];[;;1];\];;0];,]
+$editSplitText[30;.] $editSplitText[60;.] $editSplitText[90;.] $editSplitText[120;.] $editSplitText[150;.] $editSplitText[180;.] $editSplitText[210;.] $editSplitText[240;.] $editSplitText[270;.] $editSplitText[300;.] $editSplitText[331;.]
+$textSplit[$joinSplitText[
+];.]
+$var[1;$splitText[11]]
+$title[BDFD Function List (Page 11)]
+$description[$var[1]]
+$color[$var[color]]
+$footer[Page 11/16] 
+$addButton[no;8more-function-list-bdfd;Back ◀︎;secondary;no;]
+$addButton[no;10more-function-list-bdfd;Next ▶︎;secondary;no;]
+$endif
+
+$if[$customID==10more-function-list-bdfd]
+$removeButtons
+$httpGet[https://botdesignerdiscord.com/public/api/function_tag_list]
+
+$textSplit[$replaceText[$replaceText[$replaceText[$httpResult;";;-1];[;;1];\];;0];,]
+$editSplitText[30;.] $editSplitText[60;.] $editSplitText[90;.] $editSplitText[120;.] $editSplitText[150;.] $editSplitText[180;.] $editSplitText[210;.] $editSplitText[240;.] $editSplitText[270;.] $editSplitText[300;.] $editSplitText[330;.] $editSplitText[361;.]
+$textSplit[$joinSplitText[
+];.]
+$var[1;$splitText[12]]
+$title[BDFD Function List (Page 12)]
+$description[$var[1]]
+$color[$var[color]]
+$footer[Page 12/16] 
+$addButton[no;9more-function-list-bdfd;Back ◀︎;secondary;no;]
+$addButton[no;11more-function-list-bdfd;Next ▶︎;secondary;no;]
+$endif
+
+$if[$customID==11more-function-list-bdfd]
+$removeButtons
+$httpGet[https://botdesignerdiscord.com/public/api/function_tag_list]
+
+$textSplit[$replaceText[$replaceText[$replaceText[$httpResult;";;-1];[;;1];\];;0];,]
+$editSplitText[30;.] $editSplitText[60;.] $editSplitText[90;.] $editSplitText[120;.] $editSplitText[150;.] $editSplitText[180;.] $editSplitText[210;.] $editSplitText[240;.] $editSplitText[270;.] $editSplitText[300;.] $editSplitText[330;.] $editSplitText[360;.] $editSplitText[391;.]
+$textSplit[$joinSplitText[
+];.]
+$var[1;$splitText[13]]
+$title[BDFD Function List (Page 13)]
+$description[$var[1]]
+$color[$var[color]]
+$footer[Page 13/16] 
+$addButton[no;10more-function-list-bdfd;Back ◀︎;secondary;no;]
+$addButton[no;12more-function-list-bdfd;Next ▶︎;secondary;no;]
+$endif
+
+$if[$customID==12more-function-list-bdfd]
+$removeButtons
+$httpGet[https://botdesignerdiscord.com/public/api/function_tag_list]
+
+$textSplit[$replaceText[$replaceText[$replaceText[$httpResult;";;-1];[;;1];\];;0];,]
+$editSplitText[30;.] $editSplitText[60;.] $editSplitText[90;.] $editSplitText[120;.] $editSplitText[150;.] $editSplitText[180;.] $editSplitText[210;.] $editSplitText[240;.] $editSplitText[270;.] $editSplitText[300;.] $editSplitText[330;.] $editSplitText[360;.] $editSplitText[390;.] $editSplitText[421;.]
+$textSplit[$joinSplitText[
+];.]
+$var[1;$splitText[14]]
+$title[BDFD Function List (Page 14)]
+$description[$var[1]]
+$color[$var[color]]
+$footer[Page 14/16] 
+$addButton[no;11more-function-list-bdfd;Back ◀︎;secondary;no;]
+$addButton[no;13more-function-list-bdfd;Next ▶︎;secondary;no;]
+$endif
+
+$if[$customID==13more-function-list-bdfd]
+$removeButtons
+$httpGet[https://botdesignerdiscord.com/public/api/function_tag_list]
+
+$textSplit[$replaceText[$replaceText[$replaceText[$httpResult;";;-1];[;;1];\];;0];,]
+$editSplitText[30;.] $editSplitText[60;.] $editSplitText[90;.] $editSplitText[120;.] $editSplitText[150;.] $editSplitText[180;.] $editSplitText[210;.] $editSplitText[240;.] $editSplitText[270;.] $editSplitText[300;.] $editSplitText[330;.] $editSplitText[360;.] $editSplitText[390;.] $editSplitText[420;.] $editSplitText[451;.]
+$textSplit[$joinSplitText[
+];.]
+$var[1;$splitText[15]]
+$title[BDFD Function List (Page 15)]
+$description[$var[1]]
+$color[$var[color]]
+$footer[Page 15/16] 
+$addButton[no;12more-function-list-bdfd;Back ◀︎;secondary;no;]
+$addButton[no;14more-function-list-bdfd;Next ▶︎;secondary;no;]
+$endif
+
+$if[$customID==14more-function-list-bdfd]
+$removeButtons
+$httpGet[https://botdesignerdiscord.com/public/api/function_tag_list]
+
+$textSplit[$replaceText[$replaceText[$replaceText[$httpResult;";;-1];[;;1];\];;0];,]
+$editSplitText[30;.] $editSplitText[60;.] $editSplitText[90;.] $editSplitText[120;.] $editSplitText[150;.] $editSplitText[180;.] $editSplitText[210;.] $editSplitText[240;.] $editSplitText[270;.] $editSplitText[300;.] $editSplitText[330;.] $editSplitText[360;.] $editSplitText[390;.] $editSplitText[420;.] $editSplitText[450;.] $editSplitText[464;.]
+$textSplit[$joinSplitText[
+];.]
+$var[1;$splitText[16]%{DOL}%year]
+$title[BDFD Function List (Page 16)]
+$description[$var[1]]
+$color[$var[color]]
+$footer[Page 16/16] 
+$addButton[no;13more-function-list-bdfd;Back ◀︎;secondary;no;]
+$addButton[no;more-function-list-bdfd;All the Way Back ◀︎;secondary;no;]
+$endif</code></pre>
+        <button class="copy-button" onclick="copyCode(this)">
+          <i class="fa-solid fa-copy mr-2"></i>Copy Code
+        </button>
+      </div>
+      <div id="tab-4" class="code-tab is-hidden">
+        <pre><code class="bdfd-code">sdsd</code></pre>
+        <button class="copy-button" onclick="copyCode(this)">
+          <i class="fa-solid fa-copy mr-2"></i>Copy Code
+        </button>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <div class="text-center">
+        <p class="text-sm text-text-muted font-mono">© 2023-2025 Zubariel. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const BDScriptHighlighter = (function() {
+        function intToRgba(intColor) {
+            if (typeof intColor !== 'number' || isNaN(intColor)) return 'rgba(228, 228, 231, 1)';
+            const r = (intColor >> 16) & 0xFF;
+            const g = (intColor >> 8) & 0xFF;
+            const b = intColor & 0xFF;
+            let a = ((intColor >> 24) & 0xFF);
+            a = (isNaN(a) || a < 0 || a > 255) ? 255 : a;
+            return `rgba(${r}, ${g}, ${b}, ${a / 255})`;
+        }
+        function escapeHtml(unsafe) {
+            if (typeof unsafe !== 'string') return '';
+            return unsafe.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        }
+        function safeGet(obj, path, defaultValue) {
+            const keys = path.split('.');
+            let current = obj;
+            for (const key of keys) {
+                if (current === null || typeof current !== 'object' || !(key in current)) return defaultValue;
+                current = current[key];
+            }
+            return current === undefined ? defaultValue : current;
+        }
+        function getStyleCss(colorInt, styleInt) {
+            const color = intToRgba(colorInt);
+            let fontWeight = 'normal', fontStyle = 'normal';
+            if (styleInt === 1 || styleInt === 3) fontWeight = 'bold';
+            if (styleInt === 2 || styleInt === 3) fontStyle = 'italic';
+            return `color: ${color}; font-weight: ${fontWeight}; font-style: ${fontStyle};`;
+        }
+        function highlight(code, themeConfig) {
+            if (typeof code !== 'string') code = '';
+            if (typeof themeConfig !== 'object' || themeConfig === null) themeConfig = {};
+            const defaultStyleCss = getStyleCss(safeGet(themeConfig, 'defaultTextHighlight.color'), safeGet(themeConfig, 'defaultTextHighlight.style'));
+            const fallbackStyleCss = getStyleCss(safeGet(themeConfig, 'fallbackHighlight.color'), safeGet(themeConfig, 'fallbackHighlight.style'));
+            const bracketStyleCss = getStyleCss(safeGet(themeConfig, 'bracketHighlight.color'), safeGet(themeConfig, 'bracketHighlight.style'));
+            const semicolonStyleCss = getStyleCss(safeGet(themeConfig, 'semicolonHighlight.color'), safeGet(themeConfig, 'semicolonHighlight.style'));
+            const functionMap = new Map();
+            const functionsHighlights = safeGet(themeConfig, 'functionsHighlights', {});
+            for (const funcName in functionsHighlights) {
+                if (Object.hasOwnProperty.call(functionsHighlights, funcName) && funcName.startsWith('$')) {
+                    const funcData = functionsHighlights[funcName];
+                    functionMap.set(funcName, getStyleCss(safeGet(funcData, 'color'), safeGet(funcData, 'style')));
+                }
+            }
+            let resultHtml = '';
+            const functionRegex = /(\$[$a-zA-Z0-9_]+)/g;
+            let lastIndex = 0;
+            code.replace(functionRegex, (match, funcName, offset) => {
+                if (offset > lastIndex) {
+                    resultHtml += processTextSegment(code.substring(lastIndex, offset), defaultStyleCss, bracketStyleCss, semicolonStyleCss);
+                }
+                const funcStyleCss = functionMap.get(funcName) || fallbackStyleCss;
+                resultHtml += `<span style="${funcStyleCss}">${escapeHtml(funcName)}</span>`;
+                lastIndex = offset + funcName.length;
+                return match;
+            });
+            if (lastIndex < code.length) {
+                resultHtml += processTextSegment(code.substring(lastIndex), defaultStyleCss, bracketStyleCss, semicolonStyleCss);
+            }
+            return `<pre><code class="bdscript-highlight">${resultHtml}</code></pre>`;
+        }
+        function processTextSegment(text, defaultStyleCss, bracketStyleCss, semicolonStyleCss) {
+            let segmentHtml = '', currentBuffer = '', inString = false, stringChar = null, escapeNext = false;
+            for (let i = 0; i < text.length; i++) {
+                const char = text[i];
+                if (escapeNext) { currentBuffer += char; escapeNext = false; continue; }
+                if (char === '\\') { currentBuffer += char; escapeNext = true; continue; }
+                if (inString) {
+                    currentBuffer += char;
+                    if (char === stringChar) inString = false;
+                    continue;
+                }
+                if (char === "'" || char === '"' || char === '`') {
+                    if (currentBuffer.length > 0) { segmentHtml += `<span style="${defaultStyleCss}">${escapeHtml(currentBuffer)}</span>`; currentBuffer = ''; }
+                    inString = true; stringChar = char; currentBuffer += char;
+                    continue;
+                }
+                if (char === '[' || char === ']' || char === ';') {
+                    if (currentBuffer.length > 0) { segmentHtml += `<span style="${defaultStyleCss}">${escapeHtml(currentBuffer)}</span>`; currentBuffer = ''; }
+                    const style = (char === '[' || char === ']') ? bracketStyleCss : semicolonStyleCss;
+                    segmentHtml += `<span style="${style}">${escapeHtml(char)}</span>`;
+                    continue;
+                }
+                currentBuffer += char;
+            }
+            if (currentBuffer.length > 0) {
+                segmentHtml += `<span style="${defaultStyleCss}">${escapeHtml(currentBuffer)}</span>`;
+            }
+            return segmentHtml;
+        }
+        return { highlight: highlight };
+    })();
+    function copyCode(buttonElement) {
+        const preElement = buttonElement.previousElementSibling;
+        if (!preElement || preElement.tagName !== 'PRE') {
+            console.error("Could not find <pre> element to copy.");
+            return;
+        }
+        const codeToCopy = preElement.textContent || "";
+        navigator.clipboard.writeText(codeToCopy).then(() => {
+            const originalHTML = buttonElement.innerHTML;
+            buttonElement.innerHTML = `<i class="fa-solid fa-check mr-2"></i>Copied!`;
+            setTimeout(() => {
+                buttonElement.innerHTML = originalHTML;
+            }, 2000);
+        }).catch(err => {
+            console.error("Failed to copy code: ", err);
+            alert("Failed to copy code.");
+        });
+    }
+    function showTab(tabId, event) {
+        document.querySelectorAll('.code-tab').forEach(el => el.classList.add('is-hidden'));
+        document.getElementById(tabId).classList.remove('is-hidden');
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+        const themeConfig = {"defaultTextHighlight":{"color":4288341353,"style":0},"fallbackHighlight":{"color":4285791231,"style":0},"bracketHighlight":{"color":4294921292,"style":1},"semicolonHighlight":{"color":4294920266,"style":1},"functionsHighlights":{"$nomention":{"color":4294932473,"style":0},"$catch":{"color":4288905212,"style":0},"$else":{"color":4288905212,"style":0},"$elseif":{"color":4288905212,"style":0},"$endif":{"color":4288905212,"style":0},"$endtry":{"color":4288905212,"style":0},"$error":{"color":4288905212,"style":0},"$if":{"color":4288905212,"style":0},"$try":{"color":4288905212,"style":0}}};
+        const bdfdFunctionsInSnippets = ['$deleteIn', '$description', '$image', '$color', '$setServerVar', '$randomText', '$replyIn', '$title', '$getServerVar', '$footer', '$addTimestamp', '$reply', '$onlyIf', '$message', '$setUserVar', '$getUserVar', '$findUser', '$displayName', '$authorID'];
+        bdfdFunctionsInSnippets.forEach(func => {
+            if (!themeConfig.functionsHighlights[func]) {
+                themeConfig.functionsHighlights[func] = { color: 4285791231, style: 0 };
+            }
+        });
+        const codeBlocks = document.querySelectorAll('code.bdfd-code');
+        codeBlocks.forEach(codeElement => {
+            const preElement = codeElement.parentElement;
+            const rawCode = codeElement.textContent || '';
+            const highlightedHtml = BDScriptHighlighter.highlight(rawCode, themeConfig);
+            if (preElement) {
+                preElement.outerHTML = highlightedHtml;
+            }
+        });
+    });
+  </script>
+</body>
+</html>
+

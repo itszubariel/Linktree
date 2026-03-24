@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory Match Snippet</title>
+  <link rel="icon" href="/images/2pfp.jpg" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    :root {
+      --bg-primary: #050505;
+      --bg-secondary: #101010;
+      --text-primary: #e4e4e7;
+      --text-secondary: #a1a1aa;
+      --accent: #8b5cf6;
+      --accent-glow: rgba(139, 92, 246, 0.2);
+      --border-color: rgba(255, 255, 255, 0.05);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    body {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+    }
+    .stagger-load > * {
+      opacity: 0;
+      animation: fadeIn 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+    }
+    .stagger-load > *:nth-child(1) { animation-delay: 0.1s; }
+    .stagger-load > *:nth-child(2) { animation-delay: 0.2s; }
+    .stagger-load > *:nth-child(3) { animation-delay: 0.3s; }
+    .stagger-load > *:nth-child(4) { animation-delay: 0.4s; }
+    .stagger-load > *:nth-child(5) { animation-delay: 0.5s; }
+
+    .code-container {
+      position: relative;
+    }
+    pre {
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      overflow-x: auto;
+      background: var(--bg-secondary) !important;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+      line-height: 1.6;
+      margin: 0;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      will-change: border-color, box-shadow;
+    }
+    pre:hover {
+        border-color: rgba(139, 92, 246, 0.4);
+        box-shadow: 0 0 20px var(--accent-glow);
+    }
+    code.bdscript-highlight {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    .tab-btn {
+      background: var(--bg-secondary);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text-secondary);
+      transition: all 0.25s ease-out;
+      transform: translateY(0);
+      will-change: transform, color, background-color, box-shadow;
+    }
+    .tab-btn:hover {
+      transform: translateY(-2px);
+      color: var(--text-primary);
+    }
+    .tab-btn.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px var(--accent-glow);
+    }
+    .nav-link {
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      position: relative;
+      display: inline-block;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 1px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--accent);
+      transform-origin: bottom right;
+      transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .nav-link:hover {
+      color: var(--text-primary);
+    }
+    .nav-link:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+    .copy-button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background: #333333;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 50px;
+      transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.2s ease-out;
+      will-change: transform, box-shadow;
+    }
+    .copy-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px var(--accent-glow);
+      background-color: #3f3f46;
+    }
+    .copy-button:active {
+      transform: scale(0.98) translateY(-1px);
+      box-shadow: 0 2px 5px var(--accent-glow);
+    }
+    .text-accent { color: var(--accent); }
+    .code-tab {
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      opacity: 1;
+      transform: translateY(0);
+      will-change: opacity, transform;
+    }
+    .code-tab.is-hidden {
+      opacity: 0;
+      transform: translateY(10px);
+      position: absolute;
+      pointer-events: none;
+      height: 0;
+      overflow: hidden;
+    }
+    code.custom-highlight {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+  </style>
+</head>
+<body class="p-8">
+  <div class="max-w-4xl mx-auto stagger-load">
+    <div class="mb-8">
+      <a href="/snippet" class="nav-link text-sm"><i class="fa-solid fa-arrow-left mr-1"></i>Back to Snippets</a>
+    </div>
+    <h1 class="text-3xl font-bold mb-6">Memory Match <span class="text-accent">Snippet</span>.</h1>
+
+    <p class="mb-6" style="color:var(--text-secondary);">
+  This code creates a simple memory card matching game using JavaScript, HTML, and CSS. The goal is to flip two cards at a time and find all the matching pairs.
+  <br><br>
+  <strong style="color:var(--text-primary);">How to Use?</strong><br>
+  Add the provided HTML structure for the cards, style them with CSS, and connect the JavaScript logic. The script handles shuffling, flipping cards, and checking for matches — no libraries needed.
+  <br><br>
+  <strong style="color:var(--text-primary);">Credits</strong><br>
+  Based on classic JavaScript memory game logic and DOM manipulation techniques. Modified to be more interactive and responsive.
+</p>
+
+    <div class="flex gap-2 mb-4">
+      <button class="tab-btn px-4 py-2 rounded active" onclick="showTab('tab-1', event)">HTML</button>
+      <button class="tab-btn px-4 py-2 rounded" onclick="showTab('tab-2', event)">CSS</button>
+      <button class="tab-btn px-4 py-2 rounded" onclick="showTab('tab-3', event)">JS</button>
+     
+    </div>
+    <div class="code-container">
+      <div id="tab-1" class="code-tab">
+        <pre><code class="html-code">&lt;div id=&quot;picbox&quot;&gt;
+  &lt;span id=&quot;boxbuttons&quot;&gt;
+    &lt;span class=&quot;button&quot;&gt;
+      &lt;span id=&quot;counter&quot;&gt;0&lt;/span&gt;
+      Clicks
+    &lt;/span&gt;
+    &lt;span class=&quot;button&quot;&gt;
+      &lt;a onclick=&quot;ResetGame();&quot;&gt;Reset&lt;/a&gt;
+    &lt;/span&gt; 
+  &lt;/span&gt;
+  &lt;div id=&quot;boxcard&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <button class="copy-button" onclick="copyCode(this)">
+          <i class="fa-solid fa-copy mr-2"></i>Copy Code
+        </button>
+      </div>
+      <div id="tab-2" class="code-tab is-hidden">
+        <pre><code class="css-code">* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font: 18px Verdana;
+	color: #FFF;
+  background: #CCC;
+}
+#picbox {
+	margin: 0px auto;
+	width: 640px;
+}
+#boxcard {
+	z-index: 1;
+	margin: 10px 0 0;
+}
+#boxcard div{
+	float: left;
+	width: 100px;
+	height: 100px;
+	margin: 5px;
+	padding: 5px;
+	border: 4px solid #EE872A;
+	cursor: pointer;
+	border-radius: 10px;
+	box-shadow: 0 1px 5px rgba(0,0,0,.5);
+  background: #B1B1B1;
+	z-index: 2;
+}
+#boxcard div img {
+	display: none;
+	border-radius: 10px;
+	z-index: 3;
+}
+#boxbuttons {
+	text-align: center;
+	margin: 20px;
+	display: block;
+}
+#boxbuttons .button {
+	text-transform: uppercase;
+	background: #EE872A;
+	padding: 5px 10px;
+	margin: 5px;
+	border-radius: 10px;
+	cursor: pointer;
+}
+#boxbuttons .button:hover {
+	background: #999;
+}</code></pre>
+        <button class="copy-button" onclick="copyCode(this)">
+          <i class="fa-solid fa-copy mr-2"></i>Copy Code
+        </button>
+      </div>
+      <div id="tab-3" class="code-tab is-hidden">
+        <pre><code class="js-code">var BoxOpened = &quot;&quot;;
+var ImgOpened = &quot;&quot;;
+var Counter = 0;
+var ImgFound = 0;
+
+var Source = &quot;#boxcard&quot;;
+
+var ImgSource = [
+  &quot;http:
+  &quot;http:
+  &quot;http:
+  &quot;http:
+  &quot;http:
+  &quot;http:
+  &quot;http:
+  &quot;http:
+  &quot;http:
+  &quot;http:
+];
+
+function RandomFunction(MaxValue, MinValue) {
+    return Math.round(Math.random() * (MaxValue - MinValue) + MinValue);
+}
+
+function ShuffleImages() {
+  var ImgAll = $(Source).children();
+  var ImgThis = $(Source + &quot; div:first-child&quot;);
+  var ImgArr = new Array();
+
+  for (var i = 0; i &lt; ImgAll.length; i++) {
+    ImgArr[i] = $(&quot;#&quot; + ImgThis.attr(&quot;id&quot;) + &quot; img&quot;).attr(&quot;src&quot;);
+    ImgThis = ImgThis.next();
+  }
+
+  ImgThis = $(Source + &quot; div:first-child&quot;);
+
+  for (var z = 0; z &lt; ImgAll.length; z++) {
+    var RandomNumber = RandomFunction(0, ImgArr.length - 1);
+
+    $(&quot;#&quot; + ImgThis.attr(&quot;id&quot;) + &quot; img&quot;).attr(&quot;src&quot;, ImgArr[RandomNumber]);
+    ImgArr.splice(RandomNumber, 1);
+    ImgThis = ImgThis.next();
+  }
+}
+
+function ResetGame() {
+  ShuffleImages();
+  $(Source + &quot; div img&quot;).hide();
+  $(Source + &quot; div&quot;).css(&quot;visibility&quot;, &quot;visible&quot;);
+  Counter = 0;
+  $(&quot;#success&quot;).remove();
+  $(&quot;#counter&quot;).html(&quot;&quot; + Counter);
+  BoxOpened = &quot;&quot;;
+  ImgOpened = &quot;&quot;;
+  ImgFound = 0;
+  return false;
+}
+
+function OpenCard() {
+  var id = $(this).attr(&quot;id&quot;);
+
+  if ($(&quot;#&quot; + id + &quot; img&quot;).is(&quot;:hidden&quot;)) {
+    $(Source + &quot; div&quot;).unbind(&quot;click&quot;, OpenCard);
+
+    $(&quot;#&quot; + id + &quot; img&quot;).slideDown(&#39;fast&#39;);
+
+    if (ImgOpened == &quot;&quot;) {
+      BoxOpened = id;
+      ImgOpened = $(&quot;#&quot; + id + &quot; img&quot;).attr(&quot;src&quot;);
+      setTimeout(function () {
+        $(Source + &quot; div&quot;).bind(&quot;click&quot;, OpenCard)
+      }, 300);
+    } else {
+      CurrentOpened = $(&quot;#&quot; + id + &quot; img&quot;).attr(&quot;src&quot;);
+      if (ImgOpened != CurrentOpened) {
+        setTimeout(function () {
+          $(&quot;#&quot; + id + &quot; img&quot;).slideUp(&#39;fast&#39;);
+          $(&quot;#&quot; + BoxOpened + &quot; img&quot;).slideUp(&#39;fast&#39;);
+          BoxOpened = &quot;&quot;;
+          ImgOpened = &quot;&quot;;
+        }, 400);
+      } else {
+        $(&quot;#&quot; + id + &quot; img&quot;).parent().css(&quot;visibility&quot;, &quot;hidden&quot;);
+        $(&quot;#&quot; + BoxOpened + &quot; img&quot;).parent().css(&quot;visibility&quot;, &quot;hidden&quot;);
+        ImgFound++;
+        BoxOpened = &quot;&quot;;
+        ImgOpened = &quot;&quot;;
+      }
+      setTimeout(function () {
+        $(Source + &quot; div&quot;).bind(&quot;click&quot;, OpenCard)
+      }, 400);
+    }
+    Counter++;
+    $(&quot;#counter&quot;).html(&quot;&quot; + Counter);
+
+    if (ImgFound == ImgSource.length) {
+      $(&quot;#counter&quot;).prepend(&#39;&lt;span id=&quot;success&quot;&gt;You Found All Pictues With &lt;/span&gt;&#39;);
+    }
+  }
+}
+
+$(function () {
+  for (var y = 1; y &lt; 3; y++) {
+    $.each(ImgSource, function (i, val) {
+      $(Source).append(&quot;&lt;div id=card&quot; + y + i + &quot;&gt;&lt;img src=&quot; + val + &quot; /&gt;&quot;);
+    });
+  }
+  $(Source + &quot; div&quot;).click(OpenCard);
+  ShuffleImages();
+});</code></pre>
+        <button class="copy-button" onclick="copyCode(this)">
+          <i class="fa-solid fa-copy mr-2"></i>Copy Code
+        </button>
+      </div>
+      <div id="tab-4" class="code-tab is-hidden">
+        <pre><code class="bdfd-code">$nomention
+$onlyIf[$guildID!=;]
+$allowUserMentions[]
+$reply
+
+$if[$message==]
+Usage: !buy {item} {amount}
+
+$else
+
+$var[price1;$multi[1000;$message[2;amount]]]
+$var[price2;$multi[5000;$message[2;amount]]]
+$var[price3;$multi[10000;$message[2;amount]]]
+$c[add more price variables as you add more items and the number inside multi is the actual price btw]
+
+$if[$toLowercase[$message[1;item]==item1]]
+
+$onlyIf[$getVar[clicker;$authorID]>=$var[price1];You don't have enough clicks to buy this item.]
+
+$description[Successfully bought `$message[2;amount]` Item 1(s).]
+$color[#2F3136]
+
+$setVar[item1;$sum[$getVar[item1;$authorID];$message[2;amount]];$authorID]
+$setVar[clicker;$sub[$getVar[clicker;$authorID];$var[price1]];$authorID]
+
+$elseif[$toLowercase[$message[1;item]==item2]]
+
+$onlyIf[$getVar[clicker;$authorID]>=$var[price2];You don't have enough clicks to buy this item.]
+
+$description[Successfully bought `$message[2;amount]` Item2(s).]
+$color[#2F3136]
+
+$var[temp-item2;$multi[$message[2;amount];2]]
+$c[The 2 at the end here is because this item gives a +2 multiplier]
+$setVar[item2;$sum[$getVar[item2;$authorID];$var[temp-item2]];$authorID]
+$setVar[clicker;$sub[$getVar[clicker;$authorID];$var[price2]];$authorID]
+
+$elseif[$toLowercase[$message[1;item]==item3]]
+
+$onlyIf[$getVar[clicker;$authorID]>=$var[price3];You don't have enough clicks to buy this item.]
+
+$description[Successfully bought `$message[2;amount]` Item3(s).]
+$color[#2F3136]
+
+$var[temp-item3;$multi[$message[2;amount];3]]
+$c[The 3 at the end here is because this item gives a +2 multiplier]
+$setVar[item3;$sum[$getVar[item3;$authorID];$var[temp-item3]];$authorID]
+$setVar[clicker;$sub[$getVar[clicker;$authorID];$var[price3]];$authorID]
+
+$endif
+$endif</code></pre>
+        <button class="copy-button" onclick="copyCode(this)">
+          <i class="fa-solid fa-copy mr-2"></i>Copy Code
+        </button>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <div class="text-center">
+        <p class="text-sm text-text-muted font-mono">© 2023-2026 Zubariel. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    function copyCode(buttonElement) {
+        const preElement = buttonElement.previousElementSibling;
+        if (!preElement || preElement.tagName !== 'PRE') {
+            console.error("Could not find <pre> element to copy.");
+            return;
+        }
+        const codeToCopy = preElement.textContent || "";
+        navigator.clipboard.writeText(codeToCopy).then(() => {
+            const originalHTML = buttonElement.innerHTML;
+            buttonElement.innerHTML = `<i class="fa-solid fa-check mr-2"></i>Copied!`;
+            setTimeout(() => {
+                buttonElement.innerHTML = originalHTML;
+            }, 2000);
+        }).catch(err => {
+            console.error("Failed to copy code: ", err);
+            alert("Failed to copy code.");
+        });
+    }
+    function showTab(tabId, event) {
+        document.querySelectorAll('.code-tab').forEach(el => el.classList.add('is-hidden'));
+        document.getElementById(tabId).classList.remove('is-hidden');
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+    }
+  </script>
+  <script>
+const CustomHighlighter = (function () {
+  function escapeHtml(html) {
+    return html
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function style(color, fontWeight = 'normal', fontStyle = 'normal') {
+    return `style="color:${color};font-weight:${fontWeight};font-style:${fontStyle}"`;
+  }
+
+function highlightHTML(code) {
+  let escaped = escapeHtml(code);
+
+  // Comments: <!-- ... -->
+  escaped = escaped.replace(/(&lt;!--[\s\S]*?--&gt;)/g, `<span ${style('#6b7280', 'normal', 'italic')}>$1</span>`);
+
+  // Tags: <div>, </div>
+  escaped = escaped.replace(/(&lt;\/?[a-zA-Z0-9\-:]+)/g, `<span ${style('#f472b6')}>$1</span>`);
+
+  // Attributes + values: class="..."
+  escaped = escaped.replace(/([a-zA-Z\-:]+)(=)(&quot;[^&]*?&quot;)/g, (_, attr, eq, val) => {
+    return `<span ${style('#facc15')}>${attr}</span>${eq}<span ${style('#34d399')}>${val}</span>`;
+  });
+
+  return escaped;
+}
+
+  function highlightCSS(code) {
+  let escaped = escapeHtml(code);
+
+  // highlight comments first
+  escaped = escaped.replace(/(\/\*[\s\S]*?\*\/)/g, `<span ${style('#6b7280', 'normal', 'italic')}>$1</span>`);
+
+  // highlight CSS properties (like font-family)
+  escaped = escaped.replace(/([a-zA-Z\-]+)(\s*:\s*)([^;]+)(;?)/g, (_, prop, sep, val, end) => {
+    return `<span ${style('#facc15')}>${prop}</span>${sep}<span ${style('#34d399')}>${val}</span>${end}`;
+  });
+
+  return escaped;
+}
+
+
+function highlightJS(code) {
+  const escaped = escapeHtml(code);
+
+  return escaped
+    // Comments
+    .replace(/(\/\/[^\n]*)/g, `<span ${style('#6b7280', 'normal', 'italic')}>$1</span>`)
+    
+    // Strings (single, double, template)
+    .replace(/(['"`])(?:\\[\s\S]|(?!\1).)*\1/g, match =>
+      `<span ${style('#34d399')}>${match}</span>`
+    )
+
+    // Keywords
+    .replace(
+      /\b(let|const|var|function|return|if|else|for|while|class|new|this|try|catch|finally|await|async|import|from|export|throw|typeof|instanceof|in|of|break|continue|switch|case|default|delete)\b/g,
+      `<span ${style('#60a5fa', 'bold')}>$1</span>`
+    )
+
+    // Booleans / null / undefined
+    .replace(/\b(true|false|null|undefined|NaN|Infinity)\b/g, `<span ${style('#f472b6')}>$1</span>`)
+
+    // Numbers
+    .replace(/\b(\d+(\.\d+)?(e[+-]?\d+)?)\b/gi, `<span ${style('#fbbf24')}>$1</span>`)
+
+    // Function names (function foo() or const foo = () =>)
+    .replace(/\b([a-zA-Z_][a-zA-Z0-9_]*)\s*(?=\()/g, `<span ${style('#a78bfa')}>$1</span>`)
+
+    // Property or method access (.log, .map, .length)
+    .replace(/(\.)([a-zA-Z_][a-zA-Z0-9_]*)/g, (_, dot, prop) =>
+      `${dot}<span ${style('#22d3ee')}>${prop}</span>`
+    );
+}
+
+
+
+  function highlight(code, lang) {
+    switch (lang) {
+      case 'html': return highlightHTML(code);
+      case 'css': return highlightCSS(code);
+      case 'js': return highlightJS(code);
+      default: return escapeHtml(code);
+    }
+  }
+
+  return { highlight };
+})();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('code').forEach(codeBlock => {
+    const pre = codeBlock.parentElement;
+    if (!pre || pre.tagName !== 'PRE') return;
+
+    const raw = codeBlock.textContent;
+    let lang = null;
+
+    if (codeBlock.classList.contains('html-code')) lang = 'html';
+    else if (codeBlock.classList.contains('css-code')) lang = 'css';
+    else if (codeBlock.classList.contains('js-code')) lang = 'js';
+
+    if (lang) {
+      const highlighted = CustomHighlighter.highlight(raw, lang);
+      pre.outerHTML = `<pre><code class="custom-highlight">${highlighted}</code></pre>`;
+    }
+  });
+});
+</script>
+
+</body>
+</html>

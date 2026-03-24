@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bloxfruit Stock Snippet</title>
+  <link rel="icon" href="/images/2pfp.jpg" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    :root {
+      --bg-primary: #050505;
+      --bg-secondary: #101010;
+      --text-primary: #e4e4e7;
+      --text-secondary: #a1a1aa;
+      --accent: #8b5cf6;
+      --accent-glow: rgba(139, 92, 246, 0.2);
+      --border-color: rgba(255, 255, 255, 0.05);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    body {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+    }
+    .stagger-load > * {
+      opacity: 0;
+      animation: fadeIn 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+    }
+    .stagger-load > *:nth-child(1) { animation-delay: 0.1s; }
+    .stagger-load > *:nth-child(2) { animation-delay: 0.2s; }
+    .stagger-load > *:nth-child(3) { animation-delay: 0.3s; }
+    .stagger-load > *:nth-child(4) { animation-delay: 0.4s; }
+    .stagger-load > *:nth-child(5) { animation-delay: 0.5s; }
+
+    .code-container {
+      position: relative;
+    }
+    pre {
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      overflow-x: auto;
+      background: var(--bg-secondary) !important;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+      line-height: 1.6;
+      margin: 0;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      will-change: border-color, box-shadow;
+    }
+    pre:hover {
+        border-color: rgba(139, 92, 246, 0.4);
+        box-shadow: 0 0 20px var(--accent-glow);
+    }
+    code.bdscript-highlight {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    .tab-btn {
+      background: var(--bg-secondary);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text-secondary);
+      transition: all 0.25s ease-out;
+      transform: translateY(0);
+      will-change: transform, color, background-color, box-shadow;
+    }
+    .tab-btn:hover {
+      transform: translateY(-2px);
+      color: var(--text-primary);
+    }
+    .tab-btn.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px var(--accent-glow);
+    }
+    .nav-link {
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      position: relative;
+      display: inline-block;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 1px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--accent);
+      transform-origin: bottom right;
+      transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .nav-link:hover {
+      color: var(--text-primary);
+    }
+    .nav-link:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+    .copy-button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background: #333333;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 50px;
+      transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.2s ease-out;
+      will-change: transform, box-shadow;
+    }
+    .copy-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px var(--accent-glow);
+      background-color: #3f3f46;
+    }
+    .copy-button:active {
+      transform: scale(0.98) translateY(-1px);
+      box-shadow: 0 2px 5px var(--accent-glow);
+    }
+    .text-accent { color: var(--accent); }
+    .code-tab {
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      opacity: 1;
+      transform: translateY(0);
+      will-change: opacity, transform;
+    }
+    .code-tab.is-hidden {
+      opacity: 0;
+      transform: translateY(10px);
+      position: absolute;
+      pointer-events: none;
+      height: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="p-8">
+  <div class="max-w-4xl mx-auto stagger-load">
+    <div class="mb-8">
+      <a href="/snippet" class="nav-link text-sm"><i class="fa-solid fa-arrow-left mr-1"></i>Back to Snippets</a>
+    </div>
+    <h1 class="text-3xl font-bold mb-6">Bloxfruit Stock <span class="text-accent">Snippet</span>.</h1>
+
+<p class="mb-6" style="color:var(--text-secondary);">
+  This snippet lets you run an API-based command which shows Bloxfruit's normal and mirage stock at that specific time.
+  <br><br>
+  <strong style="color:var(--text-primary);">How to Use?</strong><br>
+  Add the command with its respective trigger in your app. Avoid modifying anything unless you know what you're doing. 
+  Make sure to include the API key you get from <a href="https://rapidapi.com/hub">RapidAPI</a>. 
+  Important: Make sure to upload all 41 fruit emojis to your bot's emoji list (in the Developer Portal), 
+  then copy and paste each emoji's ID into the corresponding variable in the code.
+  <br><br>
+  <strong style="color:var(--text-primary);">Credits</strong><br>
+  All credits go to the creator of the API, Menwiz.
+</p>
+
+    <div class="flex gap-2 mb-4">
+      <button class="tab-btn px-4 py-2 rounded active" onclick="showTab('tab-1', event)">!stock</button>
+     
+    </div>
+    <div class="code-container">
+      <div id="tab-1" class="code-tab">
+        <pre><code class="bdfd-code">$nomention
+$c[ADD THE API KEY FROM RAPID API HERE]
+$httpAddHeader[x-rapidapi-key;API_KEY_HERE]
+$httpAddHeader[x-rapidapi-host;blox-fruit-stock-fruit.p.rapidapi.com]
+$httpGet[https://blox-fruit-stock-fruit.p.rapidapi.com/]
+
+$c[ADD THE EMOJI IDs RESPECTIVELY FROM 1 TO 41]
+$var[id1;ID_HERE] $c[ID should be of the rocket fruit]
+$var[id2;]
+$var[id3;]
+$var[id4;]
+$var[id5;]
+$var[id6;]
+$var[id7;]   $c[ID should be of the flame fruit]
+$var[id8;]
+$var[id9;]
+$var[id10;]
+$var[id11;]
+$var[id12;]
+$var[id13;]
+$var[id14;]   $c[ID should be of the light fruit]
+$var[id15;]
+$var[id16;]
+$var[id17;]
+$var[id18;]
+$var[id19;]
+$var[id20;]
+$var[id21;]   $c[ID should be of the creation fruit]
+$var[id22;]
+$var[id23;]
+$var[id24;]
+$var[id25;]
+$var[id26;]
+$var[id27;]
+$var[id28;]   $c[ID should be of the blizzard fruit]
+$var[id29;]
+$var[id30;]
+$var[id31;]
+$var[id32;]
+$var[id33;]
+$var[id34;]
+$var[id35;]   $c[ID should be of the control fruit]
+$var[id36;]
+$var[id37;]
+$var[id38;]
+$var[id39;]
+$var[id40;]
+$var[id41;]
+
+$if[$message==]
+Usage: `!stock {normal or mirage}`
+
+$elseif[$toLowercase[$message]==normal]
+$var[a;$replaceText[$httpResult[normalStock];[;]]
+$var[b;$replaceText[$var[a];";]]
+$var[c;$replaceText[$var[b];\];]]
+$textSplit[$var[c];,]
+
+$var[fruit1;$if[$splitText[1]==Rocket]<:Rocket:$var[id1]> Rocket$elseif[$splitText[1]==Spin]<:Spin:$var[id2]> Spin$elseif[$splitText[1]==Blade]<:Blade:$var[id3]> Blade$elseif[$splitText[1]==Spring]<:Spring:$var[id4]> Spring$elseif[$splitText[1]==Bomb]<:Bomb:$var[id5]> Bomb$elseif[$splitText[1]==Smoke]<:Smoke:$var[id6]> Smoke$elseif[$splitText[1]==Spike]<:Spike:$var[id7]> Spike$elseif[$splitText[1]==Flame]<:Flame:$var[id8]> Flame$elseif[$splitText[1]==Ice]<:Ice:$var[id9]> Ice$elseif[$splitText[1]==Sand]<:Sand:$var[id10]> Sand$elseif[$splitText[1]==Dark]<:Dark:$var[id11]> Dark$elseif[$splitText[1]==Eagle]<:Eagle:$var[id12]> Eagle$elseif[$splitText[1]==Diamond]<:Diamond:$var[id13]> Diamond$elseif[$splitText[1]==Light]<:Light:$var[id14]> Light$elseif[$splitText[1]==Rubber]<:Rubber:$var[id15]> Rubber$elseif[$splitText[1]==Ghost]<:Ghost:$var[id16]> Ghost$elseif[$splitText[1]==Magma]<:Magma:$var[id17]> Magma$elseif[$splitText[1]==Quake]<:Quake:$var[id18]> Quake$elseif[$splitText[1]==Buddha]<:Buddha:$var[id19]> Buddha$elseif[$splitText[1]==Love]<:Love:$var[id20]> Love$elseif[$splitText[1]==Creation]<:Creation:$var[id21]> Creation$elseif[$splitText[1]==Spider]<:Spider:$var[id22]> Spider$elseif[$splitText[1]==Sound]<:Sound:$var[id23]> Sound$elseif[$splitText[1]==Phoenix]<:Phoenix:$var[id24]> Phoenix$elseif[$splitText[1]==Portal]<:Portal:$var[id25]> Portal$elseif[$splitText[1]==Rumble]<:Rumble:$var[id26]> Rumble$elseif[$splitText[1]==Pain]<:Pain:$var[id27]> Pain$elseif[$splitText[1]==Blizzard]<:Blizzard:$var[id28]> Blizzard$elseif[$splitText[1]==Gravity]<:Gravity:$var[id29]> Gravity$elseif[$splitText[1]==Mammoth]<:Mammoth:$var[id30]> Mammoth$elseif[$splitText[1]==T-Rex]<:TRex:$var[id31]> T-Rex$elseif[$splitText[1]==Dough]<:Dough:$var[id32]> Dough$elseif[$splitText[1]==Shadow]<:Shadow:$var[id33]> Shadow$elseif[$splitText[1]==Venom]<:Venom:$var[id34]> Venom$elseif[$splitText[1]==Control]<:Control:$var[id35]> Control$elseif[$splitText[1]==Gas]<:Gas:$var[id36]> Gas$elseif[$splitText[1]==Spirit]<:Spirit:$var[id37]> Spirit$elseif[$splitText[1]==Leopard]<:Leopard:$var[id38]> Leopard$elseif[$splitText[1]==Yeti]<:Yeti:$var[id39]> Yeti$elseif[$splitText[1]==Kitsune]<:Kitsune:$var[id40]> Kitsune$elseif[$splitText[1]==Dragon]<:EasternDragon:$var[id41]> Dragon$endif]
+$var[fruit2;$if[$splitText[2]==Rocket]<:Rocket:$var[id1]> Rocket$elseif[$splitText[2]==Spin]<:Spin:$var[id2]> Spin$elseif[$splitText[2]==Blade]<:Blade:$var[id3]> Blade$elseif[$splitText[2]==Spring]<:Spring:$var[id4]> Spring$elseif[$splitText[2]==Bomb]<:Bomb:$var[id5]> Bomb$elseif[$splitText[2]==Smoke]<:Smoke:$var[id6]> Smoke$elseif[$splitText[2]==Spike]<:Spike:$var[id7]> Spike$elseif[$splitText[2]==Flame]<:Flame:$var[id8]> Flame$elseif[$splitText[2]==Ice]<:Ice:$var[id9]> Ice$elseif[$splitText[2]==Sand]<:Sand:$var[id10]> Sand$elseif[$splitText[2]==Dark]<:Dark:$var[id11]> Dark$elseif[$splitText[2]==Eagle]<:Eagle:$var[id12]> Eagle$elseif[$splitText[2]==Diamond]<:Diamond:$var[id13]> Diamond$elseif[$splitText[2]==Light]<:Light:$var[id14]> Light$elseif[$splitText[2]==Rubber]<:Rubber:$var[id15]> Rubber$elseif[$splitText[2]==Ghost]<:Ghost:$var[id16]> Ghost$elseif[$splitText[2]==Magma]<:Magma:$var[id17]> Magma$elseif[$splitText[2]==Quake]<:Quake:$var[id18]> Quake$elseif[$splitText[2]==Buddha]<:Buddha:$var[id19]> Buddha$elseif[$splitText[2]==Love]<:Love:$var[id20]> Love$elseif[$splitText[2]==Creation]<:Creation:$var[id21]> Creation$elseif[$splitText[2]==Spider]<:Spider:$var[id22]> Spider$elseif[$splitText[2]==Sound]<:Sound:$var[id23]> Sound$elseif[$splitText[2]==Phoenix]<:Phoenix:$var[id24]> Phoenix$elseif[$splitText[2]==Portal]<:Portal:$var[id25]> Portal$elseif[$splitText[2]==Rumble]<:Rumble:$var[id26]> Rumble$elseif[$splitText[2]==Pain]<:Pain:$var[id27]> Pain$elseif[$splitText[2]==Blizzard]<:Blizzard:$var[id28]> Blizzard$elseif[$splitText[2]==Gravity]<:Gravity:$var[id29]> Gravity$elseif[$splitText[2]==Mammoth]<:Mammoth:$var[id30]> Mammoth$elseif[$splitText[2]==T-Rex]<:TRex:$var[id31]> T-Rex$elseif[$splitText[2]==Dough]<:Dough:$var[id32]> Dough$elseif[$splitText[2]==Shadow]<:Shadow:$var[id33]> Shadow$elseif[$splitText[2]==Venom]<:Venom:$var[id34]> Venom$elseif[$splitText[2]==Control]<:Control:$var[id35]> Control$elseif[$splitText[2]==Gas]<:Gas:$var[id36]> Gas$elseif[$splitText[2]==Spirit]<:Spirit:$var[id37]> Spirit$elseif[$splitText[2]==Leopard]<:Leopard:$var[id38]> Leopard$elseif[$splitText[2]==Yeti]<:Yeti:$var[id39]> Yeti$elseif[$splitText[2]==Kitsune]<:Kitsune:$var[id40]> Kitsune$elseif[$splitText[2]==Dragon]<:EasternDragon:$var[id41]> Dragon$endif]
+$var[fruit3;$if[$splitText[3]==Rocket]<:Rocket:$var[id1]> Rocket$elseif[$splitText[3]==Spin]<:Spin:$var[id2]> Spin$elseif[$splitText[3]==Blade]<:Blade:$var[id3]> Blade$elseif[$splitText[3]==Spring]<:Spring:$var[id4]> Spring$elseif[$splitText[3]==Bomb]<:Bomb:$var[id5]> Bomb$elseif[$splitText[3]==Smoke]<:Smoke:$var[id6]> Smoke$elseif[$splitText[3]==Spike]<:Spike:$var[id7]> Spike$elseif[$splitText[3]==Flame]<:Flame:$var[id8]> Flame$elseif[$splitText[3]==Ice]<:Ice:$var[id9]> Ice$elseif[$splitText[3]==Sand]<:Sand:$var[id10]> Sand$elseif[$splitText[3]==Dark]<:Dark:$var[id11]> Dark$elseif[$splitText[3]==Eagle]<:Eagle:$var[id12]> Eagle$elseif[$splitText[3]==Diamond]<:Diamond:$var[id13]> Diamond$elseif[$splitText[3]==Light]<:Light:$var[id14]> Light$elseif[$splitText[3]==Rubber]<:Rubber:$var[id15]> Rubber$elseif[$splitText[3]==Ghost]<:Ghost:$var[id16]> Ghost$elseif[$splitText[3]==Magma]<:Magma:$var[id17]> Magma$elseif[$splitText[3]==Quake]<:Quake:$var[id18]> Quake$elseif[$splitText[3]==Buddha]<:Buddha:$var[id19]> Buddha$elseif[$splitText[3]==Love]<:Love:$var[id20]> Love$elseif[$splitText[3]==Creation]<:Creation:$var[id21]> Creation$elseif[$splitText[3]==Spider]<:Spider:$var[id22]> Spider$elseif[$splitText[3]==Sound]<:Sound:$var[id23]> Sound$elseif[$splitText[3]==Phoenix]<:Phoenix:$var[id24]> Phoenix$elseif[$splitText[3]==Portal]<:Portal:$var[id25]> Portal$elseif[$splitText[3]==Rumble]<:Rumble:$var[id26]> Rumble$elseif[$splitText[3]==Pain]<:Pain:$var[id27]> Pain$elseif[$splitText[3]==Blizzard]<:Blizzard:$var[id28]> Blizzard$elseif[$splitText[3]==Gravity]<:Gravity:$var[id29]> Gravity$elseif[$splitText[3]==Mammoth]<:Mammoth:$var[id30]> Mammoth$elseif[$splitText[3]==T-Rex]<:TRex:$var[id31]> T-Rex$elseif[$splitText[3]==Dough]<:Dough:$var[id32]> Dough$elseif[$splitText[3]==Shadow]<:Shadow:$var[id33]> Shadow$elseif[$splitText[3]==Venom]<:Venom:$var[id34]> Venom$elseif[$splitText[3]==Control]<:Control:$var[id35]> Control$elseif[$splitText[3]==Gas]<:Gas:$var[id36]> Gas$elseif[$splitText[3]==Spirit]<:Spirit:$var[id37]> Spirit$elseif[$splitText[3]==Leopard]<:Leopard:$var[id38]> Leopard$elseif[$splitText[3]==Yeti]<:Yeti:$var[id39]> Yeti$elseif[$splitText[3]==Kitsune]<:Kitsune:$var[id40]> Kitsune$elseif[$splitText[3]==Dragon]<:EasternDragon:$var[id41]> Dragon$endif]
+$var[fruit4;$if[$splitText[4]==Rocket]<:Rocket:$var[id1]> Rocket$elseif[$splitText[4]==Spin]<:Spin:$var[id2]> Spin$elseif[$splitText[4]==Blade]<:Blade:$var[id3]> Blade$elseif[$splitText[4]==Spring]<:Spring:$var[id4]> Spring$elseif[$splitText[4]==Bomb]<:Bomb:$var[id5]> Bomb$elseif[$splitText[4]==Smoke]<:Smoke:$var[id6]> Smoke$elseif[$splitText[4]==Spike]<:Spike:$var[id7]> Spike$elseif[$splitText[4]==Flame]<:Flame:$var[id8]> Flame$elseif[$splitText[4]==Ice]<:Ice:$var[id9]> Ice$elseif[$splitText[4]==Sand]<:Sand:$var[id10]> Sand$elseif[$splitText[4]==Dark]<:Dark:$var[id11]> Dark$elseif[$splitText[4]==Eagle]<:Eagle:$var[id12]> Eagle$elseif[$splitText[4]==Diamond]<:Diamond:$var[id13]> Diamond$elseif[$splitText[4]==Light]<:Light:$var[id14]> Light$elseif[$splitText[4]==Rubber]<:Rubber:$var[id15]> Rubber$elseif[$splitText[4]==Ghost]<:Ghost:$var[id16]> Ghost$elseif[$splitText[4]==Magma]<:Magma:$var[id17]> Magma$elseif[$splitText[4]==Quake]<:Quake:$var[id18]> Quake$elseif[$splitText[4]==Buddha]<:Buddha:$var[id19]> Buddha$elseif[$splitText[4]==Love]<:Love:$var[id20]> Love$elseif[$splitText[4]==Creation]<:Creation:$var[id21]> Creation$elseif[$splitText[4]==Spider]<:Spider:$var[id22]> Spider$elseif[$splitText[4]==Sound]<:Sound:$var[id23]> Sound$elseif[$splitText[4]==Phoenix]<:Phoenix:$var[id24]> Phoenix$elseif[$splitText[4]==Portal]<:Portal:$var[id25]> Portal$elseif[$splitText[4]==Rumble]<:Rumble:$var[id26]> Rumble$elseif[$splitText[4]==Pain]<:Pain:$var[id27]> Pain$elseif[$splitText[4]==Blizzard]<:Blizzard:$var[id28]> Blizzard$elseif[$splitText[4]==Gravity]<:Gravity:$var[id29]> Gravity$elseif[$splitText[4]==Mammoth]<:Mammoth:$var[id30]> Mammoth$elseif[$splitText[4]==T-Rex]<:TRex:$var[id31]> T-Rex$elseif[$splitText[4]==Dough]<:Dough:$var[id32]> Dough$elseif[$splitText[4]==Shadow]<:Shadow:$var[id33]> Shadow$elseif[$splitText[4]==Venom]<:Venom:$var[id34]> Venom$elseif[$splitText[4]==Control]<:Control:$var[id35]> Control$elseif[$splitText[4]==Gas]<:Gas:$var[id36]> Gas$elseif[$splitText[4]==Spirit]<:Spirit:$var[id37]> Spirit$elseif[$splitText[4]==Leopard]<:Leopard:$var[id38]> Leopard$elseif[$splitText[4]==Yeti]<:Yeti:$var[id39]> Yeti$elseif[$splitText[4]==Kitsune]<:Kitsune:$var[id40]> Kitsune$elseif[$splitText[4]==Dragon]<:EasternDragon:$var[id41]> Dragon$endif]
+$var[fruit5;$if[$splitText[5]==Rocket]<:Rocket:$var[id1]> Rocket$elseif[$splitText[5]==Spin]<:Spin:$var[id2]> Spin$elseif[$splitText[5]==Blade]<:Blade:$var[id3]> Blade$elseif[$splitText[5]==Spring]<:Spring:$var[id4]> Spring$elseif[$splitText[5]==Bomb]<:Bomb:$var[id5]> Bomb$elseif[$splitText[5]==Smoke]<:Smoke:$var[id6]> Smoke$elseif[$splitText[5]==Spike]<:Spike:$var[id7]> Spike$elseif[$splitText[5]==Flame]<:Flame:$var[id8]> Flame$elseif[$splitText[5]==Ice]<:Ice:$var[id9]> Ice$elseif[$splitText[5]==Sand]<:Sand:$var[id10]> Sand$elseif[$splitText[5]==Dark]<:Dark:$var[id11]> Dark$elseif[$splitText[5]==Eagle]<:Eagle:$var[id12]> Eagle$elseif[$splitText[5]==Diamond]<:Diamond:$var[id13]> Diamond$elseif[$splitText[5]==Light]<:Light:$var[id14]> Light$elseif[$splitText[5]==Rubber]<:Rubber:$var[id15]> Rubber$elseif[$splitText[5]==Ghost]<:Ghost:$var[id16]> Ghost$elseif[$splitText[5]==Magma]<:Magma:$var[id17]> Magma$elseif[$splitText[5]==Quake]<:Quake:$var[id18]> Quake$elseif[$splitText[5]==Buddha]<:Buddha:$var[id19]> Buddha$elseif[$splitText[5]==Love]<:Love:$var[id20]> Love$elseif[$splitText[5]==Creation]<:Creation:$var[id21]> Creation$elseif[$splitText[5]==Spider]<:Spider:$var[id22]> Spider$elseif[$splitText[5]==Sound]<:Sound:$var[id23]> Sound$elseif[$splitText[5]==Phoenix]<:Phoenix:$var[id24]> Phoenix$elseif[$splitText[5]==Portal]<:Portal:$var[id25]> Portal$elseif[$splitText[5]==Rumble]<:Rumble:$var[id26]> Rumble$elseif[$splitText[5]==Pain]<:Pain:$var[id27]> Pain$elseif[$splitText[5]==Blizzard]<:Blizzard:$var[id28]> Blizzard$elseif[$splitText[5]==Gravity]<:Gravity:$var[id29]> Gravity$elseif[$splitText[5]==Mammoth]<:Mammoth:$var[id30]> Mammoth$elseif[$splitText[5]==T-Rex]<:TRex:$var[id31]> T-Rex$elseif[$splitText[5]==Dough]<:Dough:$var[id32]> Dough$elseif[$splitText[5]==Shadow]<:Shadow:$var[id33]> Shadow$elseif[$splitText[5]==Venom]<:Venom:$var[id34]> Venom$elseif[$splitText[5]==Control]<:Control:$var[id35]> Control$elseif[$splitText[5]==Gas]<:Gas:$var[id36]> Gas$elseif[$splitText[5]==Spirit]<:Spirit:$var[id37]> Spirit$elseif[$splitText[5]==Leopard]<:Leopard:$var[id38]> Leopard$elseif[$splitText[5]==Yeti]<:Yeti:$var[id39]> Yeti$elseif[$splitText[5]==Kitsune]<:Kitsune:$var[id40]> Kitsune$elseif[$splitText[5]==Dragon]<:EasternDragon:$var[id41]> Dragon$endif]
+$var[fruit6;$if[$splitText[6]==Rocket]<:Rocket:$var[id1]> Rocket$elseif[$splitText[6]==Spin]<:Spin:$var[id2]> Spin$elseif[$splitText[6]==Blade]<:Blade:$var[id3]> Blade$elseif[$splitText[6]==Spring]<:Spring:$var[id4]> Spring$elseif[$splitText[6]==Bomb]<:Bomb:$var[id5]> Bomb$elseif[$splitText[6]==Smoke]<:Smoke:$var[id6]> Smoke$elseif[$splitText[6]==Spike]<:Spike:$var[id7]> Spike$elseif[$splitText[6]==Flame]<:Flame:$var[id8]> Flame$elseif[$splitText[6]==Ice]<:Ice:$var[id9]> Ice$elseif[$splitText[6]==Sand]<:Sand:$var[id10]> Sand$elseif[$splitText[6]==Dark]<:Dark:$var[id11]> Dark$elseif[$splitText[6]==Eagle]<:Eagle:$var[id12]> Eagle$elseif[$splitText[6]==Diamond]<:Diamond:$var[id13]> Diamond$elseif[$splitText[6]==Light]<:Light:$var[id14]> Light$elseif[$splitText[6]==Rubber]<:Rubber:$var[id15]> Rubber$elseif[$splitText[6]==Ghost]<:Ghost:$var[id16]> Ghost$elseif[$splitText[6]==Magma]<:Magma:$var[id17]> Magma$elseif[$splitText[6]==Quake]<:Quake:$var[id18]> Quake$elseif[$splitText[6]==Buddha]<:Buddha:$var[id19]> Buddha$elseif[$splitText[6]==Love]<:Love:$var[id20]> Love$elseif[$splitText[6]==Creation]<:Creation:$var[id21]> Creation$elseif[$splitText[6]==Spider]<:Spider:$var[id22]> Spider$elseif[$splitText[6]==Sound]<:Sound:$var[id23]> Sound$elseif[$splitText[6]==Phoenix]<:Phoenix:$var[id24]> Phoenix$elseif[$splitText[6]==Portal]<:Portal:$var[id25]> Portal$elseif[$splitText[6]==Rumble]<:Rumble:$var[id26]> Rumble$elseif[$splitText[6]==Pain]<:Pain:$var[id27]> Pain$elseif[$splitText[6]==Blizzard]<:Blizzard:$var[id28]> Blizzard$elseif[$splitText[6]==Gravity]<:Gravity:$var[id29]> Gravity$elseif[$splitText[6]==Mammoth]<:Mammoth:$var[id30]> Mammoth$elseif[$splitText[6]==T-Rex]<:TRex:$var[id31]> T-Rex$elseif[$splitText[6]==Dough]<:Dough:$var[id32]> Dough$elseif[$splitText[6]==Shadow]<:Shadow:$var[id33]> Shadow$elseif[$splitText[6]==Venom]<:Venom:$var[id34]> Venom$elseif[$splitText[6]==Control]<:Control:$var[id35]> Control$elseif[$splitText[6]==Gas]<:Gas:$var[id36]> Gas$elseif[$splitText[6]==Spirit]<:Spirit:$var[id37]> Spirit$elseif[$splitText[6]==Leopard]<:Leopard:$var[id38]> Leopard$elseif[$splitText[6]==Yeti]<:Yeti:$var[id39]> Yeti$elseif[$splitText[6]==Kitsune]<:Kitsune:$var[id40]> Kitsune$elseif[$splitText[6]==Dragon]<:EasternDragon:$var[id41]> Dragon$endif]
+$var[fruit7;$if[$splitText[7]==Rocket]<:Rocket:$var[id1]> Rocket$elseif[$splitText[7]==Spin]<:Spin:$var[id2]> Spin$elseif[$splitText[7]==Blade]<:Blade:$var[id3]> Blade$elseif[$splitText[7]==Spring]<:Spring:$var[id4]> Spring$elseif[$splitText[7]==Bomb]<:Bomb:$var[id5]> Bomb$elseif[$splitText[7]==Smoke]<:Smoke:$var[id6]> Smoke$elseif[$splitText[7]==Spike]<:Spike:$var[id7]> Spike$elseif[$splitText[7]==Flame]<:Flame:$var[id8]> Flame$elseif[$splitText[7]==Ice]<:Ice:$var[id9]> Ice$elseif[$splitText[7]==Sand]<:Sand:$var[id10]> Sand$elseif[$splitText[7]==Dark]<:Dark:$var[id11]> Dark$elseif[$splitText[7]==Eagle]<:Eagle:$var[id12]> Eagle$elseif[$splitText[7]==Diamond]<:Diamond:$var[id13]> Diamond$elseif[$splitText[7]==Light]<:Light:$var[id14]> Light$elseif[$splitText[7]==Rubber]<:Rubber:$var[id15]> Rubber$elseif[$splitText[7]==Ghost]<:Ghost:$var[id16]> Ghost$elseif[$splitText[7]==Magma]<:Magma:$var[id17]> Magma$elseif[$splitText[7]==Quake]<:Quake:$var[id18]> Quake$elseif[$splitText[7]==Buddha]<:Buddha:$var[id19]> Buddha$elseif[$splitText[7]==Love]<:Love:$var[id20]> Love$elseif[$splitText[7]==Creation]<:Creation:$var[id21]> Creation$elseif[$splitText[7]==Spider]<:Spider:$var[id22]> Spider$elseif[$splitText[7]==Sound]<:Sound:$var[id23]> Sound$elseif[$splitText[7]==Phoenix]<:Phoenix:$var[id24]> Phoenix$elseif[$splitText[7]==Portal]<:Portal:$var[id25]> Portal$elseif[$splitText[7]==Rumble]<:Rumble:$var[id26]> Rumble$elseif[$splitText[7]==Pain]<:Pain:$var[id27]> Pain$elseif[$splitText[7]==Blizzard]<:Blizzard:$var[id28]> Blizzard$elseif[$splitText[7]==Gravity]<:Gravity:$var[id29]> Gravity$elseif[$splitText[7]==Mammoth]<:Mammoth:$var[id30]> Mammoth$elseif[$splitText[7]==T-Rex]<:TRex:$var[id31]> T-Rex$elseif[$splitText[7]==Dough]<:Dough:$var[id32]> Dough$elseif[$splitText[7]==Shadow]<:Shadow:$var[id33]> Shadow$elseif[$splitText[7]==Venom]<:Venom:$var[id34]> Venom$elseif[$splitText[7]==Control]<:Control:$var[id35]> Control$elseif[$splitText[7]==Gas]<:Gas:$var[id36]> Gas$elseif[$splitText[7]==Spirit]<:Spirit:$var[id37]> Spirit$elseif[$splitText[7]==Leopard]<:Leopard:$var[id38]> Leopard$elseif[$splitText[7]==Yeti]<:Yeti:$var[id39]> Yeti$elseif[$splitText[7]==Kitsune]<:Kitsune:$var[id40]> Kitsune$elseif[$splitText[7]==Dragon]<:EasternDragon:$var[id41]> Dragon$endif]
+$var[fruit8;$if[$splitText[8]==Rocket]<:Rocket:$var[id1]> Rocket$elseif[$splitText[8]==Spin]<:Spin:$var[id2]> Spin$elseif[$splitText[8]==Blade]<:Blade:$var[id3]> Blade$elseif[$splitText[8]==Spring]<:Spring:$var[id4]> Spring$elseif[$splitText[8]==Bomb]<:Bomb:$var[id5]> Bomb$elseif[$splitText[8]==Smoke]<:Smoke:$var[id6]> Smoke$elseif[$splitText[8]==Spike]<:Spike:$var[id7]> Spike$elseif[$splitText[8]==Flame]<:Flame:$var[id8]> Flame$elseif[$splitText[8]==Ice]<:Ice:$var[id9]> Ice$elseif[$splitText[8]==Sand]<:Sand:$var[id10]> Sand$elseif[$splitText[8]==Dark]<:Dark:$var[id11]> Dark$elseif[$splitText[8]==Eagle]<:Eagle:$var[id12]> Eagle$elseif[$splitText[8]==Diamond]<:Diamond:$var[id13]> Diamond$elseif[$splitText[8]==Light]<:Light:$var[id14]> Light$elseif[$splitText[8]==Rubber]<:Rubber:$var[id15]> Rubber$elseif[$splitText[8]==Ghost]<:Ghost:$var[id16]> Ghost$elseif[$splitText[8]==Magma]<:Magma:$var[id17]> Magma$elseif[$splitText[8]==Quake]<:Quake:$var[id18]> Quake$elseif[$splitText[8]==Buddha]<:Buddha:$var[id19]> Buddha$elseif[$splitText[8]==Love]<:Love:$var[id20]> Love$elseif[$splitText[8]==Creation]<:Creation:$var[id21]> Creation$elseif[$splitText[8]==Spider]<:Spider:$var[id22]> Spider$elseif[$splitText[8]==Sound]<:Sound:$var[id23]> Sound$elseif[$splitText[8]==Phoenix]<:Phoenix:$var[id24]> Phoenix$elseif[$splitText[8]==Portal]<:Portal:$var[id25]> Portal$elseif[$splitText[8]==Rumble]<:Rumble:$var[id26]> Rumble$elseif[$splitText[8]==Pain]<:Pain:$var[id27]> Pain$elseif[$splitText[8]==Blizzard]<:Blizzard:$var[id28]> Blizzard$elseif[$splitText[8]==Gravity]<:Gravity:$var[id29]> Gravity$elseif[$splitText[8]==Mammoth]<:Mammoth:$var[id30]> Mammoth$elseif[$splitText[8]==T-Rex]<:TRex:$var[id31]> T-Rex$elseif[$splitText[8]==Dough]<:Dough:$var[id32]> Dough$elseif[$splitText[8]==Shadow]<:Shadow:$var[id33]> Shadow$elseif[$splitText[8]==Venom]<:Venom:$var[id34]> Venom$elseif[$splitText[8]==Control]<:Control:$var[id35]> Control$elseif[$splitText[8]==Gas]<:Gas:$var[id36]> Gas$elseif[$splitText[8]==Spirit]<:Spirit:$var[id37]> Spirit$elseif[$splitText[8]==Leopard]<:Leopard:$var[id38]> Leopard$elseif[$splitText[8]==Yeti]<:Yeti:$var[id39]> Yeti$elseif[$splitText[8]==Kitsune]<:Kitsune:$var[id40]> Kitsune$elseif[$splitText[8]==Dragon]<:EasternDragon:$var[id41]> Dragon$endif]
+$var[fruit9;$if[$splitText[9]==Rocket]<:Rocket:$var[id1]> Rocket$elseif[$splitText[9]==Spin]<:Spin:$var[id2]> Spin$elseif[$splitText[9]==Blade]<:Blade:$var[id3]> Blade$elseif[$splitText[9]==Spring]<:Spring:$var[id4]> Spring$elseif[$splitText[9]==Bomb]<:Bomb:$var[id5]> Bomb$elseif[$splitText[9]==Smoke]<:Smoke:$var[id6]> Smoke$elseif[$splitText[9]==Spike]<:Spike:$var[id7]> Spike$elseif[$splitText[9]==Flame]<:Flame:$var[id8]> Flame$elseif[$splitText[9]==Ice]<:Ice:$var[id9]> Ice$elseif[$splitText[9]==Sand]<:Sand:$var[id10]> Sand$elseif[$splitText[9]==Dark]<:Dark:$var[id11]> Dark$elseif[$splitText[9]==Eagle]<:Eagle:$var[id12]> Eagle$elseif[$splitText[9]==Diamond]<:Diamond:$var[id13]> Diamond$elseif[$splitText[9]==Light]<:Light:$var[id14]> Light$elseif[$splitText[9]==Rubber]<:Rubber:$var[id15]> Rubber$elseif[$splitText[9]==Ghost]<:Ghost:$var[id16]> Ghost$elseif[$splitText[9]==Magma]<:Magma:$var[id17]> Magma$elseif[$splitText[9]==Quake]<:Quake:$var[id18]> Quake$elseif[$splitText[9]==Buddha]<:Buddha:$var[id19]> Buddha$elseif[$splitText[9]==Love]<:Love:$var[id20]> Love$elseif[$splitText[9]==Creation]<:Creation:$var[id21]> Creation$elseif[$splitText[9]==Spider]<:Spider:$var[id22]> Spider$elseif[$splitText[9]==Sound]<:Sound:$var[id23]> Sound$elseif[$splitText[9]==Phoenix]<:Phoenix:$var[id24]> Phoenix$elseif[$splitText[9]==Portal]<:Portal:$var[id25]> Portal$elseif[$splitText[9]==Rumble]<:Rumble:$var[id26]> Rumble$elseif[$splitText[9]==Pain]<:Pain:$var[id27]> Pain$elseif[$splitText[9]==Blizzard]<:Blizzard:$var[id28]> Blizzard$elseif[$splitText[9]==Gravity]<:Gravity:$var[id29]> Gravity$elseif[$splitText[9]==Mammoth]<:Mammoth:$var[id30]> Mammoth$elseif[$splitText[9]==T-Rex]<:TRex:$var[id31]> T-Rex$elseif[$splitText[9]==Dough]<:Dough:$var[id32]> Dough$elseif[$splitText[9]==Shadow]<:Shadow:$var[id33]> Shadow$elseif[$splitText[9]==Venom]<:Venom:$var[id34]> Venom$elseif[$splitText[9]==Control]<:Control:$var[id35]> Control$elseif[$splitText[9]==Gas]<:Gas:$var[id36]> Gas$elseif[$splitText[9]==Spirit]<:Spirit:$var[id37]> Spirit$elseif[$splitText[9]==Leopard]<:Leopard:$var[id38]> Leopard$elseif[$splitText[9]==Yeti]<:Yeti:$var[id39]> Yeti$elseif[$splitText[9]==Kitsune]<:Kitsune:$var[id40]> Kitsune$elseif[$splitText[9]==Dragon]<:EasternDragon:$var[id41]> Dragon$endif]
+$var[fruit10;$if[$splitText[10]==Rocket]<:Rocket:$var[id1]> Rocket$elseif[$splitText[10]==Spin]<:Spin:$var[id2]> Spin$elseif[$splitText[10]==Blade]<:Blade:$var[id3]> Blade$elseif[$splitText[10]==Spring]<:Spring:$var[id4]> Spring$elseif[$splitText[10]==Bomb]<:Bomb:$var[id5]> Bomb$elseif[$splitText[10]==Smoke]<:Smoke:$var[id6]> Smoke$elseif[$splitText[10]==Spike]<:Spike:$var[id7]> Spike$elseif[$splitText[10]==Flame]<:Flame:$var[id8]> Flame$elseif[$splitText[10]==Ice]<:Ice:$var[id9]> Ice$elseif[$splitText[10]==Sand]<:Sand:$var[id10]> Sand$elseif[$splitText[10]==Dark]<:Dark:$var[id11]> Dark$elseif[$splitText[10]==Eagle]<:Eagle:$var[id12]> Eagle$elseif[$splitText[10]==Diamond]<:Diamond:$var[id13]> Diamond$elseif[$splitText[10]==Light]<:Light:$var[id14]> Light$elseif[$splitText[10]==Rubber]<:Rubber:$var[id15]> Rubber$elseif[$splitText[10]==Ghost]<:Ghost:$var[id16]> Ghost$elseif[$splitText[10]==Magma]<:Magma:$var[id17]> Magma$elseif[$splitText[10]==Quake]<:Quake:$var[id18]> Quake$elseif[$splitText[10]==Buddha]<:Buddha:$var[id19]> Buddha$elseif[$splitText[10]==Love]<:Love:$var[id20]> Love$elseif[$splitText[10]==Creation]<:Creation:$var[id21]> Creation$elseif[$splitText[10]==Spider]<:Spider:$var[id22]> Spider$elseif[$splitText[10]==Sound]<:Sound:$var[id23]> Sound$elseif[$splitText[10]==Phoenix]<:Phoenix:$var[id24]> Phoenix$elseif[$splitText[10]==Portal]<:Portal:$var[id25]> Portal$elseif[$splitText[10]==Rumble]<:Rumble:$var[id26]> Rumble$elseif[$splitText[10]==Pain]<:Pain:$var[id27]> Pain$elseif[$splitText[10]==Blizzard]<:Blizzard:$var[id28]> Blizzard$elseif[$splitText[10]==Gravity]<:Gravity:$var[id29]> Gravity$elseif[$splitText[10]==Mammoth]<:Mammoth:$var[id30]> Mammoth$elseif[$splitText[10]==T-Rex]<:TRex:$var[id31]> T-Rex$elseif[$splitText[10]==Dough]<:Dough:$var[id32]> Dough$elseif[$splitText[10]==Shadow]<:Shadow:$var[id33]> Shadow$elseif[$splitText[10]==Venom]<:Venom:$var[id34]> Venom$elseif[$splitText[10]==Control]<:Control:$var[id35]> Control$elseif[$splitText[10]==Gas]<:Gas:$var[id36]> Gas$elseif[$splitText[10]==Spirit]<:Spirit:$var[id37]> Spirit$elseif[$splitText[10]==Leopard]<:Leopard:$var[id38]> Leopard$elseif[$splitText[10]==Yeti]<:Yeti:$var[id39]> Yeti$elseif[$splitText[10]==Kitsune]<:Kitsune:$var[id40]> Kitsune$elseif[$splitText[10]==Dragon]<:EasternDragon:$var[id41]> Dragon$endif]
+
+$title[Blox Fruits __Normal__ Stock]
+$description[The Fruits are listed below:
+$var[fruit1]
+$var[fruit2]
+$var[fruit3]
+$var[fruit4]
+$var[fruit5]
+$var[fruit6]
+$var[fruit7]
+$var[fruit8]
+$var[fruit9]
+$var[fruit10]
+]
+$footer[Bloxfruits Stock | By Zubariel]
+
+$elseif[$toLowercase[$message]==mirage]
+$var[a;$replaceText[$httpResult[mirageStock];[;]]
+$var[b;$replaceText[$var[a];";]]
+$var[c;$replaceText[$var[b];\];]]
+$textSplit[$var[c];,]
+
+$var[fruit1;$if[$splitText[1]==Rocket]<:Rocket:$var[id1]> Rocket$elseif[$splitText[1]==Spin]<:Spin:$var[id2]> Spin$elseif[$splitText[1]==Blade]<:Blade:$var[id3]> Blade$elseif[$splitText[1]==Spring]<:Spring:$var[id4]> Spring$elseif[$splitText[1]==Bomb]<:Bomb:$var[id5]> Bomb$elseif[$splitText[1]==Smoke]<:Smoke:$var[id6]> Smoke$elseif[$splitText[1]==Spike]<:Spike:$var[id7]> Spike$elseif[$splitText[1]==Flame]<:Flame:$var[id8]> Flame$elseif[$splitText[1]==Ice]<:Ice:$var[id9]> Ice$elseif[$splitText[1]==Sand]<:Sand:$var[id10]> Sand$elseif[$splitText[1]==Dark]<:Dark:$var[id11]> Dark$elseif[$splitText[1]==Eagle]<:Eagle:$var[id12]> Eagle$elseif[$splitText[1]==Diamond]<:Diamond:$var[id13]> Diamond$elseif[$splitText[1]==Light]<:Light:$var[id14]> Light$elseif[$splitText[1]==Rubber]<:Rubber:$var[id15]> Rubber$elseif[$splitText[1]==Ghost]<:Ghost:$var[id16]> Ghost$elseif[$splitText[1]==Magma]<:Magma:$var[id17]> Magma$elseif[$splitText[1]==Quake]<:Quake:$var[id18]> Quake$elseif[$splitText[1]==Buddha]<:Buddha:$var[id19]> Buddha$elseif[$splitText[1]==Love]<:Love:$var[id20]> Love$elseif[$splitText[1]==Creation]<:Creation:$var[id21]> Creation$elseif[$splitText[1]==Spider]<:Spider:$var[id22]> Spider$elseif[$splitText[1]==Sound]<:Sound:$var[id23]> Sound$elseif[$splitText[1]==Phoenix]<:Phoenix:$var[id24]> Phoenix$elseif[$splitText[1]==Portal]<:Portal:$var[id25]> Portal$elseif[$splitText[1]==Rumble]<:Rumble:$var[id26]> Rumble$elseif[$splitText[1]==Pain]<:Pain:$var[id27]> Pain$elseif[$splitText[1]==Blizzard]<:Blizzard:$var[id28]> Blizzard$elseif[$splitText[1]==Gravity]<:Gravity:$var[id29]> Gravity$elseif[$splitText[1]==Mammoth]<:Mammoth:$var[id30]> Mammoth$elseif[$splitText[1]==T-Rex]<:TRex:$var[id31]> T-Rex$elseif[$splitText[1]==Dough]<:Dough:$var[id32]> Dough$elseif[$splitText[1]==Shadow]<:Shadow:$var[id33]> Shadow$elseif[$splitText[1]==Venom]<:Venom:$var[id34]> Venom$elseif[$splitText[1]==Control]<:Control:$var[id35]> Control$elseif[$splitText[1]==Gas]<:Gas:$var[id36]> Gas$elseif[$splitText[1]==Spirit]<:Spirit:$var[id37]> Spirit$elseif[$splitText[1]==Leopard]<:Leopard:$var[id38]> Leopard$elseif[$splitText[1]==Yeti]<:Yeti:$var[id39]> Yeti$elseif[$splitText[1]==Kitsune]<:Kitsune:$var[id40]> Kitsune$elseif[$splitText[1]==Dragon]<:EasternDragon:$var[id41]> Dragon$endif]
+$var[fruit2;$if[$splitText[2]==Rocket]<:Rocket:$var[id1]> Rocket$elseif[$splitText[2]==Spin]<:Spin:$var[id2]> Spin$elseif[$splitText[2]==Blade]<:Blade:$var[id3]> Blade$elseif[$splitText[2]==Spring]<:Spring:$var[id4]> Spring$elseif[$splitText[2]==Bomb]<:Bomb:$var[id5]> Bomb$elseif[$splitText[2]==Smoke]<:Smoke:$var[id6]> Smoke$elseif[$splitText[2]==Spike]<:Spike:$var[id7]> Spike$elseif[$splitText[2]==Flame]<:Flame:$var[id8]> Flame$elseif[$splitText[2]==Ice]<:Ice:$var[id9]> Ice$elseif[$splitText[2]==Sand]<:Sand:$var[id10]> Sand$elseif[$splitText[2]==Dark]<:Dark:$var[id11]> Dark$elseif[$splitText[2]==Eagle]<:Eagle:$var[id12]> Eagle$elseif[$splitText[2]==Diamond]<:Diamond:$var[id13]> Diamond$elseif[$splitText[2]==Light]<:Light:$var[id14]> Light$elseif[$splitText[2]==Rubber]<:Rubber:$var[id15]> Rubber$elseif[$splitText[2]==Ghost]<:Ghost:$var[id16]> Ghost$elseif[$splitText[2]==Magma]<:Magma:$var[id17]> Magma$elseif[$splitText[2]==Quake]<:Quake:$var[id18]> Quake$elseif[$splitText[2]==Buddha]<:Buddha:$var[id19]> Buddha$elseif[$splitText[2]==Love]<:Love:$var[id20]> Love$elseif[$splitText[2]==Creation]<:Creation:$var[id21]> Creation$elseif[$splitText[2]==Spider]<:Spider:$var[id22]> Spider$elseif[$splitText[2]==Sound]<:Sound:$var[id23]> Sound$elseif[$splitText[2]==Phoenix]<:Phoenix:$var[id24]> Phoenix$elseif[$splitText[2]==Portal]<:Portal:$var[id25]> Portal$elseif[$splitText[2]==Rumble]<:Rumble:$var[id26]> Rumble$elseif[$splitText[2]==Pain]<:Pain:$var[id27]> Pain$elseif[$splitText[2]==Blizzard]<:Blizzard:$var[id28]> Blizzard$elseif[$splitText[2]==Gravity]<:Gravity:$var[id29]> Gravity$elseif[$splitText[2]==Mammoth]<:Mammoth:$var[id30]> Mammoth$elseif[$splitText[2]==T-Rex]<:TRex:$var[id31]> T-Rex$elseif[$splitText[2]==Dough]<:Dough:$var[id32]> Dough$elseif[$splitText[2]==Shadow]<:Shadow:$var[id33]> Shadow$elseif[$splitText[2]==Venom]<:Venom:$var[id34]> Venom$elseif[$splitText[2]==Control]<:Control:$var[id35]> Control$elseif[$splitText[2]==Gas]<:Gas:$var[id36]> Gas$elseif[$splitText[2]==Spirit]<:Spirit:$var[id37]> Spirit$elseif[$splitText[2]==Leopard]<:Leopard:$var[id38]> Leopard$elseif[$splitText[2]==Yeti]<:Yeti:$var[id39]> Yeti$elseif[$splitText[2]==Kitsune]<:Kitsune:$var[id40]> Kitsune$elseif[$splitText[2]==Dragon]<:EasternDragon:$var[id41]> Dragon$endif]
+$var[fruit3;$if[$splitText[3]==Rocket]<:Rocket:$var[id1]> Rocket$elseif[$splitText[3]==Spin]<:Spin:$var[id2]> Spin$elseif[$splitText[3]==Blade]<:Blade:$var[id3]> Blade$elseif[$splitText[3]==Spring]<:Spring:$var[id4]> Spring$elseif[$splitText[3]==Bomb]<:Bomb:$var[id5]> Bomb$elseif[$splitText[3]==Smoke]<:Smoke:$var[id6]> Smoke$elseif[$splitText[3]==Spike]<:Spike:$var[id7]> Spike$elseif[$splitText[3]==Flame]<:Flame:$var[id8]> Flame$elseif[$splitText[3]==Ice]<:Ice:$var[id9]> Ice$elseif[$splitText[3]==Sand]<:Sand:$var[id10]> Sand$elseif[$splitText[3]==Dark]<:Dark:$var[id11]> Dark$elseif[$splitText[3]==Eagle]<:Eagle:$var[id12]> Eagle$elseif[$splitText[3]==Diamond]<:Diamond:$var[id13]> Diamond$elseif[$splitText[3]==Light]<:Light:$var[id14]> Light$elseif[$splitText[3]==Rubber]<:Rubber:$var[id15]> Rubber$elseif[$splitText[3]==Ghost]<:Ghost:$var[id16]> Ghost$elseif[$splitText[3]==Magma]<:Magma:$var[id17]> Magma$elseif[$splitText[3]==Quake]<:Quake:$var[id18]> Quake$elseif[$splitText[3]==Buddha]<:Buddha:$var[id19]> Buddha$elseif[$splitText[3]==Love]<:Love:$var[id20]> Love$elseif[$splitText[3]==Creation]<:Creation:$var[id21]> Creation$elseif[$splitText[3]==Spider]<:Spider:$var[id22]> Spider$elseif[$splitText[3]==Sound]<:Sound:$var[id23]> Sound$elseif[$splitText[3]==Phoenix]<:Phoenix:$var[id24]> Phoenix$elseif[$splitText[3]==Portal]<:Portal:$var[id25]> Portal$elseif[$splitText[3]==Rumble]<:Rumble:$var[id26]> Rumble$elseif[$splitText[3]==Pain]<:Pain:$var[id27]> Pain$elseif[$splitText[3]==Blizzard]<:Blizzard:$var[id28]> Blizzard$elseif[$splitText[3]==Gravity]<:Gravity:$var[id29]> Gravity$elseif[$splitText[3]==Mammoth]<:Mammoth:$var[id30]> Mammoth$elseif[$splitText[3]==T-Rex]<:TRex:$var[id31]> T-Rex$elseif[$splitText[3]==Dough]<:Dough:$var[id32]> Dough$elseif[$splitText[3]==Shadow]<:Shadow:$var[id33]> Shadow$elseif[$splitText[3]==Venom]<:Venom:$var[id34]> Venom$elseif[$splitText[3]==Control]<:Control:$var[id35]> Control$elseif[$splitText[3]==Gas]<:Gas:$var[id36]> Gas$elseif[$splitText[3]==Spirit]<:Spirit:$var[id37]> Spirit$elseif[$splitText[3]==Leopard]<:Leopard:$var[id38]> Leopard$elseif[$splitText[3]==Yeti]<:Yeti:$var[id39]> Yeti$elseif[$splitText[3]==Kitsune]<:Kitsune:$var[id40]> Kitsune$elseif[$splitText[3]==Dragon]<:EasternDragon:$var[id41]> Dragon$endif]
+$var[fruit4;$if[$splitText[4]==Rocket]<:Rocket:$var[id1]> Rocket$elseif[$splitText[4]==Spin]<:Spin:$var[id2]> Spin$elseif[$splitText[4]==Blade]<:Blade:$var[id3]> Blade$elseif[$splitText[4]==Spring]<:Spring:$var[id4]> Spring$elseif[$splitText[4]==Bomb]<:Bomb:$var[id5]> Bomb$elseif[$splitText[4]==Smoke]<:Smoke:$var[id6]> Smoke$elseif[$splitText[4]==Spike]<:Spike:$var[id7]> Spike$elseif[$splitText[4]==Flame]<:Flame:$var[id8]> Flame$elseif[$splitText[4]==Ice]<:Ice:$var[id9]> Ice$elseif[$splitText[4]==Sand]<:Sand:$var[id10]> Sand$elseif[$splitText[4]==Dark]<:Dark:$var[id11]> Dark$elseif[$splitText[4]==Eagle]<:Eagle:$var[id12]> Eagle$elseif[$splitText[4]==Diamond]<:Diamond:$var[id13]> Diamond$elseif[$splitText[4]==Light]<:Light:$var[id14]> Light$elseif[$splitText[4]==Rubber]<:Rubber:$var[id15]> Rubber$elseif[$splitText[4]==Ghost]<:Ghost:$var[id16]> Ghost$elseif[$splitText[4]==Magma]<:Magma:$var[id17]> Magma$elseif[$splitText[4]==Quake]<:Quake:$var[id18]> Quake$elseif[$splitText[4]==Buddha]<:Buddha:$var[id19]> Buddha$elseif[$splitText[4]==Love]<:Love:$var[id20]> Love$elseif[$splitText[4]==Creation]<:Creation:$var[id21]> Creation$elseif[$splitText[4]==Spider]<:Spider:$var[id22]> Spider$elseif[$splitText[4]==Sound]<:Sound:$var[id23]> Sound$elseif[$splitText[4]==Phoenix]<:Phoenix:$var[id24]> Phoenix$elseif[$splitText[4]==Portal]<:Portal:$var[id25]> Portal$elseif[$splitText[4]==Rumble]<:Rumble:$var[id26]> Rumble$elseif[$splitText[4]==Pain]<:Pain:$var[id27]> Pain$elseif[$splitText[4]==Blizzard]<:Blizzard:$var[id28]> Blizzard$elseif[$splitText[4]==Gravity]<:Gravity:$var[id29]> Gravity$elseif[$splitText[4]==Mammoth]<:Mammoth:$var[id30]> Mammoth$elseif[$splitText[4]==T-Rex]<:TRex:$var[id31]> T-Rex$elseif[$splitText[4]==Dough]<:Dough:$var[id32]> Dough$elseif[$splitText[4]==Shadow]<:Shadow:$var[id33]> Shadow$elseif[$splitText[4]==Venom]<:Venom:$var[id34]> Venom$elseif[$splitText[4]==Control]<:Control:$var[id35]> Control$elseif[$splitText[4]==Gas]<:Gas:$var[id36]> Gas$elseif[$splitText[4]==Spirit]<:Spirit:$var[id37]> Spirit$elseif[$splitText[4]==Leopard]<:Leopard:$var[id38]> Leopard$elseif[$splitText[4]==Yeti]<:Yeti:$var[id39]> Yeti$elseif[$splitText[4]==Kitsune]<:Kitsune:$var[id40]> Kitsune$elseif[$splitText[4]==Dragon]<:EasternDragon:$var[id41]> Dragon$endif]
+$var[fruit5;$if[$splitText[5]==Rocket]<:Rocket:$var[id1]> Rocket$elseif[$splitText[5]==Spin]<:Spin:$var[id2]> Spin$elseif[$splitText[5]==Blade]<:Blade:$var[id3]> Blade$elseif[$splitText[5]==Spring]<:Spring:$var[id4]> Spring$elseif[$splitText[5]==Bomb]<:Bomb:$var[id5]> Bomb$elseif[$splitText[5]==Smoke]<:Smoke:$var[id6]> Smoke$elseif[$splitText[5]==Spike]<:Spike:$var[id7]> Spike$elseif[$splitText[5]==Flame]<:Flame:$var[id8]> Flame$elseif[$splitText[5]==Ice]<:Ice:$var[id9]> Ice$elseif[$splitText[5]==Sand]<:Sand:$var[id10]> Sand$elseif[$splitText[5]==Dark]<:Dark:$var[id11]> Dark$elseif[$splitText[5]==Eagle]<:Eagle:$var[id12]> Eagle$elseif[$splitText[5]==Diamond]<:Diamond:$var[id13]> Diamond$elseif[$splitText[5]==Light]<:Light:$var[id14]> Light$elseif[$splitText[5]==Rubber]<:Rubber:$var[id15]> Rubber$elseif[$splitText[5]==Ghost]<:Ghost:$var[id16]> Ghost$elseif[$splitText[5]==Magma]<:Magma:$var[id17]> Magma$elseif[$splitText[5]==Quake]<:Quake:$var[id18]> Quake$elseif[$splitText[5]==Buddha]<:Buddha:$var[id19]> Buddha$elseif[$splitText[5]==Love]<:Love:$var[id20]> Love$elseif[$splitText[5]==Creation]<:Creation:$var[id21]> Creation$elseif[$splitText[5]==Spider]<:Spider:$var[id22]> Spider$elseif[$splitText[5]==Sound]<:Sound:$var[id23]> Sound$elseif[$splitText[5]==Phoenix]<:Phoenix:$var[id24]> Phoenix$elseif[$splitText[5]==Portal]<:Portal:$var[id25]> Portal$elseif[$splitText[5]==Rumble]<:Rumble:$var[id26]> Rumble$elseif[$splitText[5]==Pain]<:Pain:$var[id27]> Pain$elseif[$splitText[5]==Blizzard]<:Blizzard:$var[id28]> Blizzard$elseif[$splitText[5]==Gravity]<:Gravity:$var[id29]> Gravity$elseif[$splitText[5]==Mammoth]<:Mammoth:$var[id30]> Mammoth$elseif[$splitText[5]==T-Rex]<:TRex:$var[id31]> T-Rex$elseif[$splitText[5]==Dough]<:Dough:$var[id32]> Dough$elseif[$splitText[5]==Shadow]<:Shadow:$var[id33]> Shadow$elseif[$splitText[5]==Venom]<:Venom:$var[id34]> Venom$elseif[$splitText[5]==Control]<:Control:$var[id35]> Control$elseif[$splitText[5]==Gas]<:Gas:$var[id36]> Gas$elseif[$splitText[5]==Spirit]<:Spirit:$var[id37]> Spirit$elseif[$splitText[5]==Leopard]<:Leopard:$var[id38]> Leopard$elseif[$splitText[5]==Yeti]<:Yeti:$var[id39]> Yeti$elseif[$splitText[5]==Kitsune]<:Kitsune:$var[id40]> Kitsune$elseif[$splitText[5]==Dragon]<:EasternDragon:$var[id41]> Dragon$endif]
+$var[fruit6;$if[$splitText[6]==Rocket]<:Rocket:$var[id1]> Rocket$elseif[$splitText[6]==Spin]<:Spin:$var[id2]> Spin$elseif[$splitText[6]==Blade]<:Blade:$var[id3]> Blade$elseif[$splitText[6]==Spring]<:Spring:$var[id4]> Spring$elseif[$splitText[6]==Bomb]<:Bomb:$var[id5]> Bomb$elseif[$splitText[6]==Smoke]<:Smoke:$var[id6]> Smoke$elseif[$splitText[6]==Spike]<:Spike:$var[id7]> Spike$elseif[$splitText[6]==Flame]<:Flame:$var[id8]> Flame$elseif[$splitText[6]==Ice]<:Ice:$var[id9]> Ice$elseif[$splitText[6]==Sand]<:Sand:$var[id10]> Sand$elseif[$splitText[6]==Dark]<:Dark:$var[id11]> Dark$elseif[$splitText[6]==Eagle]<:Eagle:$var[id12]> Eagle$elseif[$splitText[6]==Diamond]<:Diamond:$var[id13]> Diamond$elseif[$splitText[6]==Light]<:Light:$var[id14]> Light$elseif[$splitText[6]==Rubber]<:Rubber:$var[id15]> Rubber$elseif[$splitText[6]==Ghost]<:Ghost:$var[id16]> Ghost$elseif[$splitText[6]==Magma]<:Magma:$var[id17]> Magma$elseif[$splitText[6]==Quake]<:Quake:$var[id18]> Quake$elseif[$splitText[6]==Buddha]<:Buddha:$var[id19]> Buddha$elseif[$splitText[6]==Love]<:Love:$var[id20]> Love$elseif[$splitText[6]==Creation]<:Creation:$var[id21]> Creation$elseif[$splitText[6]==Spider]<:Spider:$var[id22]> Spider$elseif[$splitText[6]==Sound]<:Sound:$var[id23]> Sound$elseif[$splitText[6]==Phoenix]<:Phoenix:$var[id24]> Phoenix$elseif[$splitText[6]==Portal]<:Portal:$var[id25]> Portal$elseif[$splitText[6]==Rumble]<:Rumble:$var[id26]> Rumble$elseif[$splitText[6]==Pain]<:Pain:$var[id27]> Pain$elseif[$splitText[6]==Blizzard]<:Blizzard:$var[id28]> Blizzard$elseif[$splitText[6]==Gravity]<:Gravity:$var[id29]> Gravity$elseif[$splitText[6]==Mammoth]<:Mammoth:$var[id30]> Mammoth$elseif[$splitText[6]==T-Rex]<:TRex:$var[id31]> T-Rex$elseif[$splitText[6]==Dough]<:Dough:$var[id32]> Dough$elseif[$splitText[6]==Shadow]<:Shadow:$var[id33]> Shadow$elseif[$splitText[6]==Venom]<:Venom:$var[id34]> Venom$elseif[$splitText[6]==Control]<:Control:$var[id35]> Control$elseif[$splitText[6]==Gas]<:Gas:$var[id36]> Gas$elseif[$splitText[6]==Spirit]<:Spirit:$var[id37]> Spirit$elseif[$splitText[6]==Leopard]<:Leopard:$var[id38]> Leopard$elseif[$splitText[6]==Yeti]<:Yeti:$var[id39]> Yeti$elseif[$splitText[6]==Kitsune]<:Kitsune:$var[id40]> Kitsune$elseif[$splitText[6]==Dragon]<:EasternDragon:$var[id41]> Dragon$endif]
+$var[fruit7;$if[$splitText[7]==Rocket]<:Rocket:$var[id1]> Rocket$elseif[$splitText[7]==Spin]<:Spin:$var[id2]> Spin$elseif[$splitText[7]==Blade]<:Blade:$var[id3]> Blade$elseif[$splitText[7]==Spring]<:Spring:$var[id4]> Spring$elseif[$splitText[7]==Bomb]<:Bomb:$var[id5]> Bomb$elseif[$splitText[7]==Smoke]<:Smoke:$var[id6]> Smoke$elseif[$splitText[7]==Spike]<:Spike:$var[id7]> Spike$elseif[$splitText[7]==Flame]<:Flame:$var[id8]> Flame$elseif[$splitText[7]==Ice]<:Ice:$var[id9]> Ice$elseif[$splitText[7]==Sand]<:Sand:$var[id10]> Sand$elseif[$splitText[7]==Dark]<:Dark:$var[id11]> Dark$elseif[$splitText[7]==Eagle]<:Eagle:$var[id12]> Eagle$elseif[$splitText[7]==Diamond]<:Diamond:$var[id13]> Diamond$elseif[$splitText[7]==Light]<:Light:$var[id14]> Light$elseif[$splitText[7]==Rubber]<:Rubber:$var[id15]> Rubber$elseif[$splitText[7]==Ghost]<:Ghost:$var[id16]> Ghost$elseif[$splitText[7]==Magma]<:Magma:$var[id17]> Magma$elseif[$splitText[7]==Quake]<:Quake:$var[id18]> Quake$elseif[$splitText[7]==Buddha]<:Buddha:$var[id19]> Buddha$elseif[$splitText[7]==Love]<:Love:$var[id20]> Love$elseif[$splitText[7]==Creation]<:Creation:$var[id21]> Creation$elseif[$splitText[7]==Spider]<:Spider:$var[id22]> Spider$elseif[$splitText[7]==Sound]<:Sound:$var[id23]> Sound$elseif[$splitText[7]==Phoenix]<:Phoenix:$var[id24]> Phoenix$elseif[$splitText[7]==Portal]<:Portal:$var[id25]> Portal$elseif[$splitText[7]==Rumble]<:Rumble:$var[id26]> Rumble$elseif[$splitText[7]==Pain]<:Pain:$var[id27]> Pain$elseif[$splitText[7]==Blizzard]<:Blizzard:$var[id28]> Blizzard$elseif[$splitText[7]==Gravity]<:Gravity:$var[id29]> Gravity$elseif[$splitText[7]==Mammoth]<:Mammoth:$var[id30]> Mammoth$elseif[$splitText[7]==T-Rex]<:TRex:$var[id31]> T-Rex$elseif[$splitText[7]==Dough]<:Dough:$var[id32]> Dough$elseif[$splitText[7]==Shadow]<:Shadow:$var[id33]> Shadow$elseif[$splitText[7]==Venom]<:Venom:$var[id34]> Venom$elseif[$splitText[7]==Control]<:Control:$var[id35]> Control$elseif[$splitText[7]==Gas]<:Gas:$var[id36]> Gas$elseif[$splitText[7]==Spirit]<:Spirit:$var[id37]> Spirit$elseif[$splitText[7]==Leopard]<:Leopard:$var[id38]> Leopard$elseif[$splitText[7]==Yeti]<:Yeti:$var[id39]> Yeti$elseif[$splitText[7]==Kitsune]<:Kitsune:$var[id40]> Kitsune$elseif[$splitText[7]==Dragon]<:EasternDragon:$var[id41]> Dragon$endif]
+$var[fruit8;$if[$splitText[8]==Rocket]<:Rocket:$var[id1]> Rocket$elseif[$splitText[8]==Spin]<:Spin:$var[id2]> Spin$elseif[$splitText[8]==Blade]<:Blade:$var[id3]> Blade$elseif[$splitText[8]==Spring]<:Spring:$var[id4]> Spring$elseif[$splitText[8]==Bomb]<:Bomb:$var[id5]> Bomb$elseif[$splitText[8]==Smoke]<:Smoke:$var[id6]> Smoke$elseif[$splitText[8]==Spike]<:Spike:$var[id7]> Spike$elseif[$splitText[8]==Flame]<:Flame:$var[id8]> Flame$elseif[$splitText[8]==Ice]<:Ice:$var[id9]> Ice$elseif[$splitText[8]==Sand]<:Sand:$var[id10]> Sand$elseif[$splitText[8]==Dark]<:Dark:$var[id11]> Dark$elseif[$splitText[8]==Eagle]<:Eagle:$var[id12]> Eagle$elseif[$splitText[8]==Diamond]<:Diamond:$var[id13]> Diamond$elseif[$splitText[8]==Light]<:Light:$var[id14]> Light$elseif[$splitText[8]==Rubber]<:Rubber:$var[id15]> Rubber$elseif[$splitText[8]==Ghost]<:Ghost:$var[id16]> Ghost$elseif[$splitText[8]==Magma]<:Magma:$var[id17]> Magma$elseif[$splitText[8]==Quake]<:Quake:$var[id18]> Quake$elseif[$splitText[8]==Buddha]<:Buddha:$var[id19]> Buddha$elseif[$splitText[8]==Love]<:Love:$var[id20]> Love$elseif[$splitText[8]==Creation]<:Creation:$var[id21]> Creation$elseif[$splitText[8]==Spider]<:Spider:$var[id22]> Spider$elseif[$splitText[8]==Sound]<:Sound:$var[id23]> Sound$elseif[$splitText[8]==Phoenix]<:Phoenix:$var[id24]> Phoenix$elseif[$splitText[8]==Portal]<:Portal:$var[id25]> Portal$elseif[$splitText[8]==Rumble]<:Rumble:$var[id26]> Rumble$elseif[$splitText[8]==Pain]<:Pain:$var[id27]> Pain$elseif[$splitText[8]==Blizzard]<:Blizzard:$var[id28]> Blizzard$elseif[$splitText[8]==Gravity]<:Gravity:$var[id29]> Gravity$elseif[$splitText[8]==Mammoth]<:Mammoth:$var[id30]> Mammoth$elseif[$splitText[8]==T-Rex]<:TRex:$var[id31]> T-Rex$elseif[$splitText[8]==Dough]<:Dough:$var[id32]> Dough$elseif[$splitText[8]==Shadow]<:Shadow:$var[id33]> Shadow$elseif[$splitText[8]==Venom]<:Venom:$var[id34]> Venom$elseif[$splitText[8]==Control]<:Control:$var[id35]> Control$elseif[$splitText[8]==Gas]<:Gas:$var[id36]> Gas$elseif[$splitText[8]==Spirit]<:Spirit:$var[id37]> Spirit$elseif[$splitText[8]==Leopard]<:Leopard:$var[id38]> Leopard$elseif[$splitText[8]==Yeti]<:Yeti:$var[id39]> Yeti$elseif[$splitText[8]==Kitsune]<:Kitsune:$var[id40]> Kitsune$elseif[$splitText[8]==Dragon]<:EasternDragon:$var[id41]> Dragon$endif]
+$var[fruit9;$if[$splitText[9]==Rocket]<:Rocket:$var[id1]> Rocket$elseif[$splitText[9]==Spin]<:Spin:$var[id2]> Spin$elseif[$splitText[9]==Blade]<:Blade:$var[id3]> Blade$elseif[$splitText[9]==Spring]<:Spring:$var[id4]> Spring$elseif[$splitText[9]==Bomb]<:Bomb:$var[id5]> Bomb$elseif[$splitText[9]==Smoke]<:Smoke:$var[id6]> Smoke$elseif[$splitText[9]==Spike]<:Spike:$var[id7]> Spike$elseif[$splitText[9]==Flame]<:Flame:$var[id8]> Flame$elseif[$splitText[9]==Ice]<:Ice:$var[id9]> Ice$elseif[$splitText[9]==Sand]<:Sand:$var[id10]> Sand$elseif[$splitText[9]==Dark]<:Dark:$var[id11]> Dark$elseif[$splitText[9]==Eagle]<:Eagle:$var[id12]> Eagle$elseif[$splitText[9]==Diamond]<:Diamond:$var[id13]> Diamond$elseif[$splitText[9]==Light]<:Light:$var[id14]> Light$elseif[$splitText[9]==Rubber]<:Rubber:$var[id15]> Rubber$elseif[$splitText[9]==Ghost]<:Ghost:$var[id16]> Ghost$elseif[$splitText[9]==Magma]<:Magma:$var[id17]> Magma$elseif[$splitText[9]==Quake]<:Quake:$var[id18]> Quake$elseif[$splitText[9]==Buddha]<:Buddha:$var[id19]> Buddha$elseif[$splitText[9]==Love]<:Love:$var[id20]> Love$elseif[$splitText[9]==Creation]<:Creation:$var[id21]> Creation$elseif[$splitText[9]==Spider]<:Spider:$var[id22]> Spider$elseif[$splitText[9]==Sound]<:Sound:$var[id23]> Sound$elseif[$splitText[9]==Phoenix]<:Phoenix:$var[id24]> Phoenix$elseif[$splitText[9]==Portal]<:Portal:$var[id25]> Portal$elseif[$splitText[9]==Rumble]<:Rumble:$var[id26]> Rumble$elseif[$splitText[9]==Pain]<:Pain:$var[id27]> Pain$elseif[$splitText[9]==Blizzard]<:Blizzard:$var[id28]> Blizzard$elseif[$splitText[9]==Gravity]<:Gravity:$var[id29]> Gravity$elseif[$splitText[9]==Mammoth]<:Mammoth:$var[id30]> Mammoth$elseif[$splitText[9]==T-Rex]<:TRex:$var[id31]> T-Rex$elseif[$splitText[9]==Dough]<:Dough:$var[id32]> Dough$elseif[$splitText[9]==Shadow]<:Shadow:$var[id33]> Shadow$elseif[$splitText[9]==Venom]<:Venom:$var[id34]> Venom$elseif[$splitText[9]==Control]<:Control:$var[id35]> Control$elseif[$splitText[9]==Gas]<:Gas:$var[id36]> Gas$elseif[$splitText[9]==Spirit]<:Spirit:$var[id37]> Spirit$elseif[$splitText[9]==Leopard]<:Leopard:$var[id38]> Leopard$elseif[$splitText[9]==Yeti]<:Yeti:$var[id39]> Yeti$elseif[$splitText[9]==Kitsune]<:Kitsune:$var[id40]> Kitsune$elseif[$splitText[9]==Dragon]<:EasternDragon:$var[id41]> Dragon$endif]
+$var[fruit10;$if[$splitText[10]==Rocket]<:Rocket:$var[id1]> Rocket$elseif[$splitText[10]==Spin]<:Spin:$var[id2]> Spin$elseif[$splitText[10]==Blade]<:Blade:$var[id3]> Blade$elseif[$splitText[10]==Spring]<:Spring:$var[id4]> Spring$elseif[$splitText[10]==Bomb]<:Bomb:$var[id5]> Bomb$elseif[$splitText[10]==Smoke]<:Smoke:$var[id6]> Smoke$elseif[$splitText[10]==Spike]<:Spike:$var[id7]> Spike$elseif[$splitText[10]==Flame]<:Flame:$var[id8]> Flame$elseif[$splitText[10]==Ice]<:Ice:$var[id9]> Ice$elseif[$splitText[10]==Sand]<:Sand:$var[id10]> Sand$elseif[$splitText[10]==Dark]<:Dark:$var[id11]> Dark$elseif[$splitText[10]==Eagle]<:Eagle:$var[id12]> Eagle$elseif[$splitText[10]==Diamond]<:Diamond:$var[id13]> Diamond$elseif[$splitText[10]==Light]<:Light:$var[id14]> Light$elseif[$splitText[10]==Rubber]<:Rubber:$var[id15]> Rubber$elseif[$splitText[10]==Ghost]<:Ghost:$var[id16]> Ghost$elseif[$splitText[10]==Magma]<:Magma:$var[id17]> Magma$elseif[$splitText[10]==Quake]<:Quake:$var[id18]> Quake$elseif[$splitText[10]==Buddha]<:Buddha:$var[id19]> Buddha$elseif[$splitText[10]==Love]<:Love:$var[id20]> Love$elseif[$splitText[10]==Creation]<:Creation:$var[id21]> Creation$elseif[$splitText[10]==Spider]<:Spider:$var[id22]> Spider$elseif[$splitText[10]==Sound]<:Sound:$var[id23]> Sound$elseif[$splitText[10]==Phoenix]<:Phoenix:$var[id24]> Phoenix$elseif[$splitText[10]==Portal]<:Portal:$var[id25]> Portal$elseif[$splitText[10]==Rumble]<:Rumble:$var[id26]> Rumble$elseif[$splitText[10]==Pain]<:Pain:$var[id27]> Pain$elseif[$splitText[10]==Blizzard]<:Blizzard:$var[id28]> Blizzard$elseif[$splitText[10]==Gravity]<:Gravity:$var[id29]> Gravity$elseif[$splitText[10]==Mammoth]<:Mammoth:$var[id30]> Mammoth$elseif[$splitText[10]==T-Rex]<:TRex:$var[id31]> T-Rex$elseif[$splitText[10]==Dough]<:Dough:$var[id32]> Dough$elseif[$splitText[10]==Shadow]<:Shadow:$var[id33]> Shadow$elseif[$splitText[10]==Venom]<:Venom:$var[id34]> Venom$elseif[$splitText[10]==Control]<:Control:$var[id35]> Control$elseif[$splitText[10]==Gas]<:Gas:$var[id36]> Gas$elseif[$splitText[10]==Spirit]<:Spirit:$var[id37]> Spirit$elseif[$splitText[10]==Leopard]<:Leopard:$var[id38]> Leopard$elseif[$splitText[10]==Yeti]<:Yeti:$var[id39]> Yeti$elseif[$splitText[10]==Kitsune]<:Kitsune:$var[id40]> Kitsune$elseif[$splitText[10]==Dragon]<:EasternDragon:$var[id41]> Dragon$endif]
+
+$title[Blox Fruits __Mirage__ Stock]
+$description[The Fruits are listed below:
+$var[fruit1]
+$var[fruit2]
+$var[fruit3]
+$var[fruit4]
+$var[fruit5]
+$var[fruit6]
+$var[fruit7]
+$var[fruit8]
+$var[fruit9]
+$var[fruit10]
+]
+$footer[Bloxfruits Stock | By Zubariel]
+
+$else
+Usage: `!stock {normal or mirage}`
+
+$endif</code></pre>
+        <button class="copy-button" onclick="copyCode(this)">
+          <i class="fa-solid fa-copy mr-2"></i>Copy Code
+        </button>
+      </div>
+      <div id="tab-2" class="code-tab is-hidden">
+        <pre><code class="bdfd-code">$nomention
+
+$var[item-multi-1;$sum[1;$getVar[item1;$authorID]]]
+$var[item-multi-2;$sum[$var[item-multi-1];$getVar[item2;$authorID]]]
+$var[item-multi-3;$sum[$var[item-multi-2];$getVar[item3;$authorID]]]
+$c[copy paste the same thing and change the numbers/ item name]
+
+$setVar[clicker;$sum[$getVar[clicker;$authorID];$var[item-multi-3]];$authorID]
+$c[The var[item-multi-3] should be changed to your latest item temp-variable]
+
+$title[Clicking Game]
+$description[Hey <@$authorID>,
+Click the button below to gain clicks and have fun!!
+You currently have `$getVar[clicker;$authorID]` clicks and have these multipliers:
+$if[$getVar[item1;$authorID]!=0]Item 1: `+$getVar[item1;$authorID]` ($getVar[item1;$authorID])$else no item1 multiplers :<$endif
+$if[$getVar[item2;$authorID]!=0]Item 2: `+$getVar[item2;$authorID]` ($divide[$getVar[item2;$authorID];2])$else no item2 multiplers :<$endif
+$if[$getVar[item3;$authorID]!=0]Item 3: `+$getVar[item3;$authorID]` ($divide[$getVar[item3;$authorID];3])$else no item3 multiplers :<$endif
+]
+$c[Keep adding more if (and all that) here to include more items]
+$color[#2F3136]</code></pre>
+        <button class="copy-button" onclick="copyCode(this)">
+          <i class="fa-solid fa-copy mr-2"></i>Copy Code
+        </button>
+      </div>
+      <div id="tab-3" class="code-tab is-hidden">
+        <pre><code class="bdfd-code">$nomention
+$ephemeral
+$removeAllComponents
+
+$title[Clicker Game Shop]
+$description[
+**Item 1** - 1000 Clicks  
+> ...description... ( +1 Multi )
+
+**Item 2** - 5000 Clicks  
+> ...description... ( +2 Multi )
+
+**Item 3** - 10000 Clicks  
+> ...description... ( +3 Multi )
+]
+$c[Keep expanding with more items in the shop as you add more]
+$color[#2F3136]
+$footer[Note: Use !buy to buy these items.]</code></pre>
+        <button class="copy-button" onclick="copyCode(this)">
+          <i class="fa-solid fa-copy mr-2"></i>Copy Code
+        </button>
+      </div>
+      <div id="tab-4" class="code-tab is-hidden">
+        <pre><code class="bdfd-code">$nomention
+$onlyIf[$guildID!=;]
+$allowUserMentions[]
+$reply
+
+$if[$message==]
+Usage: !buy {item} {amount}
+
+$else
+
+$var[price1;$multi[1000;$message[2;amount]]]
+$var[price2;$multi[5000;$message[2;amount]]]
+$var[price3;$multi[10000;$message[2;amount]]]
+$c[add more price variables as you add more items and the number inside multi is the actual price btw]
+
+$if[$toLowercase[$message[1;item]==item1]]
+
+$onlyIf[$getVar[clicker;$authorID]>=$var[price1];You don't have enough clicks to buy this item.]
+
+$description[Successfully bought `$message[2;amount]` Item 1(s).]
+$color[#2F3136]
+
+$setVar[item1;$sum[$getVar[item1;$authorID];$message[2;amount]];$authorID]
+$setVar[clicker;$sub[$getVar[clicker;$authorID];$var[price1]];$authorID]
+
+$elseif[$toLowercase[$message[1;item]==item2]]
+
+$onlyIf[$getVar[clicker;$authorID]>=$var[price2];You don't have enough clicks to buy this item.]
+
+$description[Successfully bought `$message[2;amount]` Item2(s).]
+$color[#2F3136]
+
+$var[temp-item2;$multi[$message[2;amount];2]]
+$c[The 2 at the end here is because this item gives a +2 multiplier]
+$setVar[item2;$sum[$getVar[item2;$authorID];$var[temp-item2]];$authorID]
+$setVar[clicker;$sub[$getVar[clicker;$authorID];$var[price2]];$authorID]
+
+$elseif[$toLowercase[$message[1;item]==item3]]
+
+$onlyIf[$getVar[clicker;$authorID]>=$var[price3];You don't have enough clicks to buy this item.]
+
+$description[Successfully bought `$message[2;amount]` Item3(s).]
+$color[#2F3136]
+
+$var[temp-item3;$multi[$message[2;amount];3]]
+$c[The 3 at the end here is because this item gives a +2 multiplier]
+$setVar[item3;$sum[$getVar[item3;$authorID];$var[temp-item3]];$authorID]
+$setVar[clicker;$sub[$getVar[clicker;$authorID];$var[price3]];$authorID]
+
+$endif
+$endif</code></pre>
+        <button class="copy-button" onclick="copyCode(this)">
+          <i class="fa-solid fa-copy mr-2"></i>Copy Code
+        </button>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <div class="text-center">
+        <p class="text-sm text-text-muted font-mono">© 2023-2026 Zubariel. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const BDScriptHighlighter = (function() {
+        function intToRgba(intColor) {
+            if (typeof intColor !== 'number' || isNaN(intColor)) return 'rgba(228, 228, 231, 1)';
+            const r = (intColor >> 16) & 0xFF;
+            const g = (intColor >> 8) & 0xFF;
+            const b = intColor & 0xFF;
+            let a = ((intColor >> 24) & 0xFF);
+            a = (isNaN(a) || a < 0 || a > 255) ? 255 : a;
+            return `rgba(${r}, ${g}, ${b}, ${a / 255})`;
+        }
+        function escapeHtml(unsafe) {
+            if (typeof unsafe !== 'string') return '';
+            return unsafe.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        }
+        function safeGet(obj, path, defaultValue) {
+            const keys = path.split('.');
+            let current = obj;
+            for (const key of keys) {
+                if (current === null || typeof current !== 'object' || !(key in current)) return defaultValue;
+                current = current[key];
+            }
+            return current === undefined ? defaultValue : current;
+        }
+        function getStyleCss(colorInt, styleInt) {
+            const color = intToRgba(colorInt);
+            let fontWeight = 'normal', fontStyle = 'normal';
+            if (styleInt === 1 || styleInt === 3) fontWeight = 'bold';
+            if (styleInt === 2 || styleInt === 3) fontStyle = 'italic';
+            return `color: ${color}; font-weight: ${fontWeight}; font-style: ${fontStyle};`;
+        }
+        function highlight(code, themeConfig) {
+            if (typeof code !== 'string') code = '';
+            if (typeof themeConfig !== 'object' || themeConfig === null) themeConfig = {};
+            const defaultStyleCss = getStyleCss(safeGet(themeConfig, 'defaultTextHighlight.color'), safeGet(themeConfig, 'defaultTextHighlight.style'));
+            const fallbackStyleCss = getStyleCss(safeGet(themeConfig, 'fallbackHighlight.color'), safeGet(themeConfig, 'fallbackHighlight.style'));
+            const bracketStyleCss = getStyleCss(safeGet(themeConfig, 'bracketHighlight.color'), safeGet(themeConfig, 'bracketHighlight.style'));
+            const semicolonStyleCss = getStyleCss(safeGet(themeConfig, 'semicolonHighlight.color'), safeGet(themeConfig, 'semicolonHighlight.style'));
+            const functionMap = new Map();
+            const functionsHighlights = safeGet(themeConfig, 'functionsHighlights', {});
+            for (const funcName in functionsHighlights) {
+                if (Object.hasOwnProperty.call(functionsHighlights, funcName) && funcName.startsWith('$')) {
+                    const funcData = functionsHighlights[funcName];
+                    functionMap.set(funcName, getStyleCss(safeGet(funcData, 'color'), safeGet(funcData, 'style')));
+                }
+            }
+            let resultHtml = '';
+            const functionRegex = /(\$[$a-zA-Z0-9_]+)/g;
+            let lastIndex = 0;
+            code.replace(functionRegex, (match, funcName, offset) => {
+                if (offset > lastIndex) {
+                    resultHtml += processTextSegment(code.substring(lastIndex, offset), defaultStyleCss, bracketStyleCss, semicolonStyleCss);
+                }
+                const funcStyleCss = functionMap.get(funcName) || fallbackStyleCss;
+                resultHtml += `<span style="${funcStyleCss}">${escapeHtml(funcName)}</span>`;
+                lastIndex = offset + funcName.length;
+                return match;
+            });
+            if (lastIndex < code.length) {
+                resultHtml += processTextSegment(code.substring(lastIndex), defaultStyleCss, bracketStyleCss, semicolonStyleCss);
+            }
+            return `<pre><code class="bdscript-highlight">${resultHtml}</code></pre>`;
+        }
+        function processTextSegment(text, defaultStyleCss, bracketStyleCss, semicolonStyleCss) {
+            let segmentHtml = '', currentBuffer = '', inString = false, stringChar = null, escapeNext = false;
+            for (let i = 0; i < text.length; i++) {
+                const char = text[i];
+                if (escapeNext) { currentBuffer += char; escapeNext = false; continue; }
+                if (char === '\\') { currentBuffer += char; escapeNext = true; continue; }
+                if (inString) {
+                    currentBuffer += char;
+                    if (char === stringChar) inString = false;
+                    continue;
+                }
+                if (char === "'" || char === '"' || char === '`') {
+                    if (currentBuffer.length > 0) { segmentHtml += `<span style="${defaultStyleCss}">${escapeHtml(currentBuffer)}</span>`; currentBuffer = ''; }
+                    inString = true; stringChar = char; currentBuffer += char;
+                    continue;
+                }
+                if (char === '[' || char === ']' || char === ';') {
+                    if (currentBuffer.length > 0) { segmentHtml += `<span style="${defaultStyleCss}">${escapeHtml(currentBuffer)}</span>`; currentBuffer = ''; }
+                    const style = (char === '[' || char === ']') ? bracketStyleCss : semicolonStyleCss;
+                    segmentHtml += `<span style="${style}">${escapeHtml(char)}</span>`;
+                    continue;
+                }
+                currentBuffer += char;
+            }
+            if (currentBuffer.length > 0) {
+                segmentHtml += `<span style="${defaultStyleCss}">${escapeHtml(currentBuffer)}</span>`;
+            }
+            return segmentHtml;
+        }
+        return { highlight: highlight };
+    })();
+    function copyCode(buttonElement) {
+        const preElement = buttonElement.previousElementSibling;
+        if (!preElement || preElement.tagName !== 'PRE') {
+            console.error("Could not find <pre> element to copy.");
+            return;
+        }
+        const codeToCopy = preElement.textContent || "";
+        navigator.clipboard.writeText(codeToCopy).then(() => {
+            const originalHTML = buttonElement.innerHTML;
+            buttonElement.innerHTML = `<i class="fa-solid fa-check mr-2"></i>Copied!`;
+            setTimeout(() => {
+                buttonElement.innerHTML = originalHTML;
+            }, 2000);
+        }).catch(err => {
+            console.error("Failed to copy code: ", err);
+            alert("Failed to copy code.");
+        });
+    }
+    function showTab(tabId, event) {
+        document.querySelectorAll('.code-tab').forEach(el => el.classList.add('is-hidden'));
+        document.getElementById(tabId).classList.remove('is-hidden');
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+        const themeConfig = {"defaultTextHighlight":{"color":4288341353,"style":0},"fallbackHighlight":{"color":4285791231,"style":0},"bracketHighlight":{"color":4294921292,"style":1},"semicolonHighlight":{"color":4294920266,"style":1},"functionsHighlights":{"$nomention":{"color":4294932473,"style":0},"$catch":{"color":4288905212,"style":0},"$else":{"color":4288905212,"style":0},"$elseif":{"color":4288905212,"style":0},"$endif":{"color":4288905212,"style":0},"$endtry":{"color":4288905212,"style":0},"$error":{"color":4288905212,"style":0},"$if":{"color":4288905212,"style":0},"$try":{"color":4288905212,"style":0}}};
+        const bdfdFunctionsInSnippets = ['$deleteIn', '$description', '$image', '$color', '$setServerVar', '$randomText', '$replyIn', '$title', '$getServerVar', '$footer', '$addTimestamp', '$reply', '$onlyIf', '$message', '$setUserVar', '$getUserVar', '$findUser', '$displayName', '$authorID'];
+        bdfdFunctionsInSnippets.forEach(func => {
+            if (!themeConfig.functionsHighlights[func]) {
+                themeConfig.functionsHighlights[func] = { color: 4285791231, style: 0 };
+            }
+        });
+        const codeBlocks = document.querySelectorAll('code.bdfd-code');
+        codeBlocks.forEach(codeElement => {
+            const preElement = codeElement.parentElement;
+            const rawCode = codeElement.textContent || '';
+            const highlightedHtml = BDScriptHighlighter.highlight(rawCode, themeConfig);
+            if (preElement) {
+                preElement.outerHTML = highlightedHtml;
+            }
+        });
+    });
+  </script>
+</body>
+</html>

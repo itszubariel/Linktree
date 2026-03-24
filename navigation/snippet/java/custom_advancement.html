@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom Advancement Snippet</title>
+  <link rel="icon" href="/images/2pfp.jpg" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    :root {
+      --bg-primary: #050505;
+      --bg-secondary: #101010;
+      --text-primary: #e4e4e7;
+      --text-secondary: #a1a1aa;
+      --accent: #8b5cf6;
+      --accent-glow: rgba(139, 92, 246, 0.2);
+      --border-color: rgba(255, 255, 255, 0.05);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    body { background: var(--bg-primary); color: var(--text-primary); font-family: 'Inter', sans-serif; }
+    .stagger-load > * { opacity: 0; animation: fadeIn 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards; }
+    .stagger-load > *:nth-child(1) { animation-delay: 0.1s; }
+    .stagger-load > *:nth-child(2) { animation-delay: 0.2s; }
+    .stagger-load > *:nth-child(3) { animation-delay: 0.3s; }
+    .stagger-load > *:nth-child(4) { animation-delay: 0.4s; }
+    .stagger-load > *:nth-child(5) { animation-delay: 0.5s; }
+    .code-container { position: relative; }
+    pre {
+      padding: 1.5rem; border-radius: 0.5rem; overflow-x: auto;
+      background: var(--bg-secondary) !important;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+      line-height: 1.6; margin: 0;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    pre:hover { border-color: rgba(139, 92, 246, 0.4); box-shadow: 0 0 20px var(--accent-glow); }
+    code.custom-highlight { font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; white-space: pre-wrap; word-break: break-word; }
+    .tab-btn {
+      background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text-secondary); transition: all 0.25s ease-out; transform: translateY(0);
+    }
+    .tab-btn:hover { transform: translateY(-2px); color: var(--text-primary); }
+    .tab-btn.active { background: var(--accent); color: white; border-color: var(--accent); transform: translateY(-1px); box-shadow: 0 4px 15px var(--accent-glow); }
+    .nav-link { color: var(--text-secondary); font-weight: 500; font-size: 0.9rem; text-decoration: none; transition: color 0.3s ease; position: relative; display: inline-block; }
+    .nav-link::after { content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 1px; bottom: -4px; left: 0; background-color: var(--accent); transform-origin: bottom right; transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1); }
+    .nav-link:hover { color: var(--text-primary); }
+    .nav-link:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+    .copy-button { margin-top: 10px; padding: 8px 16px; background: #333333; color: #ffffff; border: none; border-radius: 5px; cursor: pointer; margin-bottom: 50px; transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.2s ease-out; }
+    .copy-button:hover { transform: translateY(-2px); box-shadow: 0 4px 10px var(--accent-glow); background-color: #3f3f46; }
+    .copy-button:active { transform: scale(0.98) translateY(-1px); box-shadow: 0 2px 5px var(--accent-glow); }
+    .text-accent { color: var(--accent); }
+    .code-tab { transition: opacity 0.4s ease, transform 0.4s ease; opacity: 1; transform: translateY(0); }
+    .code-tab.is-hidden { opacity: 0; transform: translateY(10px); position: absolute; pointer-events: none; height: 0; overflow: hidden; }
+  </style>
+</head>
+<body class="p-8">
+  <div class="max-w-4xl mx-auto stagger-load">
+    <div class="mb-8">
+      <a href="/snippet" class="nav-link text-sm"><i class="fa-solid fa-arrow-left mr-1"></i>Back to Snippets</a>
+    </div>
+
+    <h1 class="text-3xl font-bold mb-6">Custom Advancement <span class="text-accent">Snippet</span>.</h1>
+
+<p class="mb-6" style="color:var(--text-secondary);">
+  A full custom advancement setup for Minecraft using a custom trigger.
+  Covers the advancement JSON, the custom criterion class, and the registration class.
+  Swap <code style="color:var(--accent);font-size:0.85em;">yourmod</code> with your namespace throughout.
+  <br><br>
+  <strong style="color:var(--text-primary);">How to Use?</strong><br>
+  Create the custom criterion class, register it in
+  <code style="color:var(--accent);font-size:0.85em;">ModAdvancements</code>, and create the advancement JSON
+  in <code style="color:var(--accent);font-size:0.85em;">data/yourmod/advancements</code>.
+  <br><br>
+  <strong style="color:var(--text-primary);">Requirements</strong><br>
+  Fabric API, Minecraft 1.20+, Java 17+.
+</p>
+
+    <div class="flex gap-2 mb-4">
+        <button class="tab-btn px-4 py-2 rounded" onclick="showTab('tab-1', event)">Registration</button>
+        <button class="tab-btn px-4 py-2 rounded" onclick="showTab('tab-2', event)">Custom Trigger</button>
+      <button class="tab-btn px-4 py-2 rounded active" onclick="showTab('tab-3', event)">Advancement JSON</button>
+      
+      
+    </div>
+
+    <div class="code-container">
+
+      <div id="tab-3" class="code-tab">
+        <pre><code class="json-code">{
+  "display": {
+    "icon": { "item": "minecraft:diamond" },
+    "title": "Example Advancement",
+    "description": "Awarded for clicking the diamond block",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "clicked_diamond": {
+      "trigger": "yourmod:clicked_diamond_block"
+    }
+  },
+  "rewards": { "experience": 100 }
+}</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fa-solid fa-copy mr-2"></i>Copy Code</button>
+      </div>
+
+      <div id="tab-2" class="code-tab is-hidden">
+        <pre><code class="java-code">package com.yourmod.advancement;
+
+import net.minecraft.advancement.criterion.AbstractCriterion;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.util.Identifier;
+
+public class ClickedDiamondCriterion extends AbstractCriterion<ClickedDiamondCriterion.Conditions> {
+
+    public ClickedDiamondCriterion() {
+        super(new Identifier("yourmod", "clicked_diamond_block"));
+    }
+
+    @Override
+    public Conditions conditionsFromJson(com.google.gson.JsonObject json) {
+        return new Conditions();
+    }
+
+    public void trigger(ServerPlayerEntity player) {
+        this.test(player, Conditions::new);
+    }
+
+    public static class Conditions extends AbstractCriterion.Conditions {
+        public Conditions() { super(); }
+    }
+}</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fa-solid fa-copy mr-2"></i>Copy Code</button>
+      </div>
+
+      <div id="tab-1" class="code-tab is-hidden">
+        <pre><code class="java-code">package com.yourmod.advancement;
+
+import com.yourmod.YourMod;
+import net.minecraft.advancement.criterion.CriterionRegistry;
+
+public class ModAdvancements {
+
+    public static void registerAdvancements() {
+        YourMod.LOGGER.info("Registering custom advancements...");
+        CriterionRegistry.register(new ClickedDiamondCriterion());
+    }
+}</code></pre>
+        <button class="copy-button" onclick="copyCode(this)"><i class="fa-solid fa-copy mr-2"></i>Copy Code</button>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <div class="text-center">
+        <p class="text-sm font-mono" style="color:var(--text-secondary);">© 2023-2026 Zubariel. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function copyCode(btn) {
+      const tab = btn.closest('.code-tab');
+      const raw = tab ? tab.querySelector('.raw-code') : null;
+      const text = raw ? raw.value : '';
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = btn.innerHTML;
+        btn.innerHTML = '<i class="fa-solid fa-check mr-2"></i>Copied!';
+        setTimeout(() => btn.innerHTML = orig, 2000);
+      }).catch(() => alert('Failed to copy.'));
+    }
+    function showTab(tabId, event) {
+      document.querySelectorAll('.code-tab').forEach(el => el.classList.add('is-hidden'));
+      document.getElementById(tabId).classList.remove('is-hidden');
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+  </script>
+
+  <script>
+  const CustomHighlighter = (function () {
+    function escapeHtml(html) { return html.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+    function style(color, fw, fs) { fw = fw || 'normal'; fs = fs || 'normal'; return "style='color:"+color+";font-weight:"+fw+";font-style:"+fs+"'"; }
+    function sp(s, color, fw, fs) { return '<span '+style(color,fw,fs)+'>'+s+'</span>'; }
+
+    function highlightJava(code) {
+      var e = escapeHtml(code);
+      e = e.replace(/(\/\*[\s\S]*?\*\/)/g, m => sp(m,'#6b7280','normal','italic'));
+      e = e.replace(/(\/\/[^\n]*)/g, m => sp(m,'#6b7280','normal','italic'));
+      e = e.replace(/(&quot;(?:[^&]|&(?!quot;))*?&quot;)/g, m => sp(m,'#34d399'));
+      e = e.replace(/(@[a-zA-Z]+)/g, m => sp(m,'#facc15'));
+      ['package','import','public','private','protected','static','final','abstract','new','return','if','else','for','while','do','switch','case','break','continue','this','super','throws','throw','try','catch','finally','instanceof','class','interface','extends','implements','void','enum'].forEach(kw => {
+        e = e.replace(new RegExp('(?<![a-zA-Z0-9_])('+kw+')(?![a-zA-Z0-9_])','g'), m => sp(m,'#60a5fa','bold'));
+      });
+      ['int','boolean','float','double','long','byte','char','short'].forEach(t => { e = e.replace(new RegExp('(?<![a-zA-Z0-9_])('+t+')(?![a-zA-Z0-9_])','g'), m => sp(m,'#f472b6')); });
+      ['String','List','Map','Block','BlockState','BlockPos','BlockItem','AbstractBlock','MapColor','Item','World','PlayerEntity','ActionResult','BlockHitResult','Identifier','Registry','Registries','Settings'].forEach(c => { e = e.replace(new RegExp('(?<![a-zA-Z0-9_])('+c+')(?![a-zA-Z0-9_])','g'), m => sp(m,'#f472b6')); });
+      ['null','true','false'].forEach(kw => { e = e.replace(new RegExp('(?<![a-zA-Z0-9_])('+kw+')(?![a-zA-Z0-9_])','g'), m => sp(m,'#f472b6')); });
+      e = e.replace(/(?<![a-zA-Z0-9_])(\d+\.?\d*)(?![a-zA-Z0-9_])/g, m => sp(m,'#fbbf24'));
+      e = e.replace(/([a-zA-Z_][a-zA-Z0-9_]*)\s*(?=\()/g, m => sp(m,'#a78bfa'));
+      e = e.replace(/(\.)([a-zA-Z_][a-zA-Z0-9_]*)/g, (m,d,p) => d+sp(p,'#22d3ee'));
+      return e;
+    }
+
+    function highlightJSON(code) {
+      var e = escapeHtml(code);
+      e = e.replace(/(&quot;[^&]*?&quot;)(\s*:)/g, (m,key,colon) => sp(key,'#facc15')+colon);
+      e = e.replace(/(:\s*)(&quot;[^&]*?&quot;)/g, (m,sep,val) => sep+sp(val,'#34d399'));
+      ['true','false','null'].forEach(kw => { e = e.replace(new RegExp('(?<![a-zA-Z0-9_])('+kw+')(?![a-zA-Z0-9_])','g'), m => sp(m,'#f472b6')); });
+      e = e.replace(/(?<![a-zA-Z0-9_])(\d+\.?\d*)(?![a-zA-Z0-9_])/g, m => sp(m,'#fbbf24'));
+      return e;
+    }
+
+    function highlight(code, lang) {
+      if(lang==='java') return highlightJava(code);
+      if(lang==='json') return highlightJSON(code);
+      return escapeHtml(code);
+    }
+    return { highlight: highlight };
+  })();
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('code').forEach(function(codeBlock){
+      var pre = codeBlock.parentElement;
+      if(!pre || pre.tagName!=='PRE') return;
+      var raw = codeBlock.textContent;
+      var lang = null;
+      if(codeBlock.classList.contains('java-code')) lang='java';
+      else if(codeBlock.classList.contains('json-code')) lang='json';
+      if(lang){
+        var tab = pre.closest('.code-tab');
+        if(tab && !tab.querySelector('.raw-code')){
+          var ta = document.createElement('textarea');
+          ta.className='raw-code';
+          ta.style.display='none';
+          ta.value=raw;
+          tab.appendChild(ta);
+        }
+        var highlighted = CustomHighlighter.highlight(raw,lang);
+        pre.outerHTML='<pre><code class="custom-highlight">'+highlighted+'</code></pre>';
+      }
+    });
+  });
+  </script>
+</body>
+</html>
