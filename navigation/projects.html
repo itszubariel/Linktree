@@ -36,8 +36,8 @@
                         'slide-up': 'slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
                     },
                     keyframes: {
-                        fadeIn: { 'from': { opacity: '0' }, 'to': { opacity: '1' }, },
-                        slideUp: { 'from': { opacity: '0', transform: 'translateY(40px)' }, 'to': { opacity: '1', transform: 'translateY(0)' }, },
+                        fadeIn: { 'from': { opacity: '0' }, 'to': { opacity: '1' } },
+                        slideUp: { 'from': { opacity: '0', transform: 'translateY(40px)' }, 'to': { opacity: '1', transform: 'translateY(0)' } },
                     }
                 },
             },
@@ -47,33 +47,35 @@
     <style>
         :root {
             --bg-primary: #050505;
-            --bg-secondary: #101010;
-            --bg-tertiary: #191919;
-            --border-subtle: rgba(255, 255, 255, 0.05);
-            --border-medium: rgba(255, 255, 255, 0.1);
+            --bg-secondary: #0f0f0f;
+            --bg-tertiary: #161616;
+            --border-subtle: rgba(255, 255, 255, 0.055);
+            --border-medium: rgba(255, 255, 255, 0.09);
+            --border-accent: rgba(139, 92, 246, 0.3);
             --text-primary: #e4e4e7;
             --text-secondary: #a1a1aa;
-            --text-muted: #71717a;
+            --text-muted: #52525b;
             --accent: #8b5cf6;
             --accent-light: #a78bfa;
-            --accent-gradient: linear-gradient(90deg, var(--accent-light), var(--accent));
+            --accent-dim: rgba(139, 92, 246, 0.1);
+            --accent-gradient: linear-gradient(135deg, var(--accent-light), var(--accent));
         }
 
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
         }
 
         ::-webkit-scrollbar-track {
-            background: var(--bg-primary);
+            background: transparent;
         }
 
         ::-webkit-scrollbar-thumb {
             background: var(--border-medium);
-            border-radius: 4px;
+            border-radius: 3px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--text-muted);
+            background: rgba(255, 255, 255, 0.15);
         }
 
         html {
@@ -84,9 +86,12 @@
             background-color: var(--bg-primary);
             color: var(--text-primary);
             font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
+            background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.018) 1px, transparent 0);
+            background-size: 28px 28px;
         }
 
         #background-svg {
@@ -100,20 +105,20 @@
         }
 
         .site-header {
-            background-color: rgba(5, 5, 5, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background-color: rgba(5, 5, 5, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-subtle);
-            transition: all 0.3s ease;
         }
 
         .nav-link {
             position: relative;
-            color: var(--text-secondary);
+            color: var(--text-muted);
             font-weight: 500;
-            font-size: 0.9rem;
-            padding: 0.25rem 0.125rem;
-            transition: color 0.3s ease;
+            font-size: 0.85rem;
+            padding: 0.25rem 0;
+            letter-spacing: 0.01em;
+            transition: color 0.25s ease;
             text-decoration: none;
         }
 
@@ -126,10 +131,10 @@
             content: '';
             position: absolute;
             width: 0;
-            height: 2px;
+            height: 1.5px;
             bottom: -4px;
             left: 0;
-            background: var(--accent);
+            background: var(--accent-light);
             transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -143,45 +148,46 @@
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-            font-weight: 600;
-            font-size: 0.9rem;
-            padding: 0.75rem 1.75rem;
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 0.625rem 1.375rem;
             border-radius: 0.5rem;
             text-decoration: none;
             transition: all 0.2s ease;
             cursor: pointer;
             border: 1px solid transparent;
+            letter-spacing: 0.01em;
         }
 
         .btn-primary {
             background: var(--accent);
             color: white;
-            box-shadow: 0 4px 14px rgba(139, 92, 246, 0.25);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
         }
 
         .btn-primary:hover {
             background: var(--accent-light);
-            transform: translateY(-2px);
-            box-shadow: 0 7px 20px rgba(167, 139, 250, 0.3);
+            transform: translateY(-1px);
+            box-shadow: 0 0 28px rgba(167, 139, 250, 0.28);
         }
 
         .btn-secondary {
             background: var(--bg-tertiary);
-            color: var(--text-primary);
+            color: var(--text-secondary);
             border: 1px solid var(--border-medium);
         }
 
         .btn-secondary:hover {
-            background: var(--bg-secondary);
-            border-color: var(--accent-light);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--border-accent);
             color: var(--accent-light);
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
 
         .animated-element {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(24px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .animated-element.visible {
@@ -194,36 +200,17 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-fill-color: transparent;
         }
 
         .social-link {
-            color: var(--text-secondary);
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
+            color: var(--text-muted);
+            font-size: 1.25rem;
+            transition: all 0.25s ease;
         }
 
         .social-link:hover {
             color: var(--accent-light);
-            transform: translateY(-3px);
-        }
-
-        .snippet-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-subtle);
-            border-radius: 1rem;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .snippet-card:hover {
-            border-color: var(--border-medium);
-            transform: translateY(-6px);
-            box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.5);
+            transform: translateY(-2px);
         }
 
         .lang-tag {
@@ -238,143 +225,6 @@
             color: var(--accent);
         }
 
-        :root {
-            --bg-primary: #050505;
-            --bg-secondary: #101010;
-            --bg-tertiary: #191919;
-            --bg-card: rgba(22, 22, 22, 0.5);
-            --border-subtle: rgba(255, 255, 255, 0.05);
-            --border-medium: rgba(255, 255, 255, 0.1);
-            --text-primary: #e4e4e7;
-            --text-secondary: #a1a1aa;
-            --text-muted: #71717a;
-            --accent: #8b5cf6;
-            --accent-light: #a78bfa;
-            --accent-dark: #6d28d9;
-            --accent-gradient: linear-gradient(90deg, var(--accent-light), var(--accent));
-            --success: #10b981;
-            --warning: #f59e0b;
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-primary);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--border-medium);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--text-muted);
-        }
-
-        html {
-            background-color: var(--bg-primary);
-        }
-
-        body {
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            overflow-x: hidden;
-            background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.025) 1px, transparent 0);
-            background-size: 24px 24px;
-        }
-
-        .section-title {
-            font-family: 'Unbounded', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            text-align: center;
-            margin-bottom: 4rem;
-            color: var(--text-primary);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -0.75rem;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4rem;
-            height: 3px;
-            background: var(--accent-gradient);
-            border-radius: 2px;
-        }
-
-        @media (min-width: 768px) {
-            .section-title {
-                font-size: 3.5rem;
-            }
-        }
-
-        .site-header {
-            background-color: rgba(5, 5, 5, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--border-subtle);
-            transition: all 0.3s ease;
-        }
-
-        .nav-link {
-            position: relative;
-            color: var(--text-secondary);
-            font-weight: 500;
-            font-size: 0.9rem;
-            padding: 0.25rem 0.125rem;
-            transition: color 0.3s ease;
-            text-decoration: none;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--text-primary);
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background: var(--accent);
-            transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-
-        .glass-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: 1rem;
-            padding: 2.5rem;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            height: 100%;
-        }
-
-        .glass-card:hover {
-            border-color: var(--border-medium);
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
-        }
-
         .project-card {
             background: var(--bg-secondary);
             border: 1px solid var(--border-subtle);
@@ -384,13 +234,13 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
         }
 
         .project-card:hover {
             border-color: var(--border-medium);
-            transform: translateY(-6px) scale(1.02);
-            box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.4);
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.5);
         }
 
         .project-card .project-image-wrapper {
@@ -407,201 +257,11 @@
         }
 
         .project-card:hover img {
-            transform: scale(1.1);
+            transform: scale(1.08);
         }
 
-        .testimonial-card {
-            background: transparent;
-            border: 1px solid var(--border-subtle);
-            border-radius: 1rem;
-            padding: 2.5rem;
-            transition: all 0.3s ease;
-            position: relative;
-            background-image: radial-gradient(circle at top left, rgba(139, 92, 246, 0.08), transparent 30%);
-        }
-
-        .testimonial-card:hover {
-            border-color: var(--border-medium);
-            transform: translateY(-4px);
-            background-image: radial-gradient(circle at top left, rgba(139, 92, 246, 0.12), transparent 40%);
-        }
-
-        .testimonial-card::before {
-            content: '“';
-            position: absolute;
-            top: 1rem;
-            left: 1.5rem;
-            font-size: 5rem;
-            line-height: 1;
-            color: var(--accent);
-            opacity: 0.2;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            font-weight: 600;
-            font-size: 0.9rem;
-            padding: 0.75rem 1.75rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            border: 1px solid transparent;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: white;
-            box-shadow: 0 4px 14px rgba(139, 92, 246, 0.25);
-        }
-
-        .btn-primary:hover {
-            background: var(--accent-light);
-            transform: translateY(-2px);
-            box-shadow: 0 7px 20px rgba(167, 139, 250, 0.3);
-        }
-
-        .btn-secondary {
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            border: 1px solid var(--border-medium);
-        }
-
-        .btn-secondary:hover {
-            background: var(--bg-tertiary);
-            border-color: var(--accent-light);
-            color: var(--accent-light);
-            transform: translateY(-2px);
-        }
-
-        .tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.375rem;
-            background: var(--bg-secondary);
-            color: var(--text-secondary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 9999px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            border: 1px solid var(--border-subtle);
-        }
-
-        .tech-tag {
-            display: inline-flex;
-            align-items: center;
-            background: rgba(139, 92, 246, 0.1);
-            color: var(--accent-light);
-            padding: 0.3rem 0.8rem;
-            border-radius: 0.5rem;
-            font-size: 0.8rem;
-            font-weight: 500;
-            border: 1px solid rgba(139, 92, 246, 0.2);
-            transition: all 0.2s ease;
-        }
-
-        .tech-tag:hover {
-            background: rgba(139, 92, 246, 0.2);
-            color: white;
-        }
-
-        .progress-container {
-            background: var(--bg-secondary);
-            border-radius: 9999px;
-            overflow: hidden;
-            height: 10px;
-            border: 1px solid var(--border-subtle);
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: var(--accent-gradient);
-            border-radius: 9999px;
-            transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-            width: 0;
-        }
-
-        .animated-element {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .animated-element.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .hero-gradient-bg {
-            background: var(--bg-primary);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-gradient-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse at 50% 30%, rgba(109, 40, 217, 0.15), transparent 60%);
-            pointer-events: none;
-        }
-
-        .profile-image-wrapper {
-            position: relative;
-            width: 18rem;
-            height: 18rem;
-        }
-
-        @media (min-width: 1024px) {
-            .profile-image-wrapper {
-                width: 21rem;
-                height: 21rem;
-            }
-        }
-
-        .profile-image-wrapper::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border-radius: 1.25rem;
-            padding: 2px;
-            background: var(--accent-gradient);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            animation: gradient-pan 5s ease infinite;
-            background-size: 200% 200%;
-        }
-
-        .profile-image {
-            border-radius: 1.25rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .gradient-text {
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-fill-color: transparent;
-        }
-
-        .social-link {
-            color: var(--text-secondary);
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            color: var(--accent-light);
-            transform: translateY(-3px);
+        .project-card .btn {
+            margin-top: 1.25rem;
         }
 
         .show-more-container {
@@ -610,28 +270,24 @@
             justify-content: center;
             align-items: center;
             padding: 0.5rem 0;
-            /* remove the big margins */
         }
 
         #show-more-btn {
             background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #aaa;
+            border: 1px solid var(--border-medium);
+            color: var(--text-muted);
             padding: 0.6rem 1.6rem;
             border-radius: 999px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
             cursor: pointer;
             transition: all 0.2s ease;
             letter-spacing: 0.03em;
         }
 
         #show-more-btn:hover {
-            border-color: rgba(255, 255, 255, 0.5);
-            color: #fff;
-        }
-
-        .project-card .btn {
-            margin-top: 1.25rem;
+            border-color: var(--border-accent);
+            color: var(--accent-light);
         }
     </style>
 </head>
@@ -641,9 +297,9 @@
         x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
         <defs>
             <linearGradient id="bg">
-                <stop offset="0%" style="stop-color: rgba(139, 92, 246, 0.06)"></stop>
-                <stop offset="50%" style="stop-color: rgba(139, 92, 246, 0.1)"></stop>
-                <stop offset="100%" style="stop-color: rgba(139, 92, 246, 0.06)"></stop>
+                <stop offset="0%" style="stop-color: rgba(139, 92, 246, 0.05)"></stop>
+                <stop offset="50%" style="stop-color: rgba(139, 92, 246, 0.08)"></stop>
+                <stop offset="100%" style="stop-color: rgba(139, 92, 246, 0.05)"></stop>
             </linearGradient>
             <path id="wave" fill="url(#bg)"
                 d="M-363.852,502.589c0,0,236.988-41.997,505.475,0 s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.995v560.106H-363.852V502.589z">
@@ -670,12 +326,10 @@
 
     <header id="site-header" class="site-header fixed top-0 w-full z-50">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex-shrink-0">
-                    <a href="/" class="font-mono font-semibold text-2xl tracking-tight">zubariel<span
-                            class="text-accent">.</span></a>
-                </div>
-                <nav class="hidden md:flex items-center space-x-10">
+            <div class="flex items-center justify-between" style="height:4.5rem;">
+                <a href="/" class="font-mono font-semibold text-xl tracking-tight">zubariel<span
+                        style="color:var(--accent);">.</span></a>
+                <nav class="hidden md:flex items-center space-x-9">
                     <a href="/" class="nav-link">Home</a>
                     <a href="/portfolio" class="nav-link">Portfolio</a>
                     <a href="/now" class="nav-link">Now</a>
@@ -686,41 +340,45 @@
                     <a href="/contact" target="_blank" class="btn btn-primary">Contact</a>
                 </div>
                 <div class="md:hidden">
-                    <button id="hamburgerBtn" class="text-2xl p-2 focus:outline-none"><i
-                            class="fa-solid fa-bars-staggered"></i></button>
+                    <button id="hamburgerBtn" class="p-2 focus:outline-none" style="color:var(--text-secondary);"><i
+                            class="fa-solid fa-bars-staggered text-xl"></i></button>
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden border-t border-border-subtle bg-bg-primary">
+        <div id="mobile-menu" class="hidden md:hidden border-t"
+            style="border-color:var(--border-subtle); background:var(--bg-primary);">
             <nav class="px-6 py-6 space-y-4">
-                <a href="/" class="nav-link block py-2 text-lg">Home</a>
-                <a href="/portfolio" class="nav-link block py-2 text-lg">Portfolio</a>
-                <a href="/now" class="nav-link block py-2 text-lg">Now</a>
-                <a href="/snippet" class="nav-link block py-2 text-lg">Snippets</a>
-                <a href="/projects" class="nav-link block py-2 text-lg active">Projects</a>
-                <a href="/contact" target="_blank" class="btn btn-primary inline-block mt-4 w-full">Contact</a>
+                <a href="/" class="nav-link block py-2 text-base">Home</a>
+                <a href="/portfolio" class="nav-link block py-2 text-base">Portfolio</a>
+                <a href="/now" class="nav-link block py-2 text-base">Now</a>
+                <a href="/snippet" class="nav-link block py-2 text-base">Snippets</a>
+                <a href="/projects" class="nav-link block py-2 text-base active">Projects</a>
+                <a href="/contact" target="_blank" class="btn btn-primary mt-4 w-full">Contact</a>
             </nav>
         </div>
     </header>
 
-
     <main class="max-w-7xl mx-auto px-6 pt-32 pb-24 relative z-10">
         <div class="text-center mb-20 animated-element">
-            <h1 class="text-4xl md:text-5xl font-bold font-display tracking-tight text-text-primary mb-4">
-                My Projects & <span class="text-accent1">Contributions</span>.
+            <p class="font-mono text-xs text-muted mb-3"
+                style="color:var(--text-muted); letter-spacing:0.08em; text-transform:uppercase;">// what I've built</p>
+            <h1 class="text-4xl md:text-5xl font-bold font-display tracking-tight mb-4"
+                style="font-family:'Unbounded',sans-serif; letter-spacing:-0.03em;">
+                My Projects &amp; <span class="text-accent1">Contributions</span>.
             </h1>
-            <p class="text-lg text-text-secondary max-w-2xl mx-auto">A collection of projects I've developed, roles I've
-                taken on, and contributions I've made across various platforms</p>
+            <p class="text-base" style="color:var(--text-secondary); max-width:36rem; margin:0 auto;">A collection of
+                projects I've developed, roles I've taken on, and contributions I've made across various platforms.</p>
         </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div class="project-card animated-element">
                 <div class="project-image-wrapper"><img src="/images/bot.png" alt="Auora Bot" /></div>
                 <div class="p-6 flex-1 flex flex-col">
-                    <h3 class="text-xl font-bold mb-1">Auora Bot</h3>
-                    <p class="text-text-muted text-sm mb-4">Application</p>
-                    <p class="text-text-secondary text-sm mb-6 flex-1">A versatile, feature-rich Discord bot application
-                        designed for community management and engagement.</p>
-                    <div class="text-xs font-mono lang-tag">
+                    <h3 class="text-lg font-bold mb-1">Auora Bot</h3>
+                    <p class="text-xs font-mono mb-3" style="color:var(--text-muted);">Application</p>
+                    <p class="text-sm mb-5 flex-1" style="color:var(--text-secondary);">A versatile, feature-rich
+                        Discord bot application designed for community management and engagement.</p>
+                    <div class="text-xs font-mono lang-tag mb-1">
                         <span class="text-green-500"><i class="fa-brands fa-node-js"></i>Node.js</span>,
                         <span class="text-indigo-400"><i class="fa-brands fa-discord"></i>Discord.js</span>,
                         <span class="text-emerald-500"><i class="fas fa-leaf"></i>MongoDB</span>
@@ -733,34 +391,31 @@
             <div class="project-card animated-element">
                 <div class="project-image-wrapper"><img src="/images/auora-bot-2.png" alt="Auora Website" /></div>
                 <div class="p-6 flex-1 flex flex-col">
-                    <h3 class="text-xl font-bold mb-1">Auora's Website</h3>
-                    <p class="text-text-muted text-sm mb-4">Web Development</p>
-                    <p class="text-text-secondary text-sm mb-6 flex-1">The official landing page for the Auora
-                        ecosystem, built with modern web technologies.</p>
-                    <div class="text-xs font-mono lang-tag">
+                    <h3 class="text-lg font-bold mb-1">Auora's Website</h3>
+                    <p class="text-xs font-mono mb-3" style="color:var(--text-muted);">Web Development</p>
+                    <p class="text-sm mb-5 flex-1" style="color:var(--text-secondary);">The official landing page for
+                        the Auora ecosystem, built with modern web technologies.</p>
+                    <div class="text-xs font-mono lang-tag mb-1">
                         <span class="text-yellow-400"><i class="fa-brands fa-js"></i>JavaScript</span>,
                         <span class="text-orange-500"><i class="fa-brands fa-html5"></i>HTML</span>,
                         <span class="text-blue-500"><i class="fa-brands fa-css3-alt"></i>Tailwind CSS</span>
                     </div>
                     <div class="flex gap-2 mt-auto">
-                        <a href="https://auora.netlify.app/" target="_blank" class="btn btn-secondary flex-1">
-                            View Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                        </a>
+                        <a href="https://auora.netlify.app/" target="_blank" class="btn btn-secondary flex-1">View
+                            Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
                         <a href="https://github.com/itszubariel/Auora-Website" target="_blank"
-                            class="btn btn-secondary">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
+                            class="btn btn-secondary"><i class="fa-brands fa-github"></i></a>
                     </div>
                 </div>
             </div>
             <div class="project-card animated-element">
                 <div class="project-image-wrapper"><img src="/images/discord-bg.png" alt="Auora Server" /></div>
                 <div class="p-6 flex-1 flex flex-col">
-                    <h3 class="text-xl font-bold mb-1">Auora's Server</h3>
-                    <p class="text-text-muted text-sm mb-4">Discord Server</p>
-                    <p class="text-text-secondary text-sm mb-6 flex-1">The official community and support hub on Discord
-                        for all Auora-related projects and users.</p>
-                    <div class="text-xs font-mono lang-tag">
+                    <h3 class="text-lg font-bold mb-1">Auora's Server</h3>
+                    <p class="text-xs font-mono mb-3" style="color:var(--text-muted);">Discord Server</p>
+                    <p class="text-sm mb-5 flex-1" style="color:var(--text-secondary);">The official community and
+                        support hub on Discord for all Auora-related projects and users.</p>
+                    <div class="text-xs font-mono lang-tag mb-1">
                         <span class="text-indigo-400"><i class="fa-brands fa-discord"></i>Discord</span>
                         <span style="color: var(--text-muted); margin: 0 0.25rem;">·</span>
                         <span style="color: #fff"><i class="fa-solid fa-code"></i>Lead Dev</span>,
@@ -773,14 +428,13 @@
             <div class="project-card animated-element">
                 <div class="project-image-wrapper"><img src="" alt="Xanædū" /></div>
                 <div class="p-6 flex-1 flex flex-col">
-                    <h3 class="text-xl font-bold mb-1">Xanædū Server</h3>
-                    <p class="text-text-muted text-sm mb-4">Discord Server</p>
-                    <p class="text-text-secondary text-sm mb-6 flex-1">A thriving online community where I’ve served
-                        helping maintain order, assist
-                        users, and support server growth.</p>
-                    <div class="text-xs font-mono lang-tag">
+                    <h3 class="text-lg font-bold mb-1">Xanædū Server</h3>
+                    <p class="text-xs font-mono mb-3" style="color:var(--text-muted);">Discord Server</p>
+                    <p class="text-sm mb-5 flex-1" style="color:var(--text-secondary);">A thriving online community
+                        where I've served helping maintain order, assist users, and support server growth.</p>
+                    <div class="text-xs font-mono lang-tag mb-1">
                         <span class="text-indigo-400"><i class="fa-brands fa-discord"></i>Discord</span>
-                        <span class="text-muted" style="color: var(--text-muted); margin: 0 0.25rem;">·</span>
+                        <span style="color: var(--text-muted); margin: 0 0.25rem;">·</span>
                         <span class="text-blue-500"><i class="fa-solid fa-shield-halved"></i>Senior Mod</span>,
                         <span class="text-red-500"><i class="fa-solid fa-crown"></i>Admin</span>
                     </div>
@@ -791,83 +445,73 @@
             <div class="project-card animated-element">
                 <div class="project-image-wrapper"><img src="/images/website-panel.png" alt="My Website" /></div>
                 <div class="p-6 flex-1 flex flex-col">
-                    <h3 class="text-xl font-bold mb-1">My Portfolio</h3>
-                    <p class="text-text-muted text-sm mb-4">Web Development</p>
-                    <p class="text-text-secondary text-sm mb-6 flex-1">This personal portfolio, designed and built from
-                        scratch to showcase my skills and work.</p>
-                    <div class="text-xs font-mono lang-tag">
+                    <h3 class="text-lg font-bold mb-1">My Portfolio</h3>
+                    <p class="text-xs font-mono mb-3" style="color:var(--text-muted);">Web Development</p>
+                    <p class="text-sm mb-5 flex-1" style="color:var(--text-secondary);">This personal portfolio,
+                        designed and built from scratch to showcase my skills and work.</p>
+                    <div class="text-xs font-mono lang-tag mb-1">
                         <span class="text-yellow-400"><i class="fa-brands fa-js"></i>JavaScript</span>,
                         <span class="text-orange-500"><i class="fa-brands fa-html5"></i>HTML</span>,
                         <span class="text-blue-500"><i class="fa-brands fa-css3-alt"></i>Tailwind CSS</span>
                     </div>
                     <div class="flex gap-2 mt-auto">
-                        <a href="https://zubariel.is-a.dev/portfolio" target="_blank" class="btn btn-secondary flex-1">
-                            View Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                        </a>
-                        <a href="https://github.com/itszubariel/Linktree" target="_blank" class="btn btn-secondary">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
+                        <a href="https://zubariel.is-a.dev/portfolio" target="_blank"
+                            class="btn btn-secondary flex-1">View Project <i
+                                class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+                        <a href="https://github.com/itszubariel/Linktree" target="_blank" class="btn btn-secondary"><i
+                                class="fa-brands fa-github"></i></a>
                     </div>
                 </div>
             </div>
-
             <div class="project-card animated-element">
                 <div class="project-image-wrapper"><img src="/images/bdtools.png" alt="BDTools"></div>
                 <div class="p-6 flex-1 flex flex-col">
-                    <h3 class="text-xl font-bold mb-1">BDTools</h3>
-                    <p class="text-text-muted text-sm mb-4">Web Application</p>
-                    <p class="text-text-secondary text-sm mb-6 flex-1">Collection of free and open source web-based
-                        tools for Bot Designer for Discord (BDFD)</p>
-                    <div class="text-xs font-mono lang-tag">
+                    <h3 class="text-lg font-bold mb-1">BDTools</h3>
+                    <p class="text-xs font-mono mb-3" style="color:var(--text-muted);">Web Application</p>
+                    <p class="text-sm mb-5 flex-1" style="color:var(--text-secondary);">Collection of free and open
+                        source web-based tools for Bot Designer for Discord (BDFD)</p>
+                    <div class="text-xs font-mono lang-tag mb-1">
                         <span class="text-yellow-400"><i class="fa-brands fa-js"></i>JavaScript</span>,
                         <span class="text-orange-500"><i class="fa-brands fa-html5"></i>HTML</span>,
                         <span class="text-blue-500"><i class="fa-brands fa-css3-alt"></i>Tailwind CSS</span>
                     </div>
                     <div class="flex gap-2 mt-auto">
-                        <a href="https://bdtools.netlify.app/" target="_blank" class="btn btn-secondary flex-1">
-                            View Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                        </a>
-                        <a href="https://github.com/itszubariel/BDTools" target="_blank" class="btn btn-secondary">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
+                        <a href="https://bdtools.netlify.app/" target="_blank" class="btn btn-secondary flex-1">View
+                            Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+                        <a href="https://github.com/itszubariel/BDTools" target="_blank" class="btn btn-secondary"><i
+                                class="fa-brands fa-github"></i></a>
                     </div>
                 </div>
             </div>
-
             <div class="project-card animated-element">
-                <div class="project-image-wrapper">
-                    <img src="/images/api-bdtools.png" alt="BDTools API" />
-                </div>
+                <div class="project-image-wrapper"><img src="/images/api-bdtools.png" alt="BDTools API" /></div>
                 <div class="p-6 flex-1 flex flex-col">
-                    <h3 class="text-xl font-bold mb-1">BDTools API</h3>
-                    <p class="text-text-muted text-sm mb-4">REST API</p>
-                    <p class="text-text-secondary text-sm mb-6 flex-1">
-                        A lightweight API built to support the BDTool's bot guild list tool.</p>
-                    <div class="text-xs font-mono lang-tag">
+                    <h3 class="text-lg font-bold mb-1">BDTools API</h3>
+                    <p class="text-xs font-mono mb-3" style="color:var(--text-muted);">REST API</p>
+                    <p class="text-sm mb-5 flex-1" style="color:var(--text-secondary);">A lightweight API built to
+                        support the BDTools bot guild list tool.</p>
+                    <div class="text-xs font-mono lang-tag mb-1">
                         <span class="text-green-500"><i class="fa-brands fa-node-js"></i>Node.js</span>,
                         <span class="text-teal-400"><i class="fa-solid fa-bolt"></i>Netlify Functions</span>,
                         <span style="color: #e4e4e7;"><i class="fa-brands fa-github"></i>GitHub Actions</span>,
                         <span class="text-emerald-500"><i class="fa-solid fa-leaf"></i>MongoDB</span>
                     </div>
                     <div class="flex gap-2 mt-auto">
-                        <a href="https://bdtools.netlify.app/" target="_blank" class="btn btn-secondary flex-1">
-                            View Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                        </a>
-                        <a href="https://github.com/itszubariel/BDTools" target="_blank" class="btn btn-secondary">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
+                        <a href="https://bdtools.netlify.app/" target="_blank" class="btn btn-secondary flex-1">View
+                            Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+                        <a href="https://github.com/itszubariel/BDTools" target="_blank" class="btn btn-secondary"><i
+                                class="fa-brands fa-github"></i></a>
                     </div>
                 </div>
             </div>
-
             <div class="project-card animated-element">
                 <div class="project-image-wrapper"><img src="/images/bdfd-bg.png" alt="BDFD" /></div>
                 <div class="p-6 flex-1 flex flex-col">
-                    <h3 class="text-xl font-bold mb-1">BDFD</h3>
-                    <p class="text-text-muted text-sm mb-4">Mobile Application</p>
-                    <p class="text-text-secondary text-sm mb-6 flex-1">Contributed to a popular
-                        mobile application for creating Discord bots.</p>
-                    <div class="text-xs font-mono lang-tag">
+                    <h3 class="text-lg font-bold mb-1">BDFD</h3>
+                    <p class="text-xs font-mono mb-3" style="color:var(--text-muted);">Mobile Application</p>
+                    <p class="text-sm mb-5 flex-1" style="color:var(--text-secondary);">Contributed to a popular mobile
+                        application for creating Discord bots.</p>
+                    <div class="text-xs font-mono lang-tag mb-1">
                         <span style="color: #748bd5"><i class="fa-solid fa-code"></i>Mobile Application</span>
                         <span style="color: var(--text-muted); margin: 0 0.25rem;">·</span>
                         <span class="text-green-400"><i class="fa-solid fa-language"></i>Translator</span>,
@@ -875,86 +519,72 @@
                     </div>
                     <div class="flex gap-2 mt-auto">
                         <a href="https://play.google.com/store/apps/details?id=com.jakubtomana.discordbotdesinger&hl=en"
-                            target="_blank" class="btn btn-secondary flex-1">
-                            <i class="fa-brands fa-google-play"></i> View App
-                        </a>
+                            target="_blank" class="btn btn-secondary flex-1"><i class="fa-brands fa-google-play"></i>
+                            View App</a>
                         <a href="https://github.com/NilPointer-Software/bdfd-wiki" target="_blank"
-                            class="btn btn-secondary">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
+                            class="btn btn-secondary"><i class="fa-brands fa-github"></i></a>
                     </div>
                 </div>
             </div>
-
             <div class="project-card animated-element">
                 <div class="project-image-wrapper"><img src="/images/hol.png" alt="Heart of Life (HoL)" /></div>
                 <div class="p-6 flex-1 flex flex-col">
-                    <h3 class="text-xl font-bold mb-1">Heart of Life (HoL)</h3>
-                    <p class="text-text-muted text-sm mb-4">Minecraft Mod</p>
-                    <p class="text-text-secondary text-sm mb-6 flex-1">Adds a single-player heart progression system
-                        inspired by Lifesteal.</p>
-                    <div class="text-xs font-mono lang-tag">
+                    <h3 class="text-lg font-bold mb-1">Heart of Life (HoL)</h3>
+                    <p class="text-xs font-mono mb-3" style="color:var(--text-muted);">Minecraft Mod</p>
+                    <p class="text-sm mb-5 flex-1" style="color:var(--text-secondary);">Adds a single-player heart
+                        progression system inspired by Lifesteal.</p>
+                    <div class="text-xs font-mono lang-tag mb-1">
                         <span class="text-red-500"><i class="fa-brands fa-java"></i>Java</span>,
                         <span class="text-teal-400"><i class="fa-solid fa-cubes"></i>Fabric API</span>,
                         <span class="text-green-500"><i class="fa-solid fa-mountain"></i>Modrinth</span>
-
                     </div>
                     <a href="https://modrinth.com/mod/hol" target="_blank" class="btn btn-secondary mt-auto">View
                         Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
                 </div>
             </div>
-
             <div class="project-card animated-element">
-                <div class="project-image-wrapper">
-                    <img src="/images/statify.png" alt="Statify" />
-                </div>
+                <div class="project-image-wrapper"><img src="/images/statify.png" alt="Statify" /></div>
                 <div class="p-6 flex-1 flex flex-col">
-                    <h3 class="text-xl font-bold mb-1">Statify</h3>
-                    <p class="text-text-muted text-sm mb-4">VS Code Extension</p>
-                    <p class="text-text-secondary text-sm mb-6 flex-1">
-                        A Visual Studio Code extension that provides useful project statistics and insights directly
-                        inside your editor.
-                    </p>
-                    <div class="text-xs font-mono lang-tag">
+                    <h3 class="text-lg font-bold mb-1">Statify</h3>
+                    <p class="text-xs font-mono mb-3" style="color:var(--text-muted);">VS Code Extension</p>
+                    <p class="text-sm mb-5 flex-1" style="color:var(--text-secondary);">A Visual Studio Code extension
+                        that provides useful project statistics and insights directly inside your editor.</p>
+                    <div class="text-xs font-mono lang-tag mb-1">
                         <span class="text-blue-400"><i class="fa-solid fa-code"></i>TypeScript</span>,
                         <span class="text-yellow-400"><i class="fa-brands fa-js"></i>JavaScript</span>,
                         <span style="color: #0099ff;"><i class="fa-solid fa-code"></i>VS Code</span>
                     </div>
                     <div class="flex gap-2 mt-auto">
                         <a href="https://marketplace.visualstudio.com/items?itemName=zubariel.statify" target="_blank"
-                            class="btn btn-secondary flex-1">
-                            View Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                        </a>
-                        <a href="https://github.com/itszubariel/Statify" target="_blank" class="btn btn-secondary">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
+                            class="btn btn-secondary flex-1">View Project <i
+                                class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+                        <a href="https://github.com/itszubariel/Statify" target="_blank" class="btn btn-secondary"><i
+                                class="fa-brands fa-github"></i></a>
                     </div>
                 </div>
             </div>
-
             <div class="project-card animated-element">
                 <div class="project-image-wrapper"><img src="/images/ancient-bg.png" alt="Miraheze Wiki" /></div>
                 <div class="p-6 flex-1 flex flex-col">
-                    <h3 class="text-xl font-bold mb-1">Ancient Japan: Myths, Yōkai, and Mysteries</h3>
-                    <p class="text-text-muted text-sm mb-4">Wiki Article</p>
-                    <p class="text-text-secondary text-sm mb-6 flex-1">A comprehensive wiki about the history and
-                        culture of Ancient Japan, hosted on Miraheze.</p>
-                    <div class="text-xs font-mono lang-tag">
+                    <h3 class="text-lg font-bold mb-1">Ancient Japan: Myths, Yōkai, and Mysteries</h3>
+                    <p class="text-xs font-mono mb-3" style="color:var(--text-muted);">Wiki Article</p>
+                    <p class="text-sm mb-5 flex-1" style="color:var(--text-secondary);">A comprehensive wiki about the
+                        history and culture of Ancient Japan, hosted on Miraheze.</p>
+                    <div class="text-xs font-mono lang-tag mb-1">
                         <span style="color: #f8c233;"><i class="fas fa-globe"></i>Miraheze Wiki</span>
                     </div>
                     <a href="https://ancientjapan.miraheze.org/" target="_blank" class="btn btn-secondary mt-auto">View
                         Article <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
                 </div>
             </div>
-
             <div class="project-card animated-element">
                 <div class="project-image-wrapper"><img src="/images/color-app.png" alt="Hexsite"></div>
                 <div class="p-6 flex-1 flex flex-col">
-                    <h3 class="text-xl font-bold mb-1">Hexsite</h3>
-                    <p class="text-text-muted text-sm mb-4">Web Application</p>
-                    <p class="text-text-secondary text-sm mb-6 flex-1">A sleek tool to generate and explore aesthetic
-                        color palettes for any design use.</p>
-                    <div class="text-xs font-mono lang-tag">
+                    <h3 class="text-lg font-bold mb-1">Hexsite</h3>
+                    <p class="text-xs font-mono mb-3" style="color:var(--text-muted);">Web Application</p>
+                    <p class="text-sm mb-5 flex-1" style="color:var(--text-secondary);">A sleek tool to generate and
+                        explore aesthetic color palettes for any design use.</p>
+                    <div class="text-xs font-mono lang-tag mb-1">
                         <span class="text-yellow-400"><i class="fa-brands fa-js"></i>JavaScript</span>,
                         <span style="color: #63dafb;"><i class="fa-brands fa-react"></i>React</span>,
                         <span class="text-blue-500"><i class="fa-brands fa-css3-alt"></i>CSS</span>
@@ -965,25 +595,19 @@
             </div>
 
             <div class="show-more-container">
-                <button id="show-more-btn" onclick="toggleOldProjects()">
-                    Show older projects (13)
-                </button>
+                <button id="show-more-btn" onclick="toggleOldProjects()">// show older projects (13)</button>
             </div>
 
             <div id="old-projects" style="display: none;">
-                <!-- Older projects will be revealed here when "Show older projects" is clicked -->
-
                 <div class="project-card animated-element">
                     <div class="project-image-wrapper"><img src="/images/globle-bg.png" alt="Countries of the World" />
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-1">Countries of the World</h3>
-                        <p class="text-text-muted text-sm mb-4">Web Application</p>
-                        <p class="text-text-secondary text-sm mb-6 flex-1">A fast-paced geography quiz inspired by
-                            Sporcle.
-                            Challenge yourself to name every country in the world through an interactive, responsive
-                            interface.</p>
-                        <div class="text-xs font-mono lang-tag">
+                        <h3 class="text-lg font-bold mb-1">Countries of the World</h3>
+                        <p class="text-xs font-mono mb-3" style="color:var(--text-muted);">Web Application</p>
+                        <p class="text-sm mb-5 flex-1" style="color:var(--text-secondary);">A fast-paced geography quiz
+                            inspired by Sporcle. Challenge yourself to name every country in the world.</p>
+                        <div class="text-xs font-mono lang-tag mb-1">
                             <span class="text-yellow-400"><i class="fa-brands fa-js"></i>JavaScript</span>,
                             <span style="color: #306899;"><i class="fa-brands fa-python"></i>Python</span>,
                             <span class="text-blue-500"><i class="fa-brands fa-css3-alt"></i>CSS</span>
@@ -995,12 +619,11 @@
                 <div class="project-card animated-element">
                     <div class="project-image-wrapper"><img src="/images/stickman-bg.png" alt="Stickman Game" /></div>
                     <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-1">Stickman</h3>
-                        <p class="text-text-muted text-sm mb-4">Web Application</p>
-                        <p class="text-text-secondary text-sm mb-6 flex-1">A fun, simple, and addictive web-based
-                            platformer
-                            game created with JavaScript.</p>
-                        <div class="text-xs font-mono lang-tag">
+                        <h3 class="text-lg font-bold mb-1">Stickman</h3>
+                        <p class="text-xs font-mono mb-3" style="color:var(--text-muted);">Web Application</p>
+                        <p class="text-sm mb-5 flex-1" style="color:var(--text-secondary);">A fun, simple, and addictive
+                            web-based platformer game created with JavaScript.</p>
+                        <div class="text-xs font-mono lang-tag mb-1">
                             <span class="text-yellow-400"><i class="fa-brands fa-js"></i>JavaScript</span>,
                             <span class="text-orange-500"><i class="fa-brands fa-html5"></i>HTML</span>,
                             <span class="text-blue-500"><i class="fa-brands fa-css3-alt"></i>Tailwind CSS</span>
@@ -1012,12 +635,11 @@
                 <div class="project-card animated-element">
                     <div class="project-image-wrapper"><img src="/images/toasty-image.png" alt="Toasty Game" /></div>
                     <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-1">Toasty Game</h3>
-                        <p class="text-text-muted text-sm mb-4">Web Application</p>
-                        <p class="text-text-secondary text-sm mb-6 flex-1">A lightweight web game centered around
-                            clicking
-                            animated toasts for fun.</p>
-                        <div class="text-xs font-mono lang-tag">
+                        <h3 class="text-lg font-bold mb-1">Toasty Game</h3>
+                        <p class="text-xs font-mono mb-3" style="color:var(--text-muted);">Web Application</p>
+                        <p class="text-sm mb-5 flex-1" style="color:var(--text-secondary);">A lightweight web game
+                            centered around clicking animated toasts for fun.</p>
+                        <div class="text-xs font-mono lang-tag mb-1">
                             <span class="text-yellow-400"><i class="fa-brands fa-js"></i>Anime.js</span>,
                             <span class="text-orange-500"><i class="fa-brands fa-html5"></i>HTML</span>,
                             <span class="text-blue-500"><i class="fa-brands fa-css3-alt"></i>Tailwind CSS</span>
@@ -1030,11 +652,11 @@
                     <div class="project-image-wrapper"><img src="/images/cookie-bg.png" alt="Cookie Clicking Game" />
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-1">Cookie Clicking Game</h3>
-                        <p class="text-text-muted text-sm mb-4">Web Application</p>
-                        <p class="text-text-secondary text-sm mb-6 flex-1">A cookie-clicker game built with login and
-                            leaderboard support using local storage.</p>
-                        <div class="text-xs font-mono lang-tag">
+                        <h3 class="text-lg font-bold mb-1">Cookie Clicking Game</h3>
+                        <p class="text-xs font-mono mb-3" style="color:var(--text-muted);">Web Application</p>
+                        <p class="text-sm mb-5 flex-1" style="color:var(--text-secondary);">A cookie-clicker game built
+                            with login and leaderboard support using local storage.</p>
+                        <div class="text-xs font-mono lang-tag mb-1">
                             <span class="text-yellow-400"><i class="fa-brands fa-js"></i>JavaScript</span>,
                             <span class="text-green-500"><i class="fa-brands fa-node-js"></i>Node.js</span>,
                             <span class="text-cyan-400"><i class="fa-brands fa-react"></i>LocalStorage</span>
@@ -1046,29 +668,28 @@
                 <div class="project-card animated-element">
                     <div class="project-image-wrapper"><img src="/images/generator-main.png" alt="Generators"></div>
                     <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-1">Generators</h3>
-                        <p class="text-text-muted text-sm mb-4">Web Application</p>
-                        <p class="text-text-secondary text-sm mb-6 flex-1">A bundle of random content generators: names,
-                            passwords, hex codes, and more.</p>
-                        <div class="text-xs font-mono lang-tag">
+                        <h3 class="text-lg font-bold mb-1">Generators</h3>
+                        <p class="text-xs font-mono mb-3" style="color:var(--text-muted);">Web Application</p>
+                        <p class="text-sm mb-5 flex-1" style="color:var(--text-secondary);">A bundle of random content
+                            generators: names, passwords, hex codes, and more.</p>
+                        <div class="text-xs font-mono lang-tag mb-1">
                             <span style="color: #306899;"><i class="fa-brands fa-python"></i>Flask</span>,
                             <span class="text-orange-500"><i class="fa-brands fa-html5"></i>HTML</span>,
                             <span class="text-blue-500"><i class="fa-brands fa-css3-alt"></i>CSS</span>
                         </div>
                         <a href="https://gen-generator.vercel.app/" target="_blank"
-                            class="btn btn-secondary mt-auto">View
-                            Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+                            class="btn btn-secondary mt-auto">View Project <i
+                                class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
                     </div>
                 </div>
                 <div class="project-card animated-element">
                     <div class="project-image-wrapper"><img src="/images/gen-games.png" alt="Games"></div>
                     <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-1">Games</h3>
-                        <p class="text-text-muted text-sm mb-4">Web Application</p>
-                        <p class="text-text-secondary text-sm mb-6 flex-1">A collection of small browser-based games
-                            built
-                            with HTML, CSS, and JS.</p>
-                        <div class="text-xs font-mono lang-tag">
+                        <h3 class="text-lg font-bold mb-1">Games</h3>
+                        <p class="text-xs font-mono mb-3" style="color:var(--text-muted);">Web Application</p>
+                        <p class="text-sm mb-5 flex-1" style="color:var(--text-secondary);">A collection of small
+                            browser-based games built with HTML, CSS, and JS.</p>
+                        <div class="text-xs font-mono lang-tag mb-1">
                             <span class="text-yellow-400"><i class="fa-brands fa-js"></i>JavaScript (Vanilla +
                                 p5.js)</span>,
                             <span class="text-orange-500"><i class="fa-brands fa-html5"></i>HTML</span>,
@@ -1078,18 +699,16 @@
                             Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
                     </div>
                 </div>
-
                 <div class="project-card animated-element">
                     <div class="project-image-wrapper"><img src="/images/moderation-guide-bg.png"
                             alt="Discord Moderation Guide"></div>
                     <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-1">Discord Moderation Guide</h3>
-                        <p class="text-text-muted text-sm mb-4">Web Application</p>
-                        <p class="text-text-secondary text-sm mb-6 flex-1">A complete and beginner-friendly static
-                            website
-                            designed to educate moderators on best practices, rules enforcement, and conflict resolution
-                            across communities.</p>
-                        <div class="text-xs font-mono lang-tag">
+                        <h3 class="text-lg font-bold mb-1">Discord Moderation Guide</h3>
+                        <p class="text-xs font-mono mb-3" style="color:var(--text-muted);">Web Application</p>
+                        <p class="text-sm mb-5 flex-1" style="color:var(--text-secondary);">A complete and
+                            beginner-friendly static website to educate moderators on best practices and conflict
+                            resolution.</p>
+                        <div class="text-xs font-mono lang-tag mb-1">
                             <span class="text-yellow-400"><i class="fa-brands fa-js"></i>JavaScript</span>,
                             <span class="text-orange-500"><i class="fa-brands fa-html5"></i>HTML</span>,
                             <span class="text-blue-500"><i class="fa-brands fa-css3-alt"></i>CSS</span>
@@ -1103,12 +722,11 @@
                     <div class="project-image-wrapper"><img src="/images/guide-bg.png" alt="Beginner's Guide to Coding">
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-1">Beginner's Guide to Coding</h3>
-                        <p class="text-text-muted text-sm mb-4">Web Application</p>
-                        <p class="text-text-secondary text-sm mb-6 flex-1">A friendly, interactive guide designed for
-                            absolute beginners to learn the basics of coding. Covers essential web technologies with
-                            examples and hands-on practice.</p>
-                        <div class="text-xs font-mono lang-tag">
+                        <h3 class="text-lg font-bold mb-1">Beginner's Guide to Coding</h3>
+                        <p class="text-xs font-mono mb-3" style="color:var(--text-muted);">Web Application</p>
+                        <p class="text-sm mb-5 flex-1" style="color:var(--text-secondary);">A friendly, interactive
+                            guide for absolute beginners covering essential web technologies with examples.</p>
+                        <div class="text-xs font-mono lang-tag mb-1">
                             <span class="text-yellow-400"><i class="fa-brands fa-js"></i>JavaScript</span>,
                             <span class="text-orange-500"><i class="fa-brands fa-html5"></i>HTML</span>,
                             <span class="text-blue-500"><i class="fa-brands fa-css3-alt"></i>CSS</span>
@@ -1121,32 +739,28 @@
                 <div class="project-card animated-element">
                     <div class="project-image-wrapper"><img src="/images/marvel-bg.png" alt="Marvel Watch Guide"></div>
                     <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-1">Marvel Watch Guide</h3>
-                        <p class="text-text-muted text-sm mb-4">Web Application</p>
-                        <p class="text-text-secondary text-sm mb-6 flex-1">A comprehensive guide to watching the entire
-                            Marvel Cinematic Universe in the correct timeline order, with dynamic animations and
-                            real-time
-                            API data.</p>
-                        <div class="text-xs font-mono lang-tag">
+                        <h3 class="text-lg font-bold mb-1">Marvel Watch Guide</h3>
+                        <p class="text-xs font-mono mb-3" style="color:var(--text-muted);">Web Application</p>
+                        <p class="text-sm mb-5 flex-1" style="color:var(--text-secondary);">A comprehensive guide to
+                            watching the entire MCU in correct timeline order, with dynamic animations.</p>
+                        <div class="text-xs font-mono lang-tag mb-1">
                             <span class="text-yellow-400"><i class="fa-brands fa-js"></i>Anime.js</span>,
                             <span class="text-yellow-400"><i class="fa-brands fa-js"></i>JavaScript</span>,
                             <span class="text-blue-500"><i class="fa-brands fa-css3-alt"></i>CSS</span>
                         </div>
                         <a href="https://marvel-guide.vercel.app/" target="_blank"
-                            class="btn btn-secondary mt-auto">View
-                            Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+                            class="btn btn-secondary mt-auto">View Project <i
+                                class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
                     </div>
                 </div>
-
                 <div class="project-card animated-element">
                     <div class="project-image-wrapper"><img src="/images/anilist.png" alt="My Anime List"></div>
                     <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-1">My Anime List</h3>
-                        <p class="text-text-muted text-sm mb-4">Web Application</p>
-                        <p class="text-text-secondary text-sm mb-6 flex-1">A personalized list for tracking watched
-                            anime ~
-                            simple and clean.</p>
-                        <div class="text-xs font-mono lang-tag">
+                        <h3 class="text-lg font-bold mb-1">My Anime List</h3>
+                        <p class="text-xs font-mono mb-3" style="color:var(--text-muted);">Web Application</p>
+                        <p class="text-sm mb-5 flex-1" style="color:var(--text-secondary);">A personalized list for
+                            tracking watched anime — simple and clean.</p>
+                        <div class="text-xs font-mono lang-tag mb-1">
                             <span class="text-yellow-400"><i class="fa-brands fa-js"></i>JavaScript</span>,
                             <span style="color: #63dafb;"><i class="fa-brands fa-react"></i>Jikan API</span>,
                             <span class="text-blue-500"><i class="fa-brands fa-css3-alt"></i>CSS</span>
@@ -1158,12 +772,11 @@
                 <div class="project-card animated-element">
                     <div class="project-image-wrapper"><img src="/images/manga.png" alt="My Manga List"></div>
                     <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-1">My Manga List</h3>
-                        <p class="text-text-muted text-sm mb-4">Web Application</p>
-                        <p class="text-text-secondary text-sm mb-6 flex-1">A custom interface to track and showcase my
-                            manga
-                            reading list.</p>
-                        <div class="text-xs font-mono lang-tag">
+                        <h3 class="text-lg font-bold mb-1">My Manga List</h3>
+                        <p class="text-xs font-mono mb-3" style="color:var(--text-muted);">Web Application</p>
+                        <p class="text-sm mb-5 flex-1" style="color:var(--text-secondary);">A custom interface to track
+                            and showcase my manga reading list.</p>
+                        <div class="text-xs font-mono lang-tag mb-1">
                             <span class="text-yellow-400"><i class="fa-brands fa-js"></i>JavaScript</span>,
                             <span style="color: #63dafb;"><i class="fa-brands fa-react"></i>Jikan API</span>,
                             <span class="text-blue-500"><i class="fa-brands fa-css3-alt"></i>CSS</span>
@@ -1175,11 +788,11 @@
                 <div class="project-card animated-element">
                     <div class="project-image-wrapper"><img src="/images/weather-app.png" alt="Weather Dashboard"></div>
                     <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-1">Weather Dashboard</h3>
-                        <p class="text-text-muted text-sm mb-4">Web Application</p>
-                        <p class="text-text-secondary text-sm mb-6 flex-1">A real-time weather dashboard that shows live
-                            temperature, weather conditions, and a 5-day forecast using a clean UI.</p>
-                        <div class="text-xs font-mono lang-tag">
+                        <h3 class="text-lg font-bold mb-1">Weather Dashboard</h3>
+                        <p class="text-xs font-mono mb-3" style="color:var(--text-muted);">Web Application</p>
+                        <p class="text-sm mb-5 flex-1" style="color:var(--text-secondary);">A real-time weather
+                            dashboard showing live temperature, conditions, and a 5-day forecast.</p>
+                        <div class="text-xs font-mono lang-tag mb-1">
                             <span class="text-yellow-400"><i class="fa-brands fa-js"></i>JavaScript</span>,
                             <span class="text-orange-500"><i class="fa-brands fa-html5"></i>HTML</span>,
                             <span class="text-blue-500"><i class="fa-brands fa-css3-alt"></i>CSS</span>
@@ -1192,12 +805,11 @@
                     <div class="project-image-wrapper"><img src="/images/calculator.png" alt="Scientific Calculator">
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-1">Scientific Calculator</h3>
-                        <p class="text-text-muted text-sm mb-4">Web Application</p>
-                        <p class="text-text-secondary text-sm mb-6 flex-1">A sleek, easy-to-use scientific calculator
-                            app
-                            featuring functions like trigonometry, logarithms, and exponentials.</p>
-                        <div class="text-xs font-mono lang-tag">
+                        <h3 class="text-lg font-bold mb-1">Scientific Calculator</h3>
+                        <p class="text-xs font-mono mb-3" style="color:var(--text-muted);">Web Application</p>
+                        <p class="text-sm mb-5 flex-1" style="color:var(--text-secondary);">A sleek, easy-to-use
+                            scientific calculator featuring trig, logarithms, and exponentials.</p>
+                        <div class="text-xs font-mono lang-tag mb-1">
                             <span class="text-yellow-400"><i class="fa-brands fa-js"></i>JavaScript</span>,
                             <span class="text-orange-500"><i class="fa-brands fa-html5"></i>HTML</span>,
                             <span class="text-blue-500"><i class="fa-brands fa-css3-alt"></i>CSS</span>
@@ -1210,28 +822,28 @@
         </div>
     </main>
 
-    <footer class="border-t border-border-subtle relative z-10 mt-5">
-        <div class="max-w-7xl mx-auto px-6 py-16">
-            <div class="text-center">
-                <h3 class="text-4xl font-extrabold mb-4 gradient-text">Let's Connect</h3>
-                <p class="max-w-lg mx-auto mb-10 text-text-secondary">Have a project in mind, a question, or just want
-                    to say hi? My inbox is always open.</p>
-                <div class="flex justify-center gap-8 mb-12">
-                    <a href="https://discord.com/users/860384146778226699" target="_blank" class="social-link"><i
-                            class="fa-brands fa-discord"></i></a>
-                    <a href="https://github.com/itszubariel" target="_blank" class="social-link"><i
-                            class="fa-brands fa-github"></i></a>
-                    <a href="https://x.com/itszubariel" target="_blank" class="social-link"><i
-                            class="fa-brands fa-twitter"></i></a>
-                    <a href="https://www.youtube.com/channel/UCfzevkQDWFTmAo07B0rR9Jw" target="_blank"
-                        class="social-link"><i class="fa-brands fa-youtube"></i></a>
-                </div>
-                <a href="/contact" target="_blank" class="btn btn-primary mb-12">
-                    <i class="fa-solid fa-paper-plane"></i>
-                    Get In Touch
-                </a>
-                <p class="text-sm text-text-muted font-mono">© 2023-2025 Zubariel. All Rights Reserved.</p>
+    <footer style="border-top:1px solid var(--border-subtle); margin-top:4rem;" class="relative z-10">
+        <div class="max-w-7xl mx-auto px-6 py-16 text-center">
+            <h3 class="gradient-text"
+                style="font-family:'Unbounded',sans-serif; font-size:2rem; font-weight:800; letter-spacing:-0.03em; margin-bottom:0.75rem;">
+                Let's Connect</h3>
+            <p style="color:var(--text-secondary); max-width:26rem; margin:0 auto 2.5rem; font-size:0.95rem;">Have a
+                project in mind, a question, or just want to say hi? My inbox is always open.</p>
+            <div class="flex justify-center gap-7 mb-8">
+                <a href="https://discord.com/users/860384146778226699" target="_blank" class="social-link"><i
+                        class="fa-brands fa-discord"></i></a>
+                <a href="https://github.com/itszubariel" target="_blank" class="social-link"><i
+                        class="fa-brands fa-github"></i></a>
+                <a href="https://x.com/itszubariel" target="_blank" class="social-link"><i
+                        class="fa-brands fa-twitter"></i></a>
+                <a href="https://www.youtube.com/channel/UCfzevkQDWFTmAo07B0rR9Jw" target="_blank"
+                    class="social-link"><i class="fa-brands fa-youtube"></i></a>
             </div>
+            <a href="/contact" target="_blank" class="btn btn-primary mb-12"><i class="fa-solid fa-paper-plane"></i> Get
+                In Touch</a>
+            <p
+                style="font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--text-muted); margin-top:2.5rem;">
+                © Zubariel 2023–2026. All rights reserved.</p>
         </div>
     </footer>
 
@@ -1240,44 +852,34 @@
         const mobileMenu = document.getElementById('mobile-menu');
         const navLinks = document.querySelectorAll('#mobile-menu a');
 
-        hamburgerBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
-        navLinks.forEach(link => { link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); }); });
+        hamburgerBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        navLinks.forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
 
         document.addEventListener("DOMContentLoaded", () => {
-            const animatedEls = document.querySelectorAll('.animated-element');
             const observer = new IntersectionObserver(entries => {
-                entries.forEach((entry, index) => {
+                entries.forEach((entry, i) => {
                     if (entry.isIntersecting) {
-                        entry.target.style.transitionDelay = `${index * 50}ms`;
+                        entry.target.style.transitionDelay = `${i * 50}ms`;
                         entry.target.classList.add('visible');
                         observer.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.1 });
-            animatedEls.forEach(el => observer.observe(el));
+            }, { threshold: 0.08 });
+            document.querySelectorAll('.animated-element').forEach(el => observer.observe(el));
         });
 
-        window.addEventListener("scroll", function () {
+        window.addEventListener("scroll", () => {
             const svg = document.getElementById("background-svg");
-            const scrollPosition = window.pageYOffset;
-            if (svg) {
-                svg.style.transform = "translateY(" + scrollPosition * 0.2 + "px)";
-            }
+            if (svg) svg.style.transform = `translateY(${window.pageYOffset * 0.2}px)`;
         });
 
         function toggleOldProjects() {
             const section = document.getElementById('old-projects');
             const btn = document.getElementById('show-more-btn');
             const isHidden = section.style.display === 'none';
-
             section.style.display = isHidden ? 'contents' : 'none';
-            btn.textContent = isHidden ? 'Hide older projects' : 'Show older projects (15)';
-
-            if (isHidden) {
-                section.querySelectorAll('.animated-element:not(.visible)').forEach(el => {
-                    el.classList.add('visible');
-                });
-            }
+            btn.textContent = isHidden ? '// hide older projects' : '// show older projects (13)';
+            if (isHidden) section.querySelectorAll('.animated-element:not(.visible)').forEach(el => el.classList.add('visible'));
         }
     </script>
 </body>

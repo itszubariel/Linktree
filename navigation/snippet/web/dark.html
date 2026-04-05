@@ -1,384 +1,449 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dark Mode Toggle Snippet</title>
-  <link rel="icon" href="/images/2pfp.jpg" type="image/x-icon" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <style>
-    :root {
-      --bg-primary: #050505;
-      --bg-secondary: #101010;
-      --text-primary: #e4e4e7;
-      --text-secondary: #a1a1aa;
-      --accent: #8b5cf6;
-      --accent-glow: rgba(139, 92, 246, 0.2);
-      --border-color: rgba(255, 255, 255, 0.05);
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(12px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    body {
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      font-family: 'Inter', sans-serif;
-    }
-    .stagger-load > * {
-      opacity: 0;
-      animation: fadeIn 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
-    }
-    .stagger-load > *:nth-child(1) { animation-delay: 0.1s; }
-    .stagger-load > *:nth-child(2) { animation-delay: 0.2s; }
-    .stagger-load > *:nth-child(3) { animation-delay: 0.3s; }
-    .stagger-load > *:nth-child(4) { animation-delay: 0.4s; }
-    .stagger-load > *:nth-child(5) { animation-delay: 0.5s; }
-    .code-container { position: relative; }
-    pre {
-      padding: 1.5rem;
-      border-radius: 0.5rem;
-      overflow-x: auto;
-      background: var(--bg-secondary) !important;
-      border: 1px solid var(--border-color);
-      box-shadow: 0 0 12px rgba(0,0,0,0.3);
-      line-height: 1.6;
-      margin: 0;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-      will-change: border-color, box-shadow;
-    }
-    pre:hover {
-      border-color: rgba(139, 92, 246, 0.4);
-      box-shadow: 0 0 20px var(--accent-glow);
-    }
-    code.custom-highlight {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.9rem;
-      white-space: pre-wrap;
-      word-break: break-word;
-    }
-    .tab-btn {
-      background: var(--bg-secondary);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: var(--text-secondary);
-      transition: all 0.25s ease-out;
-      transform: translateY(0);
-      will-change: transform, color, background-color, box-shadow;
-    }
-    .tab-btn:hover { transform: translateY(-2px); color: var(--text-primary); }
-    .tab-btn.active {
-      background: var(--accent);
-      color: white;
-      border-color: var(--accent);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 15px var(--accent-glow);
-    }
-    .nav-link {
-      color: var(--text-secondary);
-      font-weight: 500;
-      font-size: 0.9rem;
-      text-decoration: none;
-      transition: color 0.3s ease;
-      position: relative;
-      display: inline-block;
-    }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      transform: scaleX(0);
-      height: 1px;
-      bottom: -4px;
-      left: 0;
-      background-color: var(--accent);
-      transform-origin: bottom right;
-      transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    .nav-link:hover { color: var(--text-primary); }
-    .nav-link:hover::after { transform: scaleX(1); transform-origin: bottom left; }
-    .copy-button {
-      margin-top: 10px;
-      padding: 8px 16px;
-      background: #333333;
-      color: #ffffff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-bottom: 50px;
-      transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.2s ease-out;
-      will-change: transform, box-shadow;
-    }
-    .copy-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px var(--accent-glow);
-      background-color: #3f3f46;
-    }
-    .copy-button:active {
-      transform: scale(0.98) translateY(-1px);
-      box-shadow: 0 2px 5px var(--accent-glow);
-    }
-    .text-accent { color: var(--accent); }
-    .code-tab {
-      transition: opacity 0.4s ease, transform 0.4s ease;
-      opacity: 1; transform: translateY(0);
-      will-change: opacity, transform;
-    }
-    .code-tab.is-hidden {
-      opacity: 0; transform: translateY(10px);
-      position: absolute; pointer-events: none;
-      height: 0; overflow: hidden;
-    }
-  </style>
-</head>
-<body class="p-8">
-  <div class="max-w-4xl mx-auto stagger-load">
-    <div class="mb-8">
-      <a href="/snippet" class="nav-link text-sm"><i class="fa-solid fa-arrow-left mr-1"></i>Back to Snippets</a>
-    </div>
+    <meta charset="UTF-8" />
+    <title>Snippets | Dark/Light Mode Toggle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/images/2pfp.jpg" type="image/x-icon" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Unbounded:wght@400;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-    <h1 class="text-3xl font-bold mb-6">Dark Mode Toggle <span class="text-accent">Snippet</span>.</h1>
-
-    <p class="mb-6" style="color:var(--text-secondary);">
-      A smooth dark/light mode toggle that persists the user's preference using
-      <code style="color:var(--accent);font-size:0.85em;">localStorage</code>.
-      The toggle animates between a sun and moon icon and applies a
-      <code style="color:var(--accent);font-size:0.85em;">dark</code> class to the body so you can style everything with CSS.
-      <br><br>
-      <strong style="color:var(--text-primary);">How to Use?</strong><br>
-      Add the HTML toggle button anywhere in your page, paste the CSS and JS.
-      Style your dark mode overrides under <code style="color:var(--accent);font-size:0.85em;">body.dark</code> and the toggle handles the rest automatically.
-      <br><br>
-      <strong style="color:var(--text-primary);">Credits</strong><br>
-      Built with localStorage, classList toggling, and zero dependencies.
-    </p>
-
-    <div class="flex gap-2 mb-4">
-      <button class="tab-btn px-4 py-2 rounded active" onclick="showTab('tab-1', event)">HTML</button>
-      <button class="tab-btn px-4 py-2 rounded" onclick="showTab('tab-2', event)">CSS</button>
-      <button class="tab-btn px-4 py-2 rounded" onclick="showTab('tab-3', event)">JS</button>
-    </div>
-
-    <div class="code-container">
-
-      <div id="tab-1" class="code-tab">
-        <pre><code class="html-code">&lt;!-- Place this button wherever you want the toggle --&gt;
-&lt;button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"&gt;
-  &lt;span class="toggle-track"&gt;
-    &lt;span class="toggle-thumb"&gt;&lt;/span&gt;
-  &lt;/span&gt;
-  &lt;span class="toggle-icon"&gt;&lt;/span&gt;
-&lt;/button&gt;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fa-solid fa-copy mr-2"></i>Copy Code</button>
-      </div>
-
-      <div id="tab-2" class="code-tab is-hidden">
-        <pre><code class="css-code">body {
-  background: #ffffff;
-  color: #18181b;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-body.dark {
-  background: #09090b;
-  color: #e4e4e7;
-}
-
-.theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.25rem;
-}
-
-.toggle-track {
-  width: 44px;
-  height: 24px;
-  background: #d4d4d8;
-  border-radius: 999px;
-  position: relative;
-  transition: background 0.3s ease;
-  display: block;
-}
-
-body.dark .toggle-track {
-  background: #8b5cf6;
-}
-
-.toggle-thumb {
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #ffffff;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-body.dark .toggle-thumb {
-  transform: translateX(20px);
-}
-
-.toggle-icon {
-  font-size: 1.1rem;
-  transition: transform 0.4s ease;
-  display: inline-block;
-}</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fa-solid fa-copy mr-2"></i>Copy Code</button>
-      </div>
-
-      <div id="tab-3" class="code-tab is-hidden">
-        <pre><code class="js-code">const toggle = document.getElementById('theme-toggle');
-const icon = toggle.querySelector('.toggle-icon');
-
-const MOON = '\u263E';
-const SUN  = '\u2600';
-
-const saved = localStorage.getItem('theme');
-if (saved === 'dark') {
-  document.body.classList.add('dark');
-  icon.textContent = SUN;
-} else {
-  icon.textContent = MOON;
-}
-
-toggle.addEventListener('click', () => {
-  const isDark = document.body.classList.toggle('dark');
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
-
-  icon.style.transform = 'rotate(180deg) scale(0)';
-  setTimeout(() => {
-    icon.textContent = isDark ? SUN : MOON;
-    icon.style.transform = 'rotate(0deg) scale(1)';
-  }, 200);
-});</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fa-solid fa-copy mr-2"></i>Copy Code</button>
-      </div>
-
-    </div>
-  </div>
-
-  <footer>
-    <div class="max-w-7xl mx-auto px-6 py-16">
-      <div class="text-center">
-        <p class="text-sm font-mono" style="color:var(--text-secondary);">© 2023-2026 Zubariel. All Rights Reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    function copyCode(btn) {
-      const tab = btn.closest('.code-tab');
-      const raw = tab ? tab.querySelector('.raw-code') : null;
-      const text = raw ? raw.value : '';
-      if (!text) return;
-      navigator.clipboard.writeText(text).then(() => {
-        const orig = btn.innerHTML;
-        btn.innerHTML = '<i class="fa-solid fa-check mr-2"></i>Copied!';
-        setTimeout(() => btn.innerHTML = orig, 2000);
-      }).catch(() => alert('Failed to copy.'));
-    }
-
-    function showTab(tabId, event) {
-      document.querySelectorAll('.code-tab').forEach(el => el.classList.add('is-hidden'));
-      document.getElementById(tabId).classList.remove('is-hidden');
-      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
-    }
-  </script>
-
-  <script>
-  const CustomHighlighter = (function () {
-  function escapeHtml(html) {
-    return html
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;");
-  }
-
-  function style(color, fontWeight, fontStyle) {
-    fontWeight = fontWeight || 'normal';
-    fontStyle = fontStyle || 'normal';
-    return "style='color:"+color+";font-weight:"+fontWeight+";font-style:"+fontStyle+"'";
-  }
-
-  function highlightHTML(code) {
-    let escaped = escapeHtml(code);
-    escaped = escaped.replace(/(&lt;!--[\s\S]*?--&gt;)/g, '<span '+style('#6b7280', 'normal', 'italic')+'>$1</span>');
-    escaped = escaped.replace(/(&lt;\/?[a-zA-Z0-9\-:]+)/g, '<span '+style('#f472b6')+'>$1</span>');
-    escaped = escaped.replace(/([a-zA-Z\-:]+)(=)(&quot;[^&]*?&quot;)/g, function(_, attr, eq, val) {
-      return '<span '+style('#facc15')+'>'+attr+'</span>'+eq+'<span '+style('#34d399')+'>'+val+'</span>';
-    });
-    return escaped;
-  }
-
-  function highlightCSS(code) {
-    let escaped = escapeHtml(code);
-    escaped = escaped.replace(/(\/\*[\s\S]*?\*\/)/g, '<span '+style('#6b7280', 'normal', 'italic')+'>$1</span>');
-    escaped = escaped.replace(/([a-zA-Z\-]+)(\s*:\s*)([^;]+)(;?)/g, function(_, prop, sep, val, end) {
-      return '<span '+style('#facc15')+'>'+prop+'</span>'+sep+'<span '+style('#34d399')+'>'+val+'</span>'+end;
-    });
-    return escaped;
-  }
-
-  function highlightJS(code) {
-    const escaped = escapeHtml(code);
-    return escaped
-      .replace(/(\/\/[^\n]*)/g, '<span '+style('#6b7280', 'normal', 'italic')+'>$1</span>')
-      .replace(/(['"`])(?:\\[\s\S]|(?!\1).)*\1/g, function(match) {
-        return '<span '+style('#34d399')+'>'+match+'</span>';
-      })
-      .replace(/\b(let|const|var|function|return|if|else|for|while|class|new|this|try|catch|finally|await|async|import|from|export|throw|typeof|instanceof|in|of|break|continue|switch|case|default|delete)\b/g,
-        '<span '+style('#60a5fa', 'bold')+'>$1</span>')
-      .replace(/\b(true|false|null|undefined|NaN|Infinity)\b/g, '<span '+style('#f472b6')+'>$1</span>')
-      .replace(/\b(\d+(\.\d+)?(e[+-]?\d+)?)\b/gi, '<span '+style('#fbbf24')+'>$1</span>')
-      .replace(/\b([a-zA-Z_][a-zA-Z0-9_]*)\s*(?=\()/g, '<span '+style('#a78bfa')+'>$1</span>')
-      .replace(/(\.)([a-zA-Z_][a-zA-Z0-9_]*)/g, function(_, dot, prop) {
-        return dot+'<span '+style('#22d3ee')+'>'+prop+'</span>';
-      });
-  }
-
-  function highlight(code, lang) {
-    switch (lang) {
-      case 'html': return highlightHTML(code);
-      case 'css': return highlightCSS(code);
-      case 'js': return highlightJS(code);
-      default: return escapeHtml(code);
-    }
-  }
-
-  return { highlight: highlight };
-})();
-
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('code').forEach(function(codeBlock) {
-      const pre = codeBlock.parentElement;
-      if (!pre || pre.tagName !== 'PRE') return;
-      const raw = codeBlock.textContent;
-      let lang = null;
-      if (codeBlock.classList.contains('html-code'))     lang = 'html';
-      else if (codeBlock.classList.contains('css-code')) lang = 'css';
-      else if (codeBlock.classList.contains('js-code'))  lang = 'js';
-      if (lang) {
-        const tab = pre.closest('.code-tab');
-        if (tab && !tab.querySelector('.raw-code')) {
-          const ta = document.createElement('textarea');
-          ta.className = 'raw-code';
-          ta.style.display = 'none';
-          ta.value = raw;
-          tab.appendChild(ta);
+    <style>
+        :root {
+            --bg-primary: #050505;
+            --bg-secondary: #0f0f0f;
+            --bg-code: #0a0a0c;
+            --border-subtle: rgba(255, 255, 255, 0.04);
+            --border-medium: rgba(255, 255, 255, 0.09);
+            --border-accent: rgba(139, 92, 246, 0.3);
+            --text-primary: #e4e4e7;
+            --text-secondary: #a1a1aa;
+            --text-muted: #52525b;
+            --accent: #8b5cf6;
+            --accent-light: #a78bfa;
+            --accent-dim: rgba(139, 92, 246, 0.1);
+            --accent-gradient: linear-gradient(135deg, #a78bfa, #8b5cf6);
         }
-        const highlighted = CustomHighlighter.highlight(raw, lang);
-        pre.outerHTML = '<pre><code class="custom-highlight">'+highlighted+'</code></pre>';
-      }
-    });
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-medium);
+            border-radius: 3px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            padding: 3rem 1.5rem;
+            background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.018) 1px, transparent 0);
+            background-size: 28px 28px;
+        }
+
+        .page {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            transition: color 0.2s ease;
+            margin-bottom: 2rem;
+        }
+
+        .back-link:hover {
+            color: var(--accent-light);
+        }
+
+        .meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .meta-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 99px;
+            padding: 0.2rem 0.6rem;
+            letter-spacing: 0.02em;
+        }
+
+        .meta-tag.accent {
+            color: var(--accent-light);
+            border-color: var(--border-accent);
+        }
+
+        h1 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: clamp(1.6rem, 4vw, 2.25rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+            margin-bottom: 0.875rem;
+        }
+
+        .gradient-text {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            max-width: 36rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .subtitle code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            color: var(--accent-light);
+            background: var(--accent-dim);
+            padding: 0.1rem 0.4rem;
+            border-radius: 0.25rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.875rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 560px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .info-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+        }
+
+        .info-card h4 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.62rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        .info-card a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        .info-card a:hover {
+            text-decoration: underline;
+        }
+
+        .code-block {
+            border: 1px solid var(--border-subtle);
+            border-radius: 0.875rem;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .tab-bar {
+            display: flex;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 0 0.875rem;
+        }
+
+        .tab-btn {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid transparent;
+            padding: 0.625rem 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            letter-spacing: 0.03em;
+            margin-bottom: -1px;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-secondary);
+        }
+
+        .tab-btn.active {
+            color: var(--accent-light);
+            border-bottom-color: var(--accent);
+        }
+
+        .code-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.55rem 0.875rem;
+            background: rgba(255, 255, 255, 0.015);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .dots {
+            display: flex;
+            gap: 5px;
+        }
+
+        .dots span {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+        }
+
+        .d-r {
+            background: #ff5f57;
+        }
+
+        .d-y {
+            background: #febc2e;
+        }
+
+        .d-g {
+            background: #28c840;
+        }
+
+        .copy-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            background: transparent;
+            border: 1px solid var(--border-medium);
+            border-radius: 0.35rem;
+            padding: 0.25rem 0.65rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .copy-btn:hover {
+            border-color: var(--border-accent);
+            color: var(--accent-light);
+        }
+
+        .copy-btn.copied {
+            color: #23a559;
+            border-color: rgba(35, 165, 89, 0.35);
+        }
+
+        pre {
+            margin: 0;
+            padding: 1.25rem 1.5rem;
+            overflow-x: auto;
+            background: var(--bg-code);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            line-height: 1.8;
+            color: #c4b5fd;
+        }
+
+        pre::-webkit-scrollbar {
+            height: 3px;
+        }
+
+        pre::-webkit-scrollbar-thumb {
+            background: var(--border-medium);
+        }
+
+        .t-kw {
+            color: #a78bfa;
+        }
+
+        .t-str {
+            color: #86efac;
+        }
+
+        .t-fn {
+            color: #7dd3fc;
+        }
+
+        .t-attr {
+            color: #fde68a;
+        }
+
+        .t-num {
+            color: #fb923c;
+        }
+
+        .t-cm {
+            color: #3f3f46;
+            font-style: italic;
+        }
+
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        .snippet-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .snav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            letter-spacing: 0.03em;
+            transition: color 0.2s ease;
+        }
+
+        .snav-btn:hover {
+            color: var(--accent-light);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <a href="/snippet" class="back-link"><i class="fa-solid fa-arrow-left" style="font-size:0.6rem;"></i>
+            /snippet</a>
+        <div class="meta-row">
+            <span class="meta-tag"><i class="fa-brands fa-js" style="color:#facc15;"></i> JavaScript</span>
+            <span class="meta-tag"><i class="fa-brands fa-css3-alt" style="color:#60a5fa;"></i> CSS</span>
+            <span class="meta-tag"><i class="fa-brands fa-html5" style="color:#f97316;"></i> HTML</span>
+            <span class="meta-tag accent"> web</span>
+        </div>
+        <h1>Dark/Light <span class="gradient-text">Mode Toggle.</span></h1>
+        <p class="subtitle">A smooth dark/light mode toggle that persists via <code>localStorage</code>. Animates
+            between ☀️ and 🌙 icons with a CSS transition on the body.</p>
+        <div class="info-grid">
+            <div class="info-card">
+                <h4>// how to use</h4>
+                <p>Add <code>data-theme</code> CSS variables to your <code>:root</code> and
+                    <code>[data-theme="dark"]</code> selectors. The script handles the rest automatically on load.</p>
+            </div>
+            <div class="info-card">
+                <h4>// credits</h4>
+                <p>A standard pattern for theme toggling built with only CSS variables and localStorage. No
+                    dependencies.</p>
+            </div>
+        </div>
+        <div class="code-block">
+            <div class="tab-bar">
+                <button class="tab-btn active">toggle.html</button>
+            </div>
+            <div id="tab-main" class="tab-panel active">
+                <div class="code-topbar">
+                    <div class="dots"><span class="d-r"></span><span class="d-y"></span><span class="d-g"></span></div>
+                    <button class="copy-btn" onclick="copyCode('darkmode-code', this)"><i
+                            class="fa-regular fa-copy"></i> Copy</button>
+                </div>
+                <pre id="darkmode-code"><span class="t-kw">&lt;button</span> <span class="t-attr">id</span>=<span class="t-str">"toggle"</span> <span class="t-attr">aria-label</span>=<span class="t-str">"Toggle theme"</span><span class="t-kw">&gt;</span>🌙<span class="t-kw">&lt;/button&gt;</span>
+
+<span class="t-kw">&lt;style&gt;</span>
+  <span class="t-fn">:root</span> { <span class="t-attr">--bg</span>:<span class="t-str">#fff</span>; <span class="t-attr">--text</span>:<span class="t-str">#111</span>; }
+  <span class="t-fn">[data-theme="dark"]</span> { <span class="t-attr">--bg</span>:<span class="t-str">#111</span>; <span class="t-attr">--text</span>:<span class="t-str">#f5f5f5</span>; }
+  <span class="t-fn">body</span> { <span class="t-attr">background</span>:<span class="t-str">var(--bg)</span>; <span class="t-attr">color</span>:<span class="t-str">var(--text)</span>; <span class="t-attr">transition</span>:<span class="t-str">background .3s, color .3s</span>; }
+  <span class="t-fn">#toggle</span> {
+    <span class="t-attr">font-size</span>:<span class="t-str">1.5rem</span>; <span class="t-attr">background</span>:<span class="t-str">none</span>; <span class="t-attr">border</span>:<span class="t-str">none</span>;
+    <span class="t-attr">cursor</span>:<span class="t-str">pointer</span>; <span class="t-attr">transition</span>:<span class="t-str">transform .3s</span>;
+  }
+  <span class="t-fn">#toggle:hover</span> { <span class="t-attr">transform</span>:<span class="t-str">rotate(20deg) scale(1.2)</span>; }
+<span class="t-kw">&lt;/style&gt;</span>
+
+<span class="t-kw">&lt;script&gt;</span>
+  <span class="t-kw">const</span> btn = document.<span class="t-fn">getElementById</span>(<span class="t-str">"toggle"</span>);
+  <span class="t-kw">const</span> saved = <span class="t-fn">localStorage</span>.<span class="t-fn">getItem</span>(<span class="t-str">"theme"</span>) || <span class="t-str">"light"</span>;
+  document.documentElement.<span class="t-fn">setAttribute</span>(<span class="t-str">"data-theme"</span>, saved);
+  btn.textContent = saved === <span class="t-str">"dark"</span> ? <span class="t-str">"☀️"</span> : <span class="t-str">"🌙"</span>;
+
+  btn.<span class="t-fn">addEventListener</span>(<span class="t-str">"click"</span>, () => {
+    <span class="t-kw">const</span> isDark = document.documentElement.<span class="t-fn">getAttribute</span>(<span class="t-str">"data-theme"</span>) === <span class="t-str">"dark"</span>;
+    <span class="t-kw">const</span> next = isDark ? <span class="t-str">"light"</span> : <span class="t-str">"dark"</span>;
+    document.documentElement.<span class="t-fn">setAttribute</span>(<span class="t-str">"data-theme"</span>, next);
+    <span class="t-fn">localStorage</span>.<span class="t-fn">setItem</span>(<span class="t-str">"theme"</span>, next);
+    btn.textContent = next === <span class="t-str">"dark"</span> ? <span class="t-str">"☀️"</span> : <span class="t-str">"🌙"</span>;
   });
-  </script>
+<span class="t-kw">&lt;/script&gt;</span></pre>
+            </div>
+        </div>
+        <div class="snippet-nav"><a href="/snippet/web/frosted-profile" class="snav-btn"><i
+                    class="fa-solid fa-arrow-left" style="font-size:0.6rem;"></i> frosted profile</a><a
+                href="/snippet/web/toast-notification" class="snav-btn">toast notifications <i
+                    class="fa-solid fa-arrow-right" style="font-size:0.6rem;"></i></a></div>
+    </div>
+
+    <script>
+        function switchTab(name, btn) {
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('tab-' + name).classList.add('active');
+            btn.classList.add('active');
+        }
+        function copyCode(id, btn) {
+            const text = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                btn.classList.add('copied');
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+                setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy'; }, 2000);
+            });
+        }
+    </script>
 </body>
+
 </html>

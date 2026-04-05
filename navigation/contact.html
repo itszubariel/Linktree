@@ -1,114 +1,144 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8" />
     <title>Zubariel | Contact</title>
     <meta name="description" content="Get in touch with Zubariel for projects, questions, or collaborations." />
-    <meta name="keywords" content="HTML, CSS, JS, Contact, Portfolio, Developer, Zubariel" />
     <meta name="author" content="Zubariel" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/images/2pfp.jpg" type="image/x-icon" />
-
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Unbounded:wght@400;700;800&display=swap" rel="stylesheet">
-
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Unbounded:wght@400;700;800&display=swap"
+        rel="stylesheet">
     <script>
-      if (location.hostname === "zubariel.netlify.app") {
-        const newUrl = location.href.replace("zubariel.netlify.app", "zubariel.is-a.dev");
-        location.replace(newUrl); 
-      }
+        if (location.hostname === "zubariel.netlify.app") { const newUrl = location.href.replace("zubariel.netlify.app", "zubariel.is-a.dev"); location.replace(newUrl); }
     </script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ["Inter", "sans-serif"],
-              mono: ["JetBrains Mono", "monospace"],
-              display: ["Unbounded", "Inter", "ui-sans-serif"],
-            },
-            animation: {
-              'fade-in': 'fadeIn 0.6s ease-out forwards',
-              'slide-up': 'slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-            },
-            keyframes: {
-              fadeIn: { 'from': { opacity: '0' }, 'to': { opacity: '1' }, },
-              slideUp: { 'from': { opacity: '0', transform: 'translateY(40px)' }, 'to': { opacity: '1', transform: 'translateY(0)' }, },
-            }
-          },
-        },
-      };
-    </script>
-    
     <style>
         :root {
             --bg-primary: #050505;
-            --bg-secondary: #101010;
-            --bg-tertiary: #191919;
-            --border-subtle: rgba(255, 255, 255, 0.05);
-            --border-medium: rgba(255, 255, 255, 0.1);
+            --bg-secondary: #0f0f0f;
+            --bg-tertiary: #161616;
+            --border-subtle: rgba(255, 255, 255, 0.055);
+            --border-medium: rgba(255, 255, 255, 0.09);
+            --border-accent: rgba(139, 92, 246, 0.3);
             --text-primary: #e4e4e7;
             --text-secondary: #a1a1aa;
-            --text-muted: #71717a;
+            --text-muted: #52525b;
             --accent: #8b5cf6;
             --accent-light: #a78bfa;
-            --accent-gradient: linear-gradient(90deg, var(--accent-light), var(--accent));
+            --accent-gradient: linear-gradient(135deg, var(--accent-light), var(--accent));
         }
 
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg-primary); }
-        ::-webkit-scrollbar-thumb { background: var(--border-medium); border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
 
-        html { background-color: var(--bg-primary); }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-medium);
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        html {
+            background-color: var(--bg-primary);
+        }
 
         body {
             background-color: var(--bg-primary);
             color: var(--text-primary);
             font-family: 'Inter', sans-serif;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
+            background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.018) 1px, transparent 0);
+            background-size: 28px 28px;
         }
-        
+
         #background-svg {
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100vh;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
             z-index: -1;
             pointer-events: none;
         }
 
         .site-header {
-            background-color: rgba(5, 5, 5, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background-color: rgba(5, 5, 5, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-subtle);
-            transition: all 0.3s ease;
         }
 
         .nav-link {
-            position: relative; color: var(--text-secondary); font-weight: 500;
-            font-size: 0.9rem; padding: 0.25rem 0.125rem;
-            transition: color 0.3s ease; text-decoration: none;
+            position: relative;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 0.25rem 0;
+            letter-spacing: 0.01em;
+            transition: color 0.25s ease;
+            text-decoration: none;
         }
-        .nav-link:hover, .nav-link.active { color: var(--text-primary); }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--text-primary);
+        }
+
         .nav-link::after {
-            content: ''; position: absolute; width: 0; height: 2px; bottom: -4px;
-            left: 0; background: var(--accent);
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1.5px;
+            bottom: -4px;
+            left: 0;
+            background: var(--accent-light);
             transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
 
         .btn {
-            display: inline-flex; align-items: center; justify-content: center;
-            gap: 0.5rem; font-weight: 600; font-size: 0.9rem; padding: 0.75rem 1.75rem;
-            border-radius: 0.5rem; text-decoration: none;
-            transition: all 0.2s ease; cursor: pointer; border: 1px solid transparent;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 0.625rem 1.375rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+            letter-spacing: 0.01em;
         }
-        .btn-primary { background: var(--accent); color: white; box-shadow: 0 4px 14px rgba(139, 92, 246, 0.25); }
-        .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 7px 20px rgba(167, 139, 250, 0.3); }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-1px);
+            box-shadow: 0 0 28px rgba(167, 139, 250, 0.28);
+        }
 
         .form-input {
             width: 100%;
@@ -118,161 +148,179 @@
             padding: 0.75rem 1rem;
             color: var(--text-primary);
             font-size: 0.9rem;
+            font-family: 'Inter', sans-serif;
             transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
+
         .form-input:focus {
             outline: none;
             border-color: var(--accent);
-            box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.3);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
         }
-        .form-input::placeholder { color: var(--text-muted); }
 
-        .animated-element { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-        .animated-element.visible { opacity: 1; transform: translateY(0); }
+        .form-input::placeholder {
+            color: var(--text-muted);
+        }
 
-        .gradient-text { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-fill-color: transparent; }
+        .animated-element {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .animated-element.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gradient-text {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
     </style>
 </head>
 
 <body>
-    <svg id="background-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
-      <defs>
-        <linearGradient id="bg">
-          <stop offset="0%" style="stop-color: rgba(139, 92, 246, 0.06)"></stop>
-          <stop offset="50%" style="stop-color: rgba(139, 92, 246, 0.1)"></stop>
-          <stop offset="100%" style="stop-color: rgba(139, 92, 246, 0.06)"></stop>
-        </linearGradient>
-        <path id="wave" fill="url(#bg)" d="M-363.852,502.589c0,0,236.988-41.997,505.475,0 s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.995v560.106H-363.852V502.589z"></path>
-      </defs>
-      <g>
-        <use xlink:href="#wave" opacity=".3"><animateTransform attributeName="transform" attributeType="XML" type="translate" dur="10s" calcMode="spline" values="270 230; -334 180; 270 230" keyTimes="0; .5; 1" keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite"></animateTransform></use>
-        <use xlink:href="#wave" opacity=".6"><animateTransform attributeName="transform" attributeType="XML" type="translate" dur="8s" calcMode="spline" values="-270 230;243 220;-270 230" keyTimes="0; .6; 1" keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite"></animateTransform></use>
-        <use xlink:href="#wave" opacity=".9"><animateTransform attributeName="transform" attributeType="XML" type="translate" dur="6s" calcMode="spline" values="0 230;-140 200;0 230" keyTimes="0; .4; 1" keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite"></animateTransform></use>
-      </g>
+    <svg id="background-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
+        <defs>
+            <linearGradient id="bg">
+                <stop offset="0%" style="stop-color:rgba(139,92,246,0.05)"></stop>
+                <stop offset="50%" style="stop-color:rgba(139,92,246,0.08)"></stop>
+                <stop offset="100%" style="stop-color:rgba(139,92,246,0.05)"></stop>
+            </linearGradient>
+            <path id="wave" fill="url(#bg)"
+                d="M-363.852,502.589c0,0,236.988-41.997,505.475,0 s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.995v560.106H-363.852V502.589z">
+            </path>
+        </defs>
+        <g>
+            <use xlink:href="#wave" opacity=".3">
+                <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="10s"
+                    calcMode="spline" values="270 230;-334 180;270 230" keyTimes="0;.5;1"
+                    keySplines="0.42,0,0.58,1.0;0.42,0,0.58,1.0" repeatCount="indefinite"></animateTransform>
+            </use>
+            <use xlink:href="#wave" opacity=".6">
+                <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="8s"
+                    calcMode="spline" values="-270 230;243 220;-270 230" keyTimes="0;.6;1"
+                    keySplines="0.42,0,0.58,1.0;0.42,0,0.58,1.0" repeatCount="indefinite"></animateTransform>
+            </use>
+            <use xlink:href="#wave" opacity=".9">
+                <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="6s"
+                    calcMode="spline" values="0 230;-140 200;0 230" keyTimes="0;.4;1"
+                    keySplines="0.42,0,0.58,1.0;0.42,0,0.58,1.0" repeatCount="indefinite"></animateTransform>
+            </use>
+        </g>
     </svg>
 
     <header id="site-header" class="site-header fixed top-0 w-full z-50">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex-shrink-0">
-                    <a href="/" class="font-mono font-semibold text-2xl tracking-tight">zubariel<span class="text-accent">.</span></a>
-                </div>
-                <nav class="hidden md:flex items-center space-x-10">
+            <div class="flex items-center justify-between" style="height:4.5rem;">
+                <a href="/" class="font-mono font-semibold text-xl tracking-tight">zubariel<span
+                        style="color:var(--accent);">.</span></a>
+                <nav class="hidden md:flex items-center space-x-9">
                     <a href="/" class="nav-link">Home</a>
                     <a href="/portfolio" class="nav-link">Portfolio</a>
                     <a href="/now" class="nav-link">Now</a>
                     <a href="/snippet" class="nav-link">Snippets</a>
                     <a href="/projects" class="nav-link">Projects</a>
                 </nav>
-                <div class="hidden md:block">
-                    <a href="/contact" target="_blank" class="btn btn-primary active">Contact</a>
+                <div class="hidden md:block"><a href="/contact" target="_blank" class="btn btn-primary">Contact</a>
                 </div>
-                <div class="md:hidden">
-                    <button id="hamburgerBtn" class="text-2xl p-2 focus:outline-none"><i class="fa-solid fa-bars-staggered"></i></button>
+                <div class="md:hidden"><button id="hamburgerBtn" class="p-2 focus:outline-none"
+                        style="color:var(--text-secondary);"><i class="fa-solid fa-bars-staggered text-xl"></i></button>
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden border-t border-border-subtle bg-bg-primary">
+        <div id="mobile-menu" class="hidden md:hidden border-t"
+            style="border-color:var(--border-subtle); background:var(--bg-primary);">
             <nav class="px-6 py-6 space-y-4">
-                <a href="/" class="nav-link block py-2 text-lg">Home</a>
-                <a href="/portfolio" class="nav-link block py-2 text-lg">Portfolio</a>
-                <a href="/now" class="nav-link block py-2 text-lg">Now</a>
-                <a href="/snippet" class="nav-link block py-2 text-lg">Snippets</a>
-                <a href="/projects" class="nav-link block py-2 text-lg">Projects</a>
-                <a href="/contact" target="_blank" class="btn btn-primary inline-block mt-4 w-full active">Contact</a>
+                <a href="/" class="nav-link block py-2 text-base">Home</a>
+                <a href="/portfolio" class="nav-link block py-2 text-base">Portfolio</a>
+                <a href="/now" class="nav-link block py-2 text-base">Now</a>
+                <a href="/snippet" class="nav-link block py-2 text-base">Snippets</a>
+                <a href="/projects" class="nav-link block py-2 text-base">Projects</a>
+                <a href="/contact" target="_blank" class="btn btn-primary mt-4 w-full">Contact</a>
             </nav>
         </div>
     </header>
 
     <main class="max-w-4xl mx-auto px-6 pt-32 pb-24 relative z-10">
         <div class="text-center mb-12 animated-element">
-            <h1 class="text-4xl md:text-5xl font-bold font-display tracking-tight text-text-primary mb-4">
+            <p class="font-mono text-xs mb-3"
+                style="color:var(--text-muted); letter-spacing:0.08em; text-transform:uppercase;">// reach out</p>
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4"
+                style="font-family:'Unbounded',sans-serif; letter-spacing:-0.04em;">
                 <span class="gradient-text">Get In Touch</span>
             </h1>
-            <p class="text-lg text-text-secondary max-w-2xl mx-auto">
-                Have a project, a question, or just want to connect? My inbox is always open. Fill out the form below and I'll get back to you.
+            <p style="color:var(--text-secondary); max-width:32rem; margin:0 auto; font-size:0.95rem; line-height:1.7;">
+                Have a project, a question, or just want to connect? My inbox is always open. Fill out the form below
+                and I'll get back to you.
             </p>
         </div>
 
-        <div class="bg-bg-secondary border border-border-medium rounded-2xl p-6 sm:p-8 md:p-10 shadow-2xl animated-element" style="animation-delay: 100ms;">
+        <div class="animated-element"
+            style="background:var(--bg-secondary); border:1px solid var(--border-medium); border-radius:1rem; padding:2.5rem; box-shadow:0 24px 64px rgba(0,0,0,0.4); animation-delay:100ms;">
             <form onsubmit="return submitForm()">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
                     <div>
-                        <label for="username" class="block text-sm font-medium text-text-secondary mb-2">Username</label>
-                        <input type="text" id="username" name="username" class="form-input" placeholder="Your Name" required>
+                        <label for="username" class="block text-xs font-mono mb-2"
+                            style="color:var(--text-muted); letter-spacing:0.06em; text-transform:uppercase;">Username</label>
+                        <input type="text" id="username" name="username" class="form-input" placeholder="Your Name"
+                            required>
                     </div>
                     <div>
-                        <label for="email" class="block text-sm font-medium text-text-secondary mb-2">Email</label>
-                        <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required>
+                        <label for="email" class="block text-xs font-mono mb-2"
+                            style="color:var(--text-muted); letter-spacing:0.06em; text-transform:uppercase;">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com"
+                            required>
                     </div>
                 </div>
-                <div class="mb-6">
-                    <label for="subject" class="block text-sm font-medium text-text-secondary mb-2">Subject</label>
-                    <input type="text" id="subject" name="subject" class="form-input" placeholder="What's this about?" required>
+                <div class="mb-5">
+                    <label for="subject" class="block text-xs font-mono mb-2"
+                        style="color:var(--text-muted); letter-spacing:0.06em; text-transform:uppercase;">Subject</label>
+                    <input type="text" id="subject" name="subject" class="form-input" placeholder="What's this about?"
+                        required>
                 </div>
-                <div class="mb-8">
-                    <label for="message" class="block text-sm font-medium text-text-secondary mb-2">Message</label>
-                    <textarea id="message" name="message" rows="5" class="form-input" placeholder="Your message here..." required></textarea>
+                <div class="mb-7">
+                    <label for="message" class="block text-xs font-mono mb-2"
+                        style="color:var(--text-muted); letter-spacing:0.06em; text-transform:uppercase;">Message</label>
+                    <textarea id="message" name="message" rows="5" class="form-input" placeholder="Your message here..."
+                        required></textarea>
                 </div>
-                <div>
-                    <button type="submit" class="btn btn-primary w-full">
-                        <i class="fa-solid fa-paper-plane"></i> Send Message
-                    </button>
-                </div>
+                <button type="submit" class="btn btn-primary w-full"><i class="fa-solid fa-paper-plane"></i> Send
+                    Message</button>
             </form>
         </div>
     </main>
 
-    <footer class="border-t border-border-subtle relative z-10 mt-16">
-        <div class="max-w-7xl mx-auto px-6 py-10">
-            <p class="text-center text-sm text-text-muted font-mono">© 2023-2025 Zubariel. All Rights Reserved.</p>
+    <footer style="border-top:1px solid var(--border-subtle); margin-top:4rem;" class="relative z-10">
+        <div class="max-w-7xl mx-auto px-6 py-10 text-center">
+            <p style="font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--text-muted);">© Zubariel
+                2023–2026. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
         const hamburgerBtn = document.getElementById('hamburgerBtn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const navLinks = document.querySelectorAll('#mobile-menu a');
-
-        hamburgerBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
-        navLinks.forEach(link => { link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); }); });
-
+        hamburgerBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        document.querySelectorAll('#mobile-menu a').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
         document.addEventListener("DOMContentLoaded", () => {
-            const animatedEls = document.querySelectorAll('.animated-element');
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-            animatedEls.forEach(el => observer.observe(el));
+            const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }); }, { threshold: 0.08 });
+            document.querySelectorAll('.animated-element').forEach(el => observer.observe(el));
         });
-
-        window.addEventListener("scroll", function () {
-            const svg = document.getElementById("background-svg");
-            const scrollPosition = window.pageYOffset;
-            if (svg) {
-                svg.style.transform = "translateY(" + scrollPosition * 0.2 + "px)";
-            }
-        });
-
+        window.addEventListener("scroll", () => { const svg = document.getElementById("background-svg"); if (svg) svg.style.transform = `translateY(${window.pageYOffset * 0.2}px)`; });
         function submitForm() {
             const username = document.getElementById("username").value;
             const email = document.getElementById("email").value;
             const subject = document.getElementById("subject").value;
             const message = document.getElementById("message").value;
-
-            const encodedSubject = encodeURIComponent(subject);
-            const encodedBody = encodeURIComponent(
-                `Username: ${username}\nEmail: ${email}\n\nMessage:\n${message}`
-            );
-
-            window.location.href = `mailto:zubariel@gmail.com?subject=${encodedSubject}&body=${encodedBody}`;
-            
+            window.location.href = `mailto:zubariel@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Username: ${username}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
             return false;
         }
     </script>
 </body>
+
 </html>

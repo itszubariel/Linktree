@@ -1,443 +1,452 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Toast Notifications Snippet</title>
-  <link rel="icon" href="/images/2pfp.jpg" type="image/x-icon" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <style>
-    :root {
-      --bg-primary: #050505;
-      --bg-secondary: #101010;
-      --text-primary: #e4e4e7;
-      --text-secondary: #a1a1aa;
-      --accent: #8b5cf6;
-      --accent-glow: rgba(139, 92, 246, 0.2);
-      --border-color: rgba(255, 255, 255, 0.05);
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(12px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    body {
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      font-family: 'Inter', sans-serif;
-    }
-    .stagger-load > * {
-      opacity: 0;
-      animation: fadeIn 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
-    }
-    .stagger-load > *:nth-child(1) { animation-delay: 0.1s; }
-    .stagger-load > *:nth-child(2) { animation-delay: 0.2s; }
-    .stagger-load > *:nth-child(3) { animation-delay: 0.3s; }
-    .stagger-load > *:nth-child(4) { animation-delay: 0.4s; }
-    .stagger-load > *:nth-child(5) { animation-delay: 0.5s; }
-    .code-container { position: relative; }
-    pre {
-      padding: 1.5rem;
-      border-radius: 0.5rem;
-      overflow-x: auto;
-      background: var(--bg-secondary) !important;
-      border: 1px solid var(--border-color);
-      box-shadow: 0 0 12px rgba(0,0,0,0.3);
-      line-height: 1.6;
-      margin: 0;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-      will-change: border-color, box-shadow;
-    }
-    pre:hover {
-      border-color: rgba(139, 92, 246, 0.4);
-      box-shadow: 0 0 20px var(--accent-glow);
-    }
-    code.custom-highlight {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.9rem;
-      white-space: pre-wrap;
-      word-break: break-word;
-    }
-    .tab-btn {
-      background: var(--bg-secondary);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: var(--text-secondary);
-      transition: all 0.25s ease-out;
-      transform: translateY(0);
-      will-change: transform, color, background-color, box-shadow;
-    }
-    .tab-btn:hover { transform: translateY(-2px); color: var(--text-primary); }
-    .tab-btn.active {
-      background: var(--accent);
-      color: white;
-      border-color: var(--accent);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 15px var(--accent-glow);
-    }
-    .nav-link {
-      color: var(--text-secondary);
-      font-weight: 500;
-      font-size: 0.9rem;
-      text-decoration: none;
-      transition: color 0.3s ease;
-      position: relative;
-      display: inline-block;
-    }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      transform: scaleX(0);
-      height: 1px;
-      bottom: -4px;
-      left: 0;
-      background-color: var(--accent);
-      transform-origin: bottom right;
-      transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    .nav-link:hover { color: var(--text-primary); }
-    .nav-link:hover::after { transform: scaleX(1); transform-origin: bottom left; }
-    .copy-button {
-      margin-top: 10px;
-      padding: 8px 16px;
-      background: #333333;
-      color: #ffffff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-bottom: 50px;
-      transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.2s ease-out;
-      will-change: transform, box-shadow;
-    }
-    .copy-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px var(--accent-glow);
-      background-color: #3f3f46;
-    }
-    .copy-button:active {
-      transform: scale(0.98) translateY(-1px);
-      box-shadow: 0 2px 5px var(--accent-glow);
-    }
-    .text-accent { color: var(--accent); }
-    .code-tab {
-      transition: opacity 0.4s ease, transform 0.4s ease;
-      opacity: 1; transform: translateY(0);
-      will-change: opacity, transform;
-    }
-    .code-tab.is-hidden {
-      opacity: 0; transform: translateY(10px);
-      position: absolute; pointer-events: none;
-      height: 0; overflow: hidden;
-    }
-  </style>
-</head>
-<body class="p-8">
-  <div class="max-w-4xl mx-auto stagger-load">
-    <div class="mb-8">
-      <a href="/snippet" class="nav-link text-sm"><i class="fa-solid fa-arrow-left mr-1"></i>Back to Snippets</a>
-    </div>
+    <meta charset="UTF-8" />
+    <title>Snippets | Toast Notification System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/images/2pfp.jpg" type="image/x-icon" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Unbounded:wght@400;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-    <h1 class="text-3xl font-bold mb-6">Toast Notifications <span class="text-accent">Snippet</span>.</h1>
-
-    <p class="mb-6" style="color:var(--text-secondary);">
-      A lightweight, fully self-contained toast notification system with four types; success, error, warning, and info.
-      Toasts slide in from the bottom-right, stack cleanly, and auto-dismiss after 3 seconds with a progress bar.
-      <br><br>
-      <strong style="color:var(--text-primary);">How to Use?</strong><br>
-      Drop the HTML container and CSS into your page, include the JS, then call
-      <code style="color:var(--accent);font-size:0.85em;">showToast('Your message', 'success')</code> anywhere in your code.
-      Valid types are <code style="color:var(--accent);font-size:0.85em;">success</code>,
-      <code style="color:var(--accent);font-size:0.85em;">error</code>,
-      <code style="color:var(--accent);font-size:0.85em;">warning</code>, and
-      <code style="color:var(--accent);font-size:0.85em;">info</code>.
-      <br><br>
-      <strong style="color:var(--text-primary);">Credits</strong><br>
-      Built with pure JS DOM manipulation and CSS animations, zero dependencies.
-    </p>
-
-    <div class="flex gap-2 mb-4">
-      <button class="tab-btn px-4 py-2 rounded active" onclick="showTab('tab-1', event)">HTML</button>
-      <button class="tab-btn px-4 py-2 rounded" onclick="showTab('tab-2', event)">CSS</button>
-      <button class="tab-btn px-4 py-2 rounded" onclick="showTab('tab-3', event)">JS</button>
-    </div>
-
-    <div class="code-container">
-
-      <div id="tab-1" class="code-tab">
-        <pre><code class="html-code">&lt;!-- Toast Container: place once near end of &lt;body&gt; --&gt;
-&lt;div id="toast-container"&gt;&lt;/div&gt;
-
-&lt;!-- Example trigger buttons --&gt;
-&lt;div class="demo-buttons"&gt;
-  &lt;button onclick="showToast('Changes saved successfully!', 'success')"&gt;Success&lt;/button&gt;
-  &lt;button onclick="showToast('Something went wrong.', 'error')"&gt;Error&lt;/button&gt;
-  &lt;button onclick="showToast('Please review your input.', 'warning')"&gt;Warning&lt;/button&gt;
-  &lt;button onclick="showToast('New update available.', 'info')"&gt;Info&lt;/button&gt;
-&lt;/div&gt;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fa-solid fa-copy mr-2"></i>Copy Code</button>
-      </div>
-
-      <div id="tab-2" class="code-tab is-hidden">
-        <pre><code class="css-code">#toast-container {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-  z-index: 9999;
-  pointer-events: none;
-}
-.toast {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  min-width: 280px;
-  max-width: 360px;
-  padding: 0.85rem 1rem;
-  border-radius: 0.6rem;
-  background: #1a1a1a;
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-  color: #e4e4e7;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.875rem;
-  pointer-events: all;
-  position: relative;
-  overflow: hidden;
-  animation: toast-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-.toast.removing {
-  animation: toast-out 0.3s ease forwards;
-}
-@keyframes toast-in {
-  from { opacity: 0; transform: translateX(110%); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-@keyframes toast-out {
-  from { opacity: 1; transform: translateX(0);    max-height: 80px; }
-  to   { opacity: 0; transform: translateX(110%); max-height: 0; }
-}
-.toast::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 4px;
-  border-radius: 0.6rem 0 0 0.6rem;
-}
-.toast-progress {
-  position: absolute;
-  bottom: 0; left: 0;
-  height: 2px;
-  width: 100%;
-  transform-origin: left;
-  animation: toast-progress 3s linear forwards;
-}
-@keyframes toast-progress {
-  from { transform: scaleX(1); }
-  to   { transform: scaleX(0); }
-}
-.toast-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
-.toast-body { flex: 1; }
-.toast-title { font-weight: 600; margin-bottom: 0.1rem; }
-.toast-msg { color: rgba(255,255,255,0.55); font-size: 0.8rem; }
-.toast-close {
-  background: none;
-  border: none;
-  color: rgba(255,255,255,0.35);
-  cursor: pointer;
-  font-size: 0.85rem;
-  padding: 0;
-  line-height: 1;
-  transition: color 0.2s;
-  flex-shrink: 0;
-}
-.toast-close:hover { color: rgba(255,255,255,0.8); }
-.toast.success::before  { background: #22c55e; }
-.toast.success .toast-progress { background: #22c55e; }
-.toast.success .toast-icon { color: #22c55e; }
-.toast.error::before    { background: #ef4444; }
-.toast.error .toast-progress   { background: #ef4444; }
-.toast.error .toast-icon   { color: #ef4444; }
-.toast.warning::before  { background: #f59e0b; }
-.toast.warning .toast-progress { background: #f59e0b; }
-.toast.warning .toast-icon { color: #f59e0b; }
-.toast.info::before     { background: #8b5cf6; }
-.toast.info .toast-progress    { background: #8b5cf6; }
-.toast.info .toast-icon    { color: #8b5cf6; }</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fa-solid fa-copy mr-2"></i>Copy Code</button>
-      </div>
-
-      <div id="tab-3" class="code-tab is-hidden">
-        <pre><code class="js-code">const TOAST_ICONS = {
-  success: '&#10003;',
-  error:   '&#10007;',
-  warning: '&#9888;',
-  info:    '&#8505;'
-};
-
-const TOAST_TITLES = {
-  success: 'Success',
-  error:   'Error',
-  warning: 'Warning',
-  info:    'Info'
-};
-
-function showToast(message, type = 'info', duration = 3000) {
-  const container = document.getElementById('toast-container');
-  const toast = document.createElement('div');
-  toast.className = 'toast ' + type;
-  toast.innerHTML =
-    '&lt;span class="toast-icon"&gt;' + TOAST_ICONS[type] + '&lt;/span&gt;' +
-    '&lt;div class="toast-body"&gt;' +
-      '&lt;div class="toast-title"&gt;' + TOAST_TITLES[type] + '&lt;/div&gt;' +
-      '&lt;div class="toast-msg"&gt;' + message + '&lt;/div&gt;' +
-    '&lt;/div&gt;' +
-    '&lt;button class="toast-close" onclick="removeToast(this.parentElement)"&gt;&#10005;&lt;/button&gt;' +
-    '&lt;div class="toast-progress"&gt;&lt;/div&gt;';
-  container.appendChild(toast);
-
-  const timer = setTimeout(() => removeToast(toast), duration);
-
-  toast.addEventListener('mouseenter', () => {
-    clearTimeout(timer);
-    toast.querySelector('.toast-progress').style.animationPlayState = 'paused';
-  });
-  toast.addEventListener('mouseleave', () => {
-    toast.querySelector('.toast-progress').style.animationPlayState = 'running';
-    setTimeout(() => removeToast(toast), 1000);
-  });
-}
-
-function removeToast(toast) {
-  if (!toast || toast.classList.contains('removing')) return;
-  toast.classList.add('removing');
-  toast.addEventListener('animationend', () => toast.remove());
-}</code></pre>
-        <button class="copy-button" onclick="copyCode(this)"><i class="fa-solid fa-copy mr-2"></i>Copy Code</button>
-      </div>
-
-    </div>
-  </div>
-
-  <footer>
-    <div class="max-w-7xl mx-auto px-6 py-16">
-      <div class="text-center">
-        <p class="text-sm font-mono" style="color:var(--text-secondary);">© 2023-2026 Zubariel. All Rights Reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    function copyCode(btn) {
-      // Read from the hidden textarea that holds the original raw code
-      const tab = btn.closest('.code-tab');
-      const raw = tab ? tab.querySelector('.raw-code') : null;
-      const text = raw ? raw.value : '';
-      if (!text) return;
-      navigator.clipboard.writeText(text).then(() => {
-        const orig = btn.innerHTML;
-        btn.innerHTML = '<i class="fa-solid fa-check mr-2"></i>Copied!';
-        setTimeout(() => btn.innerHTML = orig, 2000);
-      }).catch(() => alert('Failed to copy.'));
-    }
-
-    function showTab(tabId, event) {
-      document.querySelectorAll('.code-tab').forEach(el => el.classList.add('is-hidden'));
-      document.getElementById(tabId).classList.remove('is-hidden');
-      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
-    }
-  </script>
-
-  <script>
-  const CustomHighlighter = (function () {
-  function escapeHtml(html) {
-    return html
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;");
-  }
-
-  function style(color, fontWeight, fontStyle) {
-    fontWeight = fontWeight || 'normal';
-    fontStyle = fontStyle || 'normal';
-    return 'style="color:'+color+';font-weight:'+fontWeight+';font-style:'+fontStyle+'"';
-  }
-
-  function highlightHTML(code) {
-    let escaped = escapeHtml(code);
-    escaped = escaped.replace(/(&lt;!--[\s\S]*?--&gt;)/g, '<span '+style('#6b7280', 'normal', 'italic')+'>$1</span>');
-    escaped = escaped.replace(/(&lt;\/?[a-zA-Z0-9\-:]+)/g, '<span '+style('#f472b6')+'>$1</span>');
-    escaped = escaped.replace(/([a-zA-Z\-:]+)(=)(&quot;[^&]*?&quot;)/g, function(_, attr, eq, val) {
-      return '<span '+style('#facc15')+'>'+attr+'</span>'+eq+'<span '+style('#34d399')+'>'+val+'</span>';
-    });
-    return escaped;
-  }
-
-  function highlightCSS(code) {
-    let escaped = escapeHtml(code);
-    escaped = escaped.replace(/(\/\*[\s\S]*?\*\/)/g, '<span '+style('#6b7280', 'normal', 'italic')+'>$1</span>');
-    escaped = escaped.replace(/([a-zA-Z\-]+)(\s*:\s*)([^;]+)(;?)/g, function(_, prop, sep, val, end) {
-      return '<span '+style('#facc15')+'>'+prop+'</span>'+sep+'<span '+style('#34d399')+'>'+val+'</span>'+end;
-    });
-    return escaped;
-  }
-
-  function highlightJS(code) {
-    const escaped = escapeHtml(code);
-    return escaped
-      .replace(/(\/\/[^\n]*)/g, '<span '+style('#6b7280', 'normal', 'italic')+'>$1</span>')
-      .replace(/(['"`])(?:\\[\s\S]|(?!\1).)*\1/g, function(match) {
-        return '<span '+style('#34d399')+'>'+match+'</span>';
-      })
-      .replace(/\b(let|const|var|function|return|if|else|for|while|class|new|this|try|catch|finally|await|async|import|from|export|throw|typeof|instanceof|in|of|break|continue|switch|case|default|delete)\b/g,
-        '<span '+style('#60a5fa', 'bold')+'>$1</span>')
-      .replace(/\b(true|false|null|undefined|NaN|Infinity)\b/g, '<span '+style('#f472b6')+'>$1</span>')
-      .replace(/\b(\d+(\.\d+)?(e[+-]?\d+)?)\b/gi, '<span '+style('#fbbf24')+'>$1</span>')
-      .replace(/\b([a-zA-Z_][a-zA-Z0-9_]*)\s*(?=\()/g, '<span '+style('#a78bfa')+'>$1</span>')
-      .replace(/(\.)([a-zA-Z_][a-zA-Z0-9_]*)/g, function(_, dot, prop) {
-        return dot+'<span '+style('#22d3ee')+'>'+prop+'</span>';
-      });
-  }
-
-  function highlight(code, lang) {
-    switch (lang) {
-      case 'html': return highlightHTML(code);
-      case 'css': return highlightCSS(code);
-      case 'js': return highlightJS(code);
-      default: return escapeHtml(code);
-    }
-  }
-
-  return { highlight: highlight };
-})();
-
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('code').forEach(function(codeBlock) {
-      const pre = codeBlock.parentElement;
-      if (!pre || pre.tagName !== 'PRE') return;
-      const raw = codeBlock.textContent;
-      let lang = null;
-      if (codeBlock.classList.contains('html-code'))     lang = 'html';
-      else if (codeBlock.classList.contains('css-code')) lang = 'css';
-      else if (codeBlock.classList.contains('js-code'))  lang = 'js';
-      if (lang) {
-        // Inject hidden textarea with raw code into the parent tab BEFORE highlighting
-        const tab = pre.closest('.code-tab');
-        if (tab && !tab.querySelector('.raw-code')) {
-          const ta = document.createElement('textarea');
-          ta.className = 'raw-code';
-          ta.style.display = 'none';
-          ta.value = raw;
-          tab.appendChild(ta);
+    <style>
+        :root {
+            --bg-primary: #050505;
+            --bg-secondary: #0f0f0f;
+            --bg-code: #0a0a0c;
+            --border-subtle: rgba(255, 255, 255, 0.04);
+            --border-medium: rgba(255, 255, 255, 0.09);
+            --border-accent: rgba(139, 92, 246, 0.3);
+            --text-primary: #e4e4e7;
+            --text-secondary: #a1a1aa;
+            --text-muted: #52525b;
+            --accent: #8b5cf6;
+            --accent-light: #a78bfa;
+            --accent-dim: rgba(139, 92, 246, 0.1);
+            --accent-gradient: linear-gradient(135deg, #a78bfa, #8b5cf6);
         }
-        const highlighted = CustomHighlighter.highlight(raw, lang);
-        pre.outerHTML = '<pre><code class="custom-highlight">'+highlighted+'</code></pre>';
-      }
-    });
-  });
-  </script>
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-medium);
+            border-radius: 3px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            padding: 3rem 1.5rem;
+            background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.018) 1px, transparent 0);
+            background-size: 28px 28px;
+        }
+
+        .page {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            transition: color 0.2s ease;
+            margin-bottom: 2rem;
+        }
+
+        .back-link:hover {
+            color: var(--accent-light);
+        }
+
+        .meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .meta-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 99px;
+            padding: 0.2rem 0.6rem;
+            letter-spacing: 0.02em;
+        }
+
+        .meta-tag.accent {
+            color: var(--accent-light);
+            border-color: var(--border-accent);
+        }
+
+        h1 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: clamp(1.6rem, 4vw, 2.25rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+            margin-bottom: 0.875rem;
+        }
+
+        .gradient-text {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            max-width: 36rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .subtitle code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            color: var(--accent-light);
+            background: var(--accent-dim);
+            padding: 0.1rem 0.4rem;
+            border-radius: 0.25rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.875rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 560px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .info-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+        }
+
+        .info-card h4 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.62rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        .info-card a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        .info-card a:hover {
+            text-decoration: underline;
+        }
+
+        .code-block {
+            border: 1px solid var(--border-subtle);
+            border-radius: 0.875rem;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .tab-bar {
+            display: flex;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 0 0.875rem;
+        }
+
+        .tab-btn {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid transparent;
+            padding: 0.625rem 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            letter-spacing: 0.03em;
+            margin-bottom: -1px;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-secondary);
+        }
+
+        .tab-btn.active {
+            color: var(--accent-light);
+            border-bottom-color: var(--accent);
+        }
+
+        .code-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.55rem 0.875rem;
+            background: rgba(255, 255, 255, 0.015);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .dots {
+            display: flex;
+            gap: 5px;
+        }
+
+        .dots span {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+        }
+
+        .d-r {
+            background: #ff5f57;
+        }
+
+        .d-y {
+            background: #febc2e;
+        }
+
+        .d-g {
+            background: #28c840;
+        }
+
+        .copy-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            background: transparent;
+            border: 1px solid var(--border-medium);
+            border-radius: 0.35rem;
+            padding: 0.25rem 0.65rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .copy-btn:hover {
+            border-color: var(--border-accent);
+            color: var(--accent-light);
+        }
+
+        .copy-btn.copied {
+            color: #23a559;
+            border-color: rgba(35, 165, 89, 0.35);
+        }
+
+        pre {
+            margin: 0;
+            padding: 1.25rem 1.5rem;
+            overflow-x: auto;
+            background: var(--bg-code);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            line-height: 1.8;
+            color: #c4b5fd;
+        }
+
+        pre::-webkit-scrollbar {
+            height: 3px;
+        }
+
+        pre::-webkit-scrollbar-thumb {
+            background: var(--border-medium);
+        }
+
+        .t-kw {
+            color: #a78bfa;
+        }
+
+        .t-str {
+            color: #86efac;
+        }
+
+        .t-fn {
+            color: #7dd3fc;
+        }
+
+        .t-attr {
+            color: #fde68a;
+        }
+
+        .t-num {
+            color: #fb923c;
+        }
+
+        .t-cm {
+            color: #3f3f46;
+            font-style: italic;
+        }
+
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        .snippet-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .snav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            letter-spacing: 0.03em;
+            transition: color 0.2s ease;
+        }
+
+        .snav-btn:hover {
+            color: var(--accent-light);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <a href="/snippet" class="back-link"><i class="fa-solid fa-arrow-left" style="font-size:0.6rem;"></i>
+            /snippet</a>
+        <div class="meta-row">
+            <span class="meta-tag"><i class="fa-brands fa-js" style="color:#facc15;"></i> JavaScript</span>
+            <span class="meta-tag"><i class="fa-brands fa-css3-alt" style="color:#60a5fa;"></i> CSS</span>
+            <span class="meta-tag"><i class="fa-brands fa-html5" style="color:#f97316;"></i> HTML</span>
+            <span class="meta-tag accent"> web</span>
+        </div>
+        <h1>Toast <span class="gradient-text">Notifications.</span></h1>
+        <p class="subtitle">Lightweight toast notifications with <code>success</code>, <code>error</code>,
+            <code>warning</code>, and <code>info</code> types. Auto-dismiss after 3 seconds no dependencies.</p>
+        <div class="info-grid">
+            <div class="info-card">
+                <h4>// how to use</h4>
+                <p>Call <code>toast("message", "type")</code> from anywhere in your JS. Types: <code>success</code>,
+                    <code>error</code>, <code>warning</code>, <code>info</code>. Stack multiple at once.</p>
+            </div>
+            <div class="info-card">
+                <h4>// credits</h4>
+                <p>A zero-dependency toast system. Inspired by libraries like react-hot-toast but written in ~20 lines
+                    of vanilla JS.</p>
+            </div>
+        </div>
+        <div class="code-block">
+            <div class="tab-bar">
+                <button class="tab-btn active">toast.html</button>
+            </div>
+            <div id="tab-main" class="tab-panel active">
+                <div class="code-topbar">
+                    <div class="dots"><span class="d-r"></span><span class="d-y"></span><span class="d-g"></span></div>
+                    <button class="copy-btn" onclick="copyCode('toast-code', this)"><i class="fa-regular fa-copy"></i>
+                        Copy</button>
+                </div>
+                <pre id="toast-code"><span class="t-kw">&lt;div</span> <span class="t-attr">style</span>=<span class="t-str">"display:flex;gap:.5rem;flex-wrap:wrap;"</span><span class="t-kw">&gt;</span>
+  <span class="t-kw">&lt;button</span> <span class="t-attr">onclick</span>=<span class="t-str">"toast('Saved!','success')"</span><span class="t-kw">&gt;</span>Success<span class="t-kw">&lt;/button&gt;</span>
+  <span class="t-kw">&lt;button</span> <span class="t-attr">onclick</span>=<span class="t-str">"toast('Something went wrong','error')"</span><span class="t-kw">&gt;</span>Error<span class="t-kw">&lt;/button&gt;</span>
+  <span class="t-kw">&lt;button</span> <span class="t-attr">onclick</span>=<span class="t-str">"toast('Heads up!','warning')"</span><span class="t-kw">&gt;</span>Warning<span class="t-kw">&lt;/button&gt;</span>
+  <span class="t-kw">&lt;button</span> <span class="t-attr">onclick</span>=<span class="t-str">"toast('FYI: new update','info')"</span><span class="t-kw">&gt;</span>Info<span class="t-kw">&lt;/button&gt;</span>
+<span class="t-kw">&lt;/div&gt;</span>
+<span class="t-kw">&lt;div</span> <span class="t-attr">id</span>=<span class="t-str">"toast-container"</span><span class="t-kw">&gt;&lt;/div&gt;</span>
+
+<span class="t-kw">&lt;style&gt;</span>
+  <span class="t-fn">#toast-container</span> { <span class="t-attr">position</span>:<span class="t-str">fixed</span>; <span class="t-attr">bottom</span>:<span class="t-str">1.5rem</span>; <span class="t-attr">right</span>:<span class="t-str">1.5rem</span>; <span class="t-attr">display</span>:<span class="t-str">flex</span>; <span class="t-attr">flex-direction</span>:<span class="t-str">column</span>; <span class="t-attr">gap</span>:<span class="t-str">.5rem</span>; }
+  <span class="t-fn">.toast</span> {
+    <span class="t-attr">padding</span>:<span class="t-str">.75rem 1.25rem</span>; <span class="t-attr">border-radius</span>:<span class="t-str">8px</span>; <span class="t-attr">font-size</span>:<span class="t-str">.875rem</span>;
+    <span class="t-attr">color</span>:<span class="t-str">#fff</span>; <span class="t-attr">animation</span>:<span class="t-str">fadeIn .3s ease</span>; <span class="t-attr">min-width</span>:<span class="t-str">180px</span>;
+  }
+  <span class="t-fn">.toast.success</span> { <span class="t-attr">background</span>:<span class="t-str">#16a34a</span>; }
+  <span class="t-fn">.toast.error</span>   { <span class="t-attr">background</span>:<span class="t-str">#dc2626</span>; }
+  <span class="t-fn">.toast.warning</span> { <span class="t-attr">background</span>:<span class="t-str">#d97706</span>; }
+  <span class="t-fn">.toast.info</span>    { <span class="t-attr">background</span>:<span class="t-str">#2563eb</span>; }
+  <span class="t-fn">@keyframes fadeIn</span> { <span class="t-kw">from</span> { <span class="t-attr">opacity</span>:<span class="t-str">0</span>; <span class="t-attr">transform</span>:<span class="t-str">translateY(8px)</span>; } <span class="t-kw">to</span> { <span class="t-attr">opacity</span>:<span class="t-str">1</span>; <span class="t-attr">transform</span>:<span class="t-str">none</span>; } }
+<span class="t-kw">&lt;/style&gt;</span>
+
+<span class="t-kw">&lt;script&gt;</span>
+  <span class="t-kw">function</span> <span class="t-fn">toast</span>(msg, type = <span class="t-str">'info'</span>) {
+    <span class="t-kw">const</span> el = document.<span class="t-fn">createElement</span>(<span class="t-str">'div'</span>);
+    el.className = <span class="t-str">`toast \${type}`</span>;
+    el.textContent = msg;
+    document.<span class="t-fn">getElementById</span>(<span class="t-str">'toast-container'</span>).<span class="t-fn">appendChild</span>(el);
+    <span class="t-fn">setTimeout</span>(() => el.<span class="t-fn">remove</span>(), <span class="t-num">3000</span>);
+  }
+<span class="t-kw">&lt;/script&gt;</span></pre>
+            </div>
+        </div>
+        <div class="snippet-nav"><a href="/snippet/web/darkmode-toggle" class="snav-btn"><i
+                    class="fa-solid fa-arrow-left" style="font-size:0.6rem;"></i> darkmode toggle</a><a
+                href="/snippet/web/background" class="snav-btn">animated background <i class="fa-solid fa-arrow-right"
+                    style="font-size:0.6rem;"></i></a></div>
+    </div>
+
+    <script>
+        function switchTab(name, btn) {
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('tab-' + name).classList.add('active');
+            btn.classList.add('active');
+        }
+        function copyCode(id, btn) {
+            const text = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                btn.classList.add('copied');
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+                setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy'; }, 2000);
+            });
+        }
+    </script>
 </body>
+
 </html>

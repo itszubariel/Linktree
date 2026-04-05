@@ -1,338 +1,893 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
-    <meta charset="UTF-8" />
-    <title>@_zubr.l</title>
-    <meta name="description" content="This is a Website Made for Zubariel, by star!" />
-    <meta name="keywords" content="HTML, CSS, JS, Portfolio, Developer, Zubariel" />
-    <meta name="author" content="Zubariel" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/images/2pfp.jpg" type="image/x-icon" />
+  <meta charset="UTF-8" />
+  <title>@_zubr.l</title>
+  <meta name="description" content="This is a Website Made for Zubariel, by star!" />
+  <meta name="keywords" content="HTML, CSS, JS, Portfolio, Developer, Zubariel" />
+  <meta name="author" content="Zubariel" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/images/2pfp.jpg" type="image/x-icon" />
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Unbounded:wght@400;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Unbounded:wght@400;700;800&display=swap"
+    rel="stylesheet">
 
-    <script>
-      if (location.hostname === "zubariel.netlify.app") {
-        const newUrl = location.href.replace("zubariel.netlify.app", "zubariel.is-a.dev");
-        location.replace(newUrl); 
-      }
-    </script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ["Inter", "sans-serif"],
-              mono: ["JetBrains Mono", "monospace"],
-              display: ["Unbounded", "Inter", "ui-sans-serif"],
-            },
-            animation: {
-              'fade-in': 'fadeIn 0.6s ease-out forwards',
-              'slide-up': 'slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-              'scale-in': 'scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-              'gradient-pan': 'gradient-pan 5s ease infinite',
-            },
-            keyframes: {
-              fadeIn: { 'from': { opacity: '0' }, 'to': { opacity: '1' }, },
-              slideUp: { 'from': { opacity: '0', transform: 'translateY(40px)' }, 'to': { opacity: '1', transform: 'translateY(0)' }, },
-              scaleIn: { 'from': { opacity: '0', transform: 'scale(0.9)' }, 'to': { opacity: '1', transform: 'scale(1)' }, },
-              'gradient-pan': { '0%': { 'background-position': '0% 50%' }, '50%': { 'background-position': '100% 50%' }, '100%': { 'background-position': '0% 50%' }, }
-            }
+  <script>
+    if (location.hostname === "zubariel.netlify.app") {
+      const newUrl = location.href.replace("zubariel.netlify.app", "zubariel.is-a.dev");
+      location.replace(newUrl);
+    }
+  </script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"],
+            display: ["Unbounded", "Inter", "ui-sans-serif"],
           },
+          animation: {
+            'fade-in': 'fadeIn 0.6s ease-out forwards',
+            'slide-up': 'slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+            'scale-in': 'scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+            'gradient-pan': 'gradient-pan 5s ease infinite',
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            fadeIn: { 'from': { opacity: '0' }, 'to': { opacity: '1' } },
+            slideUp: { 'from': { opacity: '0', transform: 'translateY(40px)' }, 'to': { opacity: '1', transform: 'translateY(0)' } },
+            scaleIn: { 'from': { opacity: '0', transform: 'scale(0.9)' }, 'to': { opacity: '1', transform: 'scale(1)' } },
+            'gradient-pan': { '0%': { 'background-position': '0% 50%' }, '50%': { 'background-position': '100% 50%' }, '100%': { 'background-position': '0% 50%' } }
+          }
         },
-      };
-    </script>
-    
-    <style>
-        :root {
-            --bg-primary: #050505;
-            --bg-secondary: #101010;
-            --bg-tertiary: #191919;
-            --bg-card: rgba(22, 22, 22, 0.5);
-            --border-subtle: rgba(255, 255, 255, 0.05);
-            --border-medium: rgba(255, 255, 255, 0.1);
-            --text-primary: #e4e4e7;
-            --text-secondary: #a1a1aa;
-            --text-muted: #71717a;
-            --accent: #8b5cf6;
-            --accent-light: #a78bfa;
-            --accent-dark: #6d28d9;
-            --accent-gradient: linear-gradient(90deg, var(--accent-light), var(--accent));
-            --success: #10b981;
-            --warning: #f59e0b;
-        }
+      },
+    };
+  </script>
 
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg-primary); }
-        ::-webkit-scrollbar-thumb { background: var(--border-medium); border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+  <style>
+    :root {
+      --bg-primary: #050505;
+      --bg-secondary: #0f0f0f;
+      --bg-tertiary: #161616;
+      --bg-card: rgba(18, 18, 18, 0.8);
+      --border-subtle: rgba(255, 255, 255, 0.055);
+      --border-medium: rgba(255, 255, 255, 0.09);
+      --border-accent: rgba(139, 92, 246, 0.3);
+      --text-primary: #e4e4e7;
+      --text-secondary: #a1a1aa;
+      --text-muted: #52525b;
+      --accent: #8b5cf6;
+      --accent-light: #a78bfa;
+      --accent-dim: rgba(139, 92, 246, 0.12);
+      --accent-gradient: linear-gradient(135deg, #a78bfa, #8b5cf6);
+      --online: #23a559;
+    }
 
-        html { background-color: var(--bg-primary); }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
 
-        body {
-            background-color: var(--bg-primary); color: var(--text-primary);
-            font-family: 'Inter', sans-serif; font-weight: 400; line-height: 1.6;
-            -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-            overflow-x: hidden;
-            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.025) 1px, transparent 0);
-            background-size: 24px 24px;
-        }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
 
-        .section-title {
-            font-family: 'Unbounded', sans-serif; font-size: 2.5rem; font-weight: 800;
-            letter-spacing: -0.04em; text-align: center; margin-bottom: 4rem;
-            color: var(--text-primary); position: relative;
-        }
-        .section-title::after {
-            content: ''; position: absolute; bottom: -0.75rem; left: 50%;
-            transform: translateX(-50%); width: 4rem; height: 3px;
-            background: var(--accent-gradient); border-radius: 2px;
-        }
-        @media (min-width: 768px) { .section-title { font-size: 3.5rem; } }
+    ::-webkit-scrollbar-thumb {
+      background: var(--border-medium);
+      border-radius: 3px;
+    }
 
-        .site-header {
-            background-color: rgba(5, 5, 5, 0.7); backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-subtle);
-            transition: all 0.3s ease;
-        }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
 
-        .nav-link {
-            position: relative; color: var(--text-secondary); font-weight: 500;
-            font-size: 0.9rem; padding: 0.25rem 0.125rem;
-            transition: color 0.3s ease; text-decoration: none;
-        }
-        .nav-link:hover, .nav-link.active { color: var(--text-primary); }
-        .nav-link::after {
-            content: ''; position: absolute; width: 0; height: 2px; bottom: -4px;
-            left: 0; background: var(--accent);
-            transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    html {
+      background-color: var(--bg-primary);
+    }
 
-        .btn {
-            display: inline-flex; align-items: center; justify-content: center;
-            gap: 0.5rem; font-weight: 600; font-size: 0.9rem; padding: 0.75rem 1.75rem;
-            border-radius: 0.5rem; text-decoration: none;
-            transition: all 0.2s ease; cursor: pointer; border: 1px solid transparent;
-        }
-        .btn-primary { background: var(--accent); color: white; box-shadow: 0 4px 14px rgba(139, 92, 246, 0.25); }
-        .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 7px 20px rgba(167, 139, 250, 0.3); }
-        .btn-secondary { background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border-medium); }
-        .btn-secondary:hover { background: var(--bg-tertiary); border-color: var(--accent-light); color: var(--accent-light); transform: translateY(-2px); }
-        
-        .animated-element { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-        .animated-element.visible { opacity: 1; transform: translateY(0); }
-        
-        .hero-gradient-bg { background: var(--bg-primary); position: relative; overflow: hidden; }
-        .hero-gradient-bg::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(ellipse at 50% 30%, rgba(109, 40, 217, 0.15), transparent 60%);
-            pointer-events: none;
-        }
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.018) 1px, transparent 0);
+      background-size: 28px 28px;
+    }
 
-        .profile-image-wrapper { position: relative; width: 18rem; height: 18rem; }
-        @media (min-width: 1024px) { .profile-image-wrapper { width: 21rem; height: 21rem; } }
-        .profile-image-wrapper::before {
-            content: ""; position: absolute; inset: 0; border-radius: 1.25rem; padding: 2px;
-            background: var(--accent-gradient); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor; mask-composite: exclude; animation: gradient-pan 5s ease infinite; background-size: 200% 200%;
-        }
-        .profile-image { border-radius: 1.25rem; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); }
+    /* ── NAV ── */
+    .site-header {
+      background-color: rgba(5, 5, 5, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
 
-        .gradient-text { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-fill-color: transparent; }
-        .social-link { color: var(--text-secondary); font-size: 1.5rem; transition: all 0.3s ease; }
-        .social-link:hover { color: var(--accent-light); transform: translateY(-3px); }
-    </style>
+    .nav-link {
+      position: relative;
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.85rem;
+      padding: 0.25rem 0;
+      letter-spacing: 0.01em;
+      transition: color 0.25s ease;
+      text-decoration: none;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--text-primary);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1.5px;
+      bottom: -4px;
+      left: 0;
+      background: var(--accent-light);
+      transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-weight: 500;
+      font-size: 0.85rem;
+      padding: 0.625rem 1.375rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+      letter-spacing: 0.01em;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-light);
+      transform: translateY(-1px);
+      box-shadow: 0 0 28px rgba(167, 139, 250, 0.28);
+    }
+
+    .btn-secondary {
+      background: var(--bg-tertiary);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-medium);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--border-accent);
+      color: var(--accent-light);
+      transform: translateY(-1px);
+    }
+
+    /* ── ANIMATIONS ── */
+    .animated-element {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .animated-element.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── HERO ── */
+    .hero-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: -10%;
+      right: -10%;
+      bottom: 0;
+      background: radial-gradient(ellipse at 50% 20%, rgba(109, 40, 217, 0.12), transparent 55%);
+      pointer-events: none;
+    }
+
+    .hero-section::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-medium), transparent);
+    }
+
+    /* Profile image with animated border */
+    .profile-ring {
+      position: relative;
+      width: 19rem;
+      height: 19rem;
+      flex-shrink: 0;
+    }
+
+    @media (min-width: 1024px) {
+      .profile-ring {
+        width: 22rem;
+        height: 22rem;
+      }
+    }
+
+    .profile-ring::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 1.375rem;
+      background: linear-gradient(135deg, #a78bfa, #6d28d9, #a78bfa);
+      background-size: 200% 200%;
+      animation: gradient-pan 5s ease infinite;
+      z-index: 0;
+    }
+
+    .profile-ring img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 1.25rem;
+    }
+
+    /* Hero tag chips */
+    .tag-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-medium);
+      border-radius: 99px;
+      padding: 0.3rem 0.75rem;
+      letter-spacing: 0.02em;
+    }
+
+    .tag-chip .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* Gradient text */
+    .gradient-text {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Social links */
+    .social-link {
+      color: var(--text-muted);
+      font-size: 1.25rem;
+      transition: all 0.25s ease;
+    }
+
+    .social-link:hover {
+      color: var(--accent-light);
+      transform: translateY(-2px);
+    }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      text-align: center;
+      margin-bottom: 3.5rem;
+      color: var(--text-primary);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -0.625rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2.5rem;
+      height: 2px;
+      background: var(--accent-gradient);
+      border-radius: 2px;
+    }
+
+    @media (min-width: 768px) {
+      .section-title {
+        font-size: 2.75rem;
+      }
+    }
+
+    /* ── DISCORD PROFILE CARD ── */
+    .discord-card {
+      background: #111113;
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+      max-width: 52rem;
+      margin: 0 auto;
+    }
+
+    .discord-banner {
+      width: 100%;
+      height: 13rem;
+      object-fit: cover;
+      display: block;
+    }
+
+    .discord-avatar-area {
+      padding: 0 1.75rem;
+      margin-top: -3.5rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .discord-avatar {
+      width: 7rem;
+      height: 7rem;
+      border-radius: 50%;
+      border: 5px solid #111113;
+      object-fit: cover;
+      position: relative;
+      z-index: 2;
+      flex-shrink: 0;
+    }
+
+    .discord-status {
+      position: relative;
+    }
+
+    .discord-status::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      right: 4px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--online);
+      border: 3px solid #111113;
+    }
+
+    .discord-body {
+      padding: 0.875rem 1.75rem 1.75rem;
+    }
+
+    .discord-name-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .discord-name {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1;
+    }
+
+    .discord-discriminator {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    .discord-handle {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Badges row */
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.375rem;
+      padding: 0.625rem 0.875rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .badge-row img {
+      width: 22px;
+      height: 22px;
+      filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
+      transition: transform 0.2s ease;
+    }
+
+    .badge-row img:hover {
+      transform: scale(1.2);
+    }
+
+    .discord-divider {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      margin: 1.25rem 0;
+    }
+
+    /* Info sections inside card */
+    .discord-section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.625rem;
+    }
+
+    .discord-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 600px) {
+      .discord-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Activity block */
+    .activity-block {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      padding: 0.75rem 1rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: 0.625rem;
+    }
+
+    .activity-block img {
+      width: 2.75rem;
+      height: 2.75rem;
+      flex-shrink: 0;
+      border-radius: 4px;
+    }
+
+    .activity-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .activity-sub {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-top: 1px;
+    }
+
+    .activity-meta {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-top: 1px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Member since */
+    .meta-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    .meta-value {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-top: 2px;
+    }
+
+    /* Connections */
+    .connections-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    /* ── FOOTER ── */
+    .footer-divider {
+      border: none;
+      border-top: 1px solid var(--border-subtle);
+    }
+  </style>
 </head>
 
 <body>
-    <header id="site-header" class="site-header fixed top-0 w-full z-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex-shrink-0">
-                    <a href="#home" class="font-mono font-semibold text-2xl tracking-tight">zubariel<span class="text-accent">.</span></a>
-                </div>
-                <nav class="hidden md:flex items-center space-x-10">
-                    <a href="#profile" class="nav-link">Profile</a>
-                    <a href="/portfolio" class="nav-link">Portfolio</a>
-                    <a href="/now" class="nav-link">Now</a>
-                    <a href="/snippet" class="nav-link">Snippets</a>
-                    <a href="/projects" class="nav-link">Projects</a>
-                </nav>
-                <div class="hidden md:block">
-                    <a href="/contact" target="_blank" class="btn btn-primary">Contact</a>
-                </div>
-                <div class="md:hidden">
-                    <button id="hamburgerBtn" class="text-2xl p-2 focus:outline-none">
-                        <i class="fa-solid fa-bars-staggered"></i>
-                    </button>
-                </div>
-            </div>
+  <!-- ───── NAV ───── -->
+  <header id="site-header" class="site-header fixed top-0 w-full z-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex items-center justify-between h-18" style="height:4.5rem;">
+        <a href="#home" class="font-mono font-semibold text-xl tracking-tight">
+          zubariel<span style="color:var(--accent);">.</span>
+        </a>
+        <nav class="hidden md:flex items-center space-x-9">
+          <a href="#profile" class="nav-link">Profile</a>
+          <a href="/portfolio" class="nav-link">Portfolio</a>
+          <a href="/now" class="nav-link">Now</a>
+          <a href="/snippet" class="nav-link">Snippets</a>
+          <a href="/projects" class="nav-link">Projects</a>
+        </nav>
+        <div class="hidden md:block">
+          <a href="/contact" target="_blank" class="btn btn-primary">Contact</a>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden border-t border-border-subtle bg-bg-primary">
-            <nav class="px-6 py-6 space-y-4">
-                <a href="#profile" class="nav-link block py-2 text-lg">Profile</a>
-                <a href="/portfolio" class="nav-link block py-2 text-lg">Portfolio</a>
-                <a href="/now" class="nav-link block py-2 text-lg">Now</a>
-                <a href="/snippet" class="nav-link block py-2 text-lg">Snippets</a>
-                <a href="/projects" class="nav-link block py-2 text-lg">Projects</a>
-                <a href="/contact" target="_blank" class="btn btn-primary inline-block mt-4 w-full">Contact</a>
-            </nav>
+        <div class="md:hidden">
+          <button id="hamburgerBtn" class="p-2 focus:outline-none" style="color:var(--text-secondary);">
+            <i class="fa-solid fa-bars-staggered text-xl"></i>
+          </button>
         </div>
-    </header>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t"
+      style="border-color:var(--border-subtle); background:var(--bg-primary);">
+      <nav class="px-6 py-6 space-y-4">
+        <a href="#profile" class="nav-link block py-2 text-base">Profile</a>
+        <a href="/portfolio" class="nav-link block py-2 text-base">Portfolio</a>
+        <a href="/now" class="nav-link block py-2 text-base">Now</a>
+        <a href="/snippet" class="nav-link block py-2 text-base">Snippets</a>
+        <a href="/projects" class="nav-link block py-2 text-base">Projects</a>
+        <a href="/contact" target="_blank" class="btn btn-primary mt-4 w-full">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <main class="max-w-7xl mx-auto px-6 pt-20">
-        <section id="home" class="min-h-[95vh] flex items-center py-20 hero-gradient-bg -mx-6 px-6">
-            <div class="grid lg:grid-cols-5 gap-16 items-center w-full">
-                <div class="lg:col-span-3 order-2 lg:order-1">
-                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 animate-slide-up" style="animation-delay: 200ms; font-family: 'Unbounded', sans-serif;">
-                         <span class="gradient-text">Zubariel</span>. 
-                    </h1>
-                    <p class="text-lg text-text-secondary max-w-xl mb-10 animate-slide-up" style="animation-delay: 300ms;">
-                        <b>Multiple Years</b> of Experience with Web Based Languages. Navigate Using The Buttons On Top.
-                    </p>
-                    <p class="text-sm text-text-muted max-w-xl mb-10 animate-slide-up" style="animation-delay: 400ms;">
-                        (Note: This website is a self-made site using HTML, CSS and JS. Hosted using "Vercel" and domain by "is-a.dev")
-                    </p>
-                </div>
-                <div class="lg:col-span-2 order-1 lg:order-2 flex justify-center lg:justify-end animate-scale-in" style="animation-delay: 500ms;">
-                    <div class="profile-image-wrapper">
-                      <img src="/images/1pfp.jpg" alt="Zubariel's Profile" class="w-full h-full object-cover profile-image">
-                    </div>
-                </div>
-            </div>
-        </section>
+  <main class="max-w-7xl mx-auto px-6 pt-20">
 
-        <section id="profile" class="py-24">
-  <h2 class="section-title animated-element">My Profile</h2>
-  <div class="max-w-4xl mx-auto animated-element">
-    <div class="bg-bg-secondary border border-border-medium rounded-2xl overflow-hidden shadow-2xl">
-      <!-- Banner Image perfectly fitted -->
-      <img src="/images/banner.png" alt="Profile Banner" class="w-full h-64 object-cover">
+    <!-- ───── HERO ───── -->
+    <section id="home" class="hero-section min-h-[92vh] flex items-center py-24 -mx-6 px-6">
+      <div class="grid lg:grid-cols-5 gap-20 items-center w-full">
 
-      <div class="p-8 -mt-16 relative">
-        <div class="flex flex-col sm:flex-row sm:items-end gap-6">
-          <img src="/images/1pfp.jpg" alt="Zubariel" class="w-32 h-32 rounded-full border-4 border-bg-secondary object-cover shadow-lg">
-          <div class="flex-grow">
-            <div class="flex items-baseline gap-2">
-              <h3 class="text-3xl font-bold text-text-primary">Zubariel</h3>
-              <span class="text-3xl font-mono text-text-muted">#0</span>
-            </div>
-            <p class="font-mono text-text-secondary mt-1">_zubr.l • Do NOT dm me for support.</p>
+        <!-- Text side -->
+        <div class="lg:col-span-3 order-2 lg:order-1">
+          <!-- Tag row -->
+          <div class="flex flex-wrap gap-2 mb-8 animate-fade-in" style="animation-delay:100ms;">
+            <span class="tag-chip"><span class="dot"></span>JS · TS · PY · C#</span>
+            <span class="tag-chip"><span class="dot"></span>Open to collabs</span>
           </div>
-          <a href="/contact" class="btn btn-primary mt-4 sm:mt-0">
+
+          <h1 class="mb-5 animate-slide-up"
+            style="animation-delay:200ms; font-family:'Unbounded',sans-serif; font-size:clamp(2.8rem,6vw,5rem); font-weight:800; line-height:1.05; letter-spacing:-0.04em;">
+            <span class="gradient-text">Zubariel</span><span style="color:#fff;">.</span>
+          </h1>
+
+          <p class="mb-3 animate-slide-up"
+            style="animation-delay:300ms; color:var(--text-secondary); max-width:30rem; font-size:1.05rem; line-height:1.7;">
+            <span style="color:var(--text-primary); font-weight:600;">Multiple years</span> of experience across
+            web-based languages. Full-stack tinkerer and toolsmith.
+          </p>
+
+          <p class="mb-10 animate-slide-up"
+            style="animation-delay:380ms; font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--text-muted);">
+            // Self-built · Hosted on Vercel · Domain via is-a.dev
+          </p>
+
+          <div class="flex flex-wrap gap-3 animate-slide-up" style="animation-delay:450ms;">
+            <a href="#profile" class="btn btn-primary">
+              <i class="fas fa-user-circle"></i> My Profile
+            </a>
+            <a href="/portfolio" class="btn btn-secondary">
+              <i class="fas fa-folder-open"></i> Portfolio
+            </a>
+          </div>
+
+          <!-- Social row -->
+          <div class="flex items-center gap-6 mt-10 animate-fade-in" style="animation-delay:600ms;">
+            <a href="https://github.com/itszubariel" target="_blank" class="social-link"><i
+                class="fa-brands fa-github"></i></a>
+            <a href="https://open.spotify.com/user/31kp6ucolzeg4azdeva6w72ghvje" target="_blank" class="social-link"><i
+                class="fa-brands fa-spotify"></i></a>
+            <a href="#" target="_blank" class="social-link"><i class="fa-brands fa-twitch"></i></a>
+            <a href="https://www.youtube.com/channel/UCfzevkQDWFTmAo07B0rR9Jw" target="_blank" class="social-link"><i
+                class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Image side -->
+        <div class="lg:col-span-2 order-1 lg:order-2 flex justify-center lg:justify-end animate-scale-in"
+          style="animation-delay:500ms;">
+          <div class="profile-ring">
+            <img src="/images/1pfp.jpg" alt="Zubariel's Profile">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ───── PROFILE CARD ───── -->
+    <section id="profile" class="py-24">
+      <h2 class="section-title animated-element">My Profile</h2>
+
+      <div class="animated-element discord-card">
+
+        <!-- Banner -->
+        <img src="/images/banner.png" alt="Profile Banner" class="discord-banner">
+
+        <!-- Avatar + action button -->
+        <div class="discord-avatar-area">
+          <div class="discord-status">
+            <img src="/images/1pfp.jpg" alt="Zubariel" class="discord-avatar">
+          </div>
+          <a href="/contact" class="btn btn-primary" style="margin-bottom:0.5rem;">
             <i class="fas fa-envelope"></i> Message
           </a>
         </div>
 
-        <div class="flex items-center flex-wrap gap-2 mt-4" title="User Badges">
-          <img src="https://cdn.discordapp.com/emojis/764167044596891689.png" class="h-6 w-6" title="Hype Squad">
-          <img src="https://cdn.discordapp.com/emojis/1222721325215518740.png" class="h-6 w-6" title="Active Developer">
-          <img src="https://cdn.discordapp.com/emojis/1374807052987400362.png" class="h-6 w-6" title="Early Verified Developer">
-          <img src="https://cdn.discordapp.com/emojis/1374806299178434781.png" class="h-6 w-6" title="Completed a Quest">
-          <img src="https://cdn.discordapp.com/emojis/1374806727832113152.png" class="h-6 w-6" title="Legacy Username">
-        </div>
+        <!-- Body -->
+        <div class="discord-body">
 
-        <hr class="border-border-subtle my-8">
+          <!-- Name -->
+          <div class="discord-name-row">
+            <span class="discord-name">Zubariel</span>
+            <span class="discord-discriminator">#0</span>
+          </div>
+          <div class="discord-handle">_zubr.l &nbsp;·&nbsp; Do NOT dm me for support.</div>
 
-        <div class="grid md:grid-cols-2 gap-8">
-          <div>
-            <h4 class="font-bold text-lg text-accent mb-4">ABOUT ME</h4>
-            <div class="text-text-secondary space-y-4">
-              <p>I'm Zubariel, a random guy who does JS, PY, TS, and C#.</p>
-                <!-- <p>With the love of my life <img src="https://cdn.discordapp.com/emojis/944245743521239061.gif" alt="emoji" class="h-5 inline-block align-middle"></p> -->
-              <div class="mt-4">
-                <p class="text-xs text-text-muted uppercase tracking-wider">MEMBER SINCE</p>
-                <p class="font-medium text-text-primary">2 Jul 2021</p>
+          <!-- Badges -->
+          <div class="badge-row">
+            <img src="https://cdn.discordapp.com/emojis/764167044596891689.png" title="Hype Squad" alt="Hype Squad">
+            <img src="https://cdn.discordapp.com/emojis/1222721325215518740.png" title="Active Developer"
+              alt="Active Developer">
+            <img src="https://cdn.discordapp.com/emojis/1374807052987400362.png" title="Early Verified Developer"
+              alt="Early Verified Developer">
+            <img src="https://cdn.discordapp.com/emojis/1374806299178434781.png" title="Completed a Quest"
+              alt="Completed a Quest">
+            <img src="https://cdn.discordapp.com/emojis/1374806727832113152.png" title="Legacy Username"
+              alt="Legacy Username">
+          </div>
+
+          <hr class="discord-divider">
+
+          <!-- Two column grid -->
+          <div class="discord-grid">
+
+            <!-- About -->
+            <div>
+              <p class="discord-section-label">About Me</p>
+              <p style="color:var(--text-secondary); font-size:0.88rem; line-height:1.65; margin-bottom:1rem;">
+                I'm Zubariel a random guy who does JS, PY, TS, and C#.
+              </p>
+              <p class="meta-label">Member Since</p>
+              <p class="meta-value">2 Jul 2021</p>
+            </div>
+
+            <!-- Activity -->
+            <div>
+              <p class="discord-section-label">Current Activity</p>
+              <div id="discord-activity" class="activity-block">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/discord/discord-plain.svg"
+                  alt="Loading...">
+                <div>
+                  <div class="activity-title">Loading activity...</div>
+                  <div class="activity-sub"></div>
+                </div>
               </div>
             </div>
+
           </div>
-          <div>
-            <h4 class="font-bold text-lg text-accent mb-4">CURRENT ACTIVITY</h4>
-            <div class="flex items-center gap-4 p-4 bg-bg-tertiary rounded-lg border border-border-subtle">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="Visual Studio Code" class="w-12 h-12">
-              <div>
-                <p class="font-semibold text-text-primary">Visual Studio Code</p>
-                <p class="text-sm text-text-secondary">Editing index.html</p>
-                <p class="text-xs text-text-muted">Workspace: MyProject</p>
-              </div>
-            </div>
+
+          <hr class="discord-divider">
+
+          <!-- Connections -->
+          <p class="discord-section-label">Connections</p>
+          <div class="connections-row">
+            <a href="https://github.com/itszubariel" target="_blank" class="btn btn-secondary">
+              <i class="fab fa-github"></i> itszubariel
+            </a>
+            <a href="https://open.spotify.com/user/31kp6ucolzeg4azdeva6w72ghvje" target="_blank"
+              class="btn btn-secondary">
+              <i class="fab fa-spotify"></i> Zubariel
+            </a>
+            <a href="#" class="btn btn-secondary">
+              <i class="fab fa-twitch"></i> zubariel
+            </a>
+            <a href="https://www.youtube.com/channel/UCfzevkQDWFTmAo07B0rR9Jw" target="_blank"
+              class="btn btn-secondary">
+              <i class="fab fa-youtube"></i> Zubariel
+            </a>
           </div>
-          <div class="md:col-span-2">
-            <h4 class="font-bold text-lg text-accent mb-4">CONNECTIONS</h4>
-            <div class="flex flex-wrap gap-4">
-              <a href="https://github.com/itszubariel" target="_blank" class="btn btn-secondary"><i class="fab fa-github"></i> itszubariel</a>
-              <a href="https://open.spotify.com/user/31kp6ucolzeg4azdeva6w72ghvje?si=636096b1471c47e9" target="_blank" class="btn btn-secondary"><i class="fab fa-spotify"></i> Zubariel</a>
-              <a href="#" class="btn btn-secondary"><i class="fab fa-twitch"></i> zubariel</a>
-              <a href="https://www.youtube.com/channel/UCfzevkQDWFTmAo07B0rR9Jw" target="_blank" class="btn btn-secondary"><i class="fab fa-youtube"></i> Zubariel</a>
-            </div>
-          </div>
+
         </div>
       </div>
+    </section>
+
+  </main>
+
+  <!-- ───── FOOTER ───── -->
+  <footer style="border-top:1px solid var(--border-subtle); margin-top:5rem;">
+    <div class="max-w-7xl mx-auto px-6 py-16 text-center">
+      <h3 class="gradient-text"
+        style="font-family:'Unbounded',sans-serif; font-size:2rem; font-weight:800; letter-spacing:-0.03em; margin-bottom:0.75rem;">
+        Let's Connect
+      </h3>
+      <p style="color:var(--text-secondary); max-width:26rem; margin:0 auto 2.5rem; font-size:0.95rem;">
+        Got a project, a question, or just want to say hi? My inbox is always open.
+      </p>
+      <div class="flex justify-center gap-7 mb-8">
+        <a href="https://github.com/itszubariel" target="_blank" class="social-link"><i
+            class="fa-brands fa-github"></i></a>
+        <a href="https://open.spotify.com/user/31kp6ucolzeg4azdeva6w72ghvje" target="_blank" class="social-link"><i
+            class="fa-brands fa-spotify"></i></a>
+        <a href="#" target="_blank" class="social-link"><i class="fa-brands fa-twitch"></i></a>
+        <a href="https://www.youtube.com/channel/UCfzevkQDWFTmAo07B0rR9Jw" target="_blank" class="social-link"><i
+            class="fa-brands fa-youtube"></i></a>
+      </div>
+      <a href="/contact" target="_blank" class="btn btn-primary mb-12">
+        <i class="fa-solid fa-paper-plane"></i> Get In Touch
+      </a>
+      <p style="font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--text-muted); margin-top:2.5rem;">
+        © Zubariel 2023–2026. All rights reserved.
+      </p>
     </div>
-  </div>
-</section>
+  </footer>
+  <script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelectorAll('#mobile-menu a');
 
-    </main>
+    hamburgerBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    navLinks.forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
 
-    <footer class="border-t border-border-subtle mt-16">
-        <div class="max-w-7xl mx-auto px-6 py-16">
-            <div class="text-center">
-                 <h3 class="text-4xl font-extrabold mb-4 gradient-text">Let's Connect</h3>
-                 <p class="max-w-lg mx-auto mb-10 text-text-secondary">Have a project in mind, a question, or just want to say hi? My inbox is always open.</p>
-                 <div class="flex justify-center gap-8 mb-12">
-                    <a href="https://github.com/itszubariel" target="_blank" class="social-link"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://open.spotify.com/user/31kp6ucolzeg4azdeva6w72ghvje?si=636096b1471c47e9" target="_blank" class="social-link"><i class="fa-brands fa-spotify"></i></a>
-                    <a href="#" target="_blank" class="social-link"><i class="fa-brands fa-twitch"></i></a>
-                    <a href="https://www.youtube.com/channel/UCfzevkQDWFTmAo07B0rR9Jw" target="_blank" class="social-link"><i class="fa-brands fa-youtube"></i></a>
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            entry.target.style.transitionDelay = `${i * 80}ms`;
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+      document.querySelectorAll('.animated-element').forEach(el => observer.observe(el));
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const el = document.querySelector(this.getAttribute('href'));
+        if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' });
+      });
+    });
+
+    // Discord Presence Integration
+    async function updateDiscordPresence() {
+      const DISCORD_ID = '860384146778226699';
+
+      try {
+        const response = await fetch(`https://api.lanyard.rest/v1/users/${DISCORD_ID}`);
+        const data = await response.json();
+
+        if (data.success) {
+          const presence = data.data;
+          const activities = presence.activities;
+          const activityBlock = document.getElementById('discord-activity');
+
+          // Update status indicator color
+          const statusColors = {
+            online: '#23a559',
+            idle: '#f0b232',
+            dnd: '#f23f42',
+            offline: '#80848e'
+          };
+          document.documentElement.style.setProperty('--online', statusColors[presence.discord_status] || '#80848e');
+
+          // Find the first real activity (not custom status)
+          const activity = activities.find(a => a.type !== 4);
+
+          if (activity) {
+            let html = '';
+
+            // Handle different activity types
+            if (activity.name === 'Spotify' && activity.type === 2) {
+              // Spotify
+              const spotifyImage = activity.assets?.large_image?.replace('spotify:', '');
+              html = `
+                <img src="https://i.scdn.co/image/${spotifyImage}" alt="Spotify" style="border-radius: 8px;">
+                <div>
+                  <div class="activity-title">${activity.details || 'Unknown Track'}</div>
+                  <div class="activity-sub">by ${activity.state || 'Unknown Artist'}</div>
+                  <div class="activity-meta">on Spotify</div>
                 </div>
-                 <a href="/contact" target="_blank" class="btn btn-primary mb-12">
-                    <i class="fa-solid fa-paper-plane"></i>
-                    Get In Touch
-                </a>
-                <p class="text-sm text-text-muted font-mono">© Zubariel 2023-2026. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+              `;
+            } else if (activity.name === 'Visual Studio Code') {
+              // VS Code
+              html = `
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code">
+                <div>
+                  <div class="activity-title">Visual Studio Code</div>
+                  ${activity.details ? `<div class="activity-sub">${activity.details}</div>` : ''}
+                  ${activity.state ? `<div class="activity-meta">${activity.state}</div>` : ''}
+                </div>
+              `;
+            } else {
+              // Generic activity
+              let imageUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/discord/discord-plain.svg';
 
-    <script>
-        const hamburgerBtn = document.getElementById('hamburgerBtn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navLinks = document.querySelectorAll('#mobile-menu a');
-
-        hamburgerBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
-        navLinks.forEach(link => { link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); }); });
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const animatedEls = document.querySelectorAll('.animated-element');
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach((entry, index) => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.transitionDelay = `${index * 100}ms`;
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-            animatedEls.forEach(el => observer.observe(el));
-        });
-        
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const headerOffset = 80;
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+              if (activity.assets?.large_image) {
+                if (activity.assets.large_image.startsWith('mp:')) {
+                  imageUrl = `https://media.discordapp.net/${activity.assets.large_image.replace('mp:', '')}`;
+                } else {
+                  imageUrl = `https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.large_image}.png`;
                 }
-            });
-        });
-    </script>
+              }
+
+              html = `
+                <img src="${imageUrl}" alt="${activity.name}">
+                <div>
+                  <div class="activity-title">${activity.name}</div>
+                  ${activity.details ? `<div class="activity-sub">${activity.details}</div>` : ''}
+                  ${activity.state ? `<div class="activity-meta">${activity.state}</div>` : ''}
+                </div>
+              `;
+            }
+
+            activityBlock.innerHTML = html;
+          } else {
+            // No activity
+            activityBlock.innerHTML = `
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/discord/discord-plain.svg" alt="Discord">
+              <div>
+                <div class="activity-title">No current activity</div>
+                <div class="activity-sub">Just chilling on Discord</div>
+              </div>
+            `;
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching Discord presence:', error);
+        document.getElementById('discord-activity').innerHTML = `
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/discord/discord-plain.svg" alt="Error">
+          <div>
+            <div class="activity-title">Unable to load activity</div>
+            <div class="activity-sub">Please try again later</div>
+          </div>
+        `;
+      }
+    }
+
+    // Update presence on load and every 15 seconds
+    updateDiscordPresence();
+    setInterval(updateDiscordPresence, 15000);
+  </script>
 </body>
+
 </html>

@@ -1,5 +1,7 @@
-<!DOCTYPE html>
+<!-- mobile ui has issues with music and anime graph -->
+ <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8" />
     <title>Zubariel | Portfolio</title>
@@ -11,78 +13,83 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Unbounded:wght@400;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Unbounded:wght@400;700;800&display=swap"
+        rel="stylesheet">
 
     <script>
-      if (location.hostname === "zubariel.netlify.app") {
-        const newUrl = location.href.replace("zubariel.netlify.app", "zubariel.is-a.dev");
-        location.replace(newUrl); 
-      }
+        if (location.hostname === "zubariel.netlify.app") {
+            const newUrl = location.href.replace("zubariel.netlify.app", "zubariel.is-a.dev");
+            location.replace(newUrl);
+        }
     </script>
+
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ["Inter", "sans-serif"],
-              mono: ["JetBrains Mono", "monospace"],
-              display: ["Unbounded", "Inter", "ui-sans-serif"],
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        mono: ["JetBrains Mono", "monospace"],
+                        display: ["Unbounded", "Inter", "ui-sans-serif"],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out forwards',
+                        'slide-up': 'slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'scale-in': 'scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'gradient-pan': 'gradient-pan 5s ease infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeIn: { 'from': { opacity: '0' }, 'to': { opacity: '1' } },
+                        slideUp: { 'from': { opacity: '0', transform: 'translateY(40px)' }, 'to': { opacity: '1', transform: 'translateY(0)' } },
+                        scaleIn: { 'from': { opacity: '0', transform: 'scale(0.9)' }, 'to': { opacity: '1', transform: 'scale(1)' } },
+                        'gradient-pan': { '0%': { 'background-position': '0% 50%' }, '50%': { 'background-position': '100% 50%' }, '100%': { 'background-position': '0% 50%' } }
+                    }
+                },
             },
-            animation: {
-              'fade-in': 'fadeIn 0.6s ease-out forwards',
-              'slide-up': 'slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-              'scale-in': 'scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-              'gradient-pan': 'gradient-pan 5s ease infinite',
-            },
-            keyframes: {
-              fadeIn: {
-                'from': { opacity: '0' },
-                'to': { opacity: '1' },
-              },
-              slideUp: {
-                'from': { opacity: '0', transform: 'translateY(40px)' },
-                'to': { opacity: '1', transform: 'translateY(0)' },
-              },
-              scaleIn: {
-                'from': { opacity: '0', transform: 'scale(0.9)' },
-                'to': { opacity: '1', transform: 'scale(1)' },
-              },
-              'gradient-pan': {
-                '0%': { 'background-position': '0% 50%' },
-                '50%': { 'background-position': '100% 50%' },
-                '100%': { 'background-position': '0% 50%' },
-              }
-            }
-          },
-        },
-      };
+        };
     </script>
-    
+
     <style>
         :root {
             --bg-primary: #050505;
-            --bg-secondary: #101010;
-            --bg-tertiary: #191919;
-            --bg-card: rgba(22, 22, 22, 0.5);
-            --border-subtle: rgba(255, 255, 255, 0.05);
-            --border-medium: rgba(255, 255, 255, 0.1);
+            --bg-secondary: #0f0f0f;
+            --bg-tertiary: #161616;
+            --bg-card: rgba(18, 18, 18, 0.8);
+            --border-subtle: rgba(255, 255, 255, 0.055);
+            --border-medium: rgba(255, 255, 255, 0.09);
+            --border-accent: rgba(139, 92, 246, 0.3);
             --text-primary: #e4e4e7;
             --text-secondary: #a1a1aa;
-            --text-muted: #71717a;
+            --text-muted: #52525b;
             --accent: #8b5cf6;
             --accent-light: #a78bfa;
-            --accent-dark: #6d28d9;
-            --accent-gradient: linear-gradient(90deg, var(--accent-light), var(--accent));
-            --success: #10b981;
-            --warning: #f59e0b;
+            --accent-dim: rgba(139, 92, 246, 0.12);
+            --accent-gradient: linear-gradient(135deg, #a78bfa, #8b5cf6);
+            --success: #23a559;
         }
 
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg-primary); }
-        ::-webkit-scrollbar-thumb { background: var(--border-medium); border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
 
-        html { background-color: var(--bg-primary); }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-medium);
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        html {
+            background-color: var(--bg-primary);
+        }
 
         body {
             background-color: var(--bg-primary);
@@ -91,19 +98,217 @@
             font-weight: 400;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
-            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.025) 1px, transparent 0);
-            background-size: 24px 24px;
+            background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.018) 1px, transparent 0);
+            background-size: 28px 28px;
         }
 
+        /* ── NAV ── */
+        .site-header {
+            background-color: rgba(5, 5, 5, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .nav-link {
+            position: relative;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 0.25rem 0;
+            letter-spacing: 0.01em;
+            transition: color 0.25s ease;
+            text-decoration: none;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--text-primary);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1.5px;
+            bottom: -4px;
+            left: 0;
+            background: var(--accent-light);
+            transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* ── BUTTONS ── */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 0.625rem 1.375rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+            letter-spacing: 0.01em;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-1px);
+            box-shadow: 0 0 28px rgba(167, 139, 250, 0.28);
+        }
+
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-medium);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--border-accent);
+            color: var(--accent-light);
+            transform: translateY(-1px);
+        }
+
+        /* ── ANIMATIONS ── */
+        .animated-element {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .animated-element.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── HERO ── */
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: -10%;
+            right: -10%;
+            bottom: 0;
+            background: radial-gradient(ellipse at 50% 20%, rgba(109, 40, 217, 0.12), transparent 55%);
+            pointer-events: none;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-medium), transparent);
+        }
+
+        /* Profile ring */
+        .profile-ring {
+            position: relative;
+            width: 19rem;
+            height: 19rem;
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 1024px) {
+            .profile-ring {
+                width: 22rem;
+                height: 22rem;
+            }
+        }
+
+        .profile-ring::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 1.375rem;
+            background: linear-gradient(135deg, #a78bfa, #6d28d9, #a78bfa);
+            background-size: 200% 200%;
+            animation: gradient-pan 5s ease infinite;
+            z-index: 0;
+        }
+
+        .profile-ring img {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 1.25rem;
+        }
+
+        /* Tag chips */
+        .tag-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-medium);
+            border-radius: 99px;
+            padding: 0.3rem 0.75rem;
+            letter-spacing: 0.02em;
+        }
+
+        .tag-chip .dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        /* Gradient text */
+        .gradient-text {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Social links */
+        .social-link {
+            color: var(--text-muted);
+            font-size: 1.25rem;
+            transition: all 0.25s ease;
+        }
+
+        .social-link:hover {
+            color: var(--accent-light);
+            transform: translateY(-2px);
+        }
+
+        /* ── SECTION TITLE ── */
         .section-title {
             font-family: 'Unbounded', sans-serif;
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 800;
             letter-spacing: -0.04em;
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3.5rem;
             color: var(--text-primary);
             position: relative;
         }
@@ -111,127 +316,204 @@
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -0.75rem;
+            bottom: -0.625rem;
             left: 50%;
             transform: translateX(-50%);
-            width: 4rem;
-            height: 3px;
+            width: 2.5rem;
+            height: 2px;
             background: var(--accent-gradient);
             border-radius: 2px;
         }
 
-        @media (min-width: 768px) { .section-title { font-size: 3.5rem; } }
-
-        .site-header {
-            background-color: rgba(5, 5, 5, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--border-subtle);
-            transition: all 0.3s ease;
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 2.75rem;
+            }
         }
 
-        .nav-link {
-            position: relative; color: var(--text-secondary); font-weight: 500;
-            font-size: 0.9rem; padding: 0.25rem 0.125rem;
-            transition: color 0.3s ease; text-decoration: none;
-        }
-        .nav-link:hover, .nav-link.active { color: var(--text-primary); }
-        .nav-link::after {
-            content: ''; position: absolute; width: 0; height: 2px; bottom: -4px;
-            left: 0; background: var(--accent);
-            transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
-
+        /* ── GLASS CARD ── */
         .glass-card {
-            background: var(--bg-card); border: 1px solid var(--border-subtle);
-            border-radius: 1rem; padding: 2.5rem;
-            transition: all 0.3s ease; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
             height: 100%;
         }
-        .glass-card:hover { border-color: var(--border-medium); transform: translateY(-4px); box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3); }
 
+        .glass-card:hover {
+            border-color: var(--border-medium);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.4);
+        }
+
+        .glass-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+            color: var(--text-primary);
+        }
+
+        .glass-card h3 i {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        /* ── PROJECT CARD ── */
         .project-card {
-            background: var(--bg-secondary); border: 1px solid var(--border-subtle);
-            border-radius: 1rem; overflow: hidden; transition: all 0.3s ease;
-            height: 100%; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
-        .project-card:hover { border-color: var(--border-medium); transform: translateY(-6px) scale(1.02); box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.4); }
-        .project-card .project-image-wrapper { overflow: hidden; width: 100%; height: 200px; }
-        .project-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-        .project-card:hover img { transform: scale(1.1); }
 
-        .testimonial-card {
-            background: transparent; border: 1px solid var(--border-subtle);
-            border-radius: 1rem; padding: 2.5rem; transition: all 0.3s ease;
-            position: relative; background-image: radial-gradient(circle at top left, rgba(139, 92, 246, 0.08), transparent 30%);
+        .project-card:hover {
+            border-color: var(--border-medium);
+            transform: translateY(-5px);
+            box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.5);
         }
-        .testimonial-card:hover { border-color: var(--border-medium); transform: translateY(-4px); background-image: radial-gradient(circle at top left, rgba(139, 92, 246, 0.12), transparent 40%); }
+
+        .project-card .img-wrap {
+            overflow: hidden;
+            width: 100%;
+            height: 180px;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+            display: block;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .project-card .card-body {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card .card-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 0.375rem;
+        }
+
+        .project-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.625rem;
+        }
+
+        .project-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            flex: 1;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+
+        /* ── TESTIMONIAL CARD ── */
+        .testimonial-card {
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            background-image: radial-gradient(circle at top left, rgba(139, 92, 246, 0.07), transparent 35%);
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--border-medium);
+            transform: translateY(-4px);
+        }
+
         .testimonial-card::before {
-            content: '“'; position: absolute; top: 1rem; left: 1.5rem;
-            font-size: 5rem; line-height: 1; color: var(--accent); opacity: 0.2;
+            content: '"';
+            position: absolute;
+            top: 0.75rem;
+            left: 1.25rem;
+            font-size: 4rem;
+            line-height: 1;
+            color: var(--accent);
+            opacity: 0.18;
             font-family: 'Times New Roman', Times, serif;
         }
 
-        .btn {
-            display: inline-flex; align-items: center; justify-content: center;
-            gap: 0.5rem; font-weight: 600; font-size: 0.9rem; padding: 0.75rem 1.75rem;
-            border-radius: 0.5rem; text-decoration: none;
-            transition: all 0.2s ease; cursor: pointer; border: 1px solid transparent;
-        }
-        .btn-primary { background: var(--accent); color: white; box-shadow: 0 4px 14px rgba(139, 92, 246, 0.25); }
-        .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 7px 20px rgba(167, 139, 250, 0.3); }
-        .btn-secondary { background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border-medium); }
-        .btn-secondary:hover { background: var(--bg-tertiary); border-color: var(--accent-light); color: var(--accent-light); transform: translateY(-2px); }
-        
-        .tag {
-            display: inline-flex; align-items: center; gap: 0.375rem; background: var(--bg-secondary);
-            color: var(--text-secondary); padding: 0.3rem 0.8rem; border-radius: 9999px; font-size: 0.8rem;
-            font-weight: 500; border: 1px solid var(--border-subtle);
-        }
+        /* ── TECH TAGS ── */
         .tech-tag {
-            display: inline-flex; align-items: center; background: rgba(139, 92, 246, 0.1); color: var(--accent-light);
-            padding: 0.3rem 0.8rem; border-radius: 0.5rem; font-size: 0.8rem; font-weight: 500;
-            border: 1px solid rgba(139, 92, 246, 0.2); transition: all 0.2s ease;
-        }
-        .tech-tag:hover { background: rgba(139, 92, 246, 0.2); color: white; }
-        
-        .progress-container { background: var(--bg-secondary); border-radius: 9999px; overflow: hidden; height: 10px; border: 1px solid var(--border-subtle); }
-        .progress-bar { height: 100%; background: var(--accent-gradient); border-radius: 9999px; transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1); width: 0; }
-        
-        .animated-element { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-        .animated-element.visible { opacity: 1; transform: translateY(0); }
-        
-        .hero-gradient-bg { background: var(--bg-primary); position: relative; overflow: hidden; }
-        .hero-gradient-bg::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(ellipse at 50% 30%, rgba(109, 40, 217, 0.15), transparent 60%);
-            pointer-events: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            background: rgba(139, 92, 246, 0.08);
+            color: var(--accent-light);
+            padding: 0.275rem 0.7rem;
+            border-radius: 0.4rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid rgba(139, 92, 246, 0.18);
+            transition: all 0.2s ease;
         }
 
-        .profile-image-wrapper { position: relative; width: 18rem; height: 18rem; }
-        @media (min-width: 1024px) { .profile-image-wrapper { width: 21rem; height: 21rem; } }
-        .profile-image-wrapper::before {
-            content: ""; position: absolute; inset: 0; border-radius: 1.25rem; padding: 2px;
-            background: var(--accent-gradient); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor; mask-composite: exclude; animation: gradient-pan 5s ease infinite; background-size: 200% 200%;
+        .tech-tag:hover {
+            background: rgba(139, 92, 246, 0.18);
+            color: #fff;
         }
-        .profile-image { border-radius: 1.25rem; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); }
 
-        .gradient-text { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-fill-color: transparent; }
-        .social-link { color: var(--text-secondary); font-size: 1.5rem; transition: all 0.3s ease; }
-        .social-link:hover { color: var(--accent-light); transform: translateY(-3px); }
+        /* ── PROGRESS ── */
+        .progress-container {
+            background: var(--bg-secondary);
+            border-radius: 99px;
+            overflow: hidden;
+            height: 8px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--accent-gradient);
+            border-radius: 99px;
+            transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            width: 0;
+        }
+
+        /* ── SECTION DIVIDER ── */
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--border-subtle);
+            margin: 0;
+        }
     </style>
 </head>
 
 <body>
+
+    <!-- ── NAV ── -->
     <header id="site-header" class="site-header fixed top-0 w-full z-50">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex-shrink-0">
-                    <a href="/" class="font-mono font-semibold text-2xl tracking-tight">zubariel<span class="text-accent">.</span></a>
-                </div>
-                <nav class="hidden md:flex items-center space-x-10">
+            <div class="flex items-center justify-between" style="height:4.5rem;">
+                <a href="/" class="font-mono font-semibold text-xl tracking-tight">
+                    zubariel<span style="color:var(--accent);">.</span>
+                </a>
+                <nav class="hidden md:flex items-center space-x-9">
                     <a href="#about" class="nav-link">About</a>
                     <a href="#projects" class="nav-link">Projects</a>
                     <a href="#testimonials" class="nav-link">Testimonials</a>
@@ -242,440 +524,618 @@
                     <a href="/contact" target="_blank" class="btn btn-primary">Contact</a>
                 </div>
                 <div class="md:hidden">
-                    <button id="hamburgerBtn" class="text-2xl p-2 focus:outline-none">
-                        <i class="fa-solid fa-bars-staggered"></i>
+                    <button id="hamburgerBtn" class="p-2 focus:outline-none" style="color:var(--text-secondary);">
+                        <i class="fa-solid fa-bars-staggered text-xl"></i>
                     </button>
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden border-t border-border-subtle bg-bg-primary">
+        <div id="mobile-menu" class="hidden md:hidden border-t"
+            style="border-color:var(--border-subtle); background:var(--bg-primary);">
             <nav class="px-6 py-6 space-y-4">
-                <a href="#about" class="nav-link block py-2 text-lg">About</a>
-                <a href="#projects" class="nav-link block py-2 text-lg">Projects</a>
-                <a href="#testimonials" class="nav-link block py-2 text-lg">Testimonials</a>
-                <a href="#interests" class="nav-link block py-2 text-lg">Interests</a>
-                <a href="#thanks" class="nav-link block py-2 text-lg">Thanks</a>
-                <a href="/contact" target="_blank" class="btn btn-primary inline-block mt-4 w-full">Contact</a>
+                <a href="#about" class="nav-link block py-2 text-base">About</a>
+                <a href="#projects" class="nav-link block py-2 text-base">Projects</a>
+                <a href="#testimonials" class="nav-link block py-2 text-base">Testimonials</a>
+                <a href="#interests" class="nav-link block py-2 text-base">Interests</a>
+                <a href="#thanks" class="nav-link block py-2 text-base">Thanks</a>
+                <a href="/contact" target="_blank" class="btn btn-primary mt-4 w-full">Contact</a>
             </nav>
         </div>
     </header>
 
     <main class="max-w-7xl mx-auto px-6 pt-20">
-        <section id="home" class="min-h-[95vh] flex items-center py-20 hero-gradient-bg -mx-6 px-6">
-            <div class="grid lg:grid-cols-5 gap-16 items-center w-full">
+
+        <!-- ── HERO ── -->
+        <section id="home" class="hero-section min-h-[92vh] flex items-center py-24 -mx-6 px-6">
+            <div class="grid lg:grid-cols-5 gap-20 items-center w-full">
+
                 <div class="lg:col-span-3 order-2 lg:order-1">
-                    <p class="font-mono text-accent text-base font-medium mb-4 animate-slide-up" style="animation-delay: 100ms;">Hello, I'm Zubariel.</p>
-                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 animate-slide-up" style="animation-delay: 200ms; font-family: 'Unbounded', sans-serif;">
-                        Self-Taught Developer & <span class="gradient-text">Creator</span>.
+                    <div class="flex flex-wrap gap-2 mb-8 animate-fade-in" style="animation-delay:100ms;">
+                        <span class="tag-chip"><span class="dot"></span>JS · TS · PY · C++</span>
+                        <span class="tag-chip"><span class="dot"></span>Open to freelance</span>
+                        <span class="tag-chip"><span class="dot"></span>18 y/o dev</span>
+                    </div>
+
+                    <p class="font-mono text-xs mb-5 animate-fade-in"
+                        style="animation-delay:150ms; color:var(--text-muted); letter-spacing:0.08em; text-transform:uppercase;">
+                        Hello, I'm Zubariel.</p>
+
+                    <h1 class="mb-6 animate-slide-up"
+                        style="animation-delay:200ms; font-family:'Unbounded',sans-serif; font-size:clamp(2.6rem,6vw,4.5rem); font-weight:800; line-height:1.05; letter-spacing:-0.04em;">
+                        Self-Taught<br>Developer &amp; <span class="gradient-text">Creator</span><span
+                            style="color:#fff;">.</span>
                     </h1>
-                    <p class="text-lg text-text-secondary max-w-xl mb-10 animate-slide-up" style="animation-delay: 300ms;">
-                        An 18-year-old developer passionate about building innovative solutions, from Discord bots to full-stack web applications. Currently mastering the MERN stack to bring ideas to life.
+
+                    <p class="mb-4 animate-slide-up"
+                        style="animation-delay:300ms; color:var(--text-secondary); max-width:32rem; font-size:1rem; line-height:1.75;">
+                        <span style="color:var(--text-primary); font-weight:600;">3+ years</span> of self-driven
+                        experience —
+                        from Discord bots to full-stack web apps. Currently mastering the MERN stack.
                     </p>
-                    <div class="flex items-center gap-4 animate-slide-up" style="animation-delay: 400ms;">
+
+                    <p class="mb-10 animate-slide-up"
+                        style="animation-delay:380ms; font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--text-muted);">
+                        // Bot dev · Web dev · Freelancer · Builder
+                    </p>
+
+                    <div class="flex flex-wrap gap-3 animate-slide-up" style="animation-delay:450ms;">
                         <a href="/contact" target="_blank" class="btn btn-primary">
-                            <i class="fa-solid fa-paper-plane"></i>
-                            Contact Me
+                            <i class="fa-solid fa-paper-plane"></i> Contact Me
                         </a>
                         <a href="#projects" class="btn btn-secondary">
-                            View My Work
-                            <i class="fa-solid fa-arrow-down-long"></i>
+                            <i class="fa-solid fa-folder-open"></i> View My Work
                         </a>
                     </div>
-                </div>
-                <div class="lg:col-span-2 order-1 lg:order-2 flex justify-center lg:justify-end animate-scale-in" style="animation-delay: 500ms;">
-                    <div class="profile-image-wrapper">
-                      <img src="/images/1pfp.jpg" alt="Zubariel's Profile" class="w-full h-full object-cover profile-image">
+
+                    <div class="flex items-center gap-6 mt-10 animate-fade-in" style="animation-delay:600ms;">
+                        <a href="https://discord.com/users/860384146778226699" target="_blank" class="social-link"><i
+                                class="fa-brands fa-discord"></i></a>
+                        <a href="https://github.com/itszubariel" target="_blank" class="social-link"><i
+                                class="fa-brands fa-github"></i></a>
+                        <a href="https://x.com/itszubariel" target="_blank" class="social-link"><i
+                                class="fa-brands fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/channel/UCfzevkQDWFTmAo07B0rR9Jw" target="_blank"
+                            class="social-link"><i class="fa-brands fa-youtube"></i></a>
                     </div>
                 </div>
+
+                <div class="lg:col-span-2 order-1 lg:order-2 flex justify-center lg:justify-end animate-scale-in"
+                    style="animation-delay:500ms;">
+                    <div class="profile-ring">
+                        <img src="/images/1pfp.jpg" alt="Zubariel's Profile">
+                    </div>
+                </div>
+
             </div>
         </section>
 
+        <!-- ── ABOUT ── -->
         <section id="about" class="py-24">
             <h2 class="section-title animated-element">About Me</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
                 <div class="glass-card animated-element">
-                    <h3 class="text-xl font-bold mb-4 flex items-center gap-3"><i class="fa-solid fa-user text-accent"></i>Personal Info</h3>
-                    <ul class="text-text-secondary space-y-2 list-disc list-inside">
-                        <li><b>Ethnicity:</b> Asian <i class="fa-solid fa-earth-asia"></i></li>
-                        <li><b>Height:</b> 187.96cm | 6'2"</li>
-                        <li><b>Weight:</b> 169.75lbs | 77kg</li>
-                        <li><b>Birthday:</b> 200*-07-08 <i class="fa-solid fa-cake-candles"></i></li>
-                        <li><b>Location:</b> Somewhere in Asia <i class="fa-solid fa-location-dot"></i></li>
-                        <li><b>Languages:</b> English & others</li>
+                    <h3><i class="fa-solid fa-user"></i>Personal Info</h3>
+                    <ul style="color:var(--text-secondary);" class="space-y-2 text-sm list-disc list-inside">
+                        <li><span style="color:var(--text-primary); font-weight:600;">Ethnicity:</span> Asian <i
+                                class="fa-solid fa-earth-asia" style="color:var(--text-muted);"></i></li>
+                        <li><span style="color:var(--text-primary); font-weight:600;">Height:</span> 187.96 cm · 6'2"
+                        </li>
+                        <li><span style="color:var(--text-primary); font-weight:600;">Weight:</span> 169.75 lbs · 77 kg
+                        </li>
+                        <li><span style="color:var(--text-primary); font-weight:600;">Birthday:</span> 200*-07-08</li>
+                        <li><span style="color:var(--text-primary); font-weight:600;">Location:</span> Somewhere in Asia
+                        </li>
+                        <li><span style="color:var(--text-primary); font-weight:600;">Languages:</span> English &amp;
+                            others</li>
                     </ul>
                 </div>
 
                 <div class="glass-card animated-element">
-                    <h3 class="text-xl font-bold mb-4 flex items-center gap-3"><i class="fa-solid fa-dumbbell text-accent"></i>Workout Status</h3>
-                    <ul class="text-text-secondary space-y-2 list-disc list-inside">
+                    <h3><i class="fa-solid fa-dumbbell"></i>Workout Status</h3>
+                    <ul style="color:var(--text-secondary);" class="space-y-2 text-sm list-disc list-inside">
                         <li>Currently on a bulk (high carbs)</li>
-                        <li><b>Water Intake</b>: 5L</li>
-                        <li><b>Protein Intake</b>: ~160g</li>
-                        <li><b>Workout Split</b>: Push, Pull, Leg (6 days/week)</li>
-                        <li><b>Supplements</b>: Creatine Monohydrate</li>
+                        <li><span style="color:var(--text-primary); font-weight:600;">Water Intake:</span> 5L</li>
+                        <li><span style="color:var(--text-primary); font-weight:600;">Protein Intake:</span> ~160g</li>
+                        <li><span style="color:var(--text-primary); font-weight:600;">Split:</span> Push / Pull / Leg
+                            (6×/wk)</li>
+                        <li><span style="color:var(--text-primary); font-weight:600;">Supplements:</span> Creatine
+                            Monohydrate</li>
                     </ul>
                 </div>
 
                 <div class="glass-card animated-element">
-                     <h3 class="text-xl font-bold mb-4 flex items-center gap-3"><i class="fa-solid fa-graduation-cap text-accent"></i>Qualifications</h3>
-                     <ul class="text-text-secondary space-y-2 list-disc list-inside">
-                        <li>Grade 12th (Computer Science)</li>
-                        <li>Developer at <b>Auora HQ</b></li>
-                        <li>Freelance Web/App Developer</li>
+                    <h3><i class="fa-solid fa-graduation-cap"></i>Qualifications</h3>
+                    <ul style="color:var(--text-secondary);" class="space-y-2 text-sm list-disc list-inside">
+                        <li>Grade 12th — Computer Science</li>
+                        <li>Developer at <span style="color:var(--text-primary); font-weight:600;">Auora HQ</span></li>
+                        <li>Freelance Web / App Developer</li>
                         <li>3+ years of coding experience</li>
                         <li>Self-taught, project-driven learning</li>
                     </ul>
                 </div>
-                
+
                 <div class="glass-card animated-element">
-                    <h3 class="text-xl font-bold mb-4 flex items-center gap-3"><i class="fa-solid fa-heart text-accent"></i>Favorites</h3>
-                    <ul class="text-text-secondary space-y-2 list-disc list-inside">
-                        <li>Listening to Music (Pop, Indie, Acoustic)</li>
-                        <li>Watching anime/manga</li>
-                        <li>Building Discord bots & coding</li>
+                    <h3><i class="fa-solid fa-heart"></i>Favorites</h3>
+                    <ul style="color:var(--text-secondary);" class="space-y-2 text-sm list-disc list-inside">
+                        <li>Music — Pop, Indie, Acoustic</li>
+                        <li>Watching anime &amp; reading manga</li>
+                        <li>Building Discord bots &amp; coding</li>
                         <li>Exploring new frameworks</li>
-                        <li>Gaming & Traveling</li>
+                        <li>Gaming &amp; Travelling</li>
                     </ul>
                 </div>
 
                 <div class="glass-card animated-element">
-                    <h3 class="text-xl font-bold mb-4 flex items-center gap-3"><i class="fa-solid fa-screwdriver-wrench text-accent"></i>Skills</h3>
-                    <div class="space-y-5">
+                    <h3><i class="fa-solid fa-screwdriver-wrench"></i>Skills</h3>
+                    <div class="space-y-4">
                         <div>
-                            <div class="flex justify-between text-sm mb-2"><span class="font-medium">Bot Development</span><span class="text-accent font-medium">86%</span></div>
-                            <div class="progress-container"><div class="progress-bar" data-width="86%"></div></div>
+                            <div class="flex justify-between text-xs mb-1.5" style="color:var(--text-secondary);">
+                                <span style="color:var(--text-primary); font-weight:600;">Web Development</span>
+                                <span style="color:var(--accent-light);">94%</span>
+                            </div>
+                            <div class="progress-container">
+                                <div class="progress-bar" data-width="94%"></div>
+                            </div>
                         </div>
                         <div>
-                            <div class="flex justify-between text-sm mb-2"><span class="font-medium">Web Development</span><span class="text-accent font-medium">94%</span></div>
-                            <div class="progress-container"><div class="progress-bar" data-width="94%"></div></div>
-                        </div>
-                         <div>
-                            <div class="flex justify-between text-sm mb-2"><span class="font-medium">Database Management</span><span class="text-accent font-medium">47%</span></div>
-                            <div class="progress-container"><div class="progress-bar" data-width="47%"></div></div>
+                            <div class="flex justify-between text-xs mb-1.5" style="color:var(--text-secondary);">
+                                <span style="color:var(--text-primary); font-weight:600;">Bot Development</span>
+                                <span style="color:var(--accent-light);">86%</span>
+                            </div>
+                            <div class="progress-container">
+                                <div class="progress-bar" data-width="86%"></div>
+                            </div>
                         </div>
                         <div>
-                            <div class="flex justify-between text-sm mb-2"><span class="font-medium">App Development</span><span class="text-accent font-medium">25%</span></div>
-                            <div class="progress-container"><div class="progress-bar" data-width="25%"></div></div>
+                            <div class="flex justify-between text-xs mb-1.5" style="color:var(--text-secondary);">
+                                <span style="color:var(--text-primary); font-weight:600;">Database Management</span>
+                                <span style="color:var(--accent-light);">47%</span>
+                            </div>
+                            <div class="progress-container">
+                                <div class="progress-bar" data-width="47%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1.5" style="color:var(--text-secondary);">
+                                <span style="color:var(--text-primary); font-weight:600;">App Development</span>
+                                <span style="color:var(--accent-light);">25%</span>
+                            </div>
+                            <div class="progress-container">
+                                <div class="progress-bar" data-width="25%"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="glass-card animated-element">
-                    <h3 class="text-xl font-bold mb-4 flex items-center gap-3"><i class="fa-solid fa-globe text-accent"></i>Languages & Tech</h3>
+                    <h3><i class="fa-solid fa-globe"></i>Languages &amp; Tech</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="tech-tag"><i class="fa-brands fa-html5 text-orange-500"></i> HTML5</span>
-                        <span class="tech-tag"><i class="fa-brands fa-css3-alt text-blue-500"></i> CSS3</span>
-                        <span class="tech-tag"><i class="fa-brands fa-js text-yellow-400"></i> JavaScript</span>
-                        <span class="tech-tag"><i class="fa-solid fa-code text-blue-400"></i> TypeScript</span>
-                        <span class="tech-tag"><i class="fa-brands fa-python text-yellow-500"></i> Python</span>
-                        <span class="tech-tag"><i class="fa-solid fa-code text-blue-600"></i> C++</span>
-                        <span class="tech-tag"><i class="fa-brands fa-react text-cyan-400"></i> React</span>
-                        <span class="tech-tag"><i class="fa-brands fa-node-js text-green-500"></i> Node.js</span>
-                        <span class="tech-tag"><i class="fa-brands fa-css3-alt text-cyan-500"></i> Tailwind</span>
-                        <span class="tech-tag"><i class="fa-brands fa-discord text-indigo-500"></i> Discord.js</span>
-                        <span class="tech-tag"><i class="fa-solid fa-leaf text-green-600"></i> MongoDB</span>
-                        <span class="tech-tag"><i class="fa-brands fa-git-alt text-orange-600"></i> Git</span>
-                        <span class="tech-tag"><i class="fa-solid fa-plug text-gray-400"></i> REST APIs</span>
-                        <span class="tech-tag"><i class="fa-solid fa-code text-blue-400"></i> VS Code</span>
+                        <span class="tech-tag"><i class="fa-brands fa-html5" style="color:#f97316;"></i> HTML5</span>
+                        <span class="tech-tag"><i class="fa-brands fa-css3-alt" style="color:#3b82f6;"></i> CSS3</span>
+                        <span class="tech-tag"><i class="fa-brands fa-js" style="color:#facc15;"></i> JavaScript</span>
+                        <span class="tech-tag"><i class="fa-solid fa-code" style="color:#60a5fa;"></i> TypeScript</span>
+                        <span class="tech-tag"><i class="fa-brands fa-python" style="color:#eab308;"></i> Python</span>
+                        <span class="tech-tag"><i class="fa-solid fa-code" style="color:#818cf8;"></i> C++</span>
+                        <span class="tech-tag"><i class="fa-brands fa-react" style="color:#22d3ee;"></i> React</span>
+                        <span class="tech-tag"><i class="fa-brands fa-node-js" style="color:#22c55e;"></i>
+                            Node.js</span>
+                        <span class="tech-tag"><i class="fa-brands fa-css3-alt" style="color:#06b6d4;"></i>
+                            Tailwind</span>
+                        <span class="tech-tag"><i class="fa-brands fa-discord" style="color:#818cf8;"></i>
+                            Discord.js</span>
+                        <span class="tech-tag"><i class="fa-solid fa-leaf" style="color:#16a34a;"></i> MongoDB</span>
+                        <span class="tech-tag"><i class="fa-brands fa-git-alt" style="color:#ea580c;"></i> Git</span>
+                        <span class="tech-tag"><i class="fa-solid fa-plug" style="color:#94a3b8;"></i> REST APIs</span>
+                        <span class="tech-tag"><i class="fa-solid fa-code" style="color:#60a5fa;"></i> VS Code</span>
                     </div>
                 </div>
+
             </div>
         </section>
 
+        <hr class="section-divider">
+
+        <!-- ── PROJECTS ── -->
         <section id="projects" class="py-24">
             <h2 class="section-title animated-element">Featured Projects</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
                 <div class="project-card animated-element">
-                    <div class="project-image-wrapper"><img src="/images/bot.png" alt="Auora Bot"/></div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-1">Auora Bot</h3>
-                        <p class="text-text-muted text-sm mb-4">Application</p>
-                        <p class="text-text-secondary text-sm mb-6 flex-1">A versatile, feature-rich Discord bot application designed for community management and engagement.</p>
-                        <a href="https://discord.com/application-directory/860384146778226699" target="_blank" class="btn btn-secondary mt-auto">View Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+                    <div class="img-wrap"><img src="/images/bot.png" alt="Auora Bot"></div>
+                    <div class="card-body">
+                        <p class="card-label">Application</p>
+                        <h3>Auora Bot</h3>
+                        <p>A versatile, feature-rich Discord bot designed for community management and engagement.</p>
+                        <a href="https://discord.com/application-directory/860384146778226699" target="_blank"
+                            class="btn btn-secondary mt-auto">
+                            View Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                        </a>
                     </div>
                 </div>
+
                 <div class="project-card animated-element">
-                    <div class="project-image-wrapper"><img src="/images/auora-bot-2.png" alt="Auora Website"/></div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-1">Auora's Website</h3>
-                        <p class="text-text-muted text-sm mb-4">Web Development</p>
-                        <p class="text-text-secondary text-sm mb-6 flex-1">The official landing page for the Auora ecosystem, built with modern web technologies.</p>
-                        <a href="https://auora.netlify.app/" target="_blank" class="btn btn-secondary mt-auto">View Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+                    <div class="img-wrap"><img src="/images/auora-bot-2.png" alt="Auora Website"></div>
+                    <div class="card-body">
+                        <p class="card-label">Web Development</p>
+                        <h3>Auora's Website</h3>
+                        <p>The official landing page for the Auora ecosystem, built with modern web technologies.</p>
+                        <a href="https://auora.netlify.app/" target="_blank" class="btn btn-secondary mt-auto">
+                            View Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                        </a>
                     </div>
                 </div>
-                                <div class="project-card animated-element">
-                    <div class="project-image-wrapper"><img src="/images/website-panel.png" alt="My Website"/></div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-1">My Linktree</h3>
-                        <p class="text-text-muted text-sm mb-4">Web Development</p>
-                        <p class="text-text-secondary text-sm mb-6 flex-1">Collection of links to my Portfolio, Projects, and more.</p>
-                         <a href="https://zubariel.is-a.dev/" target="_blank" class="btn btn-secondary mt-auto">View Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-                    </div>
-                </div>
+
                 <div class="project-card animated-element">
-                    <div class="project-image-wrapper"><img src="/Website/images/hol.png" alt="Heart of Life (HoL)"/></div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-1">Heart of Life (HoL)</h3>
-                        <p class="text-text-muted text-sm mb-4">Minecraft Mod</p>
-                        <p class="text-text-secondary text-sm mb-6 flex-1">Adds a single-player heart progression system inspired by Lifesteal.</p>
-                        <a href="https://modrinth.com/mod/hol" target="_blank" class="btn btn-secondary mt-auto">View Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+                    <div class="img-wrap"><img src="/images/website-panel.png" alt="My Linktree"></div>
+                    <div class="card-body">
+                        <p class="card-label">Web Development</p>
+                        <h3>My Linktree</h3>
+                        <p>Collection of links to my Portfolio, Projects, and more.</p>
+                        <a href="https://zubariel.is-a.dev/" target="_blank" class="btn btn-secondary mt-auto">
+                            View Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                        </a>
                     </div>
                 </div>
+
                 <div class="project-card animated-element">
-                    <div class="project-image-wrapper"><img src="/images/bdfd-bg.png" alt="BDFD"/></div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-1">BDFD</h3>
-                        <p class="text-text-muted text-sm mb-4">Mobile Application</p>
-                        <p class="text-text-secondary text-sm mb-6 flex-1">Contributed to the development of a popular mobile application for creating Discord bots.</p>
-                        <a href="https://play.google.com/store/apps/details?id=com.jakubtomana.discordbotdesinger&hl=en" target="_blank" class="btn btn-secondary mt-auto"><i class="fa-brands fa-google-play"></i> View App</a>
+                    <div class="img-wrap"><img src="/images/bdtools.png" alt="BDTools"></div>
+                    <div class="card-body">
+                        <p class="card-label">Web Application</p>
+                        <h3>BDTools</h3>
+                        <p>Collection of random Bot Designer for Discord tools.</p>
+                        <a href="https://bdtools.netlify.app/" target="_blank" class="btn btn-secondary mt-auto">
+                            View Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                        </a>
                     </div>
                 </div>
-               <div class="project-card animated-element">
-                    <div class="project-image-wrapper"><img src="/images/bdtools.png" alt="BDTools"></div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold mb-1">BDTools</h3>
-                        <p class="text-text-muted text-sm mb-4">Web Application</p>
-                        <p class="text-text-secondary text-sm mb-6 flex-1">Collection of random Bot Designer for Discord Tools</p>
-                        <a href="https://bdtools.netlify.app/" target="_blank" class="btn btn-secondary mt-auto">View Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+
+                <div class="project-card animated-element">
+                    <div class="img-wrap"><img src="/images/statify.png" alt="Statify"></div>
+                    <div class="card-body">
+                        <p class="card-label">VS Code Extension</p>
+                        <h3>Statify</h3>
+                        <p>A Visual Studio Code extension
+                            that provides useful project statistics and insights directly inside your editor</p>
+                        <a href="https://marketplace.visualstudio.com/items?itemName=Zubariel.statify" target="_blank"
+                            class="btn btn-secondary mt-auto">
+                            <i class="fa-brands fa-google-play"></i> View App
+                        </a>
                     </div>
                 </div>
+
+                <div class="project-card animated-element">
+                    <div class="img-wrap"><img src="/images/hol.png" alt="Heart of Life"></div>
+                    <div class="card-body">
+                        <p class="card-label">Minecraft Mod</p>
+                        <h3>Heart of Life (HoL)</h3>
+                        <p>Adds a single-player heart progression system inspired by Lifesteal.</p>
+                        <a href="https://modrinth.com/mod/hol" target="_blank" class="btn btn-secondary mt-auto">
+                            View Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
             </div>
-        </section>
-                  <div class="text-center">
-                 <a href="/projects" target="_blank" class="btn btn-primary mb-12">
-                    <i class="fa-solid fa-paper-plane"></i>
-                    Other Projects
+
+            <div class="text-center mt-10">
+                <a href="/projects" target="_blank" class="btn btn-secondary">
+                    <i class="fa-solid fa-folder-open"></i> Other Projects
                 </a>
             </div>
+        </section>
 
+        <hr class="section-divider">
+
+        <!-- ── TESTIMONIALS ── -->
         <section id="testimonials" class="py-24">
             <h2 class="section-title animated-element">What Others Say</h2>
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="grid md:grid-cols-2 gap-6">
+
                 <div class="testimonial-card animated-element">
-                    <p class="text-text-secondary italic pl-8 mb-6 text-[1.05rem]">"Building Auora HQ alongside Zubariel has been one of the best dev experiences. His focus, adaptability, and coding finesse push our projects to the next level every time."</p>
-                    <figcaption class="flex items-center gap-4">
-                        <img src="/images/savior-pfp.png" alt="Saviour's profile" class="w-14 h-14 rounded-full border-2 border-border-medium object-cover"/>
+                    <p style="color:var(--text-secondary); font-size:0.9rem; line-height:1.75;"
+                        class="pl-6 mb-6 italic">
+                        "Building Auora HQ alongside Zubariel has been one of the best dev experiences. His focus,
+                        adaptability, and coding finesse push our projects to the next level every time."
+                    </p>
+                    <figcaption class="flex items-center gap-3">
+                        <img src="/images/savior-pfp.png" alt="Saviour" class="w-12 h-12 rounded-full object-cover"
+                            style="border:2px solid var(--border-medium);">
                         <div>
-                            <p class="font-bold text-lg text-text-primary">Saviour</p>
-                            <p class="text-sm text-text-muted">Developer & Partner at Auora HQ</p>
+                            <p style="font-weight:700; font-size:0.95rem; color:var(--text-primary);">Saviour</p>
+                            <p style="font-size:0.75rem; color:var(--text-muted);">Developer &amp; Partner at Auora HQ
+                            </p>
                         </div>
                     </figcaption>
                 </div>
+
                 <div class="testimonial-card animated-element">
-                    <p class="text-text-secondary italic pl-8 mb-6 text-[1.05rem]">"It’s rare to find someone this young who codes with such clarity and purpose. Zubariel is a standout dev — sharp instincts, fast turnarounds, and clean, scalable work."</p>
-                     <figcaption class="flex items-center gap-4">
-                        <img src="/images/kuba-pfp.png" alt="Kubastick's profile" class="w-14 h-14 rounded-full border-2 border-border-medium object-cover"/>
+                    <p style="color:var(--text-secondary); font-size:0.9rem; line-height:1.75;"
+                        class="pl-6 mb-6 italic">
+                        "It's rare to find someone this young who codes with such clarity and purpose. Zubariel is a
+                        standout dev — sharp instincts, fast turnarounds, and clean, scalable work."
+                    </p>
+                    <figcaption class="flex items-center gap-3">
+                        <img src="/images/kuba-pfp.png" alt="Kubastick" class="w-12 h-12 rounded-full object-cover"
+                            style="border:2px solid var(--border-medium);">
                         <div>
-                            <a href="https://github.com/kubastick" target="_blank" class="font-bold text-lg text-text-primary hover:text-accent-light transition">Kubastick</a>
-                            <p class="text-sm text-text-muted">Developer & Client</p>
+                            <a href="https://github.com/kubastick" target="_blank"
+                                style="font-weight:700; font-size:0.95rem; color:var(--text-primary);"
+                                class="hover:text-accent-light transition-colors">Kubastick</a>
+                            <p style="font-size:0.75rem; color:var(--text-muted);">Developer &amp; Client</p>
                         </div>
                     </figcaption>
                 </div>
-                 <div class="testimonial-card animated-element">
-                    <p class="text-text-secondary italic pl-8 mb-6 text-[1.05rem]">"Zubariel is an incredibly talented developer with some seriously impressive projects. It's always exciting to see what he builds. Super chill and easy to vibe with."</p>
-                    <figcaption class="flex items-center gap-4">
-                        <img src="/images/stargraze-pfp.png" alt="star's profile" class="w-14 h-14 rounded-full border-2 border-border-medium object-cover"/>
+
+                <div class="testimonial-card animated-element">
+                    <p style="color:var(--text-secondary); font-size:0.9rem; line-height:1.75;"
+                        class="pl-6 mb-6 italic">
+                        "Zubariel is an incredibly talented developer with some seriously impressive projects. It's
+                        always exciting to see what he builds. Super chill and easy to vibe with."
+                    </p>
+                    <figcaption class="flex items-center gap-3">
+                        <img src="/images/stargraze-pfp.png" alt="star!" class="w-12 h-12 rounded-full object-cover"
+                            style="border:2px solid var(--border-medium);">
                         <div>
-                            <a href="https://www.servermaker.xyz/" target="_blank" class="font-bold text-lg text-text-primary hover:text-accent-light transition">star!</a>
-                            <p class="text-sm text-text-muted">Developer</p>
+                            <a href="https://www.servermaker.xyz/" target="_blank"
+                                style="font-weight:700; font-size:0.95rem; color:var(--text-primary);"
+                                class="hover:text-accent-light transition-colors">star!</a>
+                            <p style="font-size:0.75rem; color:var(--text-muted);">Developer</p>
                         </div>
                     </figcaption>
                 </div>
-                 <div class="testimonial-card animated-element">
-                    <p class="text-text-secondary italic pl-8 mb-6 text-[1.05rem]">"Zubariel always finds a way to make the smallest ideas pop. I just throw suggestions his way and he turns them into polished design decisions. Subtle, effective, and cool under pressure."</p>
-                     <figcaption class="flex items-center gap-4">
-                        <img src="/images/placeholder.png" alt="Cam's profile" class="w-14 h-14 rounded-full border-2 border-border-medium object-cover"/>
+
+                <div class="testimonial-card animated-element">
+                    <p style="color:var(--text-secondary); font-size:0.9rem; line-height:1.75;"
+                        class="pl-6 mb-6 italic">
+                        "Zubariel always finds a way to make the smallest ideas pop. I just throw suggestions his way
+                        and he turns them into polished design decisions. Subtle, effective, and cool under pressure."
+                    </p>
+                    <figcaption class="flex items-center gap-3">
+                        <img src="/images/placeholder.png" alt="Cam Brown" class="w-12 h-12 rounded-full object-cover"
+                            style="border:2px solid var(--border-medium);">
                         <div>
-                            <a href="https://github.com/cam-br0wn" target="_blank" class="font-bold text-lg text-text-primary hover:text-accent-light transition">Cam Brown</a>
-                            <p class="text-sm text-text-muted">Designer & Client</p>
+                            <a href="https://github.com/cam-br0wn" target="_blank"
+                                style="font-weight:700; font-size:0.95rem; color:var(--text-primary);"
+                                class="hover:text-accent-light transition-colors">Cam Brown</a>
+                            <p style="font-size:0.75rem; color:var(--text-muted);">Designer &amp; Client</p>
                         </div>
                     </figcaption>
                 </div>
+
             </div>
         </section>
 
+        <hr class="section-divider">
+
+        <!-- ── INTERESTS ── -->
         <section id="interests" class="py-24">
-            <h2 class="section-title animated-element">Interests & Hobbies</h2>
-            <div class="grid md:grid-cols-2 gap-8">
+            <h2 class="section-title animated-element">Interests &amp; Hobbies</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+
                 <div class="glass-card animated-element">
-                    <h3 class="text-xl font-bold mb-4">Anime & Manga Ratings</h3>
-                    <p class="text-text-secondary mb-6 text-sm">Top picks: <b>Bleach</b>, <b>Code Geass</b>, <b>Vinland Saga</b>. I'm a huge fan of Seinen, thrillers, and historical epics.</p>
-                    <div class="h-80"><canvas id="myChart"></canvas></div>
+                    <h3><i class="fa-solid fa-tv"></i>Anime &amp; Manga Ratings</h3>
+                    <p style="color:var(--text-secondary); font-size:0.82rem; margin-bottom:1.25rem;">
+                        Top picks: <span style="color:var(--text-primary); font-weight:600;">Bleach</span>,
+                        <span style="color:var(--text-primary); font-weight:600;">Code Geass</span>,
+                        <span style="color:var(--text-primary); font-weight:600;">Vinland Saga</span>.
+                        Huge fan of Seinen, thrillers, and historical epics.
+                    </p>
+                    <div style="height:280px;"><canvas id="myChart"></canvas></div>
                 </div>
+
                 <div class="glass-card animated-element">
-                    <h3 class="text-xl font-bold mb-4">Coding Soundtrack</h3>
-                    <p class="text-text-secondary mb-6 text-sm">Music is my fuel. My taste spans Lo-fi, rock, pop, and OSTs. Artists: <b>James Arthur</b>, <b>Radiohead</b>.</p>
-                    <div class="space-y-3">
-                        <iframe class="rounded-lg w-full" style="border-radius: 12px" src="https://open.spotify.com/embed/track/1fDFHXcykq4iw8Gg7s5hG9?utm_source=generator&theme=0" height="80" frameborder="0" loading="lazy"></iframe>
-                        <iframe class="rounded-lg w-full" style="border-radius: 12px" src="https://open.spotify.com/embed/track/6Uwi2Qk3H7fM4b4W4ExrAp?utm_source=generator&theme=0" height="80" frameborder="0" loading="lazy"></iframe>
-                        <iframe class="rounded-lg w-full" style="border-radius: 12px" src="https://open.spotify.com/embed/track/3QaPy1KgI7nu9FJEQUgn6h?utm_source=generator&theme=0" height="80" frameborder="0" loading="lazy"></iframe>
-                        <iframe class="rounded-lg w-full" style="border-radius: 12px" src="https://open.spotify.com/embed/track/46tfxn5lP7Qsbz7NHsj9iu?utm_source=generator&theme=0" height="80" frameborder="0" loading="lazy"></iframe>
+                    <h3><i class="fa-brands fa-spotify" style="color:#1db954;"></i>Coding Soundtrack</h3>
+                    <p style="color:var(--text-secondary); font-size:0.82rem; margin-bottom:1.25rem;">
+                        Music is my fuel. Lo-fi, rock, pop, and OSTs. Artists:
+                        <span style="color:var(--text-primary); font-weight:600;">James Arthur</span>,
+                        <span style="color:var(--text-primary); font-weight:600;">Radiohead</span>.
+                    </p>
+                    <div class="space-y-2.5">
+                        <iframe style="border-radius:10px;"
+                            src="https://open.spotify.com/embed/track/1fDFHXcykq4iw8Gg7s5hG9?utm_source=generator&theme=0"
+                            width="100%" height="80" frameborder="0" loading="lazy"></iframe>
+                        <iframe style="border-radius:10px;"
+                            src="https://open.spotify.com/embed/track/6Uwi2Qk3H7fM4b4W4ExrAp?utm_source=generator&theme=0"
+                            width="100%" height="80" frameborder="0" loading="lazy"></iframe>
+                        <iframe style="border-radius:10px;"
+                            src="https://open.spotify.com/embed/track/3QaPy1KgI7nu9FJEQUgn6h?utm_source=generator&theme=0"
+                            width="100%" height="80" frameborder="0" loading="lazy"></iframe>
+                        <iframe style="border-radius:10px;"
+                            src="https://open.spotify.com/embed/track/46tfxn5lP7Qsbz7NHsj9iu?utm_source=generator&theme=0"
+                            width="100%" height="80" frameborder="0" loading="lazy"></iframe>
                     </div>
                 </div>
+
                 <div class="glass-card animated-element">
-                    <h3 class="text-xl font-bold mb-4">Gaming</h3>
-                    <ul class="space-y-2 text-text-secondary list-disc list-inside">
-                        <li><b>Genres:</b> RPG, Souls-like, Open World</li>
-                        <li><b>All-Time Favorites:</b> Minecraft, GOW, RDR2</li>
-                        <li><b>Competitive:</b> Valorant, COD</li>
-                        <li>Fascinated by game design & storytelling.</li>
+                    <h3><i class="fa-solid fa-gamepad"></i>Gaming</h3>
+                    <ul style="color:var(--text-secondary);" class="space-y-2 text-sm list-disc list-inside">
+                        <li><span style="color:var(--text-primary); font-weight:600;">Genres:</span> RPG, Souls-like,
+                            Open World</li>
+                        <li><span style="color:var(--text-primary); font-weight:600;">All-Time Faves:</span> Minecraft,
+                            GOW, RDR2</li>
+                        <li><span style="color:var(--text-primary); font-weight:600;">Competitive:</span> Valorant, COD
+                        </li>
+                        <li>Fascinated by game design &amp; storytelling.</li>
                     </ul>
                 </div>
+
                 <div class="glass-card animated-element">
-                    <h3 class="text-xl font-bold mb-4">MCU</h3>
-                    <ul class="space-y-2 text-text-secondary list-disc list-inside">
-                        <li><b>Favorite Characters:</b> Loki, Moon Knight</li>
-                        <li><b>Top Films:</b> Infinity War, Endgame, Deadpool & Wolverine</li>
-                        <li><b>Top Series:</b> Loki, Moon Knight, What If?</li>
-                        <li>Appreciate the world-building and character arcs.</li>
+                    <h3><i class="fa-solid fa-mask"></i>MCU</h3>
+                    <ul style="color:var(--text-secondary);" class="space-y-2 text-sm list-disc list-inside">
+                        <li><span style="color:var(--text-primary); font-weight:600;">Fave Characters:</span> Loki, Moon
+                            Knight</li>
+                        <li><span style="color:var(--text-primary); font-weight:600;">Top Films:</span> Infinity War,
+                            Endgame, D&amp;W</li>
+                        <li><span style="color:var(--text-primary); font-weight:600;">Top Series:</span> Loki, Moon
+                            Knight, What If?</li>
+                        <li>Appreciate the world-building &amp; character arcs.</li>
                     </ul>
                 </div>
+
             </div>
         </section>
 
-                <section id="thanks" class="py-24">
+        <hr class="section-divider">
+
+        <!-- ── THANKS ── -->
+        <section id="thanks" class="py-24">
             <h2 class="section-title animated-element">Special Thanks</h2>
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="grid md:grid-cols-2 gap-6">
+
                 <div class="glass-card animated-element">
-                    <h3 class="text-xl font-bold mb-4">To My Supporters</h3>
-                    <p class="text-text-secondary mb-6">A huge thank you to everyone who has supported me on this journey. Your encouragement and feedback mean the world to me.</p>
-                    <ul class="list-disc list-inside text-text-secondary space-y-2">
+                    <h3><i class="fa-solid fa-hands-holding-heart"></i>To My Supporters</h3>
+                    <p style="color:var(--text-secondary); font-size:0.85rem; margin-bottom:1rem;">
+                        A huge thank you to everyone who has supported me on this journey. Your encouragement and
+                        feedback mean the world.
+                    </p>
+                    <ul style="color:var(--text-secondary);" class="space-y-2 text-sm list-disc list-inside">
                         <li>Friends and family for always believing in me.</li>
                         <li>Mentors who guided me through challenges.</li>
                         <li>Community members who provided invaluable feedback.</li>
-                        <li>All the amazing developers and designers who have inspired me along the way.</li>
+                        <li>Devs and designers who have inspired me along the way.</li>
                     </ul>
-                </div>      
+                </div>
+
                 <div class="glass-card animated-element">
-                    <h3 class="text-xl font-bold mb-4">To My Collaborators</h3>
-                    <p class="text-text-secondary mb-6">A special shoutout to those I've worked with on various projects. Your collaboration has been instrumental in my growth as a developer.</p>
-                    <ul class="list-disc list-inside text-text-secondary space-y-2">
-                        <li>Saviour for being an amazing partner at Auora HQ.</li>
-                        <li>Dark for your insights and support.</li>
-                        <li><a href="https://servermaker.xyz/developer" class="hover:text-accent-light transition-colors">Star!</a> <span class="text-text-muted">for your creative input and ideas.</span></li>
-                        <li>Cam Brown for your design expertise and collaboration.</li>
+                    <h3><i class="fa-solid fa-people-group"></i>To My Collaborators</h3>
+                    <p style="color:var(--text-secondary); font-size:0.85rem; margin-bottom:1rem;">
+                        A special shoutout to those I've worked with on various projects.
+                    </p>
+                    <ul style="color:var(--text-secondary);" class="space-y-2 text-sm list-disc list-inside">
+                        <li>Saviour — amazing partner at Auora HQ.</li>
+                        <li>Dark — for your insights and support.</li>
+                        <li><a href="https://servermaker.xyz/developer" style="color:var(--accent-light);"
+                                class="hover:underline">Star!</a> for your creative input and ideas.</li>
+                        <li>Cam Brown — design expertise and collaboration.</li>
                     </ul>
                 </div>
+
             </div>
-            </section>
+        </section>
+
     </main>
-    
-    <footer class="border-t border-border-subtle mt-16">
-        <div class="max-w-7xl mx-auto px-6 py-16">
-            <div class="text-center">
-                 <h3 class="text-4xl font-extrabold mb-4 gradient-text">Let's Connect</h3>
-                 <p class="max-w-lg mx-auto mb-10 text-text-secondary">Have a project in mind, a question, or just want to say hi? My inbox is always open. I'll get back to you as soon as I can!</p>
-                 <div class="flex justify-center gap-8 mb-12">
-                    <a href="https://discord.com/users/860384146778226699" target="_blank" class="social-link"><i class="fa-brands fa-discord"></i></a>
-                    <a href="https://github.com/itszubariel" target="_blank" class="social-link"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://x.com/itszubariel" target="_blank" class="social-link"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="https://www.youtube.com/channel/UCfzevkQDWFTmAo07B0rR9Jw" target="_blank" class="social-link"><i class="fa-brands fa-youtube"></i></a>
-                </div>
-                 <a href="/contact" target="_blank" class="btn btn-primary mb-12">
-                    <i class="fa-solid fa-paper-plane"></i>
-                    Get In Touch
-                </a>
-                <p class="text-sm text-text-muted font-mono">© 2023-2026 Zubariel. All Rights Reserved.</p>
+
+    <!-- ── FOOTER ── -->
+    <footer style="border-top:1px solid var(--border-subtle); margin-top:4rem;">
+        <div class="max-w-7xl mx-auto px-6 py-16 text-center">
+            <h3 class="gradient-text"
+                style="font-family:'Unbounded',sans-serif; font-size:2rem; font-weight:800; letter-spacing:-0.03em; margin-bottom:0.75rem;">
+                Let's Connect
+            </h3>
+            <p style="color:var(--text-secondary); max-width:26rem; margin:0 auto 2.5rem; font-size:0.95rem;">
+                Have a project, a question, or just want to say hi? My inbox is always open.
+            </p>
+            <div class="flex justify-center gap-7 mb-8">
+                <a href="https://discord.com/users/860384146778226699" target="_blank" class="social-link"><i
+                        class="fa-brands fa-discord"></i></a>
+                <a href="https://github.com/itszubariel" target="_blank" class="social-link"><i
+                        class="fa-brands fa-github"></i></a>
+                <a href="https://x.com/itszubariel" target="_blank" class="social-link"><i
+                        class="fa-brands fa-twitter"></i></a>
+                <a href="https://www.youtube.com/channel/UCfzevkQDWFTmAo07B0rR9Jw" target="_blank"
+                    class="social-link"><i class="fa-brands fa-youtube"></i></a>
             </div>
+            <a href="/contact" target="_blank" class="btn btn-primary mb-12">
+                <i class="fa-solid fa-paper-plane"></i> Get In Touch
+            </a>
+            <p
+                style="font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--text-muted); margin-top:2.5rem;">
+                © Zubariel 2023–2026. All rights reserved.
+            </p>
         </div>
     </footer>
 
     <script>
+        // Mobile nav
         const hamburgerBtn = document.getElementById('hamburgerBtn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const navLinks = document.querySelectorAll('#mobile-menu a[href^="#"]');
+        hamburgerBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        document.querySelectorAll('#mobile-menu a').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
 
-        hamburgerBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
-        navLinks.forEach(link => { link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); }); });
-
+        // Scroll animations + progress bars
         document.addEventListener("DOMContentLoaded", () => {
-            const animatedEls = document.querySelectorAll('.animated-element');
             const observer = new IntersectionObserver(entries => {
-                entries.forEach((entry, index) => {
+                entries.forEach((entry, i) => {
                     if (entry.isIntersecting) {
-                        entry.target.style.transitionDelay = `${index * 100}ms`;
+                        entry.target.style.transitionDelay = `${i * 80}ms`;
                         entry.target.classList.add('visible');
-                        const progressBars = entry.target.querySelectorAll('.progress-bar');
-                        progressBars.forEach(bar => { bar.style.width = bar.getAttribute('data-width'); });
+                        entry.target.querySelectorAll('.progress-bar').forEach(bar => {
+                            bar.style.width = bar.getAttribute('data-width');
+                        });
                         observer.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.1 });
-            animatedEls.forEach(el => observer.observe(el));
+            }, { threshold: 0.08 });
+            document.querySelectorAll('.animated-element').forEach(el => observer.observe(el));
         });
-        
+
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const headerOffset = 80;
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-                }
+                const el = document.querySelector(this.getAttribute('href'));
+                if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' });
             });
         });
 
+        // Chart.js
         window.addEventListener("DOMContentLoaded", () => {
-            const chartElem = document.getElementById("myChart");
-            if (chartElem) {
-                const ctx = chartElem.getContext("2d");
-                
-                const gradient = ctx.createLinearGradient(0, 0, 0, 400);
-                gradient.addColorStop(0, 'rgba(167, 139, 250, 0.6)');
-                gradient.addColorStop(1, 'rgba(109, 40, 217, 0.6)');
+            const ctx = document.getElementById("myChart")?.getContext("2d");
+            if (!ctx) return;
 
-                const borderGradient = ctx.createLinearGradient(0, 0, 0, 400);
-                borderGradient.addColorStop(0, 'rgba(167, 139, 250, 1)');
-                borderGradient.addColorStop(1, 'rgba(109, 40, 217, 1)');
+            const grad = ctx.createLinearGradient(0, 0, 0, 350);
+            grad.addColorStop(0, 'rgba(167,139,250,0.55)');
+            grad.addColorStop(1, 'rgba(109,40,217,0.55)');
 
-                new Chart(ctx, {
-                    type: "bar",
-                    data: {
-                        labels: ["Bleach", "Code Geass", "Vinland Saga", "Naruto", "One Piece", "AOT", "Demon Slayer", "JJK", "Death Note", "Dragon Ball"],
-                        datasets: [{
-                            label: "My Ratings (out of 10)",
-                            data: [9, 10, 10, 8, 8, 7, 6, 7, 6, 5],
-                            backgroundColor: gradient,
-                            borderColor: borderGradient,
-                            borderWidth: 2,
-                            borderRadius: 6,
-                            borderSkipped: false,
-                            barThickness: 18,
-                        }],
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        indexAxis: 'y',
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                ticks: { color: "#e4e4e7", font: { family: "'Inter', sans-serif", weight: 500, size: 12 } },
-                                grid: { color: "var(--border-subtle)", drawBorder: false },
-                            },
-                            x: {
-                                max: 10,
-                                ticks: { color: "#a1a1aa", font: { family: "'Inter', sans-serif" } },
-                                grid: { color: "var(--border-subtle)", drawBorder: false },
-                            },
+            const borderGrad = ctx.createLinearGradient(0, 0, 0, 350);
+            borderGrad.addColorStop(0, 'rgba(167,139,250,1)');
+            borderGrad.addColorStop(1, 'rgba(109,40,217,1)');
+
+            new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: ["Bleach", "Code Geass", "Vinland Saga", "Naruto", "One Piece", "AOT", "Demon Slayer", "JJK", "Death Note", "Dragon Ball"],
+                    datasets: [{
+                        label: "My Rating",
+                        data: [9, 10, 10, 8, 8, 7, 6, 7, 6, 5],
+                        backgroundColor: grad,
+                        borderColor: borderGrad,
+                        borderWidth: 2,
+                        borderRadius: 5,
+                        borderSkipped: false,
+                        barThickness: 16,
+                    }],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    scales: {
+                        y: {
+                            ticks: { color: "#a1a1aa", font: { family: "'Inter',sans-serif", size: 11 } },
+                            grid: { color: "rgba(255,255,255,0.04)" },
                         },
-                        plugins: {
-                            legend: { display: false },
-                            tooltip: {
-                                backgroundColor: 'var(--bg-secondary)',
-                                titleFont: { family: "'Inter', sans-serif", weight: 'bold', size: 14 },
-                                bodyFont: { family: "'Inter', sans-serif", size: 12 },
-                                displayColors: false, padding: 12, cornerRadius: 8,
-                                bodyAlign: 'center', titleAlign: 'center'
-                            }
+                        x: {
+                            max: 10,
+                            ticks: { color: "#52525b", font: { family: "'Inter',sans-serif", size: 11 } },
+                            grid: { color: "rgba(255,255,255,0.04)" },
                         },
                     },
-                });
-            }
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#0f0f0f',
+                            titleFont: { family: "'Inter',sans-serif", weight: 'bold', size: 13 },
+                            bodyFont: { family: "'Inter',sans-serif", size: 12 },
+                            displayColors: false, padding: 10, cornerRadius: 8,
+                            bodyAlign: 'center', titleAlign: 'center',
+                        }
+                    },
+                },
+            });
         });
     </script>
 </body>
+
 </html>

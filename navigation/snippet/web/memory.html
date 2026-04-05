@@ -1,574 +1,479 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Memory Match Snippet</title>
-  <link rel="icon" href="/images/2pfp.jpg" type="image/x-icon" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <style>
-    :root {
-      --bg-primary: #050505;
-      --bg-secondary: #101010;
-      --text-primary: #e4e4e7;
-      --text-secondary: #a1a1aa;
-      --accent: #8b5cf6;
-      --accent-glow: rgba(139, 92, 246, 0.2);
-      --border-color: rgba(255, 255, 255, 0.05);
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    body {
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      font-family: 'Inter', sans-serif;
-    }
-    .stagger-load > * {
-      opacity: 0;
-      animation: fadeIn 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
-    }
-    .stagger-load > *:nth-child(1) { animation-delay: 0.1s; }
-    .stagger-load > *:nth-child(2) { animation-delay: 0.2s; }
-    .stagger-load > *:nth-child(3) { animation-delay: 0.3s; }
-    .stagger-load > *:nth-child(4) { animation-delay: 0.4s; }
-    .stagger-load > *:nth-child(5) { animation-delay: 0.5s; }
+    <meta charset="UTF-8" />
+    <title>Snippets | Memory Match Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/images/2pfp.jpg" type="image/x-icon" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Unbounded:wght@400;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-    .code-container {
-      position: relative;
-    }
-    pre {
-      padding: 1.5rem;
-      border-radius: 0.5rem;
-      overflow-x: auto;
-      background: var(--bg-secondary) !important;
-      border: 1px solid var(--border-color);
-      box-shadow: 0 0 12px rgba(0,0,0,0.3);
-      line-height: 1.6;
-      margin: 0;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-      will-change: border-color, box-shadow;
-    }
-    pre:hover {
-        border-color: rgba(139, 92, 246, 0.4);
-        box-shadow: 0 0 20px var(--accent-glow);
-    }
-    code.bdscript-highlight {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.9rem;
-      white-space: pre-wrap;
-      word-break: break-all;
-    }
-    .tab-btn {
-      background: var(--bg-secondary);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: var(--text-secondary);
-      transition: all 0.25s ease-out;
-      transform: translateY(0);
-      will-change: transform, color, background-color, box-shadow;
-    }
-    .tab-btn:hover {
-      transform: translateY(-2px);
-      color: var(--text-primary);
-    }
-    .tab-btn.active {
-      background: var(--accent);
-      color: white;
-      border-color: var(--accent);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 15px var(--accent-glow);
-    }
-    .nav-link {
-      color: var(--text-secondary);
-      font-weight: 500;
-      font-size: 0.9rem;
-      text-decoration: none;
-      transition: color 0.3s ease;
-      position: relative;
-      display: inline-block;
-    }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      transform: scaleX(0);
-      height: 1px;
-      bottom: -4px;
-      left: 0;
-      background-color: var(--accent);
-      transform-origin: bottom right;
-      transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    .nav-link:hover {
-      color: var(--text-primary);
-    }
-    .nav-link:hover::after {
-        transform: scaleX(1);
-        transform-origin: bottom left;
-    }
-    .copy-button {
-      margin-top: 10px;
-      padding: 8px 16px;
-      background: #333333;
-      color: #ffffff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-bottom: 50px;
-      transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.2s ease-out;
-      will-change: transform, box-shadow;
-    }
-    .copy-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px var(--accent-glow);
-      background-color: #3f3f46;
-    }
-    .copy-button:active {
-      transform: scale(0.98) translateY(-1px);
-      box-shadow: 0 2px 5px var(--accent-glow);
-    }
-    .text-accent { color: var(--accent); }
-    .code-tab {
-      transition: opacity 0.4s ease, transform 0.4s ease;
-      opacity: 1;
-      transform: translateY(0);
-      will-change: opacity, transform;
-    }
-    .code-tab.is-hidden {
-      opacity: 0;
-      transform: translateY(10px);
-      position: absolute;
-      pointer-events: none;
-      height: 0;
-      overflow: hidden;
-    }
-    code.custom-highlight {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.9rem;
-  white-space: pre-wrap;
-  word-break: break-word;
-}
+    <style>
+        :root {
+            --bg-primary: #050505;
+            --bg-secondary: #0f0f0f;
+            --bg-code: #0a0a0c;
+            --border-subtle: rgba(255, 255, 255, 0.04);
+            --border-medium: rgba(255, 255, 255, 0.09);
+            --border-accent: rgba(139, 92, 246, 0.3);
+            --text-primary: #e4e4e7;
+            --text-secondary: #a1a1aa;
+            --text-muted: #52525b;
+            --accent: #8b5cf6;
+            --accent-light: #a78bfa;
+            --accent-dim: rgba(139, 92, 246, 0.1);
+            --accent-gradient: linear-gradient(135deg, #a78bfa, #8b5cf6);
+        }
 
-  </style>
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-medium);
+            border-radius: 3px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            padding: 3rem 1.5rem;
+            background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.018) 1px, transparent 0);
+            background-size: 28px 28px;
+        }
+
+        .page {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            transition: color 0.2s ease;
+            margin-bottom: 2rem;
+        }
+
+        .back-link:hover {
+            color: var(--accent-light);
+        }
+
+        .meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .meta-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 99px;
+            padding: 0.2rem 0.6rem;
+            letter-spacing: 0.02em;
+        }
+
+        .meta-tag.accent {
+            color: var(--accent-light);
+            border-color: var(--border-accent);
+        }
+
+        h1 {
+            font-family: 'Unbounded', sans-serif;
+            font-size: clamp(1.6rem, 4vw, 2.25rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+            margin-bottom: 0.875rem;
+        }
+
+        .gradient-text {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            max-width: 36rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .subtitle code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            color: var(--accent-light);
+            background: var(--accent-dim);
+            padding: 0.1rem 0.4rem;
+            border-radius: 0.25rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.875rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 560px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .info-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+        }
+
+        .info-card h4 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.62rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        .info-card a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        .info-card a:hover {
+            text-decoration: underline;
+        }
+
+        .code-block {
+            border: 1px solid var(--border-subtle);
+            border-radius: 0.875rem;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .tab-bar {
+            display: flex;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 0 0.875rem;
+        }
+
+        .tab-btn {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid transparent;
+            padding: 0.625rem 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            letter-spacing: 0.03em;
+            margin-bottom: -1px;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-secondary);
+        }
+
+        .tab-btn.active {
+            color: var(--accent-light);
+            border-bottom-color: var(--accent);
+        }
+
+        .code-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.55rem 0.875rem;
+            background: rgba(255, 255, 255, 0.015);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .dots {
+            display: flex;
+            gap: 5px;
+        }
+
+        .dots span {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+        }
+
+        .d-r {
+            background: #ff5f57;
+        }
+
+        .d-y {
+            background: #febc2e;
+        }
+
+        .d-g {
+            background: #28c840;
+        }
+
+        .copy-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            background: transparent;
+            border: 1px solid var(--border-medium);
+            border-radius: 0.35rem;
+            padding: 0.25rem 0.65rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .copy-btn:hover {
+            border-color: var(--border-accent);
+            color: var(--accent-light);
+        }
+
+        .copy-btn.copied {
+            color: #23a559;
+            border-color: rgba(35, 165, 89, 0.35);
+        }
+
+        pre {
+            margin: 0;
+            padding: 1.25rem 1.5rem;
+            overflow-x: auto;
+            background: var(--bg-code);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            line-height: 1.8;
+            color: #c4b5fd;
+        }
+
+        pre::-webkit-scrollbar {
+            height: 3px;
+        }
+
+        pre::-webkit-scrollbar-thumb {
+            background: var(--border-medium);
+        }
+
+        .t-kw {
+            color: #a78bfa;
+        }
+
+        .t-str {
+            color: #86efac;
+        }
+
+        .t-fn {
+            color: #7dd3fc;
+        }
+
+        .t-attr {
+            color: #fde68a;
+        }
+
+        .t-num {
+            color: #fb923c;
+        }
+
+        .t-cm {
+            color: #3f3f46;
+            font-style: italic;
+        }
+
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        .snippet-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .snav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            letter-spacing: 0.03em;
+            transition: color 0.2s ease;
+        }
+
+        .snav-btn:hover {
+            color: var(--accent-light);
+        }
+    </style>
 </head>
-<body class="p-8">
-  <div class="max-w-4xl mx-auto stagger-load">
-    <div class="mb-8">
-      <a href="/snippet" class="nav-link text-sm"><i class="fa-solid fa-arrow-left mr-1"></i>Back to Snippets</a>
-    </div>
-    <h1 class="text-3xl font-bold mb-6">Memory Match <span class="text-accent">Snippet</span>.</h1>
 
-    <p class="mb-6" style="color:var(--text-secondary);">
-  This code creates a simple memory card matching game using JavaScript, HTML, and CSS. The goal is to flip two cards at a time and find all the matching pairs.
-  <br><br>
-  <strong style="color:var(--text-primary);">How to Use?</strong><br>
-  Add the provided HTML structure for the cards, style them with CSS, and connect the JavaScript logic. The script handles shuffling, flipping cards, and checking for matches — no libraries needed.
-  <br><br>
-  <strong style="color:var(--text-primary);">Credits</strong><br>
-  Based on classic JavaScript memory game logic and DOM manipulation techniques. Modified to be more interactive and responsive.
-</p>
+<body>
+    <div class="page">
+        <a href="/snippet" class="back-link"><i class="fa-solid fa-arrow-left" style="font-size:0.6rem;"></i>
+            /snippet</a>
+        <div class="meta-row">
+            <span class="meta-tag"><i class="fa-brands fa-js" style="color:#facc15;"></i> JavaScript</span>
+            <span class="meta-tag"><i class="fa-brands fa-html5" style="color:#f97316;"></i> HTML</span>
+            <span class="meta-tag"><i class="fa-brands fa-css3-alt" style="color:#60a5fa;"></i> CSS</span>
+            <span class="meta-tag accent"> web</span>
+        </div>
+        <h1>Memory <span class="gradient-text">Match Game.</span></h1>
+        <p class="subtitle">A 4×4 emoji memory match game. Cards flip on click, matched pairs stay revealed, unmatched
+            pairs flip back. Fully self-contained no libraries needed.</p>
+        <div class="info-grid">
+            <div class="info-card">
+                <h4>// how to use</h4>
+                <p>Swap <code>EMOJIS</code> array for your own icons or images. Add a move counter or timer on top of
+                    the existing <code>check()</code> function to extend it.</p>
+            </div>
+            <div class="info-card">
+                <h4>// credits</h4>
+                <p>A classic project for learning DOM manipulation, closures, and game state management in vanilla
+                    JavaScript.</p>
+            </div>
+        </div>
+        <div class="code-block">
+            <div class="tab-bar">
+                <button class="tab-btn active">memory.html</button>
+            </div>
+            <div id="tab-main" class="tab-panel active">
+                <div class="code-topbar">
+                    <div class="dots"><span class="d-r"></span><span class="d-y"></span><span class="d-g"></span></div>
+                    <button class="copy-btn" onclick="copyCode('memory-code', this)"><i class="fa-regular fa-copy"></i>
+                        Copy</button>
+                </div>
+                <pre id="memory-code"><span class="t-kw">&lt;div</span> <span class="t-attr">id</span>=<span class="t-str">"board"</span><span class="t-kw">&gt;&lt;/div&gt;</span>
+<span class="t-kw">&lt;p</span> <span class="t-attr">id</span>=<span class="t-str">"status"</span><span class="t-kw">&gt;</span>Find all pairs!<span class="t-kw">&lt;/p&gt;</span>
+<span class="t-kw">&lt;button</span> <span class="t-attr">onclick</span>=<span class="t-str">"init()"</span><span class="t-kw">&gt;</span>Restart<span class="t-kw">&lt;/button&gt;</span>
 
-    <div class="flex gap-2 mb-4">
-      <button class="tab-btn px-4 py-2 rounded active" onclick="showTab('tab-1', event)">HTML</button>
-      <button class="tab-btn px-4 py-2 rounded" onclick="showTab('tab-2', event)">CSS</button>
-      <button class="tab-btn px-4 py-2 rounded" onclick="showTab('tab-3', event)">JS</button>
-     
-    </div>
-    <div class="code-container">
-      <div id="tab-1" class="code-tab">
-        <pre><code class="html-code">&lt;div id=&quot;picbox&quot;&gt;
-  &lt;span id=&quot;boxbuttons&quot;&gt;
-    &lt;span class=&quot;button&quot;&gt;
-      &lt;span id=&quot;counter&quot;&gt;0&lt;/span&gt;
-      Clicks
-    &lt;/span&gt;
-    &lt;span class=&quot;button&quot;&gt;
-      &lt;a onclick=&quot;ResetGame();&quot;&gt;Reset&lt;/a&gt;
-    &lt;/span&gt; 
-  &lt;/span&gt;
-  &lt;div id=&quot;boxcard&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-        <button class="copy-button" onclick="copyCode(this)">
-          <i class="fa-solid fa-copy mr-2"></i>Copy Code
-        </button>
-      </div>
-      <div id="tab-2" class="code-tab is-hidden">
-        <pre><code class="css-code">* {
-	margin: 0;
-	padding: 0;
-}
-body {
-	font: 18px Verdana;
-	color: #FFF;
-  background: #CCC;
-}
-#picbox {
-	margin: 0px auto;
-	width: 640px;
-}
-#boxcard {
-	z-index: 1;
-	margin: 10px 0 0;
-}
-#boxcard div{
-	float: left;
-	width: 100px;
-	height: 100px;
-	margin: 5px;
-	padding: 5px;
-	border: 4px solid #EE872A;
-	cursor: pointer;
-	border-radius: 10px;
-	box-shadow: 0 1px 5px rgba(0,0,0,.5);
-  background: #B1B1B1;
-	z-index: 2;
-}
-#boxcard div img {
-	display: none;
-	border-radius: 10px;
-	z-index: 3;
-}
-#boxbuttons {
-	text-align: center;
-	margin: 20px;
-	display: block;
-}
-#boxbuttons .button {
-	text-transform: uppercase;
-	background: #EE872A;
-	padding: 5px 10px;
-	margin: 5px;
-	border-radius: 10px;
-	cursor: pointer;
-}
-#boxbuttons .button:hover {
-	background: #999;
-}</code></pre>
-        <button class="copy-button" onclick="copyCode(this)">
-          <i class="fa-solid fa-copy mr-2"></i>Copy Code
-        </button>
-      </div>
-      <div id="tab-3" class="code-tab is-hidden">
-        <pre><code class="js-code">var BoxOpened = &quot;&quot;;
-var ImgOpened = &quot;&quot;;
-var Counter = 0;
-var ImgFound = 0;
+<span class="t-kw">&lt;style&gt;</span>
+  <span class="t-fn">#board</span> { <span class="t-attr">display</span>:<span class="t-str">grid</span>; <span class="t-attr">grid-template-columns</span>:<span class="t-str">repeat(4,70px)</span>; <span class="t-attr">gap</span>:<span class="t-str">8px</span>; <span class="t-attr">margin</span>:<span class="t-str">1rem 0</span>; }
+  <span class="t-fn">.card</span> { <span class="t-attr">width</span>:<span class="t-str">70px</span>; <span class="t-attr">height</span>:<span class="t-str">70px</span>; <span class="t-attr">border-radius</span>:<span class="t-str">8px</span>; <span class="t-attr">background</span>:<span class="t-str">#1e1e1e</span>; <span class="t-attr">display</span>:<span class="t-str">grid</span>; <span class="t-attr">place-items</span>:<span class="t-str">center</span>; <span class="t-attr">font-size</span>:<span class="t-str">1.75rem</span>; <span class="t-attr">cursor</span>:<span class="t-str">pointer</span>; <span class="t-attr">border</span>:<span class="t-str">1px solid #2a2a2a</span>; <span class="t-attr">user-select</span>:<span class="t-str">none</span>; <span class="t-attr">transition</span>:<span class="t-str">background .2s</span>; }
+  <span class="t-fn">.card.flipped</span> { <span class="t-attr">background</span>:<span class="t-str">#2d1f5e</span>; }
+  <span class="t-fn">.card.matched</span> { <span class="t-attr">background</span>:<span class="t-str">#14532d</span>; <span class="t-attr">pointer-events</span>:<span class="t-str">none</span>; }
+<span class="t-kw">&lt;/style&gt;</span>
 
-var Source = &quot;#boxcard&quot;;
+<span class="t-kw">&lt;script&gt;</span>
+  <span class="t-kw">const</span> EMOJIS = [<span class="t-str">'🐶','🐱','🦊','🐻','🐼','🦁','🐸','🐧'</span>];
+  <span class="t-kw">let</span> flipped = [], locked = <span class="t-kw">false</span>;
 
-var ImgSource = [
-  &quot;http:
-  &quot;http:
-  &quot;http:
-  &quot;http:
-  &quot;http:
-  &quot;http:
-  &quot;http:
-  &quot;http:
-  &quot;http:
-  &quot;http:
-];
+  <span class="t-kw">function</span> <span class="t-fn">shuffle</span>(a) { <span class="t-kw">return</span> a.<span class="t-fn">sort</span>(() => <span class="t-fn">Math.random</span>() - .<span class="t-num">5</span>); }
 
-function RandomFunction(MaxValue, MinValue) {
-    return Math.round(Math.random() * (MaxValue - MinValue) + MinValue);
-}
-
-function ShuffleImages() {
-  var ImgAll = $(Source).children();
-  var ImgThis = $(Source + &quot; div:first-child&quot;);
-  var ImgArr = new Array();
-
-  for (var i = 0; i &lt; ImgAll.length; i++) {
-    ImgArr[i] = $(&quot;#&quot; + ImgThis.attr(&quot;id&quot;) + &quot; img&quot;).attr(&quot;src&quot;);
-    ImgThis = ImgThis.next();
-  }
-
-  ImgThis = $(Source + &quot; div:first-child&quot;);
-
-  for (var z = 0; z &lt; ImgAll.length; z++) {
-    var RandomNumber = RandomFunction(0, ImgArr.length - 1);
-
-    $(&quot;#&quot; + ImgThis.attr(&quot;id&quot;) + &quot; img&quot;).attr(&quot;src&quot;, ImgArr[RandomNumber]);
-    ImgArr.splice(RandomNumber, 1);
-    ImgThis = ImgThis.next();
-  }
-}
-
-function ResetGame() {
-  ShuffleImages();
-  $(Source + &quot; div img&quot;).hide();
-  $(Source + &quot; div&quot;).css(&quot;visibility&quot;, &quot;visible&quot;);
-  Counter = 0;
-  $(&quot;#success&quot;).remove();
-  $(&quot;#counter&quot;).html(&quot;&quot; + Counter);
-  BoxOpened = &quot;&quot;;
-  ImgOpened = &quot;&quot;;
-  ImgFound = 0;
-  return false;
-}
-
-function OpenCard() {
-  var id = $(this).attr(&quot;id&quot;);
-
-  if ($(&quot;#&quot; + id + &quot; img&quot;).is(&quot;:hidden&quot;)) {
-    $(Source + &quot; div&quot;).unbind(&quot;click&quot;, OpenCard);
-
-    $(&quot;#&quot; + id + &quot; img&quot;).slideDown(&#39;fast&#39;);
-
-    if (ImgOpened == &quot;&quot;) {
-      BoxOpened = id;
-      ImgOpened = $(&quot;#&quot; + id + &quot; img&quot;).attr(&quot;src&quot;);
-      setTimeout(function () {
-        $(Source + &quot; div&quot;).bind(&quot;click&quot;, OpenCard)
-      }, 300);
-    } else {
-      CurrentOpened = $(&quot;#&quot; + id + &quot; img&quot;).attr(&quot;src&quot;);
-      if (ImgOpened != CurrentOpened) {
-        setTimeout(function () {
-          $(&quot;#&quot; + id + &quot; img&quot;).slideUp(&#39;fast&#39;);
-          $(&quot;#&quot; + BoxOpened + &quot; img&quot;).slideUp(&#39;fast&#39;);
-          BoxOpened = &quot;&quot;;
-          ImgOpened = &quot;&quot;;
-        }, 400);
-      } else {
-        $(&quot;#&quot; + id + &quot; img&quot;).parent().css(&quot;visibility&quot;, &quot;hidden&quot;);
-        $(&quot;#&quot; + BoxOpened + &quot; img&quot;).parent().css(&quot;visibility&quot;, &quot;hidden&quot;);
-        ImgFound++;
-        BoxOpened = &quot;&quot;;
-        ImgOpened = &quot;&quot;;
-      }
-      setTimeout(function () {
-        $(Source + &quot; div&quot;).bind(&quot;click&quot;, OpenCard)
-      }, 400);
-    }
-    Counter++;
-    $(&quot;#counter&quot;).html(&quot;&quot; + Counter);
-
-    if (ImgFound == ImgSource.length) {
-      $(&quot;#counter&quot;).prepend(&#39;&lt;span id=&quot;success&quot;&gt;You Found All Pictues With &lt;/span&gt;&#39;);
-    }
-  }
-}
-
-$(function () {
-  for (var y = 1; y &lt; 3; y++) {
-    $.each(ImgSource, function (i, val) {
-      $(Source).append(&quot;&lt;div id=card&quot; + y + i + &quot;&gt;&lt;img src=&quot; + val + &quot; /&gt;&quot;);
+  <span class="t-kw">function</span> <span class="t-fn">init</span>() {
+    flipped = []; locked = <span class="t-kw">false</span>;
+    <span class="t-kw">const</span> cards = <span class="t-fn">shuffle</span>([...EMOJIS, ...EMOJIS]);
+    <span class="t-kw">const</span> board = document.<span class="t-fn">getElementById</span>(<span class="t-str">'board'</span>);
+    board.innerHTML = <span class="t-str">''</span>;
+    document.<span class="t-fn">getElementById</span>(<span class="t-str">'status'</span>).textContent = <span class="t-str">'Find all pairs!'</span>;
+    cards.<span class="t-fn">forEach</span>(emoji => {
+      <span class="t-kw">const</span> el = document.<span class="t-fn">createElement</span>(<span class="t-str">'div'</span>);
+      el.className = <span class="t-str">'card'</span>; el.dataset.val = emoji;
+      el.<span class="t-fn">addEventListener</span>(<span class="t-str">'click'</span>, <span class="t-fn">flip</span>);
+      board.<span class="t-fn">appendChild</span>(el);
     });
   }
-  $(Source + &quot; div&quot;).click(OpenCard);
-  ShuffleImages();
-});</code></pre>
-        <button class="copy-button" onclick="copyCode(this)">
-          <i class="fa-solid fa-copy mr-2"></i>Copy Code
-        </button>
-      </div>
-      <div id="tab-4" class="code-tab is-hidden">
-        <pre><code class="bdfd-code">$nomention
-$onlyIf[$guildID!=;]
-$allowUserMentions[]
-$reply
 
-$if[$message==]
-Usage: !buy {item} {amount}
+  <span class="t-kw">function</span> <span class="t-fn">flip</span>() {
+    <span class="t-kw">if</span> (locked || <span class="t-kw">this</span>.classList.<span class="t-fn">contains</span>(<span class="t-str">'flipped'</span>)) <span class="t-kw">return</span>;
+    <span class="t-kw">this</span>.textContent = <span class="t-kw">this</span>.dataset.val;
+    <span class="t-kw">this</span>.classList.<span class="t-fn">add</span>(<span class="t-str">'flipped'</span>);
+    flipped.<span class="t-fn">push</span>(<span class="t-kw">this</span>);
+    <span class="t-kw">if</span> (flipped.length === <span class="t-num">2</span>) <span class="t-fn">check</span>();
+  }
 
-$else
+  <span class="t-kw">function</span> <span class="t-fn">check</span>() {
+    locked = <span class="t-kw">true</span>;
+    <span class="t-kw">const</span> [a, b] = flipped;
+    <span class="t-kw">if</span> (a.dataset.val === b.dataset.val) {
+      a.classList.<span class="t-fn">add</span>(<span class="t-str">'matched'</span>); b.classList.<span class="t-fn">add</span>(<span class="t-str">'matched'</span>);
+      flipped = []; locked = <span class="t-kw">false</span>;
+      <span class="t-kw">if</span> (document.<span class="t-fn">querySelectorAll</span>(<span class="t-str">'.matched'</span>).length === <span class="t-num">16</span>)
+        document.<span class="t-fn">getElementById</span>(<span class="t-str">'status'</span>).textContent = <span class="t-str">'🎉 You win!'</span>;
+    } <span class="t-kw">else</span> {
+      <span class="t-fn">setTimeout</span>(() => {
+        a.textContent = <span class="t-str">''</span>; b.textContent = <span class="t-str">''</span>;
+        a.classList.<span class="t-fn">remove</span>(<span class="t-str">'flipped'</span>); b.classList.<span class="t-fn">remove</span>(<span class="t-str">'flipped'</span>);
+        flipped = []; locked = <span class="t-kw">false</span>;
+      }, <span class="t-num">800</span>);
+    }
+  }
 
-$var[price1;$multi[1000;$message[2;amount]]]
-$var[price2;$multi[5000;$message[2;amount]]]
-$var[price3;$multi[10000;$message[2;amount]]]
-$c[add more price variables as you add more items and the number inside multi is the actual price btw]
-
-$if[$toLowercase[$message[1;item]==item1]]
-
-$onlyIf[$getVar[clicker;$authorID]>=$var[price1];You don't have enough clicks to buy this item.]
-
-$description[Successfully bought `$message[2;amount]` Item 1(s).]
-$color[#2F3136]
-
-$setVar[item1;$sum[$getVar[item1;$authorID];$message[2;amount]];$authorID]
-$setVar[clicker;$sub[$getVar[clicker;$authorID];$var[price1]];$authorID]
-
-$elseif[$toLowercase[$message[1;item]==item2]]
-
-$onlyIf[$getVar[clicker;$authorID]>=$var[price2];You don't have enough clicks to buy this item.]
-
-$description[Successfully bought `$message[2;amount]` Item2(s).]
-$color[#2F3136]
-
-$var[temp-item2;$multi[$message[2;amount];2]]
-$c[The 2 at the end here is because this item gives a +2 multiplier]
-$setVar[item2;$sum[$getVar[item2;$authorID];$var[temp-item2]];$authorID]
-$setVar[clicker;$sub[$getVar[clicker;$authorID];$var[price2]];$authorID]
-
-$elseif[$toLowercase[$message[1;item]==item3]]
-
-$onlyIf[$getVar[clicker;$authorID]>=$var[price3];You don't have enough clicks to buy this item.]
-
-$description[Successfully bought `$message[2;amount]` Item3(s).]
-$color[#2F3136]
-
-$var[temp-item3;$multi[$message[2;amount];3]]
-$c[The 3 at the end here is because this item gives a +2 multiplier]
-$setVar[item3;$sum[$getVar[item3;$authorID];$var[temp-item3]];$authorID]
-$setVar[clicker;$sub[$getVar[clicker;$authorID];$var[price3]];$authorID]
-
-$endif
-$endif</code></pre>
-        <button class="copy-button" onclick="copyCode(this)">
-          <i class="fa-solid fa-copy mr-2"></i>Copy Code
-        </button>
-      </div>
+  <span class="t-fn">init</span>();
+<span class="t-kw">&lt;/script&gt;</span></pre>
+            </div>
+        </div>
+        <div class="snippet-nav"><a href="/snippet/web/calculator" class="snav-btn"><i class="fa-solid fa-arrow-left"
+                    style="font-size:0.6rem;"></i> calculator</a><a href="/snippet/web/clicker" class="snav-btn">clicker
+                game <i class="fa-solid fa-arrow-right" style="font-size:0.6rem;"></i></a></div>
     </div>
-  </div>
-  <footer>
-    <div class="max-w-7xl mx-auto px-6 py-16">
-      <div class="text-center">
-        <p class="text-sm text-text-muted font-mono">© 2023-2026 Zubariel. All Rights Reserved.</p>
-      </div>
-    </div>
-  </footer>
-  <script>
-    function copyCode(buttonElement) {
-        const preElement = buttonElement.previousElementSibling;
-        if (!preElement || preElement.tagName !== 'PRE') {
-            console.error("Could not find <pre> element to copy.");
-            return;
+
+    <script>
+        function switchTab(name, btn) {
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('tab-' + name).classList.add('active');
+            btn.classList.add('active');
         }
-        const codeToCopy = preElement.textContent || "";
-        navigator.clipboard.writeText(codeToCopy).then(() => {
-            const originalHTML = buttonElement.innerHTML;
-            buttonElement.innerHTML = `<i class="fa-solid fa-check mr-2"></i>Copied!`;
-            setTimeout(() => {
-                buttonElement.innerHTML = originalHTML;
-            }, 2000);
-        }).catch(err => {
-            console.error("Failed to copy code: ", err);
-            alert("Failed to copy code.");
-        });
-    }
-    function showTab(tabId, event) {
-        document.querySelectorAll('.code-tab').forEach(el => el.classList.add('is-hidden'));
-        document.getElementById(tabId).classList.remove('is-hidden');
-        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-        event.target.classList.add('active');
-    }
-  </script>
-  <script>
-const CustomHighlighter = (function () {
-  function escapeHtml(html) {
-    return html
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;");
-  }
-
-  function style(color, fontWeight = 'normal', fontStyle = 'normal') {
-    return `style="color:${color};font-weight:${fontWeight};font-style:${fontStyle}"`;
-  }
-
-function highlightHTML(code) {
-  let escaped = escapeHtml(code);
-
-  // Comments: <!-- ... -->
-  escaped = escaped.replace(/(&lt;!--[\s\S]*?--&gt;)/g, `<span ${style('#6b7280', 'normal', 'italic')}>$1</span>`);
-
-  // Tags: <div>, </div>
-  escaped = escaped.replace(/(&lt;\/?[a-zA-Z0-9\-:]+)/g, `<span ${style('#f472b6')}>$1</span>`);
-
-  // Attributes + values: class="..."
-  escaped = escaped.replace(/([a-zA-Z\-:]+)(=)(&quot;[^&]*?&quot;)/g, (_, attr, eq, val) => {
-    return `<span ${style('#facc15')}>${attr}</span>${eq}<span ${style('#34d399')}>${val}</span>`;
-  });
-
-  return escaped;
-}
-
-  function highlightCSS(code) {
-  let escaped = escapeHtml(code);
-
-  // highlight comments first
-  escaped = escaped.replace(/(\/\*[\s\S]*?\*\/)/g, `<span ${style('#6b7280', 'normal', 'italic')}>$1</span>`);
-
-  // highlight CSS properties (like font-family)
-  escaped = escaped.replace(/([a-zA-Z\-]+)(\s*:\s*)([^;]+)(;?)/g, (_, prop, sep, val, end) => {
-    return `<span ${style('#facc15')}>${prop}</span>${sep}<span ${style('#34d399')}>${val}</span>${end}`;
-  });
-
-  return escaped;
-}
-
-
-function highlightJS(code) {
-  const escaped = escapeHtml(code);
-
-  return escaped
-    // Comments
-    .replace(/(\/\/[^\n]*)/g, `<span ${style('#6b7280', 'normal', 'italic')}>$1</span>`)
-    
-    // Strings (single, double, template)
-    .replace(/(['"`])(?:\\[\s\S]|(?!\1).)*\1/g, match =>
-      `<span ${style('#34d399')}>${match}</span>`
-    )
-
-    // Keywords
-    .replace(
-      /\b(let|const|var|function|return|if|else|for|while|class|new|this|try|catch|finally|await|async|import|from|export|throw|typeof|instanceof|in|of|break|continue|switch|case|default|delete)\b/g,
-      `<span ${style('#60a5fa', 'bold')}>$1</span>`
-    )
-
-    // Booleans / null / undefined
-    .replace(/\b(true|false|null|undefined|NaN|Infinity)\b/g, `<span ${style('#f472b6')}>$1</span>`)
-
-    // Numbers
-    .replace(/\b(\d+(\.\d+)?(e[+-]?\d+)?)\b/gi, `<span ${style('#fbbf24')}>$1</span>`)
-
-    // Function names (function foo() or const foo = () =>)
-    .replace(/\b([a-zA-Z_][a-zA-Z0-9_]*)\s*(?=\()/g, `<span ${style('#a78bfa')}>$1</span>`)
-
-    // Property or method access (.log, .map, .length)
-    .replace(/(\.)([a-zA-Z_][a-zA-Z0-9_]*)/g, (_, dot, prop) =>
-      `${dot}<span ${style('#22d3ee')}>${prop}</span>`
-    );
-}
-
-
-
-  function highlight(code, lang) {
-    switch (lang) {
-      case 'html': return highlightHTML(code);
-      case 'css': return highlightCSS(code);
-      case 'js': return highlightJS(code);
-      default: return escapeHtml(code);
-    }
-  }
-
-  return { highlight };
-})();
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('code').forEach(codeBlock => {
-    const pre = codeBlock.parentElement;
-    if (!pre || pre.tagName !== 'PRE') return;
-
-    const raw = codeBlock.textContent;
-    let lang = null;
-
-    if (codeBlock.classList.contains('html-code')) lang = 'html';
-    else if (codeBlock.classList.contains('css-code')) lang = 'css';
-    else if (codeBlock.classList.contains('js-code')) lang = 'js';
-
-    if (lang) {
-      const highlighted = CustomHighlighter.highlight(raw, lang);
-      pre.outerHTML = `<pre><code class="custom-highlight">${highlighted}</code></pre>`;
-    }
-  });
-});
-</script>
-
+        function copyCode(id, btn) {
+            const text = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                btn.classList.add('copied');
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+                setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy'; }, 2000);
+            });
+        }
+    </script>
 </body>
+
 </html>
