@@ -1,5 +1,4 @@
-<!-- mobile ui has issues with music and anime graph -->
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
 <head>
@@ -430,7 +429,6 @@
             margin-bottom: 1.25rem;
         }
 
-        /* ── TESTIMONIAL CARD ── */
         .testimonial-card {
             background: transparent;
             border: 1px solid var(--border-subtle);
@@ -458,7 +456,6 @@
             font-family: 'Times New Roman', Times, serif;
         }
 
-        /* ── TECH TAGS ── */
         .tech-tag {
             display: inline-flex;
             align-items: center;
@@ -478,7 +475,6 @@
             color: #fff;
         }
 
-        /* ── PROGRESS ── */
         .progress-container {
             background: var(--bg-secondary);
             border-radius: 99px;
@@ -495,11 +491,21 @@
             width: 0;
         }
 
-        /* ── SECTION DIVIDER ── */
         .section-divider {
             border: none;
             border-top: 1px solid var(--border-subtle);
             margin: 0;
+        }
+
+        @media (max-width: 767px) {
+            .glass-card {
+                padding: 1.75rem !important;
+            }
+
+            .glass-card iframe {
+                border-radius: 12px !important;
+                max-width: 100% !important;
+            }
         }
     </style>
 </head>
@@ -569,7 +575,7 @@
                     <p class="mb-4 animate-slide-up"
                         style="animation-delay:300ms; color:var(--text-secondary); max-width:32rem; font-size:1rem; line-height:1.75;">
                         <span style="color:var(--text-primary); font-weight:600;">3+ years</span> of self-driven
-                        experience —
+                        experience
                         from Discord bots to full-stack web apps. Currently mastering the MERN stack.
                     </p>
 
@@ -647,7 +653,7 @@
                 <div class="glass-card animated-element">
                     <h3><i class="fa-solid fa-graduation-cap"></i>Qualifications</h3>
                     <ul style="color:var(--text-secondary);" class="space-y-2 text-sm list-disc list-inside">
-                        <li>Grade 12th — Computer Science</li>
+                        <li>Grade 12th | Computer Science</li>
                         <li>Developer at <span style="color:var(--text-primary); font-weight:600;">Auora HQ</span></li>
                         <li>Freelance Web / App Developer</li>
                         <li>3+ years of coding experience</li>
@@ -658,7 +664,7 @@
                 <div class="glass-card animated-element">
                     <h3><i class="fa-solid fa-heart"></i>Favorites</h3>
                     <ul style="color:var(--text-secondary);" class="space-y-2 text-sm list-disc list-inside">
-                        <li>Music — Pop, Indie, Acoustic</li>
+                        <li>Music: Pop, Indie, Acoustic</li>
                         <li>Watching anime &amp; reading manga</li>
                         <li>Building Discord bots &amp; coding</li>
                         <li>Exploring new frameworks</li>
@@ -853,7 +859,7 @@
                     <p style="color:var(--text-secondary); font-size:0.9rem; line-height:1.75;"
                         class="pl-6 mb-6 italic">
                         "It's rare to find someone this young who codes with such clarity and purpose. Zubariel is a
-                        standout dev — sharp instincts, fast turnarounds, and clean, scalable work."
+                        standout dev sharp instincts, fast turnarounds, and clean, scalable work."
                     </p>
                     <figcaption class="flex items-center gap-3">
                         <img src="/images/kuba-pfp.png" alt="Kubastick" class="w-12 h-12 rounded-full object-cover"
@@ -913,6 +919,7 @@
             <h2 class="section-title animated-element">Interests &amp; Hobbies</h2>
             <div class="grid md:grid-cols-2 gap-6">
 
+                <!-- Anime Graph -->
                 <div class="glass-card animated-element">
                     <h3><i class="fa-solid fa-tv"></i>Anime &amp; Manga Ratings</h3>
                     <p style="color:var(--text-secondary); font-size:0.82rem; margin-bottom:1.25rem;">
@@ -921,9 +928,10 @@
                         <span style="color:var(--text-primary); font-weight:600;">Vinland Saga</span>.
                         Huge fan of Seinen, thrillers, and historical epics.
                     </p>
-                    <div style="height:280px;"><canvas id="myChart"></canvas></div>
+                    <div class="h-[260px] md:h-[280px]"><canvas id="myChart"></canvas></div>
                 </div>
 
+                <!-- Music -->
                 <div class="glass-card animated-element">
                     <h3><i class="fa-brands fa-spotify" style="color:#1db954;"></i>Coding Soundtrack</h3>
                     <p style="color:var(--text-secondary); font-size:0.82rem; margin-bottom:1.25rem;">
@@ -932,18 +940,18 @@
                         <span style="color:var(--text-primary); font-weight:600;">Radiohead</span>.
                     </p>
                     <div class="space-y-2.5">
-                        <iframe style="border-radius:10px;"
+                        <iframe style="border-radius:12px;"
                             src="https://open.spotify.com/embed/track/1fDFHXcykq4iw8Gg7s5hG9?utm_source=generator&theme=0"
-                            width="100%" height="80" frameborder="0" loading="lazy"></iframe>
-                        <iframe style="border-radius:10px;"
+                            width="100%" height="80" frameborder="0" loading="lazy" allowfullscreen></iframe>
+                        <iframe style="border-radius:12px;"
                             src="https://open.spotify.com/embed/track/6Uwi2Qk3H7fM4b4W4ExrAp?utm_source=generator&theme=0"
-                            width="100%" height="80" frameborder="0" loading="lazy"></iframe>
-                        <iframe style="border-radius:10px;"
+                            width="100%" height="80" frameborder="0" loading="lazy" allowfullscreen></iframe>
+                        <iframe style="border-radius:12px;"
                             src="https://open.spotify.com/embed/track/3QaPy1KgI7nu9FJEQUgn6h?utm_source=generator&theme=0"
-                            width="100%" height="80" frameborder="0" loading="lazy"></iframe>
-                        <iframe style="border-radius:10px;"
+                            width="100%" height="80" frameborder="0" loading="lazy" allowfullscreen></iframe>
+                        <iframe style="border-radius:12px;"
                             src="https://open.spotify.com/embed/track/46tfxn5lP7Qsbz7NHsj9iu?utm_source=generator&theme=0"
-                            width="100%" height="80" frameborder="0" loading="lazy"></iframe>
+                            width="100%" height="80" frameborder="0" loading="lazy" allowfullscreen></iframe>
                     </div>
                 </div>
 
@@ -1084,6 +1092,8 @@
             const ctx = document.getElementById("myChart")?.getContext("2d");
             if (!ctx) return;
 
+            const isMobile = window.innerWidth < 768;
+
             const grad = ctx.createLinearGradient(0, 0, 0, 350);
             grad.addColorStop(0, 'rgba(167,139,250,0.55)');
             grad.addColorStop(1, 'rgba(109,40,217,0.55)');
@@ -1104,7 +1114,7 @@
                         borderWidth: 2,
                         borderRadius: 5,
                         borderSkipped: false,
-                        barThickness: 16,
+                        barThickness: isMobile ? 14 : 16,
                     }],
                 },
                 options: {
@@ -1113,12 +1123,25 @@
                     indexAxis: 'y',
                     scales: {
                         y: {
-                            ticks: { color: "#a1a1aa", font: { family: "'Inter',sans-serif", size: 11 } },
+                            ticks: {
+                                color: "#a1a1aa",
+                                font: {
+                                    family: "'Inter',sans-serif",
+                                    size: isMobile ? 10 : 11
+                                },
+                                padding: isMobile ? 8 : 5,
+                            },
                             grid: { color: "rgba(255,255,255,0.04)" },
                         },
                         x: {
                             max: 10,
-                            ticks: { color: "#52525b", font: { family: "'Inter',sans-serif", size: 11 } },
+                            ticks: {
+                                color: "#52525b",
+                                font: {
+                                    family: "'Inter',sans-serif",
+                                    size: isMobile ? 10 : 11
+                                }
+                            },
                             grid: { color: "rgba(255,255,255,0.04)" },
                         },
                     },
@@ -1128,10 +1151,19 @@
                             backgroundColor: '#0f0f0f',
                             titleFont: { family: "'Inter',sans-serif", weight: 'bold', size: 13 },
                             bodyFont: { family: "'Inter',sans-serif", size: 12 },
-                            displayColors: false, padding: 10, cornerRadius: 8,
-                            bodyAlign: 'center', titleAlign: 'center',
+                            displayColors: false,
+                            padding: 10,
+                            cornerRadius: 8,
+                            bodyAlign: 'center',
+                            titleAlign: 'center',
                         }
                     },
+                    layout: {
+                        padding: {
+                            left: isMobile ? 12 : 8,
+                            right: 10
+                        }
+                    }
                 },
             });
         });
