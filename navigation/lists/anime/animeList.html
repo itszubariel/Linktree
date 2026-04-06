@@ -1416,6 +1416,37 @@
       ].filter(Boolean).join('');
       document.getElementById('dDesc').textContent = anime.synopsis || 'No description available.';
       document.getElementById('dGenres').innerHTML = anime.genres.map(g => `<span class="dg">${g}</span>`).join('');
+const existing = document.getElementById('dExtraLinks');
+if (existing) existing.remove();
+
+const malUrl = `https://myanimelist.net/search/all?q=${encodeURIComponent(anime.title)}&cat=anime`;
+
+document.getElementById('dGenres').insertAdjacentHTML('afterend', `
+  <div id="dExtraLinks" style="margin-top:14px; display:flex; gap:8px;">
+       <a href="${malUrl}" target="_blank" rel="noopener" style="
+      font-size:12px; font-weight:600; letter-spacing:.03em;
+      padding:9px 16px; border-radius:6px;
+      background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1);
+      color:var(--txt); text-decoration:none; transition:all .2s;
+      display:inline-flex; align-items:center; gap:7px;
+    " onmouseover="this.style.background='rgba(255,255,255,.11)'" 
+       onmouseout="this.style.background='rgba(255,255,255,.06)'">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      MAL
+    </a>
+    <a href="https://www.google.com/search?q=${encodeURIComponent(anime.title + ' anime')}" target="_blank" rel="noopener" style="
+      font-size:12px; font-weight:600; letter-spacing:.03em;
+      padding:9px 16px; border-radius:6px;
+      background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1);
+      color:var(--txt); text-decoration:none; transition:all .2s;
+      display:inline-flex; align-items:center; gap:7px;
+    " onmouseover="this.style.background='rgba(255,255,255,.11)'"
+       onmouseout="this.style.background='rgba(255,255,255,.06)'">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      Search
+    </a>
+  </div>
+`);
     }
 
     const close = id => { document.getElementById(id).classList.remove('open'); document.body.style.overflow = ''; };

@@ -1,12 +1,4 @@
 #!/usr/bin/env python3
-"""
-add_anime.py — Zubariel's Anime List Helper (v3 - with JSON caching)
-Usage: python add_anime.py
-
-Fetches anime info from Jikan API and caches images in anime_data.json
-for faster loading. No more rate limiting issues!
-"""
-
 import json
 import urllib.request
 import urllib.parse

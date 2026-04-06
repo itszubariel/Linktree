@@ -1,12 +1,4 @@
 #!/usr/bin/env python3
-"""
-add_manga.py — Zubariel's Manga List Helper
-Usage: python add_manga.py
-
-Fetches manga info from Jikan API and caches images in manga_data.json
-for faster loading. Run migrate_manga_to_json.py first if starting fresh.
-"""
-
 import json
 import urllib.request
 import urllib.parse

@@ -1,11 +1,4 @@
 #!/usr/bin/env python3
-"""
-migrate_to_json.py — One-time migration script
-Converts existing DATA array in anilist.html to JSON format with cached images
-
-Run this ONCE to create your anime_data.json file from existing data.
-"""
-
 import json
 import urllib.request
 import urllib.parse
@@ -76,7 +69,7 @@ EXISTING_DATA = [
       { "title": "Spy x Family", "status": "dropped", "genres": ["Action", "Comedy", "Shounen"], "rating": 0, "episodes": 38 },
       { "title": "Banished From the Hero's Party (Quiet Life)", "status": "completed", "genres": ["Action", "Adventure", "Fantasy", "Romance"], "rating": 5, "episodes": 13 },
       { "title": "One Punch Man", "status": "completed", "genres": ["Action", "Comedy", "Sci-Fi"], "rating": 8, "episodes": 24 },
-      { "title": "Pokémon", "status": "completed", "genres": ["Action", "Adventure", "Comedy", "Fantasy"], "rating": 8.5, "episodes": 1269 },
+      { "title": "PokÃ©mon", "status": "completed", "genres": ["Action", "Adventure", "Comedy", "Fantasy"], "rating": 8.5, "episodes": 1269 },
       { "title": "The Daily Life of the Immortal King", "status": "completed", "genres": ["Action", "Fantasy", "Comedy", "School"], "rating": 7, "episodes": 51 },
       { "title": "The Ossan Newbie Adventurer", "status": "completed", "genres": ["Action", "Adventure", "Comedy", "Fantasy"], "rating": 6, "episodes": 12 },
       { "title": "Food Wars!", "status": "completed", "genres": ["School", "Shounen", "Comedy"], "rating": 6, "episodes": 86 },
@@ -175,7 +168,7 @@ EXISTING_DATA = [
       { "title": "Ghost Hound", "status": "completed", "genres": ["Mystery", "Supernatural", "Thriller", "Psychological"], "rating": 7.4, "episodes": 22 },
       { "title": "Ergo Proxy", "status": "completed", "genres": ["Sci-Fi", "Psychological", "Thriller"], "rating": 7.9, "episodes": 23 },
       { "title": "Kekkai Sensen", "status": "completed", "genres": ["Action", "Fantasy", "Supernatural", "Comedy"], "rating": 7.4, "episodes": 12 },
-      { "title": "Lovely★Complex", "status": "completed", "genres": ["Comedy", "Romance", "Slice of Life", "School"], "rating": 7.5, "episodes": 24 },
+      { "title": "Lovelyâ˜…Complex", "status": "completed", "genres": ["Comedy", "Romance", "Slice of Life", "School"], "rating": 7.5, "episodes": 24 },
       { "title": "Charlotte", "status": "completed", "genres": ["Supernatural", "Drama", "School"], "rating": 6.9, "episodes": 13 },
       { "title": "Gosick", "status": "completed", "genres": ["Mystery", "Historical", "Supernatural", "Romance"], "rating": 7.1, "episodes": 24 },
       { "title": "My Little Monster", "status": "completed", "genres": ["Comedy", "School", "Romance", "Shoujo"], "rating": 7.2, "episodes": 13 },
@@ -247,26 +240,30 @@ EXISTING_DATA = [
       { "title": "My Dress-Up Darling", "status": "completed", "genres": ["Romance", "Comedy", "School", "Drama"], "rating": 6.9, "episodes": 12 },
       { "title": "Edens Zero", "status": "completed", "genres": ["Sci-Fi", "Action", "Adventure", "Fantasy"], "rating": 6.4, "episodes": 25 },
       { "title": "Skip and Loafer", "status": "completed", "genres": ["Comedy", "Slice of Life", "School", "Romance"], "rating": 7.5, "episodes": 13 },
-      { "title": "Aoashi", "status": "completed", "genres": ["Sports", "Drama", "School"], "rating": 7.9, "episodes": 24 },
       { "title": "More Than a Married Couple, But Not Lovers", "status": "completed", "genres": ["Romance", "Comedy", "School"], "rating": 7.4, "episodes": 13 },
       { "title": "Call of the Night", "status": "completed", "genres": ["Action", "Supernatural", "Romance"], "rating": 6.5, "episodes": 13 },
       { "title": "Baka & Test: Summon the Beasts", "status": "plan-to-watch", "genres": ["Comedy", "Romance", "School"], "rating": 6, "episodes": 13 },
-    ]
+]
 
 def search_anime(query):
-    """Search for anime using Jikan API."""
     encoded = urllib.parse.quote(query)
     url = f"https://api.jikan.moe/v4/anime?q={encoded}&limit=1&sfw=true"
-    try:
-        req = urllib.request.Request(url, headers={"User-Agent": "AnimeMigration/1.0"})
-        with urllib.request.urlopen(req, timeout=10) as resp:
-            data = json.loads(resp.read())
-        result = data.get("data", [])
-        return result[0] if result else None
-    except Exception as e:
-        print(f"    [!] API error for '{query}': {e}")
-        return None
 
+    req = urllib.request.Request(url, headers={"User-Agent": "AnimeMigration/1.0"})
+    with urllib.request.urlopen(req, timeout=10) as resp:
+        data = json.loads(resp.read())
+
+    result = data.get("data", [])
+    return result[0] if result else None
+
+def fetch_full_anime(mal_id):
+    url = f"https://api.jikan.moe/v4/anime/{mal_id}"
+
+    req = urllib.request.Request(url, headers={"User-Agent": "AnimeMigration/1.0"})
+    with urllib.request.urlopen(req, timeout=10) as resp:
+        data = json.loads(resp.read())
+
+    return data.get("data")
 
 def extract_image_url(anime_data):
     """Extract best quality image URL from API data."""

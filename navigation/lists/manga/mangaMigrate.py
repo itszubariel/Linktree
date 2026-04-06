@@ -1,11 +1,4 @@
 #!/usr/bin/env python3
-"""
-migrate_manga_to_json.py — One-time migration script
-Converts existing manga data to JSON format with cached images.
-
-Run this ONCE to create your manga_data.json file.
-"""
-
 import json
 import urllib.request
 import urllib.parse
