@@ -840,7 +840,7 @@
               `;
             } else {
               // Generic activity
-              let imageUrl = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/discord/discord-plain.svg';
+              let imageUrl = 'https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/discord.svg';
 
               if (activity.assets?.large_image) {
                 if (activity.assets.large_image.startsWith('mp:')) {
@@ -864,7 +864,7 @@
           } else {
             // No activity
             activityBlock.innerHTML = `
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/discord/discord-plain.svg" alt="Discord">
+              <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/discord.svg" alt="Discord">
               <div>
                 <div class="activity-title">No current activity</div>
                 <div class="activity-sub">Just chilling on Discord</div>
@@ -875,7 +875,7 @@
       } catch (error) {
         console.error('Error fetching Discord presence:', error);
         document.getElementById('discord-activity').innerHTML = `
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/discord/discord-plain.svg" alt="Error">
+          <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/discord.svg" alt="Error">
           <div>
             <div class="activity-title">Unable to load activity</div>
             <div class="activity-sub">Please try again later</div>

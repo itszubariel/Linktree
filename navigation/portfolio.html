@@ -1,1173 +1,1723 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <title>Zubariel | Portfolio</title>
-    <meta name="keywords" content="HTML, CSS, JS, Portfolio, Developer, Zubariel" />
+    <meta
+      name="keywords"
+      content="HTML, CSS, JS, Portfolio, Developer, Zubariel"
+    />
     <meta name="author" content="Zubariel" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/images/2pfp.jpg" type="image/x-icon" />
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Unbounded:wght@400;700;800&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Unbounded:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
 
     <script>
-        if (location.hostname === "zubariel.netlify.app") {
-            const newUrl = location.href.replace("zubariel.netlify.app", "zubariel.is-a.dev");
-            location.replace(newUrl);
-        }
+      if (location.hostname === "zubariel.netlify.app") {
+        const newUrl = location.href.replace(
+          "zubariel.netlify.app",
+          "zubariel.is-a.dev",
+        );
+        location.replace(newUrl);
+      }
     </script>
 
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ["Inter", "sans-serif"],
-                        mono: ["JetBrains Mono", "monospace"],
-                        display: ["Unbounded", "Inter", "ui-sans-serif"],
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.6s ease-out forwards',
-                        'slide-up': 'slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                        'scale-in': 'scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                        'gradient-pan': 'gradient-pan 5s ease infinite',
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
-                    keyframes: {
-                        fadeIn: { 'from': { opacity: '0' }, 'to': { opacity: '1' } },
-                        slideUp: { 'from': { opacity: '0', transform: 'translateY(40px)' }, 'to': { opacity: '1', transform: 'translateY(0)' } },
-                        scaleIn: { 'from': { opacity: '0', transform: 'scale(0.9)' }, 'to': { opacity: '1', transform: 'scale(1)' } },
-                        'gradient-pan': { '0%': { 'background-position': '0% 50%' }, '50%': { 'background-position': '100% 50%' }, '100%': { 'background-position': '0% 50%' } }
-                    }
-                },
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              mono: ["JetBrains Mono", "monospace"],
+              display: ["Unbounded", "Inter", "ui-sans-serif"],
             },
-        };
+            animation: {
+              "fade-in": "fadeIn 0.6s ease-out forwards",
+              "slide-up": "slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+              "scale-in": "scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+              "gradient-pan": "gradient-pan 5s ease infinite",
+              "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+            },
+            keyframes: {
+              fadeIn: { from: { opacity: "0" }, to: { opacity: "1" } },
+              slideUp: {
+                from: { opacity: "0", transform: "translateY(40px)" },
+                to: { opacity: "1", transform: "translateY(0)" },
+              },
+              scaleIn: {
+                from: { opacity: "0", transform: "scale(0.9)" },
+                to: { opacity: "1", transform: "scale(1)" },
+              },
+              "gradient-pan": {
+                "0%": { "background-position": "0% 50%" },
+                "50%": { "background-position": "100% 50%" },
+                "100%": { "background-position": "0% 50%" },
+              },
+            },
+          },
+        },
+      };
     </script>
 
     <style>
-        :root {
-            --bg-primary: #050505;
-            --bg-secondary: #0f0f0f;
-            --bg-tertiary: #161616;
-            --bg-card: rgba(18, 18, 18, 0.8);
-            --border-subtle: rgba(255, 255, 255, 0.055);
-            --border-medium: rgba(255, 255, 255, 0.09);
-            --border-accent: rgba(139, 92, 246, 0.3);
-            --text-primary: #e4e4e7;
-            --text-secondary: #a1a1aa;
-            --text-muted: #52525b;
-            --accent: #8b5cf6;
-            --accent-light: #a78bfa;
-            --accent-dim: rgba(139, 92, 246, 0.12);
-            --accent-gradient: linear-gradient(135deg, #a78bfa, #8b5cf6);
-            --success: #23a559;
-        }
+      :root {
+        --bg-primary: #050505;
+        --bg-secondary: #0f0f0f;
+        --bg-tertiary: #161616;
+        --bg-card: rgba(18, 18, 18, 0.8);
+        --border-subtle: rgba(255, 255, 255, 0.055);
+        --border-medium: rgba(255, 255, 255, 0.09);
+        --border-accent: rgba(139, 92, 246, 0.3);
+        --text-primary: #e4e4e7;
+        --text-secondary: #a1a1aa;
+        --text-muted: #52525b;
+        --accent: #8b5cf6;
+        --accent-light: #a78bfa;
+        --accent-dim: rgba(139, 92, 246, 0.12);
+        --accent-gradient: linear-gradient(135deg, #a78bfa, #8b5cf6);
+        --success: #23a559;
+      }
 
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
 
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
 
-        ::-webkit-scrollbar-thumb {
-            background: var(--border-medium);
-            border-radius: 3px;
-        }
+      ::-webkit-scrollbar-thumb {
+        background: var(--border-medium);
+        border-radius: 3px;
+      }
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 255, 255, 0.15);
-        }
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.15);
+      }
 
-        html {
-            background-color: var(--bg-primary);
-        }
+      html {
+        background-color: var(--bg-primary);
+      }
 
-        body {
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-            background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.018) 1px, transparent 0);
-            background-size: 28px 28px;
-        }
+      body {
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+        background-image: radial-gradient(
+          circle at 1px 1px,
+          rgba(255, 255, 255, 0.018) 1px,
+          transparent 0
+        );
+        background-size: 28px 28px;
+      }
 
-        /* ── NAV ── */
-        .site-header {
-            background-color: rgba(5, 5, 5, 0.75);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-subtle);
-        }
+      /* ── NAV ── */
+      .site-header {
+        background-color: rgba(5, 5, 5, 0.75);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border-subtle);
+      }
 
-        .nav-link {
-            position: relative;
-            color: var(--text-muted);
-            font-weight: 500;
-            font-size: 0.85rem;
-            padding: 0.25rem 0;
-            letter-spacing: 0.01em;
-            transition: color 0.25s ease;
-            text-decoration: none;
-        }
+      .nav-link {
+        position: relative;
+        color: var(--text-muted);
+        font-weight: 500;
+        font-size: 0.85rem;
+        padding: 0.25rem 0;
+        letter-spacing: 0.01em;
+        transition: color 0.25s ease;
+        text-decoration: none;
+      }
 
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--text-primary);
-        }
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--text-primary);
+      }
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1.5px;
-            bottom: -4px;
-            left: 0;
-            background: var(--accent-light);
-            transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 1.5px;
+        bottom: -4px;
+        left: 0;
+        background: var(--accent-light);
+        transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
 
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
 
-        /* ── BUTTONS ── */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            font-weight: 500;
-            font-size: 0.85rem;
-            padding: 0.625rem 1.375rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            border: 1px solid transparent;
-            letter-spacing: 0.01em;
-        }
+      /* ── BUTTONS ── */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        font-weight: 500;
+        font-size: 0.85rem;
+        padding: 0.625rem 1.375rem;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        cursor: pointer;
+        border: 1px solid transparent;
+        letter-spacing: 0.01em;
+      }
 
-        .btn-primary {
-            background: var(--accent);
-            color: white;
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
-        }
+      .btn-primary {
+        background: var(--accent);
+        color: white;
+        box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+      }
 
-        .btn-primary:hover {
-            background: var(--accent-light);
-            transform: translateY(-1px);
-            box-shadow: 0 0 28px rgba(167, 139, 250, 0.28);
-        }
+      .btn-primary:hover {
+        background: var(--accent-light);
+        transform: translateY(-1px);
+        box-shadow: 0 0 28px rgba(167, 139, 250, 0.28);
+      }
 
-        .btn-secondary {
-            background: var(--bg-tertiary);
-            color: var(--text-secondary);
-            border: 1px solid var(--border-medium);
-        }
+      .btn-secondary {
+        background: var(--bg-tertiary);
+        color: var(--text-secondary);
+        border: 1px solid var(--border-medium);
+      }
 
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: var(--border-accent);
-            color: var(--accent-light);
-            transform: translateY(-1px);
-        }
+      .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: var(--border-accent);
+        color: var(--accent-light);
+        transform: translateY(-1px);
+      }
 
-        /* ── ANIMATIONS ── */
-        .animated-element {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+      /* ── ANIMATIONS ── */
+      .animated-element {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      }
 
-        .animated-element.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+      .animated-element.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-        /* ── HERO ── */
-        .hero-section {
-            position: relative;
-            overflow: hidden;
-        }
+      /* ── HERO ── */
+      .hero-section {
+        position: relative;
+        overflow: hidden;
+      }
 
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: -20%;
-            left: -10%;
-            right: -10%;
-            bottom: 0;
-            background: radial-gradient(ellipse at 50% 20%, rgba(109, 40, 217, 0.12), transparent 55%);
-            pointer-events: none;
-        }
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        top: -20%;
+        left: -10%;
+        right: -10%;
+        bottom: 0;
+        background: radial-gradient(
+          ellipse at 50% 20%,
+          rgba(109, 40, 217, 0.12),
+          transparent 55%
+        );
+        pointer-events: none;
+      }
 
-        .hero-section::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--border-medium), transparent);
-        }
+      .hero-section::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--border-medium),
+          transparent
+        );
+      }
 
-        /* Profile ring */
+      /* Profile ring */
+      .profile-ring {
+        position: relative;
+        width: 19rem;
+        height: 19rem;
+        flex-shrink: 0;
+      }
+
+      @media (min-width: 1024px) {
         .profile-ring {
-            position: relative;
-            width: 19rem;
-            height: 19rem;
-            flex-shrink: 0;
+          width: 22rem;
+          height: 22rem;
         }
+      }
 
-        @media (min-width: 1024px) {
-            .profile-ring {
-                width: 22rem;
-                height: 22rem;
-            }
-        }
+      .profile-ring::before {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        border-radius: 1.375rem;
+        background: linear-gradient(135deg, #a78bfa, #6d28d9, #a78bfa);
+        background-size: 200% 200%;
+        animation: gradient-pan 5s ease infinite;
+        z-index: 0;
+      }
 
-        .profile-ring::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 1.375rem;
-            background: linear-gradient(135deg, #a78bfa, #6d28d9, #a78bfa);
-            background-size: 200% 200%;
-            animation: gradient-pan 5s ease infinite;
-            z-index: 0;
-        }
+      .profile-ring img {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 1.25rem;
+      }
 
-        .profile-ring img {
-            position: relative;
-            z-index: 1;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 1.25rem;
-        }
+      /* Tag chips */
+      .tag-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-medium);
+        border-radius: 99px;
+        padding: 0.3rem 0.75rem;
+        letter-spacing: 0.02em;
+      }
 
-        /* Tag chips */
-        .tag-chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.375rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.72rem;
-            color: var(--text-muted);
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-medium);
-            border-radius: 99px;
-            padding: 0.3rem 0.75rem;
-            letter-spacing: 0.02em;
-        }
+      .tag-chip .dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
 
-        .tag-chip .dot {
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: var(--accent);
-        }
+      /* Gradient text */
+      .gradient-text {
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
 
-        /* Gradient text */
-        .gradient-text {
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+      /* Social links */
+      .social-link {
+        color: var(--text-muted);
+        font-size: 1.25rem;
+        transition: all 0.25s ease;
+      }
 
-        /* Social links */
-        .social-link {
-            color: var(--text-muted);
-            font-size: 1.25rem;
-            transition: all 0.25s ease;
-        }
+      .social-link:hover {
+        color: var(--accent-light);
+        transform: translateY(-2px);
+      }
 
-        .social-link:hover {
-            color: var(--accent-light);
-            transform: translateY(-2px);
-        }
+      /* ── SECTION TITLE ── */
+      .section-title {
+        font-family: "Unbounded", sans-serif;
+        font-size: 2rem;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        text-align: center;
+        margin-bottom: 3.5rem;
+        color: var(--text-primary);
+        position: relative;
+      }
 
-        /* ── SECTION TITLE ── */
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -0.625rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2.5rem;
+        height: 2px;
+        background: var(--accent-gradient);
+        border-radius: 2px;
+      }
+
+      @media (min-width: 768px) {
         .section-title {
-            font-family: 'Unbounded', sans-serif;
-            font-size: 2rem;
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            text-align: center;
-            margin-bottom: 3.5rem;
-            color: var(--text-primary);
-            position: relative;
+          font-size: 2.75rem;
         }
+      }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -0.625rem;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2.5rem;
-            height: 2px;
-            background: var(--accent-gradient);
-            border-radius: 2px;
-        }
+      /* ── GLASS CARD ── */
+      .glass-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: 1rem;
+        padding: 2rem;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(8px);
+        height: 100%;
+      }
 
-        @media (min-width: 768px) {
-            .section-title {
-                font-size: 2.75rem;
-            }
-        }
+      .glass-card:hover {
+        border-color: var(--border-medium);
+        transform: translateY(-4px);
+        box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.4);
+      }
 
-        /* ── GLASS CARD ── */
+      .glass-card h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.625rem;
+        color: var(--text-primary);
+      }
+
+      .glass-card h3 i {
+        color: var(--accent);
+        font-size: 0.9rem;
+      }
+
+      /* ── PROJECT CARD ── */
+      .project-card {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-subtle);
+        border-radius: 1rem;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project-card:hover {
+        border-color: var(--border-medium);
+        transform: translateY(-5px);
+        box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.5);
+      }
+
+      .project-card .img-wrap {
+        overflow: hidden;
+        width: 100%;
+        height: 180px;
+      }
+
+      .project-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+        display: block;
+      }
+
+      .project-card:hover img {
+        transform: scale(1.08);
+      }
+
+      .project-card .card-body {
+        padding: 1.5rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project-card .card-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.7rem;
+        color: var(--text-muted);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 0.375rem;
+      }
+
+      .project-card h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.625rem;
+      }
+
+      .project-card p {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        flex: 1;
+        line-height: 1.6;
+        margin-bottom: 1.25rem;
+      }
+
+      .testimonial-card {
+        background: transparent;
+        border: 1px solid var(--border-subtle);
+        border-radius: 1rem;
+        padding: 2rem;
+        transition: all 0.3s ease;
+        position: relative;
+        background-image: radial-gradient(
+          circle at top left,
+          rgba(139, 92, 246, 0.07),
+          transparent 35%
+        );
+      }
+
+      .testimonial-card:hover {
+        border-color: var(--border-medium);
+        transform: translateY(-4px);
+      }
+
+      .testimonial-card::before {
+        content: '"';
+        position: absolute;
+        top: 0.75rem;
+        left: 1.25rem;
+        font-size: 4rem;
+        line-height: 1;
+        color: var(--accent);
+        opacity: 0.18;
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .tech-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        background: rgba(139, 92, 246, 0.08);
+        color: var(--accent-light);
+        padding: 0.275rem 0.7rem;
+        border-radius: 0.4rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+        border: 1px solid rgba(139, 92, 246, 0.18);
+        transition: all 0.2s ease;
+      }
+
+      .tech-tag:hover {
+        background: rgba(139, 92, 246, 0.18);
+        color: #fff;
+      }
+
+      .progress-container {
+        background: var(--bg-secondary);
+        border-radius: 99px;
+        overflow: hidden;
+        height: 8px;
+        border: 1px solid var(--border-subtle);
+      }
+
+      .progress-bar {
+        height: 100%;
+        background: var(--accent-gradient);
+        border-radius: 99px;
+        transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        width: 0;
+      }
+
+      .section-divider {
+        border: none;
+        border-top: 1px solid var(--border-subtle);
+        margin: 0;
+      }
+
+      @media (max-width: 767px) {
         .glass-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: 1rem;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(8px);
-            height: 100%;
+          padding: 1.75rem !important;
         }
 
-        .glass-card:hover {
-            border-color: var(--border-medium);
-            transform: translateY(-4px);
-            box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.4);
+        .glass-card iframe {
+          border-radius: 12px !important;
+          max-width: 100% !important;
         }
-
-        .glass-card h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.625rem;
-            color: var(--text-primary);
-        }
-
-        .glass-card h3 i {
-            color: var(--accent);
-            font-size: 0.9rem;
-        }
-
-        /* ── PROJECT CARD ── */
-        .project-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-subtle);
-            border-radius: 1rem;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card:hover {
-            border-color: var(--border-medium);
-            transform: translateY(-5px);
-            box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.5);
-        }
-
-        .project-card .img-wrap {
-            overflow: hidden;
-            width: 100%;
-            height: 180px;
-        }
-
-        .project-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-            display: block;
-        }
-
-        .project-card:hover img {
-            transform: scale(1.08);
-        }
-
-        .project-card .card-body {
-            padding: 1.5rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card .card-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            margin-bottom: 0.375rem;
-        }
-
-        .project-card h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 0.625rem;
-        }
-
-        .project-card p {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            flex: 1;
-            line-height: 1.6;
-            margin-bottom: 1.25rem;
-        }
-
-        .testimonial-card {
-            background: transparent;
-            border: 1px solid var(--border-subtle);
-            border-radius: 1rem;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            position: relative;
-            background-image: radial-gradient(circle at top left, rgba(139, 92, 246, 0.07), transparent 35%);
-        }
-
-        .testimonial-card:hover {
-            border-color: var(--border-medium);
-            transform: translateY(-4px);
-        }
-
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: 0.75rem;
-            left: 1.25rem;
-            font-size: 4rem;
-            line-height: 1;
-            color: var(--accent);
-            opacity: 0.18;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        .tech-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.375rem;
-            background: rgba(139, 92, 246, 0.08);
-            color: var(--accent-light);
-            padding: 0.275rem 0.7rem;
-            border-radius: 0.4rem;
-            font-size: 0.75rem;
-            font-weight: 500;
-            border: 1px solid rgba(139, 92, 246, 0.18);
-            transition: all 0.2s ease;
-        }
-
-        .tech-tag:hover {
-            background: rgba(139, 92, 246, 0.18);
-            color: #fff;
-        }
-
-        .progress-container {
-            background: var(--bg-secondary);
-            border-radius: 99px;
-            overflow: hidden;
-            height: 8px;
-            border: 1px solid var(--border-subtle);
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: var(--accent-gradient);
-            border-radius: 99px;
-            transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-            width: 0;
-        }
-
-        .section-divider {
-            border: none;
-            border-top: 1px solid var(--border-subtle);
-            margin: 0;
-        }
-
-        @media (max-width: 767px) {
-            .glass-card {
-                padding: 1.75rem !important;
-            }
-
-            .glass-card iframe {
-                border-radius: 12px !important;
-                max-width: 100% !important;
-            }
-        }
+      }
+      canvas {
+        max-width: 100% !important;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <!-- ── NAV ── -->
     <header id="site-header" class="site-header fixed top-0 w-full z-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex items-center justify-between" style="height:4.5rem;">
-                <a href="/" class="font-mono font-semibold text-xl tracking-tight">
-                    zubariel<span style="color:var(--accent);">.</span>
-                </a>
-                <nav class="hidden md:flex items-center space-x-9">
-                    <a href="#about" class="nav-link">About</a>
-                    <a href="#projects" class="nav-link">Projects</a>
-                    <a href="#testimonials" class="nav-link">Testimonials</a>
-                    <a href="#interests" class="nav-link">Interests</a>
-                    <a href="#thanks" class="nav-link">Thanks</a>
-                </nav>
-                <div class="hidden md:block">
-                    <a href="/contact" target="_blank" class="btn btn-primary">Contact</a>
-                </div>
-                <div class="md:hidden">
-                    <button id="hamburgerBtn" class="p-2 focus:outline-none" style="color:var(--text-secondary);">
-                        <i class="fa-solid fa-bars-staggered text-xl"></i>
-                    </button>
-                </div>
-            </div>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center justify-between" style="height: 4.5rem">
+          <a href="/" class="font-mono font-semibold text-xl tracking-tight">
+            zubariel<span style="color: var(--accent)">.</span>
+          </a>
+          <nav class="hidden md:flex items-center space-x-9">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#testimonials" class="nav-link">Testimonials</a>
+            <a href="#interests" class="nav-link">Interests</a>
+            <a href="#thanks" class="nav-link">Thanks</a>
+          </nav>
+          <div class="hidden md:block">
+            <a href="/contact" target="_blank" class="btn btn-primary"
+              >Contact</a
+            >
+          </div>
+          <div class="md:hidden">
+            <button
+              id="hamburgerBtn"
+              class="p-2 focus:outline-none"
+              style="color: var(--text-secondary)"
+            >
+              <i class="fa-solid fa-bars-staggered text-xl"></i>
+            </button>
+          </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden border-t"
-            style="border-color:var(--border-subtle); background:var(--bg-primary);">
-            <nav class="px-6 py-6 space-y-4">
-                <a href="#about" class="nav-link block py-2 text-base">About</a>
-                <a href="#projects" class="nav-link block py-2 text-base">Projects</a>
-                <a href="#testimonials" class="nav-link block py-2 text-base">Testimonials</a>
-                <a href="#interests" class="nav-link block py-2 text-base">Interests</a>
-                <a href="#thanks" class="nav-link block py-2 text-base">Thanks</a>
-                <a href="/contact" target="_blank" class="btn btn-primary mt-4 w-full">Contact</a>
-            </nav>
-        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden border-t"
+        style="
+          border-color: var(--border-subtle);
+          background: var(--bg-primary);
+        "
+      >
+        <nav class="px-6 py-6 space-y-4">
+          <a href="#about" class="nav-link block py-2 text-base">About</a>
+          <a href="#projects" class="nav-link block py-2 text-base">Projects</a>
+          <a href="#testimonials" class="nav-link block py-2 text-base"
+            >Testimonials</a
+          >
+          <a href="#interests" class="nav-link block py-2 text-base"
+            >Interests</a
+          >
+          <a href="#thanks" class="nav-link block py-2 text-base">Thanks</a>
+          <a href="/contact" target="_blank" class="btn btn-primary mt-4 w-full"
+            >Contact</a
+          >
+        </nav>
+      </div>
     </header>
 
     <main class="max-w-7xl mx-auto px-6 pt-20">
-
-        <!-- ── HERO ── -->
-        <section id="home" class="hero-section min-h-[92vh] flex items-center py-24 -mx-6 px-6">
-            <div class="grid lg:grid-cols-5 gap-20 items-center w-full">
-
-                <div class="lg:col-span-3 order-2 lg:order-1">
-                    <div class="flex flex-wrap gap-2 mb-8 animate-fade-in" style="animation-delay:100ms;">
-                        <span class="tag-chip"><span class="dot"></span>JS · TS · PY · C++</span>
-                        <span class="tag-chip"><span class="dot"></span>Open to freelance</span>
-                        <span class="tag-chip"><span class="dot"></span>18 y/o dev</span>
-                    </div>
-
-                    <p class="font-mono text-xs mb-5 animate-fade-in"
-                        style="animation-delay:150ms; color:var(--text-muted); letter-spacing:0.08em; text-transform:uppercase;">
-                        Hello, I'm Zubariel.</p>
-
-                    <h1 class="mb-6 animate-slide-up"
-                        style="animation-delay:200ms; font-family:'Unbounded',sans-serif; font-size:clamp(2.6rem,6vw,4.5rem); font-weight:800; line-height:1.05; letter-spacing:-0.04em;">
-                        Self-Taught<br>Developer &amp; <span class="gradient-text">Creator</span><span
-                            style="color:#fff;">.</span>
-                    </h1>
-
-                    <p class="mb-4 animate-slide-up"
-                        style="animation-delay:300ms; color:var(--text-secondary); max-width:32rem; font-size:1rem; line-height:1.75;">
-                        <span style="color:var(--text-primary); font-weight:600;">3+ years</span> of self-driven
-                        experience
-                        from Discord bots to full-stack web apps. Currently mastering the MERN stack.
-                    </p>
-
-                    <p class="mb-10 animate-slide-up"
-                        style="animation-delay:380ms; font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--text-muted);">
-                        // Bot dev · Web dev · Freelancer · Builder
-                    </p>
-
-                    <div class="flex flex-wrap gap-3 animate-slide-up" style="animation-delay:450ms;">
-                        <a href="/contact" target="_blank" class="btn btn-primary">
-                            <i class="fa-solid fa-paper-plane"></i> Contact Me
-                        </a>
-                        <a href="#projects" class="btn btn-secondary">
-                            <i class="fa-solid fa-folder-open"></i> View My Work
-                        </a>
-                    </div>
-
-                    <div class="flex items-center gap-6 mt-10 animate-fade-in" style="animation-delay:600ms;">
-                        <a href="https://discord.com/users/860384146778226699" target="_blank" class="social-link"><i
-                                class="fa-brands fa-discord"></i></a>
-                        <a href="https://github.com/itszubariel" target="_blank" class="social-link"><i
-                                class="fa-brands fa-github"></i></a>
-                        <a href="https://x.com/itszubariel" target="_blank" class="social-link"><i
-                                class="fa-brands fa-twitter"></i></a>
-                        <a href="https://www.youtube.com/channel/UCfzevkQDWFTmAo07B0rR9Jw" target="_blank"
-                            class="social-link"><i class="fa-brands fa-youtube"></i></a>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-2 order-1 lg:order-2 flex justify-center lg:justify-end animate-scale-in"
-                    style="animation-delay:500ms;">
-                    <div class="profile-ring">
-                        <img src="/images/1pfp.jpg" alt="Zubariel's Profile">
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- ── ABOUT ── -->
-        <section id="about" class="py-24">
-            <h2 class="section-title animated-element">About Me</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                <div class="glass-card animated-element">
-                    <h3><i class="fa-solid fa-user"></i>Personal Info</h3>
-                    <ul style="color:var(--text-secondary);" class="space-y-2 text-sm list-disc list-inside">
-                        <li><span style="color:var(--text-primary); font-weight:600;">Ethnicity:</span> Asian <i
-                                class="fa-solid fa-earth-asia" style="color:var(--text-muted);"></i></li>
-                        <li><span style="color:var(--text-primary); font-weight:600;">Height:</span> 187.96 cm · 6'2"
-                        </li>
-                        <li><span style="color:var(--text-primary); font-weight:600;">Weight:</span> 169.75 lbs · 77 kg
-                        </li>
-                        <li><span style="color:var(--text-primary); font-weight:600;">Birthday:</span> 200*-07-08</li>
-                        <li><span style="color:var(--text-primary); font-weight:600;">Location:</span> Somewhere in Asia
-                        </li>
-                        <li><span style="color:var(--text-primary); font-weight:600;">Languages:</span> English &amp;
-                            others</li>
-                    </ul>
-                </div>
-
-                <div class="glass-card animated-element">
-                    <h3><i class="fa-solid fa-dumbbell"></i>Workout Status</h3>
-                    <ul style="color:var(--text-secondary);" class="space-y-2 text-sm list-disc list-inside">
-                        <li>Currently on a bulk (high carbs)</li>
-                        <li><span style="color:var(--text-primary); font-weight:600;">Water Intake:</span> 5L</li>
-                        <li><span style="color:var(--text-primary); font-weight:600;">Protein Intake:</span> ~160g</li>
-                        <li><span style="color:var(--text-primary); font-weight:600;">Split:</span> Push / Pull / Leg
-                            (6×/wk)</li>
-                        <li><span style="color:var(--text-primary); font-weight:600;">Supplements:</span> Creatine
-                            Monohydrate</li>
-                    </ul>
-                </div>
-
-                <div class="glass-card animated-element">
-                    <h3><i class="fa-solid fa-graduation-cap"></i>Qualifications</h3>
-                    <ul style="color:var(--text-secondary);" class="space-y-2 text-sm list-disc list-inside">
-                        <li>Grade 12th | Computer Science</li>
-                        <li>Developer at <span style="color:var(--text-primary); font-weight:600;">Auora HQ</span></li>
-                        <li>Freelance Web / App Developer</li>
-                        <li>3+ years of coding experience</li>
-                        <li>Self-taught, project-driven learning</li>
-                    </ul>
-                </div>
-
-                <div class="glass-card animated-element">
-                    <h3><i class="fa-solid fa-heart"></i>Favorites</h3>
-                    <ul style="color:var(--text-secondary);" class="space-y-2 text-sm list-disc list-inside">
-                        <li>Music: Pop, Indie, Acoustic</li>
-                        <li>Watching anime &amp; reading manga</li>
-                        <li>Building Discord bots &amp; coding</li>
-                        <li>Exploring new frameworks</li>
-                        <li>Gaming &amp; Travelling</li>
-                    </ul>
-                </div>
-
-                <div class="glass-card animated-element">
-                    <h3><i class="fa-solid fa-screwdriver-wrench"></i>Skills</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between text-xs mb-1.5" style="color:var(--text-secondary);">
-                                <span style="color:var(--text-primary); font-weight:600;">Web Development</span>
-                                <span style="color:var(--accent-light);">94%</span>
-                            </div>
-                            <div class="progress-container">
-                                <div class="progress-bar" data-width="94%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-xs mb-1.5" style="color:var(--text-secondary);">
-                                <span style="color:var(--text-primary); font-weight:600;">Bot Development</span>
-                                <span style="color:var(--accent-light);">86%</span>
-                            </div>
-                            <div class="progress-container">
-                                <div class="progress-bar" data-width="86%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-xs mb-1.5" style="color:var(--text-secondary);">
-                                <span style="color:var(--text-primary); font-weight:600;">Database Management</span>
-                                <span style="color:var(--accent-light);">47%</span>
-                            </div>
-                            <div class="progress-container">
-                                <div class="progress-bar" data-width="47%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-xs mb-1.5" style="color:var(--text-secondary);">
-                                <span style="color:var(--text-primary); font-weight:600;">App Development</span>
-                                <span style="color:var(--accent-light);">25%</span>
-                            </div>
-                            <div class="progress-container">
-                                <div class="progress-bar" data-width="25%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-card animated-element">
-                    <h3><i class="fa-solid fa-globe"></i>Languages &amp; Tech</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tech-tag"><i class="fa-brands fa-html5" style="color:#f97316;"></i> HTML5</span>
-                        <span class="tech-tag"><i class="fa-brands fa-css3-alt" style="color:#3b82f6;"></i> CSS3</span>
-                        <span class="tech-tag"><i class="fa-brands fa-js" style="color:#facc15;"></i> JavaScript</span>
-                        <span class="tech-tag"><i class="fa-solid fa-code" style="color:#60a5fa;"></i> TypeScript</span>
-                        <span class="tech-tag"><i class="fa-brands fa-python" style="color:#eab308;"></i> Python</span>
-                        <span class="tech-tag"><i class="fa-solid fa-code" style="color:#818cf8;"></i> C++</span>
-                        <span class="tech-tag"><i class="fa-brands fa-react" style="color:#22d3ee;"></i> React</span>
-                        <span class="tech-tag"><i class="fa-brands fa-node-js" style="color:#22c55e;"></i>
-                            Node.js</span>
-                        <span class="tech-tag"><i class="fa-brands fa-css3-alt" style="color:#06b6d4;"></i>
-                            Tailwind</span>
-                        <span class="tech-tag"><i class="fa-brands fa-discord" style="color:#818cf8;"></i>
-                            Discord.js</span>
-                        <span class="tech-tag"><i class="fa-solid fa-leaf" style="color:#16a34a;"></i> MongoDB</span>
-                        <span class="tech-tag"><i class="fa-brands fa-git-alt" style="color:#ea580c;"></i> Git</span>
-                        <span class="tech-tag"><i class="fa-solid fa-plug" style="color:#94a3b8;"></i> REST APIs</span>
-                        <span class="tech-tag"><i class="fa-solid fa-code" style="color:#60a5fa;"></i> VS Code</span>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <hr class="section-divider">
-
-        <!-- ── PROJECTS ── -->
-        <section id="projects" class="py-24">
-            <h2 class="section-title animated-element">Featured Projects</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                <div class="project-card animated-element">
-                    <div class="img-wrap"><img src="/images/bot.png" alt="Auora Bot"></div>
-                    <div class="card-body">
-                        <p class="card-label">Application</p>
-                        <h3>Auora Bot</h3>
-                        <p>A versatile, feature-rich Discord bot designed for community management and engagement.</p>
-                        <a href="https://discord.com/application-directory/860384146778226699" target="_blank"
-                            class="btn btn-secondary mt-auto">
-                            View Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card animated-element">
-                    <div class="img-wrap"><img src="/images/auora-bot-2.png" alt="Auora Website"></div>
-                    <div class="card-body">
-                        <p class="card-label">Web Development</p>
-                        <h3>Auora's Website</h3>
-                        <p>The official landing page for the Auora ecosystem, built with modern web technologies.</p>
-                        <a href="https://www.auora.live/" target="_blank" class="btn btn-secondary mt-auto">
-                            View Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card animated-element">
-                    <div class="img-wrap"><img src="/images/linktree.png" alt="My Linktree"></div>
-                    <div class="card-body">
-                        <p class="card-label">Web Development</p>
-                        <h3>My Linktree</h3>
-                        <p>Collection of links to my Portfolio, Projects, and more.</p>
-                        <a href="https://zubariel.is-a.dev/" target="_blank" class="btn btn-secondary mt-auto">
-                            View Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card animated-element">
-                    <div class="img-wrap"><img src="/images/bdtools.png" alt="BDTools"></div>
-                    <div class="card-body">
-                        <p class="card-label">Web Application</p>
-                        <h3>BDTools</h3>
-                        <p>Collection of random Bot Designer for Discord tools.</p>
-                        <a href="https://bdtools.netlify.app/" target="_blank" class="btn btn-secondary mt-auto">
-                            View Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card animated-element">
-                    <div class="img-wrap"><img src="/images/statify.png" alt="Statify"></div>
-                    <div class="card-body">
-                        <p class="card-label">VS Code Extension</p>
-                        <h3>Statify</h3>
-                        <p>A Visual Studio Code extension
-                            that provides useful project statistics and insights directly inside your editor</p>
-                        <a href="https://marketplace.visualstudio.com/items?itemName=Zubariel.statify" target="_blank"
-                            class="btn btn-secondary mt-auto">
-                            <i class="fa-brands fa-google-play"></i> View App
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card animated-element">
-                    <div class="img-wrap"><img src="/images/hol.png" alt="Heart of Life"></div>
-                    <div class="card-body">
-                        <p class="card-label">Minecraft Mod</p>
-                        <h3>Heart of Life (HoL)</h3>
-                        <p>Adds a single-player heart progression system inspired by Lifesteal.</p>
-                        <a href="https://modrinth.com/mod/hol" target="_blank" class="btn btn-secondary mt-auto">
-                            View Project <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                        </a>
-                    </div>
-                </div>
-
+      <!-- ── HERO ── -->
+      <section
+        id="home"
+        class="hero-section min-h-[92vh] flex items-center py-24 -mx-6 px-6"
+      >
+        <div class="grid lg:grid-cols-5 gap-20 items-center w-full">
+          <div class="lg:col-span-3 order-2 lg:order-1">
+            <div
+              class="flex flex-wrap gap-2 mb-8 animate-fade-in"
+              style="animation-delay: 100ms"
+            >
+              <span class="tag-chip"
+                ><span class="dot"></span>JS · TS · PY · C++</span
+              >
+              <span class="tag-chip"
+                ><span class="dot"></span>Open to freelance</span
+              >
+              <span class="tag-chip"><span class="dot"></span>18 y/o dev</span>
             </div>
 
-            <div class="text-center mt-10">
-                <a href="/projects" target="_blank" class="btn btn-secondary">
-                    <i class="fa-solid fa-folder-open"></i> Other Projects
-                </a>
+            <p
+              class="font-mono text-xs mb-5 animate-fade-in"
+              style="
+                animation-delay: 150ms;
+                color: var(--text-muted);
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+              "
+            >
+              Hello, I'm Zubariel.
+            </p>
+
+            <h1
+              class="mb-6 animate-slide-up"
+              style="
+                animation-delay: 200ms;
+                font-family: &quot;Unbounded&quot;, sans-serif;
+                font-size: clamp(2.6rem, 6vw, 4.5rem);
+                font-weight: 800;
+                line-height: 1.05;
+                letter-spacing: -0.04em;
+              "
+            >
+              Self-Taught<br />Developer &amp;
+              <span class="gradient-text">Creator</span
+              ><span style="color: #fff">.</span>
+            </h1>
+
+            <p
+              class="mb-4 animate-slide-up"
+              style="
+                animation-delay: 300ms;
+                color: var(--text-secondary);
+                max-width: 32rem;
+                font-size: 1rem;
+                line-height: 1.75;
+              "
+            >
+              <span style="color: var(--text-primary); font-weight: 600"
+                >3+ years</span
+              >
+              of self-driven experience from Discord bots to full-stack web
+              apps. Currently mastering the MERN stack.
+            </p>
+
+            <p
+              class="mb-10 animate-slide-up"
+              style="
+                animation-delay: 380ms;
+                font-family: &quot;JetBrains Mono&quot;, monospace;
+                font-size: 0.72rem;
+                color: var(--text-muted);
+              "
+            >
+              // Bot dev · Web dev · Freelancer · Builder
+            </p>
+
+            <div
+              class="flex flex-wrap gap-3 animate-slide-up"
+              style="animation-delay: 450ms"
+            >
+              <a href="/contact" target="_blank" class="btn btn-primary">
+                <i class="fa-solid fa-paper-plane"></i> Contact Me
+              </a>
+              <a href="#projects" class="btn btn-secondary">
+                <i class="fa-solid fa-folder-open"></i> View My Work
+              </a>
             </div>
-        </section>
 
-        <hr class="section-divider">
-
-        <!-- ── TESTIMONIALS ── -->
-        <section id="testimonials" class="py-24">
-            <h2 class="section-title animated-element">What Others Say</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-
-                <div class="testimonial-card animated-element">
-                    <p style="color:var(--text-secondary); font-size:0.9rem; line-height:1.75;"
-                        class="pl-6 mb-6 italic">
-                        "Building Auora HQ alongside Zubariel has been one of the best dev experiences. His focus,
-                        adaptability, and coding finesse push our projects to the next level every time."
-                    </p>
-                    <figcaption class="flex items-center gap-3">
-                        <img src="/images/savior-pfp.png" alt="Saviour" class="w-12 h-12 rounded-full object-cover"
-                            style="border:2px solid var(--border-medium);">
-                        <div>
-                            <p style="font-weight:700; font-size:0.95rem; color:var(--text-primary);">Saviour</p>
-                            <p style="font-size:0.75rem; color:var(--text-muted);">Developer &amp; Partner at Auora HQ
-                            </p>
-                        </div>
-                    </figcaption>
-                </div>
-
-                <div class="testimonial-card animated-element">
-                    <p style="color:var(--text-secondary); font-size:0.9rem; line-height:1.75;"
-                        class="pl-6 mb-6 italic">
-                        "It's rare to find someone this young who codes with such clarity and purpose. Zubariel is a
-                        standout dev sharp instincts, fast turnarounds, and clean, scalable work."
-                    </p>
-                    <figcaption class="flex items-center gap-3">
-                        <img src="/images/kuba-pfp.png" alt="Kubastick" class="w-12 h-12 rounded-full object-cover"
-                            style="border:2px solid var(--border-medium);">
-                        <div>
-                            <a href="https://github.com/kubastick" target="_blank"
-                                style="font-weight:700; font-size:0.95rem; color:var(--text-primary);"
-                                class="hover:text-accent-light transition-colors">Kubastick</a>
-                            <p style="font-size:0.75rem; color:var(--text-muted);">Developer &amp; Client</p>
-                        </div>
-                    </figcaption>
-                </div>
-
-                <div class="testimonial-card animated-element">
-                    <p style="color:var(--text-secondary); font-size:0.9rem; line-height:1.75;"
-                        class="pl-6 mb-6 italic">
-                        "Zubariel is an incredibly talented developer with some seriously impressive projects. It's
-                        always exciting to see what he builds. Super chill and easy to vibe with."
-                    </p>
-                    <figcaption class="flex items-center gap-3">
-                        <img src="/images/stargraze-pfp.png" alt="star!" class="w-12 h-12 rounded-full object-cover"
-                            style="border:2px solid var(--border-medium);">
-                        <div>
-                            <a href="https://www.servermaker.xyz/" target="_blank"
-                                style="font-weight:700; font-size:0.95rem; color:var(--text-primary);"
-                                class="hover:text-accent-light transition-colors">star!</a>
-                            <p style="font-size:0.75rem; color:var(--text-muted);">Developer</p>
-                        </div>
-                    </figcaption>
-                </div>
-
-                <div class="testimonial-card animated-element">
-                    <p style="color:var(--text-secondary); font-size:0.9rem; line-height:1.75;"
-                        class="pl-6 mb-6 italic">
-                        "Zubariel always finds a way to make the smallest ideas pop. I just throw suggestions his way
-                        and he turns them into polished design decisions. Subtle, effective, and cool under pressure."
-                    </p>
-                    <figcaption class="flex items-center gap-3">
-                        <img src="/images/placeholder.png" alt="Cam Brown" class="w-12 h-12 rounded-full object-cover"
-                            style="border:2px solid var(--border-medium);">
-                        <div>
-                            <a href="https://github.com/cam-br0wn" target="_blank"
-                                style="font-weight:700; font-size:0.95rem; color:var(--text-primary);"
-                                class="hover:text-accent-light transition-colors">Cam Brown</a>
-                            <p style="font-size:0.75rem; color:var(--text-muted);">Designer &amp; Client</p>
-                        </div>
-                    </figcaption>
-                </div>
-
+            <div
+              class="flex items-center gap-6 mt-10 animate-fade-in"
+              style="animation-delay: 600ms"
+            >
+              <a
+                href="https://discord.com/users/860384146778226699"
+                target="_blank"
+                class="social-link"
+                ><i class="fa-brands fa-discord"></i
+              ></a>
+              <a
+                href="https://github.com/itszubariel"
+                target="_blank"
+                class="social-link"
+                ><i class="fa-brands fa-github"></i
+              ></a>
+              <a
+                href="https://x.com/itszubariel"
+                target="_blank"
+                class="social-link"
+                ><i class="fa-brands fa-twitter"></i
+              ></a>
+              <a
+                href="https://www.youtube.com/channel/UCfzevkQDWFTmAo07B0rR9Jw"
+                target="_blank"
+                class="social-link"
+                ><i class="fa-brands fa-youtube"></i
+              ></a>
             </div>
-        </section>
+          </div>
 
-        <hr class="section-divider">
-
-        <!-- ── INTERESTS ── -->
-        <section id="interests" class="py-24">
-            <h2 class="section-title animated-element">Interests &amp; Hobbies</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-
-                <!-- Anime Graph -->
-                <div class="glass-card animated-element">
-                    <h3><i class="fa-solid fa-tv"></i>Anime &amp; Manga Ratings</h3>
-                    <p style="color:var(--text-secondary); font-size:0.82rem; margin-bottom:1.25rem;">
-                        Top picks: <span style="color:var(--text-primary); font-weight:600;">Bleach</span>,
-                        <span style="color:var(--text-primary); font-weight:600;">Code Geass</span>,
-                        <span style="color:var(--text-primary); font-weight:600;">Vinland Saga</span>.
-                        Huge fan of Seinen, thrillers, and historical epics.
-                    </p>
-                    <div class="h-[260px] md:h-[280px]"><canvas id="myChart"></canvas></div>
-                </div>
-
-                <!-- Music -->
-                <div class="glass-card animated-element">
-                    <h3><i class="fa-brands fa-spotify" style="color:#1db954;"></i>Coding Soundtrack</h3>
-                    <p style="color:var(--text-secondary); font-size:0.82rem; margin-bottom:1.25rem;">
-                        Music is my fuel. Lo-fi, rock, pop, and OSTs. Artists:
-                        <span style="color:var(--text-primary); font-weight:600;">James Arthur</span>,
-                        <span style="color:var(--text-primary); font-weight:600;">Radiohead</span>.
-                    </p>
-                    <div class="space-y-2.5">
-                        <iframe style="border-radius:12px;"
-                            src="https://open.spotify.com/embed/track/1fDFHXcykq4iw8Gg7s5hG9?utm_source=generator&theme=0"
-                            width="100%" height="80" frameborder="0" loading="lazy" allowfullscreen></iframe>
-                        <iframe style="border-radius:12px;"
-                            src="https://open.spotify.com/embed/track/6Uwi2Qk3H7fM4b4W4ExrAp?utm_source=generator&theme=0"
-                            width="100%" height="80" frameborder="0" loading="lazy" allowfullscreen></iframe>
-                        <iframe style="border-radius:12px;"
-                            src="https://open.spotify.com/embed/track/3QaPy1KgI7nu9FJEQUgn6h?utm_source=generator&theme=0"
-                            width="100%" height="80" frameborder="0" loading="lazy" allowfullscreen></iframe>
-                        <iframe style="border-radius:12px;"
-                            src="https://open.spotify.com/embed/track/46tfxn5lP7Qsbz7NHsj9iu?utm_source=generator&theme=0"
-                            width="100%" height="80" frameborder="0" loading="lazy" allowfullscreen></iframe>
-                    </div>
-                </div>
-
-                <div class="glass-card animated-element">
-                    <h3><i class="fa-solid fa-gamepad"></i>Gaming</h3>
-                    <ul style="color:var(--text-secondary);" class="space-y-2 text-sm list-disc list-inside">
-                        <li><span style="color:var(--text-primary); font-weight:600;">Genres:</span> RPG, Souls-like,
-                            Open World</li>
-                        <li><span style="color:var(--text-primary); font-weight:600;">All-Time Faves:</span> Minecraft,
-                            GOW, RDR2</li>
-                        <li><span style="color:var(--text-primary); font-weight:600;">Competitive:</span> Valorant, COD
-                        </li>
-                        <li>Fascinated by game design &amp; storytelling.</li>
-                    </ul>
-                </div>
-
-                <div class="glass-card animated-element">
-                    <h3><i class="fa-solid fa-mask"></i>MCU</h3>
-                    <ul style="color:var(--text-secondary);" class="space-y-2 text-sm list-disc list-inside">
-                        <li><span style="color:var(--text-primary); font-weight:600;">Fave Characters:</span> Loki, Moon
-                            Knight</li>
-                        <li><span style="color:var(--text-primary); font-weight:600;">Top Films:</span> Infinity War,
-                            Endgame, D&amp;W</li>
-                        <li><span style="color:var(--text-primary); font-weight:600;">Top Series:</span> Loki, Moon
-                            Knight, What If?</li>
-                        <li>Appreciate the world-building &amp; character arcs.</li>
-                    </ul>
-                </div>
-
+          <div
+            class="lg:col-span-2 order-1 lg:order-2 flex justify-center lg:justify-end animate-scale-in"
+            style="animation-delay: 500ms"
+          >
+            <div class="profile-ring">
+              <img src="/images/1pfp.jpg" alt="Zubariel's Profile" />
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <hr class="section-divider">
+      <!-- ── ABOUT ── -->
+      <section id="about" class="py-24">
+        <h2 class="section-title animated-element">About Me</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="glass-card animated-element">
+            <h3><i class="fa-solid fa-user"></i>Personal Info</h3>
+            <ul
+              style="color: var(--text-secondary)"
+              class="space-y-2 text-sm list-disc list-inside"
+            >
+              <li>
+                <span style="color: var(--text-primary); font-weight: 600"
+                  >Ethnicity:</span
+                >
+                Asian
+                <i
+                  class="fa-solid fa-earth-asia"
+                  style="color: var(--text-muted)"
+                ></i>
+              </li>
+              <li>
+                <span style="color: var(--text-primary); font-weight: 600"
+                  >Height:</span
+                >
+                187.96 cm · 6'2"
+              </li>
+              <li>
+                <span style="color: var(--text-primary); font-weight: 600"
+                  >Weight:</span
+                >
+                169.75 lbs · 77 kg
+              </li>
+              <li>
+                <span style="color: var(--text-primary); font-weight: 600"
+                  >Birthday:</span
+                >
+                200*-07-08
+              </li>
+              <li>
+                <span style="color: var(--text-primary); font-weight: 600"
+                  >Location:</span
+                >
+                Somewhere in Asia
+              </li>
+              <li>
+                <span style="color: var(--text-primary); font-weight: 600"
+                  >Languages:</span
+                >
+                English &amp; others
+              </li>
+            </ul>
+          </div>
 
-        <!-- ── THANKS ── -->
-        <section id="thanks" class="py-24">
-            <h2 class="section-title animated-element">Special Thanks</h2>
-            <div class="grid md:grid-cols-2 gap-6">
+          <div class="glass-card animated-element">
+            <h3><i class="fa-solid fa-dumbbell"></i>Workout Status</h3>
+            <ul
+              style="color: var(--text-secondary)"
+              class="space-y-2 text-sm list-disc list-inside"
+            >
+              <li>Currently on a bulk (high carbs)</li>
+              <li>
+                <span style="color: var(--text-primary); font-weight: 600"
+                  >Water Intake:</span
+                >
+                5L
+              </li>
+              <li>
+                <span style="color: var(--text-primary); font-weight: 600"
+                  >Protein Intake:</span
+                >
+                ~160g
+              </li>
+              <li>
+                <span style="color: var(--text-primary); font-weight: 600"
+                  >Split:</span
+                >
+                Push / Pull / Leg (6×/wk)
+              </li>
+              <li>
+                <span style="color: var(--text-primary); font-weight: 600"
+                  >Supplements:</span
+                >
+                Creatine Monohydrate
+              </li>
+            </ul>
+          </div>
 
-                <div class="glass-card animated-element">
-                    <h3><i class="fa-solid fa-hands-holding-heart"></i>To My Supporters</h3>
-                    <p style="color:var(--text-secondary); font-size:0.85rem; margin-bottom:1rem;">
-                        A huge thank you to everyone who has supported me on this journey. Your encouragement and
-                        feedback mean the world.
-                    </p>
-                    <ul style="color:var(--text-secondary);" class="space-y-2 text-sm list-disc list-inside">
-                        <li>Friends and family for always believing in me.</li>
-                        <li>Mentors who guided me through challenges.</li>
-                        <li>Community members who provided invaluable feedback.</li>
-                        <li>Devs and designers who have inspired me along the way.</li>
-                    </ul>
+          <div class="glass-card animated-element">
+            <h3><i class="fa-solid fa-graduation-cap"></i>Qualifications</h3>
+            <ul
+              style="color: var(--text-secondary)"
+              class="space-y-2 text-sm list-disc list-inside"
+            >
+              <li>Grade 12th | Computer Science</li>
+              <li>
+                Developer at
+                <span style="color: var(--text-primary); font-weight: 600"
+                  >Auora HQ</span
+                >
+              </li>
+              <li>Freelance Web / App Developer</li>
+              <li>3+ years of coding experience</li>
+              <li>Self-taught, project-driven learning</li>
+            </ul>
+          </div>
+
+          <div class="glass-card animated-element">
+            <h3><i class="fa-solid fa-heart"></i>Favorites</h3>
+            <ul
+              style="color: var(--text-secondary)"
+              class="space-y-2 text-sm list-disc list-inside"
+            >
+              <li>Music: Pop, Indie, Acoustic</li>
+              <li>Watching anime &amp; reading manga</li>
+              <li>Building Discord bots &amp; coding</li>
+              <li>Exploring new frameworks</li>
+              <li>Gaming &amp; Travelling</li>
+            </ul>
+          </div>
+
+          <div class="glass-card animated-element">
+            <h3><i class="fa-solid fa-screwdriver-wrench"></i>Skills</h3>
+            <div class="space-y-4">
+              <div>
+                <div
+                  class="flex justify-between text-xs mb-1.5"
+                  style="color: var(--text-secondary)"
+                >
+                  <span style="color: var(--text-primary); font-weight: 600"
+                    >Web Development</span
+                  >
+                  <span style="color: var(--accent-light)">94%</span>
                 </div>
-
-                <div class="glass-card animated-element">
-                    <h3><i class="fa-solid fa-people-group"></i>To My Collaborators</h3>
-                    <p style="color:var(--text-secondary); font-size:0.85rem; margin-bottom:1rem;">
-                        A special shoutout to those I've worked with on various projects.
-                    </p>
-                    <ul style="color:var(--text-secondary);" class="space-y-2 text-sm list-disc list-inside">
-                        <li>Saviour — amazing partner at Auora HQ.</li>
-                        <li>Dark — for your insights and support.</li>
-                        <li><a href="https://servermaker.xyz/developer" style="color:var(--accent-light);"
-                                class="hover:underline">Star!</a> for your creative input and ideas.</li>
-                        <li>Cam Brown — design expertise and collaboration.</li>
-                    </ul>
+                <div class="progress-container">
+                  <div class="progress-bar" data-width="94%"></div>
                 </div>
-
+              </div>
+              <div>
+                <div
+                  class="flex justify-between text-xs mb-1.5"
+                  style="color: var(--text-secondary)"
+                >
+                  <span style="color: var(--text-primary); font-weight: 600"
+                    >Bot Development</span
+                  >
+                  <span style="color: var(--accent-light)">86%</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar" data-width="86%"></div>
+                </div>
+              </div>
+              <div>
+                <div
+                  class="flex justify-between text-xs mb-1.5"
+                  style="color: var(--text-secondary)"
+                >
+                  <span style="color: var(--text-primary); font-weight: 600"
+                    >Database Management</span
+                  >
+                  <span style="color: var(--accent-light)">47%</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar" data-width="47%"></div>
+                </div>
+              </div>
+              <div>
+                <div
+                  class="flex justify-between text-xs mb-1.5"
+                  style="color: var(--text-secondary)"
+                >
+                  <span style="color: var(--text-primary); font-weight: 600"
+                    >App Development</span
+                  >
+                  <span style="color: var(--accent-light)">25%</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar" data-width="25%"></div>
+                </div>
+              </div>
             </div>
-        </section>
+          </div>
 
+          <div class="glass-card animated-element">
+            <h3><i class="fa-solid fa-globe"></i>Languages &amp; Tech</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="tech-tag"
+                ><i class="fa-brands fa-html5" style="color: #f97316"></i>
+                HTML5</span
+              >
+              <span class="tech-tag"
+                ><i class="fa-brands fa-css3-alt" style="color: #3b82f6"></i>
+                CSS3</span
+              >
+              <span class="tech-tag"
+                ><i class="fa-brands fa-js" style="color: #facc15"></i>
+                JavaScript</span
+              >
+              <span class="tech-tag"
+                ><i class="fa-solid fa-code" style="color: #60a5fa"></i>
+                TypeScript</span
+              >
+              <span class="tech-tag"
+                ><i class="fa-brands fa-python" style="color: #eab308"></i>
+                Python</span
+              >
+              <span class="tech-tag"
+                ><i class="fa-solid fa-code" style="color: #818cf8"></i>
+                C++</span
+              >
+              <span class="tech-tag"
+                ><i class="fa-brands fa-react" style="color: #22d3ee"></i>
+                React</span
+              >
+              <span class="tech-tag"
+                ><i class="fa-brands fa-node-js" style="color: #22c55e"></i>
+                Node.js</span
+              >
+              <span class="tech-tag"
+                ><i class="fa-brands fa-css3-alt" style="color: #06b6d4"></i>
+                Tailwind</span
+              >
+              <span class="tech-tag"
+                ><i class="fa-brands fa-discord" style="color: #818cf8"></i>
+                Discord.js</span
+              >
+              <span class="tech-tag"
+                ><i class="fa-solid fa-leaf" style="color: #16a34a"></i>
+                MongoDB</span
+              >
+              <span class="tech-tag"
+                ><i class="fa-brands fa-git-alt" style="color: #ea580c"></i>
+                Git</span
+              >
+              <span class="tech-tag"
+                ><i class="fa-solid fa-plug" style="color: #94a3b8"></i> REST
+                APIs</span
+              >
+              <span class="tech-tag"
+                ><i class="fa-solid fa-code" style="color: #60a5fa"></i> VS
+                Code</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-divider" />
+
+      <!-- ── PROJECTS ── -->
+      <section id="projects" class="py-24">
+        <h2 class="section-title animated-element">Featured Projects</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="project-card animated-element">
+            <div class="img-wrap">
+              <img src="/images/bot.png" alt="Auora Bot" />
+            </div>
+            <div class="card-body">
+              <p class="card-label">Application</p>
+              <h3>Auora Bot</h3>
+              <p>
+                A versatile, feature-rich Discord bot designed for community
+                management and engagement.
+              </p>
+              <a
+                href="https://discord.com/application-directory/860384146778226699"
+                target="_blank"
+                class="btn btn-secondary mt-auto"
+              >
+                View Project
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-card animated-element">
+            <div class="img-wrap">
+              <img src="/images/auora-bot-2.png" alt="Auora Website" />
+            </div>
+            <div class="card-body">
+              <p class="card-label">Web Development</p>
+              <h3>Auora's Website</h3>
+              <p>
+                The official landing page for the Auora ecosystem, built with
+                modern web technologies.
+              </p>
+              <a
+                href="https://www.auora.live/"
+                target="_blank"
+                class="btn btn-secondary mt-auto"
+              >
+                View Project
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-card animated-element">
+            <div class="img-wrap">
+              <img src="/images/linktree.png" alt="My Linktree" />
+            </div>
+            <div class="card-body">
+              <p class="card-label">Web Development</p>
+              <h3>My Linktree</h3>
+              <p>Collection of links to my Portfolio, Projects, and more.</p>
+              <a
+                href="https://zubariel.is-a.dev/"
+                target="_blank"
+                class="btn btn-secondary mt-auto"
+              >
+                View Project
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-card animated-element">
+            <div class="img-wrap">
+              <img src="/images/bdtools.png" alt="BDTools" />
+            </div>
+            <div class="card-body">
+              <p class="card-label">Web Application</p>
+              <h3>BDTools</h3>
+              <p>Collection of random Bot Designer for Discord tools.</p>
+              <a
+                href="https://bdtools.netlify.app/"
+                target="_blank"
+                class="btn btn-secondary mt-auto"
+              >
+                View Project
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-card animated-element">
+            <div class="img-wrap">
+              <img src="/images/statify.png" alt="Statify" />
+            </div>
+            <div class="card-body">
+              <p class="card-label">VS Code Extension</p>
+              <h3>Statify</h3>
+              <p>
+                A Visual Studio Code extension that provides useful project
+                statistics and insights directly inside your editor
+              </p>
+              <a
+                href="https://marketplace.visualstudio.com/items?itemName=Zubariel.statify"
+                target="_blank"
+                class="btn btn-secondary mt-auto"
+              >
+                <i class="fa-brands fa-google-play"></i> View App
+              </a>
+            </div>
+          </div>
+
+          <div class="project-card animated-element">
+            <div class="img-wrap">
+              <img src="/images/hol.png" alt="Heart of Life" />
+            </div>
+            <div class="card-body">
+              <p class="card-label">Minecraft Mod</p>
+              <h3>Heart of Life (HoL)</h3>
+              <p>
+                Adds a single-player heart progression system inspired by
+                Lifesteal.
+              </p>
+              <a
+                href="https://modrinth.com/mod/hol"
+                target="_blank"
+                class="btn btn-secondary mt-auto"
+              >
+                View Project
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-10">
+          <a href="/projects" target="_blank" class="btn btn-secondary">
+            <i class="fa-solid fa-folder-open"></i> Other Projects
+          </a>
+        </div>
+      </section>
+
+      <hr class="section-divider" />
+
+      <!-- ── TESTIMONIALS ── -->
+      <section id="testimonials" class="py-24">
+        <h2 class="section-title animated-element">What Others Say</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="testimonial-card animated-element">
+            <p
+              style="
+                color: var(--text-secondary);
+                font-size: 0.9rem;
+                line-height: 1.75;
+              "
+              class="pl-6 mb-6 italic"
+            >
+              "Building Auora HQ alongside Zubariel has been one of the best dev
+              experiences. His focus, adaptability, and coding finesse push our
+              projects to the next level every time."
+            </p>
+            <figcaption class="flex items-center gap-3">
+              <img
+                src="/images/savior-pfp.png"
+                alt="Saviour"
+                class="w-12 h-12 rounded-full object-cover"
+                style="border: 2px solid var(--border-medium)"
+              />
+              <div>
+                <p
+                  style="
+                    font-weight: 700;
+                    font-size: 0.95rem;
+                    color: var(--text-primary);
+                  "
+                >
+                  Saviour
+                </p>
+                <p style="font-size: 0.75rem; color: var(--text-muted)">
+                  Developer &amp; Partner at Auora HQ
+                </p>
+              </div>
+            </figcaption>
+          </div>
+
+          <div class="testimonial-card animated-element">
+            <p
+              style="
+                color: var(--text-secondary);
+                font-size: 0.9rem;
+                line-height: 1.75;
+              "
+              class="pl-6 mb-6 italic"
+            >
+              "It's rare to find someone this young who codes with such clarity
+              and purpose. Zubariel is a standout dev sharp instincts, fast
+              turnarounds, and clean, scalable work."
+            </p>
+            <figcaption class="flex items-center gap-3">
+              <img
+                src="/images/kuba-pfp.png"
+                alt="Kubastick"
+                class="w-12 h-12 rounded-full object-cover"
+                style="border: 2px solid var(--border-medium)"
+              />
+              <div>
+                <a
+                  href="https://github.com/kubastick"
+                  target="_blank"
+                  style="
+                    font-weight: 700;
+                    font-size: 0.95rem;
+                    color: var(--text-primary);
+                  "
+                  class="hover:text-accent-light transition-colors"
+                  >Kubastick</a
+                >
+                <p style="font-size: 0.75rem; color: var(--text-muted)">
+                  Developer &amp; Client
+                </p>
+              </div>
+            </figcaption>
+          </div>
+
+          <div class="testimonial-card animated-element">
+            <p
+              style="
+                color: var(--text-secondary);
+                font-size: 0.9rem;
+                line-height: 1.75;
+              "
+              class="pl-6 mb-6 italic"
+            >
+              "Zubariel is an incredibly talented developer with some seriously
+              impressive projects. It's always exciting to see what he builds.
+              Super chill and easy to vibe with."
+            </p>
+            <figcaption class="flex items-center gap-3">
+              <img
+                src="/images/stargraze-pfp.png"
+                alt="star!"
+                class="w-12 h-12 rounded-full object-cover"
+                style="border: 2px solid var(--border-medium)"
+              />
+              <div>
+                <a
+                  href="https://www.servermaker.xyz/"
+                  target="_blank"
+                  style="
+                    font-weight: 700;
+                    font-size: 0.95rem;
+                    color: var(--text-primary);
+                  "
+                  class="hover:text-accent-light transition-colors"
+                  >star!</a
+                >
+                <p style="font-size: 0.75rem; color: var(--text-muted)">
+                  Developer
+                </p>
+              </div>
+            </figcaption>
+          </div>
+
+          <div class="testimonial-card animated-element">
+            <p
+              style="
+                color: var(--text-secondary);
+                font-size: 0.9rem;
+                line-height: 1.75;
+              "
+              class="pl-6 mb-6 italic"
+            >
+              "Zubariel always finds a way to make the smallest ideas pop. I
+              just throw suggestions his way and he turns them into polished
+              design decisions. Subtle, effective, and cool under pressure."
+            </p>
+            <figcaption class="flex items-center gap-3">
+              <img
+                src="/images/placeholder.png"
+                alt="Cam Brown"
+                class="w-12 h-12 rounded-full object-cover"
+                style="border: 2px solid var(--border-medium)"
+              />
+              <div>
+                <a
+                  href="https://github.com/cam-br0wn"
+                  target="_blank"
+                  style="
+                    font-weight: 700;
+                    font-size: 0.95rem;
+                    color: var(--text-primary);
+                  "
+                  class="hover:text-accent-light transition-colors"
+                  >Cam Brown</a
+                >
+                <p style="font-size: 0.75rem; color: var(--text-muted)">
+                  Designer &amp; Client
+                </p>
+              </div>
+            </figcaption>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-divider" />
+
+      <!-- ── INTERESTS ── -->
+      <section id="interests" class="py-24">
+        <h2 class="section-title animated-element">Interests &amp; Hobbies</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Anime Graph -->
+          <div class="glass-card animated-element">
+            <h3><i class="fa-solid fa-tv"></i>Anime &amp; Manga Ratings</h3>
+            <p
+              style="
+                color: var(--text-secondary);
+                font-size: 0.82rem;
+                margin-bottom: 1.25rem;
+              "
+            >
+              Top picks:
+              <span style="color: var(--text-primary); font-weight: 600"
+                >Bleach</span
+              >,
+              <span style="color: var(--text-primary); font-weight: 600"
+                >Code Geass</span
+              >,
+              <span style="color: var(--text-primary); font-weight: 600"
+                >Vinland Saga</span
+              >. Huge fan of Seinen, thrillers, and historical epics.
+            </p>
+            <div class="h-[260px] md:h-[280px]">
+              <canvas id="myChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Music -->
+          <div class="glass-card animated-element">
+            <h3>
+              <i class="fa-brands fa-spotify" style="color: #1db954"></i>Coding
+              Soundtrack
+            </h3>
+            <p
+              style="
+                color: var(--text-secondary);
+                font-size: 0.82rem;
+                margin-bottom: 1.25rem;
+              "
+            >
+              Music is my fuel. Lo-fi, rock, pop, and OSTs. Artists:
+              <span style="color: var(--text-primary); font-weight: 600"
+                >James Arthur</span
+              >,
+              <span style="color: var(--text-primary); font-weight: 600"
+                >Radiohead</span
+              >.
+            </p>
+            <div class="space-y-2.5">
+              <iframe
+                style="border-radius: 12px"
+                src="https://open.spotify.com/embed/track/1fDFHXcykq4iw8Gg7s5hG9?utm_source=generator&theme=0"
+                width="100%"
+                height="80"
+                frameborder="0"
+                loading="lazy"
+                allowfullscreen
+              ></iframe>
+              <iframe
+                style="border-radius: 12px"
+                src="https://open.spotify.com/embed/track/6Uwi2Qk3H7fM4b4W4ExrAp?utm_source=generator&theme=0"
+                width="100%"
+                height="80"
+                frameborder="0"
+                loading="lazy"
+                allowfullscreen
+              ></iframe>
+              <iframe
+                style="border-radius: 12px"
+                src="https://open.spotify.com/embed/track/3QaPy1KgI7nu9FJEQUgn6h?utm_source=generator&theme=0"
+                width="100%"
+                height="80"
+                frameborder="0"
+                loading="lazy"
+                allowfullscreen
+              ></iframe>
+              <iframe
+                style="border-radius: 12px"
+                src="https://open.spotify.com/embed/track/46tfxn5lP7Qsbz7NHsj9iu?utm_source=generator&theme=0"
+                width="100%"
+                height="80"
+                frameborder="0"
+                loading="lazy"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+
+          <div class="glass-card animated-element">
+            <h3><i class="fa-solid fa-gamepad"></i>Gaming</h3>
+            <ul
+              style="color: var(--text-secondary)"
+              class="space-y-2 text-sm list-disc list-inside"
+            >
+              <li>
+                <span style="color: var(--text-primary); font-weight: 600"
+                  >Genres:</span
+                >
+                RPG, Souls-like, Open World
+              </li>
+              <li>
+                <span style="color: var(--text-primary); font-weight: 600"
+                  >All-Time Faves:</span
+                >
+                Minecraft, GOW, RDR2
+              </li>
+              <li>
+                <span style="color: var(--text-primary); font-weight: 600"
+                  >Competitive:</span
+                >
+                Valorant, COD
+              </li>
+              <li>Fascinated by game design &amp; storytelling.</li>
+            </ul>
+          </div>
+
+          <div class="glass-card animated-element">
+            <h3><i class="fa-solid fa-mask"></i>MCU</h3>
+            <ul
+              style="color: var(--text-secondary)"
+              class="space-y-2 text-sm list-disc list-inside"
+            >
+              <li>
+                <span style="color: var(--text-primary); font-weight: 600"
+                  >Fave Characters:</span
+                >
+                Loki, Moon Knight
+              </li>
+              <li>
+                <span style="color: var(--text-primary); font-weight: 600"
+                  >Top Films:</span
+                >
+                Infinity War, Endgame, D&amp;W
+              </li>
+              <li>
+                <span style="color: var(--text-primary); font-weight: 600"
+                  >Top Series:</span
+                >
+                Loki, Moon Knight, What If?
+              </li>
+              <li>Appreciate the world-building &amp; character arcs.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-divider" />
+
+      <!-- ── THANKS ── -->
+      <section id="thanks" class="py-24">
+        <h2 class="section-title animated-element">Special Thanks</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="glass-card animated-element">
+            <h3>
+              <i class="fa-solid fa-hands-holding-heart"></i>To My Supporters
+            </h3>
+            <p
+              style="
+                color: var(--text-secondary);
+                font-size: 0.85rem;
+                margin-bottom: 1rem;
+              "
+            >
+              A huge thank you to everyone who has supported me on this journey.
+              Your encouragement and feedback mean the world.
+            </p>
+            <ul
+              style="color: var(--text-secondary)"
+              class="space-y-2 text-sm list-disc list-inside"
+            >
+              <li>Friends and family for always believing in me.</li>
+              <li>Mentors who guided me through challenges.</li>
+              <li>Community members who provided invaluable feedback.</li>
+              <li>Devs and designers who have inspired me along the way.</li>
+            </ul>
+          </div>
+
+          <div class="glass-card animated-element">
+            <h3><i class="fa-solid fa-people-group"></i>To My Collaborators</h3>
+            <p
+              style="
+                color: var(--text-secondary);
+                font-size: 0.85rem;
+                margin-bottom: 1rem;
+              "
+            >
+              A special shoutout to those I've worked with on various projects.
+            </p>
+            <ul
+              style="color: var(--text-secondary)"
+              class="space-y-2 text-sm list-disc list-inside"
+            >
+              <li>Saviour — amazing partner at Auora HQ.</li>
+              <li>Dark — for your insights and support.</li>
+              <li>
+                <a
+                  href="https://servermaker.xyz/developer"
+                  style="color: var(--accent-light)"
+                  class="hover:underline"
+                  >Star!</a
+                >
+                for your creative input and ideas.
+              </li>
+              <li>Cam Brown — design expertise and collaboration.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- ── FOOTER ── -->
-    <footer style="border-top:1px solid var(--border-subtle); margin-top:4rem;">
-        <div class="max-w-7xl mx-auto px-6 py-16 text-center">
-            <h3 class="gradient-text"
-                style="font-family:'Unbounded',sans-serif; font-size:2rem; font-weight:800; letter-spacing:-0.03em; margin-bottom:0.75rem;">
-                Let's Connect
-            </h3>
-            <p style="color:var(--text-secondary); max-width:26rem; margin:0 auto 2.5rem; font-size:0.95rem;">
-                Have a project, a question, or just want to say hi? My inbox is always open.
-            </p>
-            <div class="flex justify-center gap-7 mb-8">
-                <a href="https://discord.com/users/860384146778226699" target="_blank" class="social-link"><i
-                        class="fa-brands fa-discord"></i></a>
-                <a href="https://github.com/itszubariel" target="_blank" class="social-link"><i
-                        class="fa-brands fa-github"></i></a>
-                <a href="https://x.com/itszubariel" target="_blank" class="social-link"><i
-                        class="fa-brands fa-twitter"></i></a>
-                <a href="https://www.youtube.com/channel/UCfzevkQDWFTmAo07B0rR9Jw" target="_blank"
-                    class="social-link"><i class="fa-brands fa-youtube"></i></a>
-            </div>
-            <a href="/contact" target="_blank" class="btn btn-primary mb-12">
-                <i class="fa-solid fa-paper-plane"></i> Get In Touch
-            </a>
-            <p
-                style="font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--text-muted); margin-top:2.5rem;">
-                © Zubariel 2023–2026. All rights reserved.
-            </p>
+    <footer
+      style="border-top: 1px solid var(--border-subtle); margin-top: 4rem"
+    >
+      <div class="max-w-7xl mx-auto px-6 py-16 text-center">
+        <h3
+          class="gradient-text"
+          style="
+            font-family: &quot;Unbounded&quot;, sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.75rem;
+          "
+        >
+          Let's Connect
+        </h3>
+        <p
+          style="
+            color: var(--text-secondary);
+            max-width: 26rem;
+            margin: 0 auto 2.5rem;
+            font-size: 0.95rem;
+          "
+        >
+          Have a project, a question, or just want to say hi? My inbox is always
+          open.
+        </p>
+        <div class="flex justify-center gap-7 mb-8">
+          <a
+            href="https://discord.com/users/860384146778226699"
+            target="_blank"
+            class="social-link"
+            ><i class="fa-brands fa-discord"></i
+          ></a>
+          <a
+            href="https://github.com/itszubariel"
+            target="_blank"
+            class="social-link"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+          <a
+            href="https://x.com/itszubariel"
+            target="_blank"
+            class="social-link"
+            ><i class="fa-brands fa-twitter"></i
+          ></a>
+          <a
+            href="https://www.youtube.com/channel/UCfzevkQDWFTmAo07B0rR9Jw"
+            target="_blank"
+            class="social-link"
+            ><i class="fa-brands fa-youtube"></i
+          ></a>
         </div>
+        <a href="/contact" target="_blank" class="btn btn-primary mb-12">
+          <i class="fa-solid fa-paper-plane"></i> Get In Touch
+        </a>
+        <p
+          style="
+            font-family: &quot;JetBrains Mono&quot;, monospace;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-top: 2.5rem;
+          "
+        >
+          © Zubariel 2023–2026. All rights reserved.
+        </p>
+      </div>
     </footer>
 
     <script>
-        // Mobile nav
-        const hamburgerBtn = document.getElementById('hamburgerBtn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        hamburgerBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-        document.querySelectorAll('#mobile-menu a').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+      // Mobile nav
+      const hamburgerBtn = document.getElementById("hamburgerBtn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      hamburgerBtn.addEventListener("click", () =>
+        mobileMenu.classList.toggle("hidden"),
+      );
+      document
+        .querySelectorAll("#mobile-menu a")
+        .forEach((l) =>
+          l.addEventListener("click", () => mobileMenu.classList.add("hidden")),
+        );
 
-        // Scroll animations + progress bars
-        document.addEventListener("DOMContentLoaded", () => {
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach((entry, i) => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.transitionDelay = `${i * 80}ms`;
-                        entry.target.classList.add('visible');
-                        entry.target.querySelectorAll('.progress-bar').forEach(bar => {
-                            bar.style.width = bar.getAttribute('data-width');
-                        });
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.08 });
-            document.querySelectorAll('.animated-element').forEach(el => observer.observe(el));
-        });
+      // Scroll animations + progress bars
+      document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry, i) => {
+              if (entry.isIntersecting) {
+                entry.target.style.transitionDelay = `${i * 80}ms`;
+                entry.target.classList.add("visible");
+                entry.target
+                  .querySelectorAll(".progress-bar")
+                  .forEach((bar) => {
+                    bar.style.width = bar.getAttribute("data-width");
+                  });
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.08 },
+        );
+        document
+          .querySelectorAll(".animated-element")
+          .forEach((el) => observer.observe(el));
+      });
 
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const el = document.querySelector(this.getAttribute('href'));
-                if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' });
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const el = document.querySelector(this.getAttribute("href"));
+          if (el)
+            window.scrollTo({
+              top: el.getBoundingClientRect().top + window.pageYOffset - 80,
+              behavior: "smooth",
             });
         });
+      });
 
-        // Chart.js
-        window.addEventListener("DOMContentLoaded", () => {
-            const ctx = document.getElementById("myChart")?.getContext("2d");
-            if (!ctx) return;
+      // Chart.js
+      window.addEventListener("DOMContentLoaded", () => {
+        const ctx = document.getElementById("myChart")?.getContext("2d");
+        if (!ctx) return;
 
-            const isMobile = window.innerWidth < 768;
+        const isMobile = window.innerWidth < 768;
 
-            const grad = ctx.createLinearGradient(0, 0, 0, 350);
-            grad.addColorStop(0, 'rgba(167,139,250,0.55)');
-            grad.addColorStop(1, 'rgba(109,40,217,0.55)');
+        const grad = ctx.createLinearGradient(0, 0, 0, 350);
+        grad.addColorStop(0, "rgba(167,139,250,0.55)");
+        grad.addColorStop(1, "rgba(109,40,217,0.55)");
 
-            const borderGrad = ctx.createLinearGradient(0, 0, 0, 350);
-            borderGrad.addColorStop(0, 'rgba(167,139,250,1)');
-            borderGrad.addColorStop(1, 'rgba(109,40,217,1)');
+        const borderGrad = ctx.createLinearGradient(0, 0, 0, 350);
+        borderGrad.addColorStop(0, "rgba(167,139,250,1)");
+        borderGrad.addColorStop(1, "rgba(109,40,217,1)");
 
-            new Chart(ctx, {
-                type: "bar",
-                data: {
-                    labels: ["Bleach", "Code Geass", "Vinland Saga", "Naruto", "One Piece", "AOT", "Demon Slayer", "JJK", "Death Note", "Dragon Ball"],
-                    datasets: [{
-                        label: "My Rating",
-                        data: [9, 10, 10, 8, 8, 7, 6, 7, 6, 5],
-                        backgroundColor: grad,
-                        borderColor: borderGrad,
-                        borderWidth: 2,
-                        borderRadius: 5,
-                        borderSkipped: false,
-                        barThickness: isMobile ? 14 : 16,
-                    }],
+        new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: [
+              "Bleach",
+              "Code Geass",
+              "Vinland Saga",
+              "Naruto",
+              "One Piece",
+              "AOT",
+              "Demon Slayer",
+              "JJK",
+              "Death Note",
+              "Dragon Ball",
+            ],
+            datasets: [
+              {
+                label: "My Rating",
+                data: [9, 10, 10, 8, 8, 7, 6, 7, 6, 5],
+                backgroundColor: grad,
+                borderColor: borderGrad,
+                borderWidth: 2,
+                borderRadius: 5,
+                borderSkipped: false,
+                barThickness: isMobile ? 14 : 16,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            indexAxis: "y",
+            scales: {
+              y: {
+                ticks: {
+                  color: "#a1a1aa",
+                  font: {
+                    family: "'Inter',sans-serif",
+                    size: isMobile ? 10 : 11,
+                  },
+                  padding: isMobile ? 8 : 5,
                 },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    indexAxis: 'y',
-                    scales: {
-                        y: {
-                            ticks: {
-                                color: "#a1a1aa",
-                                font: {
-                                    family: "'Inter',sans-serif",
-                                    size: isMobile ? 10 : 11
-                                },
-                                padding: isMobile ? 8 : 5,
-                            },
-                            grid: { color: "rgba(255,255,255,0.04)" },
-                        },
-                        x: {
-                            max: 10,
-                            ticks: {
-                                color: "#52525b",
-                                font: {
-                                    family: "'Inter',sans-serif",
-                                    size: isMobile ? 10 : 11
-                                }
-                            },
-                            grid: { color: "rgba(255,255,255,0.04)" },
-                        },
-                    },
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            backgroundColor: '#0f0f0f',
-                            titleFont: { family: "'Inter',sans-serif", weight: 'bold', size: 13 },
-                            bodyFont: { family: "'Inter',sans-serif", size: 12 },
-                            displayColors: false,
-                            padding: 10,
-                            cornerRadius: 8,
-                            bodyAlign: 'center',
-                            titleAlign: 'center',
-                        }
-                    },
-                    layout: {
-                        padding: {
-                            left: isMobile ? 12 : 8,
-                            right: 10
-                        }
-                    }
+                grid: { color: "rgba(255,255,255,0.04)" },
+              },
+              x: {
+                max: 10,
+                ticks: {
+                  color: "#52525b",
+                  font: {
+                    family: "'Inter',sans-serif",
+                    size: isMobile ? 10 : 11,
+                  },
                 },
-            });
+                grid: { color: "rgba(255,255,255,0.04)" },
+              },
+            },
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                backgroundColor: "#0f0f0f",
+                titleFont: {
+                  family: "'Inter',sans-serif",
+                  weight: "bold",
+                  size: 13,
+                },
+                bodyFont: { family: "'Inter',sans-serif", size: 12 },
+                displayColors: false,
+                padding: 10,
+                cornerRadius: 8,
+                bodyAlign: "center",
+                titleAlign: "center",
+              },
+            },
+            layout: {
+              padding: {
+                left: isMobile ? 12 : 8,
+                right: 10,
+              },
+            },
+          },
         });
+      });
     </script>
-</body>
-
+  </body>
 </html>

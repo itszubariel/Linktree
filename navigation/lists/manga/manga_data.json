@@ -5,12 +5,7 @@
       "title": "One Piece",
       "japanese_title": "ONE PIECE",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Fantasy",
-        "Shounen"
-      ],
+      "genres": ["Action", "Adventure", "Fantasy", "Shounen"],
       "rating": 8,
       "chapters": 1115,
       "image_url": "https://myanimelist.net/images/manga/2/253146l.jpg",
@@ -23,12 +18,7 @@
       "title": "Naruto",
       "japanese_title": "NARUTO―ナルト―",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Martial Arts",
-        "Shounen"
-      ],
+      "genres": ["Action", "Adventure", "Martial Arts", "Shounen"],
       "rating": 8,
       "chapters": 700,
       "image_url": "https://myanimelist.net/images/manga/3/249658l.jpg",
@@ -41,11 +31,7 @@
       "title": "Bleach",
       "japanese_title": "BLEACH",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Supernatural",
-        "Shounen"
-      ],
+      "genres": ["Action", "Supernatural", "Shounen"],
       "rating": 9,
       "chapters": 686,
       "image_url": "https://myanimelist.net/images/manga/3/180031l.jpg",
@@ -58,12 +44,7 @@
       "title": "Hunter x Hunter",
       "japanese_title": "HUNTER×HUNTER",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Fantasy",
-        "Shounen"
-      ],
+      "genres": ["Action", "Adventure", "Fantasy", "Shounen"],
       "rating": 8.5,
       "chapters": 400,
       "image_url": "https://myanimelist.net/images/manga/2/253119l.jpg",
@@ -76,12 +57,7 @@
       "title": "Solo Leveling",
       "japanese_title": "나 혼자만 레벨업",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Fantasy",
-        "Supernatural",
-        "Webtoon"
-      ],
+      "genres": ["Action", "Fantasy", "Supernatural", "Webtoon"],
       "rating": 8.5,
       "chapters": 200,
       "image_url": "https://myanimelist.net/images/manga/3/222295l.jpg",
@@ -94,12 +70,7 @@
       "title": "Omniscient Reader's Viewpoint",
       "japanese_title": "전지적 독자 시점",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Psychological",
-        "Supernatural",
-        "Webtoon"
-      ],
+      "genres": ["Action", "Psychological", "Supernatural", "Webtoon"],
       "rating": 9,
       "chapters": 191,
       "image_url": "https://myanimelist.net/images/manga/2/238873l.jpg",
@@ -112,11 +83,7 @@
       "title": "Blue Lock",
       "japanese_title": "ブルーロック",
       "status": "completed",
-      "genres": [
-        "Sports",
-        "Psychological",
-        "Shounen"
-      ],
+      "genres": ["Sports", "Psychological", "Shounen"],
       "rating": 8,
       "chapters": 260,
       "image_url": "https://myanimelist.net/images/manga/5/213340l.jpg",
@@ -129,12 +96,7 @@
       "title": "Jujutsu Kaisen",
       "japanese_title": "呪術廻戦",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Supernatural",
-        "School",
-        "Shounen"
-      ],
+      "genres": ["Action", "Supernatural", "School", "Shounen"],
       "rating": 7,
       "chapters": 262,
       "image_url": "https://myanimelist.net/images/manga/3/210341l.jpg",
@@ -147,12 +109,7 @@
       "title": "Tokyo Ghoul",
       "japanese_title": "東京喰種トーキョーグール",
       "status": "completed",
-      "genres": [
-        "Psychological",
-        "Horror",
-        "Supernatural",
-        "Seinen"
-      ],
+      "genres": ["Psychological", "Horror", "Supernatural", "Seinen"],
       "rating": 7.9,
       "chapters": 143,
       "image_url": "https://myanimelist.net/images/manga/3/194456l.jpg",
@@ -165,12 +122,7 @@
       "title": "Death Note",
       "japanese_title": "DEATH NOTE",
       "status": "completed",
-      "genres": [
-        "Mystery",
-        "Psychological",
-        "Supernatural",
-        "Thriller"
-      ],
+      "genres": ["Mystery", "Psychological", "Supernatural", "Thriller"],
       "rating": 7.4,
       "chapters": 108,
       "image_url": "https://myanimelist.net/images/manga/1/258245l.jpg",
@@ -183,12 +135,7 @@
       "title": "Fire Force",
       "japanese_title": "炎炎ノ消防隊",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Sci-Fi",
-        "Supernatural",
-        "Shounen"
-      ],
+      "genres": ["Action", "Sci-Fi", "Supernatural", "Shounen"],
       "rating": 6.9,
       "chapters": 304,
       "image_url": "https://myanimelist.net/images/manga/3/178996l.jpg",
@@ -201,12 +148,7 @@
       "title": "Dandadan",
       "japanese_title": "ダンダダン",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Supernatural",
-        "Comedy",
-        "School"
-      ],
+      "genres": ["Action", "Supernatural", "Comedy", "School"],
       "rating": 7.5,
       "chapters": 100,
       "image_url": "https://myanimelist.net/images/manga/2/248746l.jpg",
@@ -219,12 +161,7 @@
       "title": "Gantz",
       "japanese_title": "GANTZ",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Horror",
-        "Psychological",
-        "Seinen"
-      ],
+      "genres": ["Action", "Horror", "Psychological", "Seinen"],
       "rating": 7,
       "chapters": 383,
       "image_url": "https://myanimelist.net/images/manga/1/278020l.jpg",
@@ -237,12 +174,7 @@
       "title": "Pluto",
       "japanese_title": "PLUTO",
       "status": "completed",
-      "genres": [
-        "Drama",
-        "Sci-Fi",
-        "Mystery",
-        "Psychological"
-      ],
+      "genres": ["Drama", "Sci-Fi", "Mystery", "Psychological"],
       "rating": 6.4,
       "chapters": 65,
       "image_url": "https://myanimelist.net/images/manga/1/264496l.jpg",
@@ -255,12 +187,7 @@
       "title": "Claymore",
       "japanese_title": "CLAYMORE",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Fantasy",
-        "Horror",
-        "Shounen"
-      ],
+      "genres": ["Action", "Fantasy", "Horror", "Shounen"],
       "rating": 7,
       "chapters": 159,
       "image_url": "https://myanimelist.net/images/manga/2/255378l.jpg",
@@ -273,12 +200,7 @@
       "title": "Dr. Stone",
       "japanese_title": "Dr.STONE",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Sci-Fi",
-        "Shounen"
-      ],
+      "genres": ["Action", "Adventure", "Sci-Fi", "Shounen"],
       "rating": 7.5,
       "chapters": 232,
       "image_url": "https://myanimelist.net/images/manga/1/197883l.jpg",
@@ -291,12 +213,7 @@
       "title": "Beelzebub",
       "japanese_title": "べるぜバブ",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Comedy",
-        "Supernatural",
-        "School"
-      ],
+      "genres": ["Action", "Comedy", "Supernatural", "School"],
       "rating": 6.9,
       "chapters": 240,
       "image_url": "https://myanimelist.net/images/manga/3/188942l.jpg",
@@ -309,12 +226,7 @@
       "title": "Soul Eater",
       "japanese_title": "SOUL EATER",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Supernatural",
-        "Comedy",
-        "Fantasy"
-      ],
+      "genres": ["Action", "Supernatural", "Comedy", "Fantasy"],
       "rating": 7.4,
       "chapters": 113,
       "image_url": "https://myanimelist.net/images/manga/1/159808l.jpg",
@@ -327,12 +239,7 @@
       "title": "Reborn!",
       "japanese_title": "家庭教師〈かてきょー〉ヒットマンREBORN!",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Comedy",
-        "Supernatural",
-        "Shounen"
-      ],
+      "genres": ["Action", "Comedy", "Supernatural", "Shounen"],
       "rating": 7.5,
       "chapters": 409,
       "image_url": "https://myanimelist.net/images/manga/2/253085l.jpg",
@@ -345,12 +252,7 @@
       "title": "Inuyasha",
       "japanese_title": "犬夜叉",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Fantasy",
-        "Historical",
-        "Romance"
-      ],
+      "genres": ["Action", "Fantasy", "Historical", "Romance"],
       "rating": 7,
       "chapters": 558,
       "image_url": "https://myanimelist.net/images/manga/3/262295l.jpg",
@@ -363,12 +265,7 @@
       "title": "Toriko",
       "japanese_title": "トリコ",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Comedy",
-        "Shounen"
-      ],
+      "genres": ["Action", "Adventure", "Comedy", "Shounen"],
       "rating": 7.4,
       "chapters": 396,
       "image_url": "https://myanimelist.net/images/manga/4/304295l.jpg",
@@ -381,12 +278,7 @@
       "title": "Zetman",
       "japanese_title": "ZETMAN",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Sci-Fi",
-        "Psychological",
-        "Seinen"
-      ],
+      "genres": ["Action", "Sci-Fi", "Psychological", "Seinen"],
       "rating": 6.9,
       "chapters": 226,
       "image_url": "https://myanimelist.net/images/manga/2/188924l.jpg",
@@ -399,12 +291,7 @@
       "title": "Berserk",
       "japanese_title": "ベルセルク",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Horror",
-        "Fantasy",
-        "Seinen"
-      ],
+      "genres": ["Action", "Horror", "Fantasy", "Seinen"],
       "rating": 7.5,
       "chapters": 364,
       "image_url": "https://myanimelist.net/images/manga/1/157897l.jpg",
@@ -417,12 +304,7 @@
       "title": "Demon Slayer: Kimetsu no Yaiba",
       "japanese_title": "鬼滅の刃",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Supernatural",
-        "Fantasy",
-        "Shounen"
-      ],
+      "genres": ["Action", "Supernatural", "Fantasy", "Shounen"],
       "rating": 8,
       "chapters": 110,
       "image_url": "https://myanimelist.net/images/manga/3/179023l.jpg",
@@ -435,12 +317,7 @@
       "title": "Psycho-Pass",
       "japanese_title": "PSYCHO-PASS サイコパス",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Sci-Fi",
-        "Thriller",
-        "Seinen"
-      ],
+      "genres": ["Action", "Sci-Fi", "Thriller", "Seinen"],
       "rating": 7.5,
       "chapters": 94,
       "image_url": "https://myanimelist.net/images/manga/3/118865l.jpg",
@@ -453,12 +330,7 @@
       "title": "Attack on Titan",
       "japanese_title": "進撃の巨人",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Fantasy",
-        "Shounen"
-      ],
+      "genres": ["Action", "Adventure", "Fantasy", "Shounen"],
       "rating": 7.7,
       "chapters": 123,
       "image_url": "https://myanimelist.net/images/manga/2/37846l.jpg",
@@ -471,11 +343,7 @@
       "title": "Goodnight Punpun",
       "japanese_title": "おやすみプンプン",
       "status": "completed",
-      "genres": [
-        "Psychological",
-        "Drama",
-        "Seinen"
-      ],
+      "genres": ["Psychological", "Drama", "Seinen"],
       "rating": 8.2,
       "chapters": 12,
       "image_url": "https://myanimelist.net/images/manga/3/266834l.jpg",
@@ -488,11 +356,7 @@
       "title": "Fairy Tail",
       "japanese_title": "FAIRY TAIL",
       "status": "completed",
-      "genres": [
-        "Adventure",
-        "Fantasy",
-        "Shounen"
-      ],
+      "genres": ["Adventure", "Fantasy", "Shounen"],
       "rating": 8.1,
       "chapters": 402,
       "image_url": "https://myanimelist.net/images/manga/3/198604l.jpg",
@@ -505,12 +369,7 @@
       "title": "Akira",
       "japanese_title": "AKIRA",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Sci-Fi",
-        "Thriller",
-        "Seinen"
-      ],
+      "genres": ["Action", "Sci-Fi", "Thriller", "Seinen"],
       "rating": 7.8,
       "chapters": 42,
       "image_url": "https://myanimelist.net/images/manga/3/271629l.jpg",
@@ -523,11 +382,7 @@
       "title": "Monster",
       "japanese_title": "MONSTER",
       "status": "completed",
-      "genres": [
-        "Mystery",
-        "Psychological",
-        "Thriller"
-      ],
+      "genres": ["Mystery", "Psychological", "Thriller"],
       "rating": 7.2,
       "chapters": 31,
       "image_url": "https://myanimelist.net/images/manga/3/258224l.jpg",
@@ -540,12 +395,7 @@
       "title": "Vinland Saga",
       "japanese_title": "ヴィンランド・サガ",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Fantasy",
-        "Drama",
-        "Seinen"
-      ],
+      "genres": ["Action", "Fantasy", "Drama", "Seinen"],
       "rating": 10,
       "chapters": 100,
       "image_url": "https://myanimelist.net/images/manga/2/188925l.jpg",
@@ -558,11 +408,7 @@
       "title": "JoJo's Bizarre Adventure",
       "japanese_title": "JOJO'S BIZARRE ADVENTURE OVER HEAVEN",
       "status": "completed",
-      "genres": [
-        "Adventure",
-        "Supernatural",
-        "Mystery"
-      ],
+      "genres": ["Adventure", "Supernatural", "Mystery"],
       "rating": 7.4,
       "chapters": 186,
       "image_url": "https://myanimelist.net/images/manga/2/270480l.jpg",
@@ -575,11 +421,7 @@
       "title": "Nana",
       "japanese_title": "NANA",
       "status": "completed",
-      "genres": [
-        "Fantasy",
-        "Romance",
-        "Drama"
-      ],
+      "genres": ["Fantasy", "Romance", "Drama"],
       "rating": 7,
       "chapters": 77,
       "image_url": "https://myanimelist.net/images/manga/1/262324l.jpg",
@@ -592,11 +434,7 @@
       "title": "The Seven Deadly Sins",
       "japanese_title": "七つの大罪",
       "status": "completed",
-      "genres": [
-        "Adventure",
-        "Fantasy",
-        "Shounen"
-      ],
+      "genres": ["Adventure", "Fantasy", "Shounen"],
       "rating": 6.9,
       "chapters": 180,
       "image_url": "https://myanimelist.net/images/manga/2/153111l.jpg",
@@ -609,11 +447,7 @@
       "title": "March Comes in Like a Lion",
       "japanese_title": "3月のライオン",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Drama",
-        "Seinen"
-      ],
+      "genres": ["Action", "Drama", "Seinen"],
       "rating": 8.4,
       "chapters": 130,
       "image_url": "https://myanimelist.net/images/manga/2/52283l.jpg",
@@ -626,11 +460,7 @@
       "title": "Parasyte",
       "japanese_title": "寄生獣",
       "status": "completed",
-      "genres": [
-        "Supernatural",
-        "Psychological",
-        "Horror"
-      ],
+      "genres": ["Supernatural", "Psychological", "Horror"],
       "rating": 7.7,
       "chapters": 103,
       "image_url": "https://myanimelist.net/images/manga/2/188928l.jpg",
@@ -643,11 +473,7 @@
       "title": "Noragami",
       "japanese_title": "ノラガミ",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Fantasy",
-        "Supernatural"
-      ],
+      "genres": ["Action", "Fantasy", "Supernatural"],
       "rating": 7.2,
       "chapters": 142,
       "image_url": "https://myanimelist.net/images/manga/3/161911l.jpg",
@@ -660,11 +486,7 @@
       "title": "Ao Haru Ride",
       "japanese_title": "アオハライド AO―HARU―RIDE",
       "status": "completed",
-      "genres": [
-        "Drama",
-        "Romance",
-        "Slice of Life"
-      ],
+      "genres": ["Drama", "Romance", "Slice of Life"],
       "rating": 7.6,
       "chapters": 52,
       "image_url": "https://myanimelist.net/images/manga/2/256907l.jpg",
@@ -677,11 +499,7 @@
       "title": "My Hero Academia",
       "japanese_title": "僕のヒーローアカデミア",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Supernatural",
-        "Fantasy"
-      ],
+      "genres": ["Action", "Supernatural", "Fantasy"],
       "rating": 7.8,
       "chapters": 195,
       "image_url": "https://myanimelist.net/images/manga/1/209370l.jpg",
@@ -694,11 +512,7 @@
       "title": "Fairy Tail Zero",
       "japanese_title": "FAIRY TAIL ZERØ",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Comedy",
-        "Fantasy"
-      ],
+      "genres": ["Action", "Comedy", "Fantasy"],
       "rating": 7,
       "chapters": 220,
       "image_url": "https://myanimelist.net/images/manga/1/167384l.jpg",
@@ -711,12 +525,7 @@
       "title": "Black Clover",
       "japanese_title": "ブラッククローバー",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Fantasy",
-        "Adventure",
-        "Shounen"
-      ],
+      "genres": ["Action", "Fantasy", "Adventure", "Shounen"],
       "rating": 7.5,
       "chapters": 160,
       "image_url": "https://myanimelist.net/images/manga/2/166254l.jpg",
@@ -729,11 +538,7 @@
       "title": "Oyasumi Punpun",
       "japanese_title": "おやすみプンプン",
       "status": "completed",
-      "genres": [
-        "Psychological",
-        "Drama",
-        "Seinen"
-      ],
+      "genres": ["Psychological", "Drama", "Seinen"],
       "rating": 7,
       "chapters": 100,
       "image_url": "https://myanimelist.net/images/manga/3/266834l.jpg",
@@ -746,11 +551,7 @@
       "title": "Blue Exorcist",
       "japanese_title": "青の祓魔師〈エクソシスト〉",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Supernatural",
-        "Fantasy"
-      ],
+      "genres": ["Action", "Supernatural", "Fantasy"],
       "rating": 7.8,
       "chapters": 175,
       "image_url": "https://myanimelist.net/images/manga/2/188810l.jpg",
@@ -763,11 +564,7 @@
       "title": "The Ancient Magus' Bride",
       "japanese_title": "魔法使いの嫁",
       "status": "completed",
-      "genres": [
-        "Adventure",
-        "Drama",
-        "Fantasy"
-      ],
+      "genres": ["Adventure", "Drama", "Fantasy"],
       "rating": 6.9,
       "chapters": 102,
       "image_url": "https://myanimelist.net/images/manga/3/121263l.jpg",
@@ -780,11 +577,7 @@
       "title": "Haikyuu!!",
       "japanese_title": "ハイキュー!!",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Sports",
-        "Drama"
-      ],
+      "genres": ["Action", "Sports", "Drama"],
       "rating": 7.7,
       "chapters": 300,
       "image_url": "https://myanimelist.net/images/manga/1/275330l.jpg",
@@ -797,11 +590,7 @@
       "title": "Another",
       "japanese_title": "Another",
       "status": "completed",
-      "genres": [
-        "Psychological",
-        "Horror",
-        "Mystery"
-      ],
+      "genres": ["Psychological", "Horror", "Mystery"],
       "rating": 7.2,
       "chapters": 75,
       "image_url": "https://myanimelist.net/images/manga/2/159693l.jpg",
@@ -814,10 +603,7 @@
       "title": "Barakamon",
       "japanese_title": "ばらかもん",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "Slice of Life"
-      ],
+      "genres": ["Comedy", "Slice of Life"],
       "rating": 6.8,
       "chapters": 40,
       "image_url": "https://myanimelist.net/images/manga/1/216099l.jpg",
@@ -830,11 +616,7 @@
       "title": "Made in Abyss",
       "japanese_title": "メイドインアビス",
       "status": "completed",
-      "genres": [
-        "Fantasy",
-        "Adventure",
-        "Drama"
-      ],
+      "genres": ["Fantasy", "Adventure", "Drama"],
       "rating": 7.1,
       "chapters": 80,
       "image_url": "https://myanimelist.net/images/manga/3/161645l.jpg",
@@ -847,11 +629,7 @@
       "title": "Chainsaw Man",
       "japanese_title": "チェンソーマン",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Thriller",
-        "Supernatural"
-      ],
+      "genres": ["Action", "Thriller", "Supernatural"],
       "rating": 7.6,
       "chapters": 180,
       "image_url": "https://myanimelist.net/images/manga/3/216464l.jpg",
@@ -864,11 +642,7 @@
       "title": "Yowamushi Pedal",
       "japanese_title": "弱虫ペダル",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Drama",
-        "Sports"
-      ],
+      "genres": ["Action", "Drama", "Sports"],
       "rating": 7,
       "chapters": 316,
       "image_url": "https://myanimelist.net/images/manga/3/267487l.jpg",
@@ -881,11 +655,7 @@
       "title": "Fruits Basket",
       "japanese_title": "フルーツバスケット",
       "status": "completed",
-      "genres": [
-        "Romance",
-        "Drama",
-        "Fantasy"
-      ],
+      "genres": ["Romance", "Drama", "Fantasy"],
       "rating": 6.9,
       "chapters": 50,
       "image_url": "https://myanimelist.net/images/manga/3/269697l.jpg",
@@ -898,11 +668,7 @@
       "title": "Mushishi",
       "japanese_title": "蟲師",
       "status": "completed",
-      "genres": [
-        "Adventure",
-        "Mystery",
-        "Supernatural"
-      ],
+      "genres": ["Adventure", "Mystery", "Supernatural"],
       "rating": 7.3,
       "chapters": 100,
       "image_url": "https://myanimelist.net/images/manga/2/159514l.jpg",
@@ -915,11 +681,7 @@
       "title": "Toradora!",
       "japanese_title": "とらドラ!",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "Romance",
-        "School"
-      ],
+      "genres": ["Comedy", "Romance", "School"],
       "rating": 6.8,
       "chapters": 75,
       "image_url": "https://myanimelist.net/images/manga/2/174090l.jpg",
@@ -932,11 +694,7 @@
       "title": "Dorohedoro",
       "japanese_title": "ドロヘドロ",
       "status": "completed",
-      "genres": [
-        "Fantasy",
-        "Action",
-        "Drama"
-      ],
+      "genres": ["Fantasy", "Action", "Drama"],
       "rating": 7.7,
       "chapters": 115,
       "image_url": "https://myanimelist.net/images/manga/3/258246l.jpg",
@@ -949,11 +707,7 @@
       "title": "Honey and Clover",
       "japanese_title": "ハチミツとクローバー",
       "status": "completed",
-      "genres": [
-        "Slice of Life",
-        "Drama",
-        "Romance"
-      ],
+      "genres": ["Slice of Life", "Drama", "Romance"],
       "rating": 7.2,
       "chapters": 68,
       "image_url": "https://myanimelist.net/images/manga/3/184591l.jpg",
@@ -966,10 +720,7 @@
       "title": "Kimi ni Todoke",
       "japanese_title": "君に届け",
       "status": "completed",
-      "genres": [
-        "Romance",
-        "Drama"
-      ],
+      "genres": ["Romance", "Drama"],
       "rating": 7,
       "chapters": 58,
       "image_url": "https://myanimelist.net/images/manga/1/168283l.jpg",
@@ -982,11 +733,7 @@
       "title": "D.Gray-man",
       "japanese_title": "D.Gray-man",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Fantasy",
-        "Supernatural"
-      ],
+      "genres": ["Action", "Fantasy", "Supernatural"],
       "rating": 7.3,
       "chapters": 135,
       "image_url": "https://myanimelist.net/images/manga/3/240470l.jpg",
@@ -999,11 +746,7 @@
       "title": "Orange",
       "japanese_title": "orange",
       "status": "completed",
-      "genres": [
-        "Drama",
-        "Romance",
-        "Slice of Life"
-      ],
+      "genres": ["Drama", "Romance", "Slice of Life"],
       "rating": 6.9,
       "chapters": 60,
       "image_url": "https://myanimelist.net/images/manga/2/153742l.jpg",
@@ -1016,11 +759,7 @@
       "title": "Mobile Suit Gundam: The Origin",
       "japanese_title": "機動戦士ガンダム THE ORIGIN",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Sci-Fi",
-        "Mecha"
-      ],
+      "genres": ["Action", "Sci-Fi", "Mecha"],
       "rating": 7.7,
       "chapters": 105,
       "image_url": "https://myanimelist.net/images/manga/1/151300l.jpg",
@@ -1033,11 +772,7 @@
       "title": "Psycho-Pass: Inspector Shinya Kogami",
       "japanese_title": "PSYCHO-PASS 監視官 狡噛慎也",
       "status": "completed",
-      "genres": [
-        "Psychological",
-        "Thriller",
-        "Mystery"
-      ],
+      "genres": ["Psychological", "Thriller", "Mystery"],
       "rating": 7.5,
       "chapters": 65,
       "image_url": "https://myanimelist.net/images/manga/1/140757l.jpg",
@@ -1050,11 +785,7 @@
       "title": "Black Bullet",
       "japanese_title": "ブラック・ブレット",
       "status": "completed",
-      "genres": [
-        "Fantasy",
-        "Adventure",
-        "Drama"
-      ],
+      "genres": ["Fantasy", "Adventure", "Drama"],
       "rating": 7.2,
       "chapters": 125,
       "image_url": "https://myanimelist.net/images/manga/1/92417l.jpg",
@@ -1067,10 +798,7 @@
       "title": "Say I Love You",
       "japanese_title": "好きっていいなよ。",
       "status": "completed",
-      "genres": [
-        "Romance",
-        "Drama"
-      ],
+      "genres": ["Romance", "Drama"],
       "rating": 6.8,
       "chapters": 55,
       "image_url": "https://myanimelist.net/images/manga/3/198567l.jpg",
@@ -1083,10 +811,7 @@
       "title": "Gekkan Shoujo Nozaki-kun",
       "japanese_title": "月刊少女野崎くん",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "Slice of Life"
-      ],
+      "genres": ["Comedy", "Slice of Life"],
       "rating": 7.0,
       "chapters": 85,
       "image_url": "https://myanimelist.net/images/manga/3/208752l.jpg",
@@ -1099,11 +824,7 @@
       "title": "Shiki",
       "japanese_title": "屍鬼",
       "status": "completed",
-      "genres": [
-        "Horror",
-        "Supernatural",
-        "Mystery"
-      ],
+      "genres": ["Horror", "Supernatural", "Mystery"],
       "rating": 7.1,
       "chapters": 40,
       "image_url": "https://myanimelist.net/images/manga/1/56519l.jpg",
@@ -1116,11 +837,7 @@
       "title": "Seraph of the End",
       "japanese_title": "終わりのセラフ 一瀬グレン、16歳の破滅〈カタストロフィ〉",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Fantasy",
-        "Supernatural"
-      ],
+      "genres": ["Action", "Fantasy", "Supernatural"],
       "rating": 7.6,
       "chapters": 150,
       "image_url": "https://myanimelist.net/images/manga/2/205755l.jpg",
@@ -1133,11 +850,7 @@
       "title": "Lovely★Complex",
       "japanese_title": "ラブ★コン",
       "status": "completed",
-      "genres": [
-        "Romance",
-        "Drama",
-        "Supernatural"
-      ],
+      "genres": ["Romance", "Drama", "Supernatural"],
       "rating": 7.3,
       "chapters": 70,
       "image_url": "https://myanimelist.net/images/manga/1/209659l.jpg",
@@ -1150,11 +863,7 @@
       "title": "Ghost in the Shell",
       "japanese_title": "攻殻機動隊 THE GHOST IN THE SHELL",
       "status": "completed",
-      "genres": [
-        "Sci-Fi",
-        "Action",
-        "Thriller"
-      ],
+      "genres": ["Sci-Fi", "Action", "Thriller"],
       "rating": 7.2,
       "chapters": 95,
       "image_url": "https://myanimelist.net/images/manga/2/155733l.jpg",
@@ -1167,10 +876,7 @@
       "title": "Non Non Biyori",
       "japanese_title": "のんのんびより",
       "status": "completed",
-      "genres": [
-        "Slice of Life",
-        "Comedy"
-      ],
+      "genres": ["Slice of Life", "Comedy"],
       "rating": 6.9,
       "chapters": 50,
       "image_url": "https://myanimelist.net/images/manga/2/57729l.jpg",
@@ -1183,11 +889,7 @@
       "title": "Made in Abyss: Dawn of the Deep Soul",
       "japanese_title": "メイドインアビス",
       "status": "completed",
-      "genres": [
-        "Adventure",
-        "Action",
-        "Fantasy"
-      ],
+      "genres": ["Adventure", "Action", "Fantasy"],
       "rating": 7.5,
       "chapters": 110,
       "image_url": "https://myanimelist.net/images/manga/3/161645l.jpg",
@@ -1200,11 +902,7 @@
       "title": "Major",
       "japanese_title": "MAJOR",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Drama",
-        "Sports"
-      ],
+      "genres": ["Action", "Drama", "Sports"],
       "rating": 7.1,
       "chapters": 200,
       "image_url": "https://myanimelist.net/images/manga/1/303736l.jpg",
@@ -1217,10 +915,7 @@
       "title": "Tomie",
       "japanese_title": "富江",
       "status": "completed",
-      "genres": [
-        "Horror",
-        "Psychological"
-      ],
+      "genres": ["Horror", "Psychological"],
       "rating": 7.0,
       "chapters": 30,
       "image_url": "https://myanimelist.net/images/manga/2/164476l.jpg",
@@ -1233,11 +928,7 @@
       "title": "Yona of the Dawn",
       "japanese_title": "暁のヨナ",
       "status": "completed",
-      "genres": [
-        "Fantasy",
-        "Romance",
-        "Drama"
-      ],
+      "genres": ["Fantasy", "Romance", "Drama"],
       "rating": 6.8,
       "chapters": 45,
       "image_url": "https://myanimelist.net/images/manga/2/269202l.jpg",
@@ -1250,10 +941,7 @@
       "title": "Horimiya",
       "japanese_title": "ホリミヤ",
       "status": "completed",
-      "genres": [
-        "Drama",
-        "Romance"
-      ],
+      "genres": ["Drama", "Romance"],
       "rating": 7.1,
       "chapters": 80,
       "image_url": "https://myanimelist.net/images/manga/2/245008l.jpg",
@@ -1266,11 +954,7 @@
       "title": "Erased",
       "japanese_title": "僕だけがいない街",
       "status": "completed",
-      "genres": [
-        "Supernatural",
-        "Mystery",
-        "Thriller"
-      ],
+      "genres": ["Supernatural", "Mystery", "Thriller"],
       "rating": 7.4,
       "chapters": 60,
       "image_url": "https://myanimelist.net/images/manga/1/172082l.jpg",
@@ -1283,10 +967,7 @@
       "title": "Slayers",
       "japanese_title": "スレイヤーズ",
       "status": "completed",
-      "genres": [
-        "Fantasy",
-        "Adventure"
-      ],
+      "genres": ["Fantasy", "Adventure"],
       "rating": 7.0,
       "chapters": 100,
       "image_url": "https://myanimelist.net/images/manga/2/212734l.jpg",
@@ -1299,11 +980,7 @@
       "title": "Azumanga Daioh",
       "japanese_title": "あずまんが大王",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "School",
-        "Slice of Life"
-      ],
+      "genres": ["Comedy", "School", "Slice of Life"],
       "rating": 6.7,
       "chapters": 70,
       "image_url": "https://myanimelist.net/images/manga/2/259651l.jpg",
@@ -1316,10 +993,7 @@
       "title": "Nisekoi",
       "japanese_title": "ニセコイ",
       "status": "completed",
-      "genres": [
-        "Romance",
-        "Drama"
-      ],
+      "genres": ["Romance", "Drama"],
       "rating": 7.0,
       "chapters": 55,
       "image_url": "https://myanimelist.net/images/manga/1/181212l.jpg",
@@ -1332,11 +1006,7 @@
       "title": "Blue Box",
       "japanese_title": "アオのハコ",
       "status": "watching",
-      "genres": [
-        "Sports",
-        "Romance",
-        "School"
-      ],
+      "genres": ["Sports", "Romance", "School"],
       "rating": null,
       "chapters": null,
       "image_url": "https://myanimelist.net/images/manga/2/248748l.jpg",

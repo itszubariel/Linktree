@@ -5,11 +5,7 @@
       "title": "Naruto",
       "japanese_title": "ナルト",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Shounen"
-      ],
+      "genres": ["Action", "Adventure", "Shounen"],
       "rating": 7.5,
       "episodes": 220,
       "image_url": "https://myanimelist.net/images/anime/1141/142503l.jpg",
@@ -22,11 +18,7 @@
       "title": "Naruto: Shippuden",
       "japanese_title": "-ナルト- 疾風伝",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Shounen"
-      ],
+      "genres": ["Action", "Adventure", "Shounen"],
       "rating": 8,
       "episodes": 366,
       "image_url": "https://myanimelist.net/images/anime/1565/111305l.jpg",
@@ -39,11 +31,7 @@
       "title": "Attack on Titan",
       "japanese_title": "進撃の巨人",
       "status": "on-hold",
-      "genres": [
-        "Action",
-        "Horror",
-        "Fantasy"
-      ],
+      "genres": ["Action", "Horror", "Fantasy"],
       "rating": 7,
       "episodes": 75,
       "image_url": "https://myanimelist.net/images/anime/10/47347l.jpg",
@@ -56,10 +44,7 @@
       "title": "Your Lie in April",
       "japanese_title": "四月は君の嘘",
       "status": "completed",
-      "genres": [
-        "Drama",
-        "Romance"
-      ],
+      "genres": ["Drama", "Romance"],
       "rating": 8,
       "episodes": 24,
       "image_url": "https://myanimelist.net/images/anime/1405/143284l.jpg",
@@ -93,10 +78,7 @@
       "title": "Death Note",
       "japanese_title": "デスノート",
       "status": "completed",
-      "genres": [
-        "Mystery",
-        "Thriller"
-      ],
+      "genres": ["Mystery", "Thriller"],
       "rating": 6,
       "episodes": 37,
       "image_url": "https://myanimelist.net/images/anime/1079/138100l.jpg",
@@ -109,10 +91,7 @@
       "title": "Made in Abyss",
       "japanese_title": "メイドインアビス",
       "status": "completed",
-      "genres": [
-        "Fantasy",
-        "Adventure"
-      ],
+      "genres": ["Fantasy", "Adventure"],
       "rating": 5,
       "episodes": 25,
       "image_url": "https://myanimelist.net/images/anime/6/86733l.jpg",
@@ -125,10 +104,7 @@
       "title": "March Comes in Like a Lion",
       "japanese_title": "3月のライオン",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "Slice of Life"
-      ],
+      "genres": ["Comedy", "Slice of Life"],
       "rating": 6,
       "episodes": 44,
       "image_url": "https://myanimelist.net/images/anime/3/82899l.jpg",
@@ -141,10 +117,7 @@
       "title": "Demon Slayer: Kimetsu no Yaiba",
       "japanese_title": "鬼滅の刃",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Supernatural"
-      ],
+      "genres": ["Action", "Supernatural"],
       "rating": 6,
       "episodes": 44,
       "image_url": "https://myanimelist.net/images/anime/1286/99889l.jpg",
@@ -157,11 +130,7 @@
       "title": "Re:Zero - Starting Life in Another World",
       "japanese_title": "Re:ゼロから始める異世界生活",
       "status": "dropped",
-      "genres": [
-        "Fantasy",
-        "Romance",
-        "Isekai"
-      ],
+      "genres": ["Fantasy", "Romance", "Isekai"],
       "rating": 6,
       "episodes": 25,
       "image_url": "https://myanimelist.net/images/anime/1522/128039l.jpg",
@@ -174,11 +143,7 @@
       "title": "Vinland Saga",
       "japanese_title": "ヴィンランド・サガ",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Drama",
-        "Historical"
-      ],
+      "genres": ["Action", "Drama", "Historical"],
       "rating": 10,
       "episodes": 48,
       "image_url": "https://myanimelist.net/images/anime/1500/103005l.jpg",
@@ -191,12 +156,7 @@
       "title": "One Piece",
       "japanese_title": "ONE PIECE",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Comedy",
-        "Shounen"
-      ],
+      "genres": ["Action", "Adventure", "Comedy", "Shounen"],
       "rating": 8.5,
       "episodes": 1070,
       "image_url": "https://myanimelist.net/images/anime/1770/97704l.jpg",
@@ -209,12 +169,7 @@
       "title": "Jujutsu Kaisen",
       "japanese_title": "呪術廻戦",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Fantasy",
-        "School",
-        "Shounen"
-      ],
+      "genres": ["Action", "Fantasy", "School", "Shounen"],
       "rating": 8.4,
       "episodes": 50,
       "image_url": "https://myanimelist.net/images/anime/1171/109222l.jpg",
@@ -227,11 +182,7 @@
       "title": "Hunter x Hunter",
       "japanese_title": "HUNTER×HUNTER（ハンター×ハンター）",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Shounen"
-      ],
+      "genres": ["Action", "Adventure", "Shounen"],
       "rating": 8,
       "episodes": 148,
       "image_url": "https://myanimelist.net/images/anime/1305/132237l.jpg",
@@ -244,11 +195,7 @@
       "title": "Toradora!",
       "japanese_title": "とらドラ！",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "Romance",
-        "School"
-      ],
+      "genres": ["Comedy", "Romance", "School"],
       "rating": 6,
       "episodes": 25,
       "image_url": "https://myanimelist.net/images/anime/13/22128l.jpg",
@@ -261,11 +208,7 @@
       "title": "Tokyo Ghoul",
       "japanese_title": "東京喰種-トーキョーグール-",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Drama",
-        "Horror"
-      ],
+      "genres": ["Action", "Drama", "Horror"],
       "rating": 7,
       "episodes": 48,
       "image_url": "https://myanimelist.net/images/anime/1498/134443l.jpg",
@@ -278,12 +221,7 @@
       "title": "Bleach",
       "japanese_title": "BLEACH - ブリーチ -",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Fantasy",
-        "Shounen"
-      ],
+      "genres": ["Action", "Adventure", "Fantasy", "Shounen"],
       "rating": 8,
       "episodes": 366,
       "image_url": "https://myanimelist.net/images/anime/1541/147774l.jpg",
@@ -296,12 +234,7 @@
       "title": "Bleach: Thousand-Year Blood War",
       "japanese_title": "BLEACH 千年血戦篇",
       "status": "watching",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Fantasy",
-        "Shounen"
-      ],
+      "genres": ["Action", "Adventure", "Fantasy", "Shounen"],
       "rating": 9,
       "episodes": 0,
       "image_url": "https://myanimelist.net/images/anime/1908/135431l.jpg",
@@ -314,11 +247,7 @@
       "title": "Horimiya",
       "japanese_title": "ホリミヤ",
       "status": "completed",
-      "genres": [
-        "Romance",
-        "School",
-        "Shounen"
-      ],
+      "genres": ["Romance", "School", "Shounen"],
       "rating": 9,
       "episodes": 26,
       "image_url": "https://myanimelist.net/images/anime/1695/111486l.jpg",
@@ -331,12 +260,7 @@
       "title": "My Teen Romantic Comedy SNAFU",
       "japanese_title": "やはり俺の青春ラブコメはまちがっている。",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "Drama",
-        "Romance",
-        "School"
-      ],
+      "genres": ["Comedy", "Drama", "Romance", "School"],
       "rating": 9,
       "episodes": 38,
       "image_url": "https://myanimelist.net/images/anime/1786/120117l.jpg",
@@ -349,11 +273,7 @@
       "title": "I Parry Everything",
       "japanese_title": "俺は全てを【パリイ】する ～逆勘違いの世界最強は冒険者になりたい～",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Fantasy"
-      ],
+      "genres": ["Action", "Adventure", "Fantasy"],
       "rating": 5,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1747/143101l.jpg",
@@ -366,12 +286,7 @@
       "title": "Mission: Yozakura Family",
       "japanese_title": "夜桜さんちの大作戦",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Comedy",
-        "Romance",
-        "Shounen"
-      ],
+      "genres": ["Action", "Comedy", "Romance", "Shounen"],
       "rating": 5,
       "episodes": 27,
       "image_url": "https://myanimelist.net/images/anime/1674/143715l.jpg",
@@ -384,13 +299,7 @@
       "title": "Tsukimichi: Moonlit Fantasy",
       "japanese_title": "月が導く異世界道中",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Comedy",
-        "Fantasy",
-        "Isekai"
-      ],
+      "genres": ["Action", "Adventure", "Comedy", "Fantasy", "Isekai"],
       "rating": 7.5,
       "episodes": 36,
       "image_url": "https://myanimelist.net/images/anime/1950/116474l.jpg",
@@ -403,11 +312,7 @@
       "title": "Banished From the Heroes' Party",
       "japanese_title": "真の仲間じゃないと勇者のパーティーを追い出されたので、辺境でスローライフすることにしました",
       "status": "completed",
-      "genres": [
-        "Adventure",
-        "Fantasy",
-        "Romance"
-      ],
+      "genres": ["Adventure", "Fantasy", "Romance"],
       "rating": 5,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/1723/117854l.jpg",
@@ -420,11 +325,7 @@
       "title": "The Greatest Demon Lord is Reborn as a Typical Nobody",
       "japanese_title": "史上最強の大魔王、村人Aに転生する",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Fantasy",
-        "School"
-      ],
+      "genres": ["Action", "Fantasy", "School"],
       "rating": 6,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1904/120095l.jpg",
@@ -437,12 +338,7 @@
       "title": "I'm Quitting Heroing",
       "japanese_title": "勇者、辞めます「研修旅行は目的を見失うな」",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Comedy",
-        "Fantasy"
-      ],
+      "genres": ["Action", "Adventure", "Comedy", "Fantasy"],
       "rating": 6,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1369/123738l.jpg",
@@ -455,13 +351,7 @@
       "title": "Wistoria: Wand and Sword",
       "japanese_title": "杖と剣のウィストリア",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Fantasy",
-        "School",
-        "Shounen"
-      ],
+      "genres": ["Action", "Adventure", "Fantasy", "School", "Shounen"],
       "rating": 6,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1281/144104l.jpg",
@@ -474,12 +364,7 @@
       "title": "Tokyo Revengers",
       "japanese_title": "東京リベンジャーズ",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Drama",
-        "School",
-        "Shounen"
-      ],
+      "genres": ["Action", "Drama", "School", "Shounen"],
       "rating": 7,
       "episodes": 37,
       "image_url": "https://myanimelist.net/images/anime/1839/122012l.jpg",
@@ -492,12 +377,7 @@
       "title": "That Time I Got Reincarnated as a Slime",
       "japanese_title": "転生したらスライムだった件",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Comedy",
-        "Fantasy",
-        "Isekai"
-      ],
+      "genres": ["Action", "Comedy", "Fantasy", "Isekai"],
       "rating": 7,
       "episodes": 84,
       "image_url": "https://myanimelist.net/images/anime/1069/123309l.jpg",
@@ -510,11 +390,7 @@
       "title": "Blue Lock",
       "japanese_title": "ブルーロック",
       "status": "watching",
-      "genres": [
-        "Sports",
-        "Drama",
-        "Shounen"
-      ],
+      "genres": ["Sports", "Drama", "Shounen"],
       "rating": 8,
       "episodes": 0,
       "image_url": "https://myanimelist.net/images/anime/1258/126929l.jpg",
@@ -527,11 +403,7 @@
       "title": "Loner Life in Another World",
       "japanese_title": "ひとりぼっちの異世界攻略",
       "status": "watching",
-      "genres": [
-        "Fantasy",
-        "Adventure",
-        "Isekai"
-      ],
+      "genres": ["Fantasy", "Adventure", "Isekai"],
       "rating": 0,
       "episodes": 0,
       "image_url": "https://myanimelist.net/images/anime/1714/145320l.jpg",
@@ -544,10 +416,7 @@
       "title": "Goodbye, Dragon Life",
       "japanese_title": "さようなら竜生、こんにちは人生",
       "status": "watching",
-      "genres": [
-        "Fantasy",
-        "Adventure"
-      ],
+      "genres": ["Fantasy", "Adventure"],
       "rating": 0,
       "episodes": 0,
       "image_url": "https://myanimelist.net/images/anime/1225/144606l.jpg",
@@ -560,11 +429,7 @@
       "title": "Dandadan",
       "japanese_title": "ダンダダン",
       "status": "watching",
-      "genres": [
-        "Action",
-        "Comedy",
-        "Supernatural"
-      ],
+      "genres": ["Action", "Comedy", "Supernatural"],
       "rating": 0,
       "episodes": 0,
       "image_url": "https://myanimelist.net/images/anime/1584/143719l.jpg",
@@ -577,11 +442,7 @@
       "title": "The Most Notorious 'Talker' Runs the World's Greatest Clan",
       "japanese_title": "最凶の支援職【話術士】である俺は世界最強クランを従える",
       "status": "watching",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Fantasy"
-      ],
+      "genres": ["Action", "Adventure", "Fantasy"],
       "rating": 0,
       "episodes": 0,
       "image_url": "https://myanimelist.net/images/anime/1683/145446l.jpg",
@@ -594,11 +455,7 @@
       "title": "Let This Grieving Soul Retire",
       "japanese_title": "嘆きの亡霊は引退したい",
       "status": "watching",
-      "genres": [
-        "Drama",
-        "Fantasy",
-        "Comedy"
-      ],
+      "genres": ["Drama", "Fantasy", "Comedy"],
       "rating": 0,
       "episodes": 0,
       "image_url": "https://myanimelist.net/images/anime/1679/145660l.jpg",
@@ -611,10 +468,7 @@
       "title": "Mechanical Arms",
       "japanese_title": "メカウデ",
       "status": "watching",
-      "genres": [
-        "Action",
-        "Adventure"
-      ],
+      "genres": ["Action", "Adventure"],
       "rating": 0,
       "episodes": 0,
       "image_url": "https://myanimelist.net/images/anime/1625/92925l.jpg",
@@ -627,10 +481,7 @@
       "title": "The Healer Who Was Banished From His Party, Is, in Fact, the Strongest",
       "japanese_title": "パーティーから追放されたその治癒師、実は最強につき",
       "status": "watching",
-      "genres": [
-        "Fantasy",
-        "Adventure"
-      ],
+      "genres": ["Fantasy", "Adventure"],
       "rating": 0,
       "episodes": 0,
       "image_url": "https://myanimelist.net/images/anime/1432/141123l.jpg",
@@ -643,11 +494,7 @@
       "title": "Haigakura",
       "japanese_title": "ハイガクラ",
       "status": "watching",
-      "genres": [
-        "Fantasy",
-        "Adventure",
-        "Supernatural"
-      ],
+      "genres": ["Fantasy", "Adventure", "Supernatural"],
       "rating": 0,
       "episodes": 0,
       "image_url": "https://myanimelist.net/images/anime/1214/142185l.jpg",
@@ -660,11 +507,7 @@
       "title": "Blue Box",
       "japanese_title": "アオのハコ",
       "status": "watching",
-      "genres": [
-        "Sports",
-        "Romance",
-        "School"
-      ],
+      "genres": ["Sports", "Romance", "School"],
       "rating": 0,
       "episodes": 0,
       "image_url": "https://myanimelist.net/images/anime/1341/145349l.jpg",
@@ -677,12 +520,7 @@
       "title": "Loving Yamada at Lv999!",
       "japanese_title": "山田くんとLv999の恋をする",
       "status": "plan-to-watch",
-      "genres": [
-        "Comedy",
-        "Drama",
-        "Romance",
-        "School"
-      ],
+      "genres": ["Comedy", "Drama", "Romance", "School"],
       "rating": 0,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/1298/134178l.jpg",
@@ -695,13 +533,7 @@
       "title": "The Aristocrat's Otherworldly Adventure",
       "japanese_title": "転生貴族の異世界冒険録～自重を知らない神々の使徒～",
       "status": "plan-to-watch",
-      "genres": [
-        "Action",
-        "Fantasy",
-        "Romance",
-        "Harem",
-        "Isekai"
-      ],
+      "genres": ["Action", "Fantasy", "Romance", "Harem", "Isekai"],
       "rating": 0,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1071/135255l.jpg",
@@ -714,12 +546,7 @@
       "title": "Pokemon Journeys: The Series",
       "japanese_title": "ポケットモンスター(2019)",
       "status": "plan-to-watch",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Comedy",
-        "Fantasy"
-      ],
+      "genres": ["Action", "Adventure", "Comedy", "Fantasy"],
       "rating": 0,
       "episodes": 146,
       "image_url": "https://myanimelist.net/images/anime/1689/105554l.jpg",
@@ -732,10 +559,7 @@
       "title": "Your Name",
       "japanese_title": "君の名は。",
       "status": "plan-to-watch",
-      "genres": [
-        "Drama",
-        "Romance"
-      ],
+      "genres": ["Drama", "Romance"],
       "rating": 0,
       "episodes": 1,
       "image_url": "https://myanimelist.net/images/anime/5/87048l.jpg",
@@ -748,12 +572,7 @@
       "title": "My Hero Academia",
       "japanese_title": "僕のヒーローアカデミア",
       "status": "dropped",
-      "genres": [
-        "Action",
-        "Adventure",
-        "School",
-        "Shounen"
-      ],
+      "genres": ["Action", "Adventure", "School", "Shounen"],
       "rating": 6,
       "episodes": 138,
       "image_url": "https://myanimelist.net/images/anime/10/78745l.jpg",
@@ -766,12 +585,7 @@
       "title": "Sword Art Online",
       "japanese_title": "ソードアート・オンライン",
       "status": "dropped",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Fantasy",
-        "Romance"
-      ],
+      "genres": ["Action", "Adventure", "Fantasy", "Romance"],
       "rating": 4,
       "episodes": 96,
       "image_url": "https://myanimelist.net/images/anime/11/39717l.jpg",
@@ -784,11 +598,7 @@
       "title": "Sabikui Bisco",
       "japanese_title": "錆喰いビスコ",
       "status": "dropped",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Sci-Fi"
-      ],
+      "genres": ["Action", "Adventure", "Sci-Fi"],
       "rating": 0,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1446/118840l.jpg",
@@ -801,12 +611,7 @@
       "title": "The Dawn of the Witch",
       "japanese_title": "魔法使い黎明期",
       "status": "dropped",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Comedy",
-        "Fantasy"
-      ],
+      "genres": ["Action", "Adventure", "Comedy", "Fantasy"],
       "rating": 0,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1093/121114l.jpg",
@@ -819,13 +624,7 @@
       "title": "The Rising of the Shield Hero",
       "japanese_title": "盾の勇者の成り上がり",
       "status": "dropped",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Drama",
-        "Fantasy",
-        "Isekai"
-      ],
+      "genres": ["Action", "Adventure", "Drama", "Fantasy", "Isekai"],
       "rating": 6,
       "episodes": 50,
       "image_url": "https://myanimelist.net/images/anime/1490/101365l.jpg",
@@ -838,10 +637,7 @@
       "title": "My Stepsister is My Ex-Girlfriend",
       "japanese_title": "継母の連れ子が元カノだった",
       "status": "dropped",
-      "genres": [
-        "Romance",
-        "Comedy"
-      ],
+      "genres": ["Romance", "Comedy"],
       "rating": 0,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1708/123281l.jpg",
@@ -854,10 +650,7 @@
       "title": "Classroom of the Elite",
       "japanese_title": "ようこそ実力至上主義の教室へ",
       "status": "dropped",
-      "genres": [
-        "Drama",
-        "Thriller"
-      ],
+      "genres": ["Drama", "Thriller"],
       "rating": 6,
       "episodes": 37,
       "image_url": "https://myanimelist.net/images/anime/5/86830l.jpg",
@@ -870,13 +663,7 @@
       "title": "Rent-A-Girlfriend",
       "japanese_title": "彼女、お借りします",
       "status": "dropped",
-      "genres": [
-        "Comedy",
-        "Romance",
-        "School",
-        "Shounen",
-        "Harem"
-      ],
+      "genres": ["Comedy", "Romance", "School", "Shounen", "Harem"],
       "rating": 7,
       "episodes": 36,
       "image_url": "https://myanimelist.net/images/anime/1902/128382l.jpg",
@@ -889,13 +676,7 @@
       "title": "I Got a Cheat Skill in Another World",
       "japanese_title": "異世界でチート能力を手にした俺は、現実世界をも無双する ～レベルアップは人生を変えた～ 第2期",
       "status": "dropped",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Fantasy",
-        "School",
-        "Isekai"
-      ],
+      "genres": ["Action", "Adventure", "Fantasy", "School", "Isekai"],
       "rating": 0,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/1632/156344l.jpg",
@@ -908,12 +689,7 @@
       "title": "The Legendary Hero Is Dead!",
       "japanese_title": "勇者が死んだ！",
       "status": "dropped",
-      "genres": [
-        "Action",
-        "Comedy",
-        "Fantasy",
-        "Harem"
-      ],
+      "genres": ["Action", "Comedy", "Fantasy", "Harem"],
       "rating": 0,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1868/133866l.jpg",
@@ -926,11 +702,7 @@
       "title": "91 Days",
       "japanese_title": "91Days",
       "status": "dropped",
-      "genres": [
-        "Drama",
-        "Action",
-        "Thriller"
-      ],
+      "genres": ["Drama", "Action", "Thriller"],
       "rating": 0,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/13/80515l.jpg",
@@ -943,13 +715,7 @@
       "title": "Log Horizon",
       "japanese_title": "ログ・ホライズン",
       "status": "dropped",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Fantasy",
-        "Magic",
-        "Isekai"
-      ],
+      "genres": ["Action", "Adventure", "Fantasy", "Magic", "Isekai"],
       "rating": 0,
       "episodes": 62,
       "image_url": "https://myanimelist.net/images/anime/5/84004l.jpg",
@@ -962,10 +728,7 @@
       "title": "Ao Ashi",
       "japanese_title": "アオアシ",
       "status": "dropped",
-      "genres": [
-        "Sports",
-        "Drama"
-      ],
+      "genres": ["Sports", "Drama"],
       "rating": 0,
       "episodes": 24,
       "image_url": "https://myanimelist.net/images/anime/1731/120871l.jpg",
@@ -978,11 +741,7 @@
       "title": "Rurouni Kenshin (2023)",
       "japanese_title": "るろうに剣心 -明治剣客浪漫譚-",
       "status": "dropped",
-      "genres": [
-        "Action",
-        "Historical",
-        "Shounen"
-      ],
+      "genres": ["Action", "Historical", "Shounen"],
       "rating": 0,
       "episodes": 24,
       "image_url": "https://myanimelist.net/images/anime/1599/136532l.jpg",
@@ -995,11 +754,7 @@
       "title": "Spy x Family",
       "japanese_title": "SPY×FAMILY",
       "status": "dropped",
-      "genres": [
-        "Action",
-        "Comedy",
-        "Shounen"
-      ],
+      "genres": ["Action", "Comedy", "Shounen"],
       "rating": 0,
       "episodes": 38,
       "image_url": "https://myanimelist.net/images/anime/1441/122795l.jpg",
@@ -1012,12 +767,7 @@
       "title": "Banished From the Hero's Party (Quiet Life)",
       "japanese_title": "真の仲間じゃないと勇者のパーティーを追い出されたので、辺境でスローライフすることにしました",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Fantasy",
-        "Romance"
-      ],
+      "genres": ["Action", "Adventure", "Fantasy", "Romance"],
       "rating": 5,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/1723/117854l.jpg",
@@ -1030,11 +780,7 @@
       "title": "One Punch Man",
       "japanese_title": "ワンパンマン",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Comedy",
-        "Sci-Fi"
-      ],
+      "genres": ["Action", "Comedy", "Sci-Fi"],
       "rating": 8,
       "episodes": 24,
       "image_url": "https://myanimelist.net/images/anime/12/76049l.jpg",
@@ -1047,12 +793,7 @@
       "title": "PokÃ©mon",
       "japanese_title": "六門天外モンコレナイト",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Comedy",
-        "Fantasy"
-      ],
+      "genres": ["Action", "Adventure", "Comedy", "Fantasy"],
       "rating": 8.5,
       "episodes": 1269,
       "image_url": "https://myanimelist.net/images/anime/3/17055l.jpg",
@@ -1065,12 +806,7 @@
       "title": "The Daily Life of the Immortal King",
       "japanese_title": "仙王的日常生活 第四季",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Fantasy",
-        "Comedy",
-        "School"
-      ],
+      "genres": ["Action", "Fantasy", "Comedy", "School"],
       "rating": 7,
       "episodes": 51,
       "image_url": "https://myanimelist.net/images/anime/1443/138753l.jpg",
@@ -1083,12 +819,7 @@
       "title": "The Ossan Newbie Adventurer",
       "japanese_title": "新米オッサン冒険者、最強パーティに死ぬほど鍛えられて無敵になる。",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Comedy",
-        "Fantasy"
-      ],
+      "genres": ["Action", "Adventure", "Comedy", "Fantasy"],
       "rating": 6,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1212/144711l.jpg",
@@ -1101,11 +832,7 @@
       "title": "Food Wars!",
       "japanese_title": "食戟のソーマ",
       "status": "completed",
-      "genres": [
-        "School",
-        "Shounen",
-        "Comedy"
-      ],
+      "genres": ["School", "Shounen", "Comedy"],
       "rating": 6,
       "episodes": 86,
       "image_url": "https://myanimelist.net/images/anime/1444/148976l.jpg",
@@ -1118,10 +845,7 @@
       "title": "Record of Ragnarok",
       "japanese_title": "終末のワルキューレ",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Fantasy"
-      ],
+      "genres": ["Action", "Fantasy"],
       "rating": 8,
       "episodes": 26,
       "image_url": "https://myanimelist.net/images/anime/1456/115123l.jpg",
@@ -1134,11 +858,7 @@
       "title": "My Isekai Life",
       "japanese_title": "転生賢者の異世界ライフ ～第二の職業を得て、世界最強になりました～",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Fantasy",
-        "Isekai"
-      ],
+      "genres": ["Action", "Fantasy", "Isekai"],
       "rating": 6,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1563/148868l.jpg",
@@ -1151,11 +871,7 @@
       "title": "The Genius Prince's Guide to Raising a Nation Out of Debt",
       "japanese_title": "天才王子の赤字国家再生術",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Comedy"
-      ],
+      "genres": ["Action", "Adventure", "Comedy"],
       "rating": 6,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1263/119511l.jpg",
@@ -1168,12 +884,7 @@
       "title": "The Eminence in Shadow",
       "japanese_title": "陰の実力者になりたくて！",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Comedy",
-        "Fantasy",
-        "Isekai"
-      ],
+      "genres": ["Action", "Comedy", "Fantasy", "Isekai"],
       "rating": 7.5,
       "episodes": 32,
       "image_url": "https://myanimelist.net/images/anime/1091/128729l.jpg",
@@ -1186,12 +897,7 @@
       "title": "Dr. Stone",
       "japanese_title": "ドクターストーン",
       "status": "completed",
-      "genres": [
-        "Adventure",
-        "Comedy",
-        "Sci-Fi",
-        "Shounen"
-      ],
+      "genres": ["Adventure", "Comedy", "Sci-Fi", "Shounen"],
       "rating": 8,
       "episodes": 35,
       "image_url": "https://myanimelist.net/images/anime/1613/102576l.jpg",
@@ -1204,11 +910,7 @@
       "title": "The Misfit of Demon King Academy",
       "japanese_title": "魔王学院の不適合者 ～史上最強の魔王の始祖、転生して子孫たちの学校へ通う～",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Fantasy",
-        "School"
-      ],
+      "genres": ["Action", "Fantasy", "School"],
       "rating": 7,
       "episodes": 35,
       "image_url": "https://myanimelist.net/images/anime/1126/108573l.jpg",
@@ -1221,13 +923,7 @@
       "title": "Dragon Ball (All)",
       "japanese_title": "全部見せます 年忘れドラゴンボールZ!",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Comedy",
-        "Fantasy",
-        "Shounen"
-      ],
+      "genres": ["Action", "Adventure", "Comedy", "Fantasy", "Shounen"],
       "rating": 9,
       "episodes": 806,
       "image_url": "https://myanimelist.net/images/anime/1667/112037l.jpg",
@@ -1240,12 +936,7 @@
       "title": "The Seven Deadly Sins",
       "japanese_title": "七つの大罪",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Fantasy",
-        "Shounen"
-      ],
+      "genres": ["Action", "Adventure", "Fantasy", "Shounen"],
       "rating": 7,
       "episodes": 100,
       "image_url": "https://myanimelist.net/images/anime/8/65409l.jpg",
@@ -1258,11 +949,7 @@
       "title": "The Case Study of Vanitas",
       "japanese_title": "ヴァニタスの手記",
       "status": "dropped",
-      "genres": [
-        "Fantasy",
-        "Shounen",
-        "Action"
-      ],
+      "genres": ["Fantasy", "Shounen", "Action"],
       "rating": 0,
       "episodes": 24,
       "image_url": "https://myanimelist.net/images/anime/1401/118483l.jpg",
@@ -1275,11 +962,7 @@
       "title": "Mushoku Tensei: Jobless Reincarnation",
       "japanese_title": "無職転生 ～異世界行ったら本気だす～",
       "status": "completed",
-      "genres": [
-        "Adventure",
-        "Fantasy",
-        "Isekai"
-      ],
+      "genres": ["Adventure", "Fantasy", "Isekai"],
       "rating": 8.5,
       "episodes": 49,
       "image_url": "https://myanimelist.net/images/anime/1530/117776l.jpg",
@@ -1292,12 +975,7 @@
       "title": "Hell's Paradise",
       "japanese_title": "地獄楽",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Fantasy",
-        "Shounen"
-      ],
+      "genres": ["Action", "Adventure", "Fantasy", "Shounen"],
       "rating": 8,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/1075/131925l.jpg",
@@ -1310,13 +988,7 @@
       "title": "Mashle: Magic and Muscles",
       "japanese_title": "マッシュル-MASHLE-",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Comedy",
-        "Fantasy",
-        "School",
-        "Shounen"
-      ],
+      "genres": ["Action", "Comedy", "Fantasy", "School", "Shounen"],
       "rating": 6,
       "episodes": 24,
       "image_url": "https://myanimelist.net/images/anime/1218/135107l.jpg",
@@ -1329,10 +1001,7 @@
       "title": "Ninja Kamui",
       "japanese_title": null,
       "status": "completed",
-      "genres": [
-        "Action",
-        "Sci-Fi"
-      ],
+      "genres": ["Action", "Sci-Fi"],
       "rating": 6,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/1142/141351l.jpg",
@@ -1345,12 +1014,7 @@
       "title": "Assassination Classroom",
       "japanese_title": "暗殺教室",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Comedy",
-        "School",
-        "Shounen"
-      ],
+      "genres": ["Action", "Comedy", "School", "Shounen"],
       "rating": 6.5,
       "episodes": 47,
       "image_url": "https://myanimelist.net/images/anime/5/75639l.jpg",
@@ -1363,12 +1027,7 @@
       "title": "Kaiju No. 8",
       "japanese_title": "怪獣8号",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Sci-Fi",
-        "Shounen"
-      ],
+      "genres": ["Action", "Adventure", "Sci-Fi", "Shounen"],
       "rating": 6,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1370/140362l.jpg",
@@ -1381,12 +1040,7 @@
       "title": "The New Gate",
       "japanese_title": "THE NEW GATE",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Fantasy",
-        "Isekai"
-      ],
+      "genres": ["Action", "Adventure", "Fantasy", "Isekai"],
       "rating": 6,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1898/141857l.jpg",
@@ -1399,11 +1053,7 @@
       "title": "I Was Reincarnated as the 7th Prince",
       "japanese_title": "転生したら第七王子だったので、気ままに魔術を極めます",
       "status": "completed",
-      "genres": [
-        "Adventure",
-        "Fantasy",
-        "Magic"
-      ],
+      "genres": ["Adventure", "Fantasy", "Magic"],
       "rating": 6,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1580/141243l.jpg",
@@ -1416,13 +1066,7 @@
       "title": "Shangri-La Frontier",
       "japanese_title": "シャングリラ・フロンティア～クソゲーハンター、神ゲーに挑まんとす～",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Comedy",
-        "Fantasy",
-        "Shounen"
-      ],
+      "genres": ["Action", "Adventure", "Comedy", "Fantasy", "Shounen"],
       "rating": 7,
       "episodes": 25,
       "image_url": "https://myanimelist.net/images/anime/1500/139931l.jpg",
@@ -1435,11 +1079,7 @@
       "title": "The Unwanted Undead Adventurer",
       "japanese_title": "望まぬ不死の冒険者",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Fantasy"
-      ],
+      "genres": ["Action", "Adventure", "Fantasy"],
       "rating": 6,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1008/140287l.jpg",
@@ -1452,11 +1092,7 @@
       "title": "Undead Unluck",
       "japanese_title": "アンデッドアンラック",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Comedy",
-        "Shounen"
-      ],
+      "genres": ["Action", "Comedy", "Shounen"],
       "rating": 6,
       "episodes": 24,
       "image_url": "https://myanimelist.net/images/anime/1136/138410l.jpg",
@@ -1469,12 +1105,7 @@
       "title": "The Wrong Way to Use Healing Magic",
       "japanese_title": "治癒魔法の間違った使い方",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Comedy",
-        "Fantasy",
-        "Isekai"
-      ],
+      "genres": ["Action", "Comedy", "Fantasy", "Isekai"],
       "rating": 6,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/1733/140802l.jpg",
@@ -1487,11 +1118,7 @@
       "title": "Bucchigiri?!",
       "japanese_title": "ぶっちぎり?!",
       "status": "completed",
-      "genres": [
-        "Action",
-        "School",
-        "Supernatural"
-      ],
+      "genres": ["Action", "School", "Supernatural"],
       "rating": 6,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1885/139871l.jpg",
@@ -1504,12 +1131,7 @@
       "title": "Wind Breaker",
       "japanese_title": "WIND BREAKER",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Comedy",
-        "Drama",
-        "School"
-      ],
+      "genres": ["Action", "Comedy", "Drama", "School"],
       "rating": 6,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/1438/141816l.jpg",
@@ -1522,10 +1144,7 @@
       "title": "Aesthetica of a Rogue Hero",
       "japanese_title": "はぐれ勇者の鬼畜美学〈エステティカ〉",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Fantasy"
-      ],
+      "genres": ["Action", "Fantasy"],
       "rating": 5,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/9/74047l.jpg",
@@ -1538,11 +1157,7 @@
       "title": "Godzilla: Planet of the Monsters",
       "japanese_title": "GODZILLA -怪獣惑星-",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Sci-Fi"
-      ],
+      "genres": ["Action", "Adventure", "Sci-Fi"],
       "rating": 7.6,
       "episodes": 1,
       "image_url": "https://myanimelist.net/images/anime/1847/93081l.jpg",
@@ -1555,11 +1170,7 @@
       "title": "Doraemon",
       "japanese_title": "ドラえもん",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "Sci-Fi",
-        "Shounen"
-      ],
+      "genres": ["Comedy", "Sci-Fi", "Shounen"],
       "rating": 8.5,
       "episodes": 1315,
       "image_url": "https://myanimelist.net/images/anime/1236/154852l.jpg",
@@ -1572,10 +1183,7 @@
       "title": "Battle Game in 5 Seconds",
       "japanese_title": "出会って5秒でバトル",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Supernatural"
-      ],
+      "genres": ["Action", "Supernatural"],
       "rating": 6,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1145/115565l.jpg",
@@ -1588,12 +1196,7 @@
       "title": "Code Geass",
       "japanese_title": "コードギアス 反逆のルルーシュ",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Drama",
-        "Mecha",
-        "Sci-Fi"
-      ],
+      "genres": ["Action", "Drama", "Mecha", "Sci-Fi"],
       "rating": 10,
       "episodes": 50,
       "image_url": "https://myanimelist.net/images/anime/1032/135088l.jpg",
@@ -1606,11 +1209,7 @@
       "title": "Boruto: Naruto Next Generations",
       "japanese_title": "BORUTO -NARUTO NEXT GENERATIONS-",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Shounen"
-      ],
+      "genres": ["Action", "Adventure", "Shounen"],
       "rating": 5.5,
       "episodes": 293,
       "image_url": "https://myanimelist.net/images/anime/1091/99847l.jpg",
@@ -1623,9 +1222,7 @@
       "title": "Black Lagoon",
       "japanese_title": "BLACK LAGOON",
       "status": "completed",
-      "genres": [
-        "Action"
-      ],
+      "genres": ["Action"],
       "rating": 6,
       "episodes": 24,
       "image_url": "https://myanimelist.net/images/anime/1906/121592l.jpg",
@@ -1638,11 +1235,7 @@
       "title": "Black Bullet",
       "japanese_title": "ブラック・ブレット　BLACK BULLET　［黒の銃弾］",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Mystery",
-        "Sci-Fi"
-      ],
+      "genres": ["Action", "Mystery", "Sci-Fi"],
       "rating": 6,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/1292/94693l.jpg",
@@ -1655,11 +1248,7 @@
       "title": "Baki",
       "japanese_title": "バキ",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Sports",
-        "Shounen"
-      ],
+      "genres": ["Action", "Sports", "Shounen"],
       "rating": 5.5,
       "episodes": 65,
       "image_url": "https://myanimelist.net/images/anime/1979/93135l.jpg",
@@ -1672,11 +1261,7 @@
       "title": "Mob Psycho 100",
       "japanese_title": "モブサイコ100",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Comedy",
-        "Supernatural"
-      ],
+      "genres": ["Action", "Comedy", "Supernatural"],
       "rating": 7.5,
       "episodes": 37,
       "image_url": "https://myanimelist.net/images/anime/8/80356l.jpg",
@@ -1689,11 +1274,7 @@
       "title": "An Archdemon's Dilemma: How to Love Your Elf Bride",
       "japanese_title": "魔王の俺が奴隷エルフを嫁にしたんだが、どう愛でればいい？",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Fantasy",
-        "Romance"
-      ],
+      "genres": ["Action", "Fantasy", "Romance"],
       "rating": 5.5,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1346/141203l.jpg",
@@ -1706,13 +1287,7 @@
       "title": "Welcome to Demon School! Iruma-kun",
       "japanese_title": "魔入りました！入間くん",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "Fantasy",
-        "School",
-        "Shounen",
-        "Isekai"
-      ],
+      "genres": ["Comedy", "Fantasy", "School", "Shounen", "Isekai"],
       "rating": 6.5,
       "episodes": 65,
       "image_url": "https://myanimelist.net/images/anime/1009/103187l.jpg",
@@ -1725,12 +1300,7 @@
       "title": "Chillin' in Another World with Level 2 Super Cheat Powers",
       "japanese_title": "Lv2からチートだった元勇者候補のまったり異世界ライフ",
       "status": "completed",
-      "genres": [
-        "Adventure",
-        "Fantasy",
-        "Romance",
-        "Isekai"
-      ],
+      "genres": ["Adventure", "Fantasy", "Romance", "Isekai"],
       "rating": 6.2,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1103/142513l.jpg",
@@ -1743,12 +1313,7 @@
       "title": "Kuroko's Basketball",
       "japanese_title": "黒子のバスケ",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "School",
-        "Shounen",
-        "Sports"
-      ],
+      "genres": ["Comedy", "School", "Shounen", "Sports"],
       "rating": 7,
       "episodes": 75,
       "image_url": "https://myanimelist.net/images/anime/11/50453l.jpg",
@@ -1761,11 +1326,7 @@
       "title": "Dinosaur King",
       "japanese_title": "古代王者 恐竜キング Ｄキッズアドベンチャー",
       "status": "completed",
-      "genres": [
-        "Adventure",
-        "Fantasy",
-        "Action"
-      ],
+      "genres": ["Adventure", "Fantasy", "Action"],
       "rating": 7,
       "episodes": 50,
       "image_url": "https://myanimelist.net/images/anime/10/75397l.jpg",
@@ -1778,11 +1339,7 @@
       "title": "Vermeil in Gold",
       "japanese_title": "金装のヴェルメイユ ～崖っぷち魔術師は最強の厄災と魔法世界を突き進む～",
       "status": "completed",
-      "genres": [
-        "Fantasy",
-        "School",
-        "Shounen"
-      ],
+      "genres": ["Fantasy", "School", "Shounen"],
       "rating": 6.8,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1561/125302l.jpg",
@@ -1795,10 +1352,7 @@
       "title": "I Want to Eat Your Pancreas",
       "japanese_title": "君の膵臓をたべたい",
       "status": "completed",
-      "genres": [
-        "Drama",
-        "Romance"
-      ],
+      "genres": ["Drama", "Romance"],
       "rating": 7.4,
       "episodes": 1,
       "image_url": "https://myanimelist.net/images/anime/1768/93291l.jpg",
@@ -1811,13 +1365,7 @@
       "title": "High School DxD",
       "japanese_title": "ハイスクールD×D",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "Romance",
-        "School",
-        "Harem",
-        "Action"
-      ],
+      "genres": ["Comedy", "Romance", "School", "Harem", "Action"],
       "rating": 8,
       "episodes": 50,
       "image_url": "https://myanimelist.net/images/anime/1331/111940l.jpg",
@@ -1830,11 +1378,7 @@
       "title": "Cells at Work!",
       "japanese_title": "はたらく細胞",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Comedy",
-        "Drama"
-      ],
+      "genres": ["Action", "Comedy", "Drama"],
       "rating": 7.2,
       "episodes": 34,
       "image_url": "https://myanimelist.net/images/anime/1141/117446l.jpg",
@@ -1847,11 +1391,7 @@
       "title": "The Devil is a Part-Timer!",
       "japanese_title": "はたらく魔王さま!",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "Fantasy",
-        "Romance"
-      ],
+      "genres": ["Comedy", "Fantasy", "Romance"],
       "rating": 6.7,
       "episodes": 37,
       "image_url": "https://myanimelist.net/images/anime/3/50177l.jpg",
@@ -1864,13 +1404,7 @@
       "title": "Haikyuu!!",
       "japanese_title": "ハイキュー!!",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "Drama",
-        "School",
-        "Shounen",
-        "Sports"
-      ],
+      "genres": ["Comedy", "Drama", "School", "Shounen", "Sports"],
       "rating": 8,
       "episodes": 85,
       "image_url": "https://myanimelist.net/images/anime/7/76014l.jpg",
@@ -1883,13 +1417,7 @@
       "title": "Black Clover",
       "japanese_title": "ブラッククローバー",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Comedy",
-        "Fantasy",
-        "Magic",
-        "Shounen"
-      ],
+      "genres": ["Action", "Comedy", "Fantasy", "Magic", "Shounen"],
       "rating": 8,
       "episodes": 170,
       "image_url": "https://myanimelist.net/images/anime/2/88336l.jpg",
@@ -1902,12 +1430,7 @@
       "title": "Gintama",
       "japanese_title": "銀魂'",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Comedy",
-        "Adventure",
-        "Shounen"
-      ],
+      "genres": ["Action", "Comedy", "Adventure", "Shounen"],
       "rating": 9,
       "episodes": 367,
       "image_url": "https://myanimelist.net/images/anime/4/50361l.jpg",
@@ -1920,12 +1443,7 @@
       "title": "Gurren Lagann",
       "japanese_title": "天元突破グレンラガン",
       "status": "completed",
-      "genres": [
-        "Mecha",
-        "Adventure",
-        "Comedy",
-        "Sci-Fi"
-      ],
+      "genres": ["Mecha", "Adventure", "Comedy", "Sci-Fi"],
       "rating": 8,
       "episodes": 27,
       "image_url": "https://myanimelist.net/images/anime/4/5123l.jpg",
@@ -1938,12 +1456,7 @@
       "title": "Hyouka",
       "japanese_title": "氷菓",
       "status": "completed",
-      "genres": [
-        "Mystery",
-        "Slice of Life",
-        "School",
-        "Romance"
-      ],
+      "genres": ["Mystery", "Slice of Life", "School", "Romance"],
       "rating": 8,
       "episodes": 22,
       "image_url": "https://myanimelist.net/images/anime/13/50521l.jpg",
@@ -1956,12 +1469,7 @@
       "title": "Kill la Kill",
       "japanese_title": "キルラキル",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Comedy",
-        "Supernatural",
-        "School"
-      ],
+      "genres": ["Action", "Comedy", "Supernatural", "School"],
       "rating": 7,
       "episodes": 24,
       "image_url": "https://myanimelist.net/images/anime/1464/111943l.jpg",
@@ -1974,11 +1482,7 @@
       "title": "Dies Irae",
       "japanese_title": "Dies irae",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Supernatural",
-        "Thriller"
-      ],
+      "genres": ["Action", "Supernatural", "Thriller"],
       "rating": 7,
       "episodes": 17,
       "image_url": "https://myanimelist.net/images/anime/2/89682l.jpg",
@@ -1991,12 +1495,7 @@
       "title": "Monster",
       "japanese_title": "MONSTER",
       "status": "completed",
-      "genres": [
-        "Psychological",
-        "Thriller",
-        "Drama",
-        "Mystery"
-      ],
+      "genres": ["Psychological", "Thriller", "Drama", "Mystery"],
       "rating": 9,
       "episodes": 74,
       "image_url": "https://myanimelist.net/images/anime/1648/152231l.jpg",
@@ -2009,11 +1508,7 @@
       "title": "Mushishi",
       "japanese_title": "蟲師",
       "status": "completed",
-      "genres": [
-        "Supernatural",
-        "Slice of Life",
-        "Mystery"
-      ],
+      "genres": ["Supernatural", "Slice of Life", "Mystery"],
       "rating": 8,
       "episodes": 26,
       "image_url": "https://myanimelist.net/images/anime/2/73862l.jpg",
@@ -2026,12 +1521,7 @@
       "title": "Neon Genesis Evangelion",
       "japanese_title": "新世紀エヴァンゲリオン",
       "status": "completed",
-      "genres": [
-        "Mecha",
-        "Psychological",
-        "Drama",
-        "Sci-Fi"
-      ],
+      "genres": ["Mecha", "Psychological", "Drama", "Sci-Fi"],
       "rating": 9,
       "episodes": 26,
       "image_url": "https://myanimelist.net/images/anime/1314/108941l.jpg",
@@ -2044,12 +1534,7 @@
       "title": "Paranoia Agent",
       "japanese_title": "妄想代理人",
       "status": "completed",
-      "genres": [
-        "Mystery",
-        "Psychological",
-        "Thriller",
-        "Supernatural"
-      ],
+      "genres": ["Mystery", "Psychological", "Thriller", "Supernatural"],
       "rating": 8,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/7/10240l.jpg",
@@ -2062,12 +1547,7 @@
       "title": "Parasyte: The Maxim",
       "japanese_title": "寄生獣 セイの格率",
       "status": "completed",
-      "genres": [
-        "Sci-Fi",
-        "Horror",
-        "Action",
-        "Psychological"
-      ],
+      "genres": ["Sci-Fi", "Horror", "Action", "Psychological"],
       "rating": 8,
       "episodes": 24,
       "image_url": "https://myanimelist.net/images/anime/3/73178l.jpg",
@@ -2080,12 +1560,7 @@
       "title": "Steins;Gate",
       "japanese_title": "STEINS;GATE",
       "status": "completed",
-      "genres": [
-        "Sci-Fi",
-        "Psychological",
-        "Drama",
-        "Thriller"
-      ],
+      "genres": ["Sci-Fi", "Psychological", "Drama", "Thriller"],
       "rating": 9,
       "episodes": 24,
       "image_url": "https://myanimelist.net/images/anime/1935/127974l.jpg",
@@ -2098,12 +1573,7 @@
       "title": "Trigun",
       "japanese_title": "トライガン",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Comedy",
-        "Sci-Fi"
-      ],
+      "genres": ["Action", "Adventure", "Comedy", "Sci-Fi"],
       "rating": 8,
       "episodes": 26,
       "image_url": "https://myanimelist.net/images/anime/1130/120002l.jpg",
@@ -2116,11 +1586,7 @@
       "title": "Violet Evergarden",
       "japanese_title": "ヴァイオレット・エヴァーガーデン",
       "status": "completed",
-      "genres": [
-        "Drama",
-        "Fantasy",
-        "Romance"
-      ],
+      "genres": ["Drama", "Fantasy", "Romance"],
       "rating": 9,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/1795/95088l.jpg",
@@ -2133,12 +1599,7 @@
       "title": "The Vision of Escaflowne",
       "japanese_title": "天空のエスカフローネ",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Mecha",
-        "Fantasy"
-      ],
+      "genres": ["Action", "Adventure", "Mecha", "Fantasy"],
       "rating": 8,
       "episodes": 26,
       "image_url": "https://myanimelist.net/images/anime/5/30689l.jpg",
@@ -2151,12 +1612,7 @@
       "title": "YuYu Hakusho",
       "japanese_title": "幽☆遊☆白書",
       "status": "completed",
-      "genres": [
-        "Supernatural",
-        "Action",
-        "Comedy",
-        "Shounen"
-      ],
+      "genres": ["Supernatural", "Action", "Comedy", "Shounen"],
       "rating": 6.9,
       "episodes": 112,
       "image_url": "https://myanimelist.net/images/anime/1228/111372l.jpg",
@@ -2169,12 +1625,7 @@
       "title": "Cowboy Bebop",
       "japanese_title": "カウボーイビバップ",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Comedy",
-        "Sci-Fi"
-      ],
+      "genres": ["Action", "Adventure", "Comedy", "Sci-Fi"],
       "rating": 8,
       "episodes": 26,
       "image_url": "https://myanimelist.net/images/anime/4/19644l.jpg",
@@ -2187,11 +1638,7 @@
       "title": "Cyberpunk: Edgerunners",
       "japanese_title": "サイバーパンク エッジランナーズ",
       "status": "completed",
-      "genres": [
-        "Sci-Fi",
-        "Action",
-        "Adventure"
-      ],
+      "genres": ["Sci-Fi", "Action", "Adventure"],
       "rating": 7,
       "episodes": 10,
       "image_url": "https://myanimelist.net/images/anime/1818/126435l.jpg",
@@ -2204,12 +1651,7 @@
       "title": "Bocchi the Rock!",
       "japanese_title": "ぼっち・ざ・ろっく！",
       "status": "completed",
-      "genres": [
-        "Slice of Life",
-        "Comedy",
-        "Music",
-        "School"
-      ],
+      "genres": ["Slice of Life", "Comedy", "Music", "School"],
       "rating": 7,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1448/127956l.jpg",
@@ -2222,12 +1664,7 @@
       "title": "Ranking of Kings",
       "japanese_title": "王様ランキング",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Fantasy",
-        "Drama",
-        "Adventure"
-      ],
+      "genres": ["Action", "Fantasy", "Drama", "Adventure"],
       "rating": 5.5,
       "episodes": 23,
       "image_url": "https://myanimelist.net/images/anime/1347/117616l.jpg",
@@ -2240,11 +1677,7 @@
       "title": "Deca-Dence",
       "japanese_title": "デカダンス",
       "status": "completed",
-      "genres": [
-        "Sci-Fi",
-        "Action",
-        "Adventure"
-      ],
+      "genres": ["Sci-Fi", "Action", "Adventure"],
       "rating": 6.5,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1787/132772l.jpg",
@@ -2257,12 +1690,7 @@
       "title": "Erased",
       "japanese_title": "僕だけがいない街",
       "status": "completed",
-      "genres": [
-        "Mystery",
-        "Drama",
-        "Psychological",
-        "Thriller"
-      ],
+      "genres": ["Mystery", "Drama", "Psychological", "Thriller"],
       "rating": 7,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/10/77957l.jpg",
@@ -2275,12 +1703,7 @@
       "title": "Ouran High School Host Club",
       "japanese_title": "桜蘭高校ホスト部",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "Romance",
-        "School",
-        "Shoujo"
-      ],
+      "genres": ["Comedy", "Romance", "School", "Shoujo"],
       "rating": 8,
       "episodes": 26,
       "image_url": "https://myanimelist.net/images/anime/2/71992l.jpg",
@@ -2293,11 +1716,7 @@
       "title": "Puella Magi Madoka Magica",
       "japanese_title": "魔法少女まどか★マギカ",
       "status": "completed",
-      "genres": [
-        "Psychological",
-        "Drama",
-        "Fantasy"
-      ],
+      "genres": ["Psychological", "Drama", "Fantasy"],
       "rating": 7.1,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/11/55225l.jpg",
@@ -2310,11 +1729,7 @@
       "title": "Anohana: The Flower We Saw That Day",
       "japanese_title": "あの日見た花の名前を僕達はまだ知らない。",
       "status": "completed",
-      "genres": [
-        "Drama",
-        "Fantasy",
-        "Romance"
-      ],
+      "genres": ["Drama", "Fantasy", "Romance"],
       "rating": 8,
       "episodes": 11,
       "image_url": "https://myanimelist.net/images/anime/5/79697l.jpg",
@@ -2327,12 +1742,7 @@
       "title": "Clannad",
       "japanese_title": "CLANNAD",
       "status": "completed",
-      "genres": [
-        "Romance",
-        "Drama",
-        "Slice of Life",
-        "School"
-      ],
+      "genres": ["Romance", "Drama", "Slice of Life", "School"],
       "rating": 8,
       "episodes": 47,
       "image_url": "https://myanimelist.net/images/anime/1804/95033l.jpg",
@@ -2345,12 +1755,7 @@
       "title": "Darling in the Franxx",
       "japanese_title": "ダーリン・イン・ザ・フランキス",
       "status": "completed",
-      "genres": [
-        "Sci-Fi",
-        "Action",
-        "Drama",
-        "Mecha"
-      ],
+      "genres": ["Sci-Fi", "Action", "Drama", "Mecha"],
       "rating": 7.5,
       "episodes": 24,
       "image_url": "https://myanimelist.net/images/anime/1614/90408l.jpg",
@@ -2363,11 +1768,7 @@
       "title": "Gabriel DropOut",
       "japanese_title": "ガヴリールドロップアウト",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "Slice of Life",
-        "School"
-      ],
+      "genres": ["Comedy", "Slice of Life", "School"],
       "rating": 7.4,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/9/82590l.jpg",
@@ -2380,11 +1781,7 @@
       "title": "Plunderer",
       "japanese_title": "プランダラ",
       "status": "completed",
-      "genres": [
-        "Fantasy",
-        "Action",
-        "Romance"
-      ],
+      "genres": ["Fantasy", "Action", "Romance"],
       "rating": 7.0,
       "episodes": 24,
       "image_url": "https://myanimelist.net/images/anime/1534/104784l.jpg",
@@ -2397,11 +1794,7 @@
       "title": "Tokyo 24th Ward",
       "japanese_title": "東京24区",
       "status": "completed",
-      "genres": [
-        "Mystery",
-        "Drama",
-        "Sci-Fi"
-      ],
+      "genres": ["Mystery", "Drama", "Sci-Fi"],
       "rating": 6.9,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/1442/120112l.jpg",
@@ -2414,11 +1807,7 @@
       "title": "Seiren",
       "japanese_title": "セイレン",
       "status": "completed",
-      "genres": [
-        "School",
-        "Romance",
-        "Slice of Life"
-      ],
+      "genres": ["School", "Romance", "Slice of Life"],
       "rating": 7.3,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1465/121561l.jpg",
@@ -2431,10 +1820,7 @@
       "title": "Sleepy Princess in the Demon Castle",
       "japanese_title": "魔王城でおやすみ",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "Fantasy"
-      ],
+      "genres": ["Comedy", "Fantasy"],
       "rating": 7.6,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1448/108514l.jpg",
@@ -2447,11 +1833,7 @@
       "title": "Accel World",
       "japanese_title": "アクセル・ワールド",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Sci-Fi",
-        "Romance"
-      ],
+      "genres": ["Action", "Sci-Fi", "Romance"],
       "rating": 7.2,
       "episodes": 24,
       "image_url": "https://myanimelist.net/images/anime/1002/135430l.jpg",
@@ -2464,12 +1846,7 @@
       "title": "Orange",
       "japanese_title": "orange（オレンジ）",
       "status": "completed",
-      "genres": [
-        "Romance",
-        "Drama",
-        "School",
-        "Supernatural"
-      ],
+      "genres": ["Romance", "Drama", "School", "Supernatural"],
       "rating": 7.0,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/1415/102477l.jpg",
@@ -2482,11 +1859,7 @@
       "title": "Occultic;Nine",
       "japanese_title": "Occultic;Nine －オカルティック・ナイン－",
       "status": "completed",
-      "genres": [
-        "Supernatural",
-        "Mystery",
-        "Thriller"
-      ],
+      "genres": ["Supernatural", "Mystery", "Thriller"],
       "rating": 6.5,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/8/81186l.jpg",
@@ -2499,12 +1872,7 @@
       "title": "Domestic Girlfriend",
       "japanese_title": "ドメスティックな彼女",
       "status": "completed",
-      "genres": [
-        "Romance",
-        "Comedy",
-        "Drama",
-        "School"
-      ],
+      "genres": ["Romance", "Comedy", "Drama", "School"],
       "rating": 7.9,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1021/95670l.jpg",
@@ -2517,11 +1885,7 @@
       "title": "Gleipnir",
       "japanese_title": "グレイプニル",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Mystery",
-        "Horror"
-      ],
+      "genres": ["Action", "Mystery", "Horror"],
       "rating": 7.7,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/1808/111697l.jpg",
@@ -2534,11 +1898,7 @@
       "title": "Children of the Whales",
       "japanese_title": "クジラの子らは砂上に歌う",
       "status": "completed",
-      "genres": [
-        "Fantasy",
-        "Drama",
-        "Adventure"
-      ],
+      "genres": ["Fantasy", "Drama", "Adventure"],
       "rating": 7.4,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/4/86661l.jpg",
@@ -2551,11 +1911,7 @@
       "title": "Plastic Memories",
       "japanese_title": "プラスティック・メモリーズ",
       "status": "completed",
-      "genres": [
-        "Romance",
-        "Sci-Fi",
-        "Drama"
-      ],
+      "genres": ["Romance", "Sci-Fi", "Drama"],
       "rating": 7.2,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/4/72750l.jpg",
@@ -2568,12 +1924,7 @@
       "title": "Arifureta: From Commonplace to World's Strongest",
       "japanese_title": "ありふれた職業で世界最強",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Fantasy",
-        "Isekai",
-        "Harem"
-      ],
+      "genres": ["Action", "Fantasy", "Isekai", "Harem"],
       "rating": 6.9,
       "episodes": 25,
       "image_url": "https://myanimelist.net/images/anime/1776/97682l.jpg",
@@ -2586,11 +1937,7 @@
       "title": "A Place Further than the Universe",
       "japanese_title": "宇宙よりも遠い場所",
       "status": "completed",
-      "genres": [
-        "Slice of Life",
-        "Drama",
-        "Adventure"
-      ],
+      "genres": ["Slice of Life", "Drama", "Adventure"],
       "rating": 7.8,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/6/89879l.jpg",
@@ -2603,12 +1950,7 @@
       "title": "Wise Man's Grandchild",
       "japanese_title": "賢者の孫",
       "status": "completed",
-      "genres": [
-        "Fantasy",
-        "Isekai",
-        "Magic",
-        "Romance"
-      ],
+      "genres": ["Fantasy", "Isekai", "Magic", "Romance"],
       "rating": 7.6,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1261/100452l.jpg",
@@ -2621,12 +1963,7 @@
       "title": "Given",
       "japanese_title": "ギヴン",
       "status": "completed",
-      "genres": [
-        "Drama",
-        "Music",
-        "Romance",
-        "Slice of Life"
-      ],
+      "genres": ["Drama", "Music", "Romance", "Slice of Life"],
       "rating": 7.3,
       "episodes": 11,
       "image_url": "https://myanimelist.net/images/anime/1666/102238l.jpg",
@@ -2639,11 +1976,7 @@
       "title": "Midnight Occult Civil Servants",
       "japanese_title": "真夜中のオカルト公務員",
       "status": "completed",
-      "genres": [
-        "Supernatural",
-        "Mystery",
-        "Fantasy"
-      ],
+      "genres": ["Supernatural", "Mystery", "Fantasy"],
       "rating": 7.1,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1859/100448l.jpg",
@@ -2656,11 +1989,7 @@
       "title": "Overlord II",
       "japanese_title": "オーバーロードⅡ",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Fantasy",
-        "Isekai"
-      ],
+      "genres": ["Action", "Fantasy", "Isekai"],
       "rating": 7.2,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/1212/113415l.jpg",
@@ -2673,12 +2002,7 @@
       "title": "Kiznaiver",
       "japanese_title": "キズナイーバー",
       "status": "completed",
-      "genres": [
-        "Sci-Fi",
-        "Drama",
-        "Romance",
-        "School"
-      ],
+      "genres": ["Sci-Fi", "Drama", "Romance", "School"],
       "rating": 7.0,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1085/147246l.jpg",
@@ -2691,12 +2015,7 @@
       "title": "To Your Eternity",
       "japanese_title": "不滅のあなたへ",
       "status": "completed",
-      "genres": [
-        "Fantasy",
-        "Drama",
-        "Action",
-        "Adventure"
-      ],
+      "genres": ["Fantasy", "Drama", "Action", "Adventure"],
       "rating": 7.5,
       "episodes": 20,
       "image_url": "https://myanimelist.net/images/anime/1880/118484l.jpg",
@@ -2709,11 +2028,7 @@
       "title": "Carole & Tuesday",
       "japanese_title": "キャロル&チューズデイ",
       "status": "completed",
-      "genres": [
-        "Drama",
-        "Music",
-        "Sci-Fi"
-      ],
+      "genres": ["Drama", "Music", "Sci-Fi"],
       "rating": 7.6,
       "episodes": 24,
       "image_url": "https://myanimelist.net/images/anime/1611/96157l.jpg",
@@ -2726,12 +2041,7 @@
       "title": "Ghost Hound",
       "japanese_title": "神霊狩／GHOST HOUND",
       "status": "completed",
-      "genres": [
-        "Mystery",
-        "Supernatural",
-        "Thriller",
-        "Psychological"
-      ],
+      "genres": ["Mystery", "Supernatural", "Thriller", "Psychological"],
       "rating": 7.4,
       "episodes": 22,
       "image_url": "https://myanimelist.net/images/anime/2/80967l.jpg",
@@ -2744,11 +2054,7 @@
       "title": "Ergo Proxy",
       "japanese_title": "エルゴプラクシー",
       "status": "completed",
-      "genres": [
-        "Sci-Fi",
-        "Psychological",
-        "Thriller"
-      ],
+      "genres": ["Sci-Fi", "Psychological", "Thriller"],
       "rating": 7.9,
       "episodes": 23,
       "image_url": "https://myanimelist.net/images/anime/1183/136187l.jpg",
@@ -2761,12 +2067,7 @@
       "title": "Kekkai Sensen",
       "japanese_title": "血界戦線",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Fantasy",
-        "Supernatural",
-        "Comedy"
-      ],
+      "genres": ["Action", "Fantasy", "Supernatural", "Comedy"],
       "rating": 7.4,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1449/142053l.jpg",
@@ -2779,12 +2080,7 @@
       "title": "Lovelyâ˜…Complex",
       "japanese_title": "らぶドル～Lovely Idol～",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "Romance",
-        "Slice of Life",
-        "School"
-      ],
+      "genres": ["Comedy", "Romance", "Slice of Life", "School"],
       "rating": 7.5,
       "episodes": 24,
       "image_url": "https://myanimelist.net/images/anime/6/6448l.jpg",
@@ -2797,11 +2093,7 @@
       "title": "Charlotte",
       "japanese_title": "Charlotte（シャーロット）",
       "status": "completed",
-      "genres": [
-        "Supernatural",
-        "Drama",
-        "School"
-      ],
+      "genres": ["Supernatural", "Drama", "School"],
       "rating": 6.9,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/1826/147276l.jpg",
@@ -2814,12 +2106,7 @@
       "title": "Gosick",
       "japanese_title": "GOSICK -ゴシック-",
       "status": "completed",
-      "genres": [
-        "Mystery",
-        "Historical",
-        "Supernatural",
-        "Romance"
-      ],
+      "genres": ["Mystery", "Historical", "Supernatural", "Romance"],
       "rating": 7.1,
       "episodes": 24,
       "image_url": "https://myanimelist.net/images/anime/11/27906l.jpg",
@@ -2832,12 +2119,7 @@
       "title": "My Little Monster",
       "japanese_title": "となりの怪物くん",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "School",
-        "Romance",
-        "Shoujo"
-      ],
+      "genres": ["Comedy", "School", "Romance", "Shoujo"],
       "rating": 7.2,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/4/39779l.jpg",
@@ -2850,12 +2132,7 @@
       "title": "Aldnoah.Zero",
       "japanese_title": "アルドノア・ゼロ（第2クール）",
       "status": "completed",
-      "genres": [
-        "Sci-Fi",
-        "Mecha",
-        "Action",
-        "Drama"
-      ],
+      "genres": ["Sci-Fi", "Mecha", "Action", "Drama"],
       "rating": 7.6,
       "episodes": 24,
       "image_url": "https://myanimelist.net/images/anime/10/71297l.jpg",
@@ -2868,11 +2145,7 @@
       "title": "Zankyou no Terror",
       "japanese_title": "残響のテロル",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Mystery",
-        "Thriller"
-      ],
+      "genres": ["Action", "Mystery", "Thriller"],
       "rating": 7.0,
       "episodes": 11,
       "image_url": "https://myanimelist.net/images/anime/1417/117422l.jpg",
@@ -2885,11 +2158,7 @@
       "title": "Barakamon",
       "japanese_title": "ばらかもん",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "Slice of Life",
-        "Drama"
-      ],
+      "genres": ["Comedy", "Slice of Life", "Drama"],
       "rating": 7.7,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1426/111248l.jpg",
@@ -2902,12 +2171,7 @@
       "title": "Nana",
       "japanese_title": "NANA [ナナ]",
       "status": "completed",
-      "genres": [
-        "Drama",
-        "Romance",
-        "Music",
-        "Slice of Life"
-      ],
+      "genres": ["Drama", "Romance", "Music", "Slice of Life"],
       "rating": 7.6,
       "episodes": 47,
       "image_url": "https://myanimelist.net/images/anime/2/11232l.jpg",
@@ -2920,12 +2184,7 @@
       "title": "Another",
       "japanese_title": "アナザー",
       "status": "completed",
-      "genres": [
-        "Horror",
-        "Supernatural",
-        "Mystery",
-        "Thriller"
-      ],
+      "genres": ["Horror", "Supernatural", "Mystery", "Thriller"],
       "rating": 7.5,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/4/75509l.jpg",
@@ -2938,11 +2197,7 @@
       "title": "ID: INVADED",
       "japanese_title": "ID:INVADED イド:インヴェイデッド",
       "status": "completed",
-      "genres": [
-        "Sci-Fi",
-        "Psychological",
-        "Mystery"
-      ],
+      "genres": ["Sci-Fi", "Psychological", "Mystery"],
       "rating": 6.8,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/1889/105337l.jpg",
@@ -2955,12 +2210,7 @@
       "title": "Golden Time",
       "japanese_title": "ゴールデンタイム",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "Romance",
-        "Drama",
-        "Slice of Life"
-      ],
+      "genres": ["Comedy", "Romance", "Drama", "Slice of Life"],
       "rating": 7.0,
       "episodes": 24,
       "image_url": "https://myanimelist.net/images/anime/12/52091l.jpg",
@@ -2973,12 +2223,7 @@
       "title": "Grimgar: Ashes and Illusions",
       "japanese_title": "灰と幻想のグリムガル",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Fantasy",
-        "Adventure",
-        "Drama"
-      ],
+      "genres": ["Action", "Fantasy", "Adventure", "Drama"],
       "rating": 7.3,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/13/77976l.jpg",
@@ -2991,13 +2236,7 @@
       "title": "Beelzebub",
       "japanese_title": "べるぜバブ",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "Shounen",
-        "School",
-        "Action",
-        "Supernatural"
-      ],
+      "genres": ["Comedy", "Shounen", "School", "Action", "Supernatural"],
       "rating": 6.9,
       "episodes": 60,
       "image_url": "https://myanimelist.net/images/anime/3/28013l.jpg",
@@ -3010,10 +2249,7 @@
       "title": "Usagi Drop",
       "japanese_title": "うさぎドロップ",
       "status": "completed",
-      "genres": [
-        "Slice of Life",
-        "Drama"
-      ],
+      "genres": ["Slice of Life", "Drama"],
       "rating": 7.8,
       "episodes": 11,
       "image_url": "https://myanimelist.net/images/anime/1460/98853l.jpg",
@@ -3026,11 +2262,7 @@
       "title": "Scum's Wish",
       "japanese_title": "クズの本懐",
       "status": "completed",
-      "genres": [
-        "Romance",
-        "Drama",
-        "School"
-      ],
+      "genres": ["Romance", "Drama", "School"],
       "rating": 6.4,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/5/83937l.jpg",
@@ -3043,12 +2275,7 @@
       "title": "Kyoukai no Kanata",
       "japanese_title": "境界の彼方",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Fantasy",
-        "Supernatural",
-        "Romance"
-      ],
+      "genres": ["Action", "Fantasy", "Supernatural", "Romance"],
       "rating": 6.7,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/3/85468l.jpg",
@@ -3061,12 +2288,7 @@
       "title": "Guilty Crown",
       "japanese_title": "ギルティクラウン",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Sci-Fi",
-        "Drama",
-        "Mecha"
-      ],
+      "genres": ["Action", "Sci-Fi", "Drama", "Mecha"],
       "rating": 7.4,
       "episodes": 22,
       "image_url": "https://myanimelist.net/images/anime/1566/133912l.jpg",
@@ -3079,13 +2301,7 @@
       "title": "Nisekoi",
       "japanese_title": "ニセコイ",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "Romance",
-        "School",
-        "Shounen",
-        "Harem"
-      ],
+      "genres": ["Comedy", "Romance", "School", "Shounen", "Harem"],
       "rating": 7.0,
       "episodes": 32,
       "image_url": "https://myanimelist.net/images/anime/13/75587l.jpg",
@@ -3098,11 +2314,7 @@
       "title": "Run with the Wind",
       "japanese_title": "風が強く吹いている",
       "status": "completed",
-      "genres": [
-        "Sports",
-        "Slice of Life",
-        "Drama"
-      ],
+      "genres": ["Sports", "Slice of Life", "Drama"],
       "rating": 7.3,
       "episodes": 23,
       "image_url": "https://myanimelist.net/images/anime/1936/129119l.jpg",
@@ -3115,11 +2327,7 @@
       "title": "Azumanga Daioh",
       "japanese_title": "あずまんが大王 THE ANIMATION",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "School",
-        "Slice of Life"
-      ],
+      "genres": ["Comedy", "School", "Slice of Life"],
       "rating": 6.8,
       "episodes": 26,
       "image_url": "https://myanimelist.net/images/anime/1066/117358l.jpg",
@@ -3132,12 +2340,7 @@
       "title": "Boogiepop and Others",
       "japanese_title": "ブギーポップは笑わない",
       "status": "completed",
-      "genres": [
-        "Sci-Fi",
-        "Horror",
-        "Psychological",
-        "Mystery"
-      ],
+      "genres": ["Sci-Fi", "Horror", "Psychological", "Mystery"],
       "rating": 6.6,
       "episodes": 18,
       "image_url": "https://myanimelist.net/images/anime/1135/95454l.jpg",
@@ -3150,12 +2353,7 @@
       "title": "Shiki",
       "japanese_title": "屍鬼",
       "status": "completed",
-      "genres": [
-        "Mystery",
-        "Supernatural",
-        "Thriller",
-        "Horror"
-      ],
+      "genres": ["Mystery", "Supernatural", "Thriller", "Horror"],
       "rating": 7.4,
       "episodes": 22,
       "image_url": "https://myanimelist.net/images/anime/1531/119165l.jpg",
@@ -3168,12 +2366,7 @@
       "title": "Peach Girl",
       "japanese_title": "ピーチガール",
       "status": "completed",
-      "genres": [
-        "Romance",
-        "Drama",
-        "School",
-        "Shoujo"
-      ],
+      "genres": ["Romance", "Drama", "School", "Shoujo"],
       "rating": 7.5,
       "episodes": 25,
       "image_url": "https://myanimelist.net/images/anime/13/75579l.jpg",
@@ -3186,12 +2379,7 @@
       "title": "Deadman Wonderland",
       "japanese_title": "デッドマン・ワンダーランド",
       "status": "completed",
-      "genres": [
-        "Sci-Fi",
-        "Action",
-        "Horror",
-        "Psychological"
-      ],
+      "genres": ["Sci-Fi", "Action", "Horror", "Psychological"],
       "rating": 7.1,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/9/75299l.jpg",
@@ -3204,12 +2392,7 @@
       "title": "Kids on the Slope",
       "japanese_title": "坂道のアポロン",
       "status": "completed",
-      "genres": [
-        "Drama",
-        "Music",
-        "Slice of Life",
-        "Romance"
-      ],
+      "genres": ["Drama", "Music", "Slice of Life", "Romance"],
       "rating": 7.6,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1604/98654l.jpg",
@@ -3222,12 +2405,7 @@
       "title": "Kamisama Kiss",
       "japanese_title": "神様はじめました",
       "status": "completed",
-      "genres": [
-        "Romance",
-        "Comedy",
-        "Fantasy",
-        "Shoujo"
-      ],
+      "genres": ["Romance", "Comedy", "Fantasy", "Shoujo"],
       "rating": 7.0,
       "episodes": 25,
       "image_url": "https://myanimelist.net/images/anime/3/85429l.jpg",
@@ -3240,12 +2418,7 @@
       "title": "School Days",
       "japanese_title": "スクールデイズ",
       "status": "completed",
-      "genres": [
-        "Psychological",
-        "Drama",
-        "Horror",
-        "School"
-      ],
+      "genres": ["Psychological", "Drama", "Horror", "School"],
       "rating": 6.9,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1593/122440l.jpg",
@@ -3258,11 +2431,7 @@
       "title": "No Game No Life: Zero",
       "japanese_title": "ノーゲーム・ノーライフ ゼロ",
       "status": "completed",
-      "genres": [
-        "Fantasy",
-        "Action",
-        "Adventure"
-      ],
+      "genres": ["Fantasy", "Action", "Adventure"],
       "rating": 7.3,
       "episodes": 1,
       "image_url": "https://myanimelist.net/images/anime/1085/90759l.jpg",
@@ -3275,12 +2444,7 @@
       "title": "Honey and Clover",
       "japanese_title": "ハチミツとクローバー",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "Romance",
-        "Drama",
-        "Slice of Life"
-      ],
+      "genres": ["Comedy", "Romance", "Drama", "Slice of Life"],
       "rating": 7.4,
       "episodes": 36,
       "image_url": "https://myanimelist.net/images/anime/1301/133577l.jpg",
@@ -3293,12 +2457,7 @@
       "title": "Blue Exorcist",
       "japanese_title": "青の祓魔師",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Fantasy",
-        "Supernatural",
-        "Shounen"
-      ],
+      "genres": ["Action", "Fantasy", "Supernatural", "Shounen"],
       "rating": 6.8,
       "episodes": 25,
       "image_url": "https://myanimelist.net/images/anime/10/75195l.jpg",
@@ -3311,11 +2470,7 @@
       "title": "Inu x Boku SS",
       "japanese_title": "妖狐×僕SS",
       "status": "completed",
-      "genres": [
-        "Romance",
-        "Supernatural",
-        "Comedy"
-      ],
+      "genres": ["Romance", "Supernatural", "Comedy"],
       "rating": 7.5,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/1760/98794l.jpg",
@@ -3328,12 +2483,7 @@
       "title": "Boogiepop Phantom",
       "japanese_title": "ブギーポップは笑わない Boogiepop Phantom",
       "status": "completed",
-      "genres": [
-        "Psychological",
-        "Horror",
-        "Thriller",
-        "Mystery"
-      ],
+      "genres": ["Psychological", "Horror", "Thriller", "Mystery"],
       "rating": 7.7,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1327/95777l.jpg",
@@ -3346,11 +2496,7 @@
       "title": "True Tears",
       "japanese_title": "true tears",
       "status": "completed",
-      "genres": [
-        "Romance",
-        "School",
-        "Drama"
-      ],
+      "genres": ["Romance", "School", "Drama"],
       "rating": 7.0,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/1733/134118l.jpg",
@@ -3363,12 +2509,7 @@
       "title": "Drifters",
       "japanese_title": "DRIFTERS",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Fantasy",
-        "Historical",
-        "Comedy"
-      ],
+      "genres": ["Action", "Fantasy", "Historical", "Comedy"],
       "rating": 6.9,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/10/80271l.jpg",
@@ -3381,10 +2522,7 @@
       "title": "5 Centimeters per Second",
       "japanese_title": "秒速５センチメートル",
       "status": "completed",
-      "genres": [
-        "Drama",
-        "Romance"
-      ],
+      "genres": ["Drama", "Romance"],
       "rating": 7.6,
       "episodes": 1,
       "image_url": "https://myanimelist.net/images/anime/1410/112994l.jpg",
@@ -3397,12 +2535,7 @@
       "title": "Video Girl Ai",
       "japanese_title": "電影少女 VIDEO・GIRL・AI",
       "status": "completed",
-      "genres": [
-        "Sci-Fi",
-        "Romance",
-        "Slice of Life",
-        "Drama"
-      ],
+      "genres": ["Sci-Fi", "Romance", "Slice of Life", "Drama"],
       "rating": 7.5,
       "episodes": 6,
       "image_url": "https://myanimelist.net/images/anime/2/22130l.jpg",
@@ -3415,11 +2548,7 @@
       "title": "Big Order",
       "japanese_title": "ビッグオーダー",
       "status": "completed",
-      "genres": [
-        "Fantasy",
-        "Action",
-        "Psychological"
-      ],
+      "genres": ["Fantasy", "Action", "Psychological"],
       "rating": 6.5,
       "episodes": 10,
       "image_url": "https://myanimelist.net/images/anime/12/78945l.jpg",
@@ -3432,12 +2561,7 @@
       "title": "Chrome Shelled Regios",
       "japanese_title": "鋼殻のレギオス",
       "status": "completed",
-      "genres": [
-        "Sci-Fi",
-        "Action",
-        "Fantasy",
-        "Romance"
-      ],
+      "genres": ["Sci-Fi", "Action", "Fantasy", "Romance"],
       "rating": 7.2,
       "episodes": 24,
       "image_url": "https://myanimelist.net/images/anime/9/12238l.jpg",
@@ -3450,11 +2574,7 @@
       "title": "Battery",
       "japanese_title": "バッテリー",
       "status": "completed",
-      "genres": [
-        "Drama",
-        "Sports",
-        "Slice of Life"
-      ],
+      "genres": ["Drama", "Sports", "Slice of Life"],
       "rating": 7.3,
       "episodes": 11,
       "image_url": "https://myanimelist.net/images/anime/6/79158l.jpg",
@@ -3467,11 +2587,7 @@
       "title": "Natsuyuki Rendezvous",
       "japanese_title": "夏雪ランデブー",
       "status": "completed",
-      "genres": [
-        "Supernatural",
-        "Romance",
-        "Slice of Life"
-      ],
+      "genres": ["Supernatural", "Romance", "Slice of Life"],
       "rating": 7.4,
       "episodes": 11,
       "image_url": "https://myanimelist.net/images/anime/11/38181l.jpg",
@@ -3484,12 +2600,7 @@
       "title": "Fuuka",
       "japanese_title": "風夏",
       "status": "completed",
-      "genres": [
-        "Romance",
-        "Drama",
-        "Music",
-        "School"
-      ],
+      "genres": ["Romance", "Drama", "Music", "School"],
       "rating": 7.1,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/8/83735l.jpg",
@@ -3502,11 +2613,7 @@
       "title": "Magical Girl Site",
       "japanese_title": "魔法少女サイト",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Psychological",
-        "Horror"
-      ],
+      "genres": ["Action", "Psychological", "Horror"],
       "rating": 6.8,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1720/95064l.jpg",
@@ -3519,11 +2626,7 @@
       "title": "Fate/Apocrypha",
       "japanese_title": "Fate/Apocrypha",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Fantasy",
-        "Magic"
-      ],
+      "genres": ["Action", "Fantasy", "Magic"],
       "rating": 7.3,
       "episodes": 25,
       "image_url": "https://myanimelist.net/images/anime/9/86573l.jpg",
@@ -3536,11 +2639,7 @@
       "title": "Welcome to the NHK",
       "japanese_title": "N・H・Kにようこそ！",
       "status": "completed",
-      "genres": [
-        "Psychological",
-        "Drama",
-        "Comedy"
-      ],
+      "genres": ["Psychological", "Drama", "Comedy"],
       "rating": 7.7,
       "episodes": 24,
       "image_url": "https://myanimelist.net/images/anime/3/52675l.jpg",
@@ -3553,13 +2652,7 @@
       "title": "Kimi ni Todoke",
       "japanese_title": "君に届け",
       "status": "completed",
-      "genres": [
-        "Romance",
-        "Comedy",
-        "Drama",
-        "School",
-        "Shoujo"
-      ],
+      "genres": ["Romance", "Comedy", "Drama", "School", "Shoujo"],
       "rating": 7.5,
       "episodes": 37,
       "image_url": "https://myanimelist.net/images/anime/1502/124384l.jpg",
@@ -3572,11 +2665,7 @@
       "title": "Granblue Fantasy The Animation",
       "japanese_title": "GRANBLUE FANTASY The Animation",
       "status": "completed",
-      "genres": [
-        "Fantasy",
-        "Adventure",
-        "Action"
-      ],
+      "genres": ["Fantasy", "Adventure", "Action"],
       "rating": 7.3,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/2/81630l.jpg",
@@ -3589,11 +2678,7 @@
       "title": "Terra Formars",
       "japanese_title": "TERRA FORMARS [テラフォーマーズ]",
       "status": "completed",
-      "genres": [
-        "Sci-Fi",
-        "Adventure",
-        "Action"
-      ],
+      "genres": ["Sci-Fi", "Adventure", "Action"],
       "rating": 7.4,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/2/67117l.jpg",
@@ -3606,11 +2691,7 @@
       "title": "Sword Gai: The Animation",
       "japanese_title": "ソードガイ The Animation",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Supernatural",
-        "Fantasy"
-      ],
+      "genres": ["Action", "Supernatural", "Fantasy"],
       "rating": 7.3,
       "episodes": 24,
       "image_url": "https://myanimelist.net/images/anime/7/89759l.jpg",
@@ -3623,12 +2704,7 @@
       "title": "Binbougami ga!",
       "japanese_title": "貧乏神が!",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "Fantasy",
-        "Supernatural",
-        "Shounen"
-      ],
+      "genres": ["Comedy", "Fantasy", "Supernatural", "Shounen"],
       "rating": 7.1,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/8/39333l.jpg",
@@ -3641,12 +2717,7 @@
       "title": "Sankarea",
       "japanese_title": "さんかれあ",
       "status": "completed",
-      "genres": [
-        "Romance",
-        "Drama",
-        "Horror",
-        "Comedy"
-      ],
+      "genres": ["Romance", "Drama", "Horror", "Comedy"],
       "rating": 7.6,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1487/95651l.jpg",
@@ -3659,12 +2730,7 @@
       "title": "Arslan Senki",
       "japanese_title": "アルスラーン戦記",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Historical",
-        "Fantasy",
-        "Adventure"
-      ],
+      "genres": ["Action", "Historical", "Fantasy", "Adventure"],
       "rating": 7.5,
       "episodes": 25,
       "image_url": "https://myanimelist.net/images/anime/10/22254l.jpg",
@@ -3677,11 +2743,7 @@
       "title": "Asobi Asobase",
       "japanese_title": "あそびあそばせ",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "School",
-        "Slice of Life"
-      ],
+      "genres": ["Comedy", "School", "Slice of Life"],
       "rating": 7.0,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1139/95077l.jpg",
@@ -3694,10 +2756,7 @@
       "title": "Yamishibai: Japanese Ghost Stories",
       "japanese_title": "闇芝居",
       "status": "completed",
-      "genres": [
-        "Horror",
-        "Supernatural"
-      ],
+      "genres": ["Horror", "Supernatural"],
       "rating": 7.1,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/11/51995l.jpg",
@@ -3710,11 +2769,7 @@
       "title": "Voices of a Distant Star",
       "japanese_title": "ほしのこえ",
       "status": "completed",
-      "genres": [
-        "Romance",
-        "Sci-Fi",
-        "Drama"
-      ],
+      "genres": ["Romance", "Sci-Fi", "Drama"],
       "rating": 7.2,
       "episodes": 1,
       "image_url": "https://myanimelist.net/images/anime/1980/112997l.jpg",
@@ -3727,12 +2782,7 @@
       "title": "B: The Beginning",
       "japanese_title": "B: The Beginning",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Supernatural",
-        "Mystery",
-        "Thriller"
-      ],
+      "genres": ["Action", "Supernatural", "Mystery", "Thriller"],
       "rating": 7.6,
       "episodes": 18,
       "image_url": "https://myanimelist.net/images/anime/1564/90469l.jpg",
@@ -3745,11 +2795,7 @@
       "title": "Blassreiter",
       "japanese_title": "ブラスレイター",
       "status": "completed",
-      "genres": [
-        "Sci-Fi",
-        "Action",
-        "Thriller"
-      ],
+      "genres": ["Sci-Fi", "Action", "Thriller"],
       "rating": 7.4,
       "episodes": 24,
       "image_url": "https://myanimelist.net/images/anime/1154/133811l.jpg",
@@ -3762,12 +2808,7 @@
       "title": "Red Data Girl",
       "japanese_title": "RDG レッドデータガール",
       "status": "completed",
-      "genres": [
-        "Fantasy",
-        "Supernatural",
-        "Romance",
-        "School"
-      ],
+      "genres": ["Fantasy", "Supernatural", "Romance", "School"],
       "rating": 7.3,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/4/50313l.jpg",
@@ -3780,13 +2821,7 @@
       "title": "Glasslip",
       "japanese_title": "グラスリップ",
       "status": "completed",
-      "genres": [
-        "Romance",
-        "Drama",
-        "Slice of Life",
-        "School",
-        "Supernatural"
-      ],
+      "genres": ["Romance", "Drama", "Slice of Life", "School", "Supernatural"],
       "rating": 7.1,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/12/64265l.jpg",
@@ -3799,12 +2834,7 @@
       "title": "Frieren: Beyond Journey's End",
       "japanese_title": "葬送のフリーレン",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Fantasy",
-        "Adventure",
-        "Drama"
-      ],
+      "genres": ["Action", "Fantasy", "Adventure", "Drama"],
       "rating": 7.5,
       "episodes": 28,
       "image_url": "https://myanimelist.net/images/anime/1015/138006l.jpg",
@@ -3817,12 +2847,7 @@
       "title": "Heavenly Delusion",
       "japanese_title": "天国大魔境",
       "status": "completed",
-      "genres": [
-        "Sci-Fi",
-        "Drama",
-        "Mystery",
-        "Supernatural"
-      ],
+      "genres": ["Sci-Fi", "Drama", "Mystery", "Supernatural"],
       "rating": 6.9,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/1121/133132l.jpg",
@@ -3835,12 +2860,7 @@
       "title": "Insomniacs After School",
       "japanese_title": "君は放課後インソムニア",
       "status": "completed",
-      "genres": [
-        "Romance",
-        "Comedy",
-        "School",
-        "Slice of Life"
-      ],
+      "genres": ["Romance", "Comedy", "School", "Slice of Life"],
       "rating": 7.1,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/1402/134007l.jpg",
@@ -3853,11 +2873,7 @@
       "title": "Undead Girl Murder Farce",
       "japanese_title": "アンデッドガール・マーダーファルス",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Supernatural",
-        "Mystery"
-      ],
+      "genres": ["Action", "Supernatural", "Mystery"],
       "rating": 6.4,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/1946/136661l.jpg",
@@ -3870,12 +2886,7 @@
       "title": "Blue Orchestra",
       "japanese_title": "青のオーケストラ",
       "status": "completed",
-      "genres": [
-        "Drama",
-        "Music",
-        "Romance",
-        "School"
-      ],
+      "genres": ["Drama", "Music", "Romance", "School"],
       "rating": 7.9,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/1832/133754l.jpg",
@@ -3888,12 +2899,7 @@
       "title": "Reign of the Seven Spellblades",
       "japanese_title": "七つの魔剣が支配する",
       "status": "completed",
-      "genres": [
-        "Fantasy",
-        "Adventure",
-        "Action",
-        "School"
-      ],
+      "genres": ["Fantasy", "Adventure", "Action", "School"],
       "rating": 7.5,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/1396/136273l.jpg",
@@ -3906,12 +2912,7 @@
       "title": "The Dangers in My Heart",
       "japanese_title": "僕の心のヤバイやつ",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "Romance",
-        "School",
-        "Slice of Life"
-      ],
+      "genres": ["Comedy", "Romance", "School", "Slice of Life"],
       "rating": 6.1,
       "episodes": 24,
       "image_url": "https://myanimelist.net/images/anime/1545/133887l.jpg",
@@ -3924,11 +2925,7 @@
       "title": "My Happy Marriage",
       "japanese_title": "わたしの幸せな結婚",
       "status": "completed",
-      "genres": [
-        "Romance",
-        "Drama",
-        "Fantasy"
-      ],
+      "genres": ["Romance", "Drama", "Fantasy"],
       "rating": 7.4,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1147/122444l.jpg",
@@ -3941,11 +2938,7 @@
       "title": "No Guns Life",
       "japanese_title": "ノー・ガンズ・ライフ",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Sci-Fi",
-        "Drama"
-      ],
+      "genres": ["Action", "Sci-Fi", "Drama"],
       "rating": 6.5,
       "episodes": 24,
       "image_url": "https://myanimelist.net/images/anime/1531/102113l.jpg",
@@ -3958,12 +2951,7 @@
       "title": "Helck",
       "japanese_title": "ヘルク",
       "status": "completed",
-      "genres": [
-        "Fantasy",
-        "Adventure",
-        "Comedy",
-        "Action"
-      ],
+      "genres": ["Fantasy", "Adventure", "Comedy", "Action"],
       "rating": 7.9,
       "episodes": 26,
       "image_url": "https://myanimelist.net/images/anime/1002/138524l.jpg",
@@ -3976,11 +2964,7 @@
       "title": "Solo Leveling",
       "japanese_title": "俺だけレベルアップな件",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Fantasy"
-      ],
+      "genres": ["Action", "Adventure", "Fantasy"],
       "rating": 7.5,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1801/142390l.jpg",
@@ -3993,12 +2977,7 @@
       "title": "My Dress-Up Darling",
       "japanese_title": "その着せ替え人形は恋をする",
       "status": "completed",
-      "genres": [
-        "Romance",
-        "Comedy",
-        "School",
-        "Drama"
-      ],
+      "genres": ["Romance", "Comedy", "School", "Drama"],
       "rating": 6.9,
       "episodes": 12,
       "image_url": "https://myanimelist.net/images/anime/1179/119897l.jpg",
@@ -4011,12 +2990,7 @@
       "title": "Edens Zero",
       "japanese_title": "EDENS ZERO",
       "status": "completed",
-      "genres": [
-        "Sci-Fi",
-        "Action",
-        "Adventure",
-        "Fantasy"
-      ],
+      "genres": ["Sci-Fi", "Action", "Adventure", "Fantasy"],
       "rating": 6.4,
       "episodes": 25,
       "image_url": "https://myanimelist.net/images/anime/1011/111811l.jpg",
@@ -4029,12 +3003,7 @@
       "title": "Skip and Loafer",
       "japanese_title": "スキップとローファー",
       "status": "completed",
-      "genres": [
-        "Comedy",
-        "Slice of Life",
-        "School",
-        "Romance"
-      ],
+      "genres": ["Comedy", "Slice of Life", "School", "Romance"],
       "rating": 7.5,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/1518/138730l.jpg",
@@ -4047,11 +3016,7 @@
       "title": "More Than a Married Couple, But Not Lovers",
       "japanese_title": "夫婦以上、恋人未満。",
       "status": "completed",
-      "genres": [
-        "Romance",
-        "Comedy",
-        "School"
-      ],
+      "genres": ["Romance", "Comedy", "School"],
       "rating": 7.4,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/1713/126442l.jpg",
@@ -4064,11 +3029,7 @@
       "title": "Call of the Night",
       "japanese_title": "よふかしのうた",
       "status": "completed",
-      "genres": [
-        "Action",
-        "Supernatural",
-        "Romance"
-      ],
+      "genres": ["Action", "Supernatural", "Romance"],
       "rating": 6.5,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/1045/123711l.jpg",
@@ -4081,11 +3042,7 @@
       "title": "Baka & Test: Summon the Beasts",
       "japanese_title": "バカとテストと召喚獣",
       "status": "plan-to-watch",
-      "genres": [
-        "Comedy",
-        "Romance",
-        "School"
-      ],
+      "genres": ["Comedy", "Romance", "School"],
       "rating": 6,
       "episodes": 13,
       "image_url": "https://myanimelist.net/images/anime/3/50389l.jpg",

@@ -1,7 +1,6 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <title>Zubariel | Now</title>
     <meta name="keywords" content="HTML, CSS, JS, Now, Developer, Zubariel" />
@@ -9,393 +8,674 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/images/2pfp.jpg" type="image/x-icon" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Unbounded:wght@400;700;800&display=swap"
-        rel="stylesheet">
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Unbounded:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
     <script>
-        if (location.hostname === "zubariel.netlify.app") {
-            const newUrl = location.href.replace("zubariel.netlify.app", "zubariel.is-a.dev");
-            location.replace(newUrl);
-        }
+      if (location.hostname === "zubariel.netlify.app") {
+        const newUrl = location.href.replace(
+          "zubariel.netlify.app",
+          "zubariel.is-a.dev",
+        );
+        location.replace(newUrl);
+      }
     </script>
     <script>
-        tailwind.config = {
-            theme: { extend: { fontFamily: { sans: ["Inter", "sans-serif"], mono: ["JetBrains Mono", "monospace"], display: ["Unbounded", "Inter", "ui-sans-serif"] } } }
-        };
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              mono: ["JetBrains Mono", "monospace"],
+              display: ["Unbounded", "Inter", "ui-sans-serif"],
+            },
+          },
+        },
+      };
     </script>
     <style>
-        :root {
-            --bg-primary: #050505;
-            --bg-secondary: #0f0f0f;
-            --bg-tertiary: #161616;
-            --border-subtle: rgba(255, 255, 255, 0.055);
-            --border-medium: rgba(255, 255, 255, 0.09);
-            --border-accent: rgba(139, 92, 246, 0.3);
-            --text-primary: #e4e4e7;
-            --text-secondary: #a1a1aa;
-            --text-muted: #52525b;
-            --accent: #8b5cf6;
-            --accent-light: #a78bfa;
-            --accent-gradient: linear-gradient(135deg, var(--accent-light), var(--accent));
-        }
+      :root {
+        --bg-primary: #050505;
+        --bg-secondary: #0f0f0f;
+        --bg-tertiary: #161616;
+        --border-subtle: rgba(255, 255, 255, 0.055);
+        --border-medium: rgba(255, 255, 255, 0.09);
+        --border-accent: rgba(139, 92, 246, 0.3);
+        --text-primary: #e4e4e7;
+        --text-secondary: #a1a1aa;
+        --text-muted: #52525b;
+        --accent: #8b5cf6;
+        --accent-light: #a78bfa;
+        --accent-gradient: linear-gradient(
+          135deg,
+          var(--accent-light),
+          var(--accent)
+        );
+      }
 
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
 
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
 
-        ::-webkit-scrollbar-thumb {
-            background: var(--border-medium);
-            border-radius: 3px;
-        }
+      ::-webkit-scrollbar-thumb {
+        background: var(--border-medium);
+        border-radius: 3px;
+      }
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 255, 255, 0.15);
-        }
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.15);
+      }
 
-        html {
-            background-color: var(--bg-primary);
-        }
+      html {
+        background-color: var(--bg-primary);
+      }
 
-        body {
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-            background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.018) 1px, transparent 0);
-            background-size: 28px 28px;
-        }
+      body {
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        font-family: "Inter", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+        background-image: radial-gradient(
+          circle at 1px 1px,
+          rgba(255, 255, 255, 0.018) 1px,
+          transparent 0
+        );
+        background-size: 28px 28px;
+      }
 
-        #background-svg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            z-index: -1;
-            pointer-events: none;
-        }
+      #background-svg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: -1;
+        pointer-events: none;
+      }
 
-        .site-header {
-            background-color: rgba(5, 5, 5, 0.75);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-subtle);
-        }
+      .site-header {
+        background-color: rgba(5, 5, 5, 0.75);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border-subtle);
+      }
 
-        .nav-link {
-            position: relative;
-            color: var(--text-muted);
-            font-weight: 500;
-            font-size: 0.85rem;
-            padding: 0.25rem 0;
-            letter-spacing: 0.01em;
-            transition: color 0.25s ease;
-            text-decoration: none;
-        }
+      .nav-link {
+        position: relative;
+        color: var(--text-muted);
+        font-weight: 500;
+        font-size: 0.85rem;
+        padding: 0.25rem 0;
+        letter-spacing: 0.01em;
+        transition: color 0.25s ease;
+        text-decoration: none;
+      }
 
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--text-primary);
-        }
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--text-primary);
+      }
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1.5px;
-            bottom: -4px;
-            left: 0;
-            background: var(--accent-light);
-            transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 1.5px;
+        bottom: -4px;
+        left: 0;
+        background: var(--accent-light);
+        transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
 
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            font-weight: 500;
-            font-size: 0.85rem;
-            padding: 0.625rem 1.375rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            border: 1px solid transparent;
-            letter-spacing: 0.01em;
-        }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        font-weight: 500;
+        font-size: 0.85rem;
+        padding: 0.625rem 1.375rem;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        cursor: pointer;
+        border: 1px solid transparent;
+        letter-spacing: 0.01em;
+      }
 
-        .btn-primary {
-            background: var(--accent);
-            color: white;
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
-        }
+      .btn-primary {
+        background: var(--accent);
+        color: white;
+        box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+      }
 
-        .btn-primary:hover {
-            background: var(--accent-light);
-            transform: translateY(-1px);
-            box-shadow: 0 0 28px rgba(167, 139, 250, 0.28);
-        }
+      .btn-primary:hover {
+        background: var(--accent-light);
+        transform: translateY(-1px);
+        box-shadow: 0 0 28px rgba(167, 139, 250, 0.28);
+      }
 
-        .animated-element {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+      .animated-element {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      }
 
-        .animated-element.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+      .animated-element.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-        .gradient-text {
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+      .gradient-text {
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
 
-        .social-link {
-            color: var(--text-muted);
-            font-size: 1.25rem;
-            transition: all 0.25s ease;
-        }
+      .social-link {
+        color: var(--text-muted);
+        font-size: 1.25rem;
+        transition: all 0.25s ease;
+      }
 
-        .social-link:hover {
-            color: var(--accent-light);
-            transform: translateY(-2px);
-        }
+      .social-link:hover {
+        color: var(--accent-light);
+        transform: translateY(-2px);
+      }
 
-        .text-accent {
-            color: var(--accent);
-        }
+      .text-accent {
+        color: var(--accent);
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <svg id="background-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-        x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
-        <defs>
-            <linearGradient id="bg">
-                <stop offset="0%" style="stop-color:rgba(139,92,246,0.05)"></stop>
-                <stop offset="50%" style="stop-color:rgba(139,92,246,0.08)"></stop>
-                <stop offset="100%" style="stop-color:rgba(139,92,246,0.05)"></stop>
-            </linearGradient>
-            <path id="wave" fill="url(#bg)"
-                d="M-363.852,502.589c0,0,236.988-41.997,505.475,0 s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.995v560.106H-363.852V502.589z">
-            </path>
-        </defs>
-        <g>
-            <use xlink:href="#wave" opacity=".3">
-                <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="10s"
-                    calcMode="spline" values="270 230; -334 180; 270 230" keyTimes="0; .5; 1"
-                    keySplines="0.42,0,0.58,1.0;0.42,0,0.58,1.0" repeatCount="indefinite"></animateTransform>
-            </use>
-            <use xlink:href="#wave" opacity=".6">
-                <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="8s"
-                    calcMode="spline" values="-270 230;243 220;-270 230" keyTimes="0; .6; 1"
-                    keySplines="0.42,0,0.58,1.0;0.42,0,0.58,1.0" repeatCount="indefinite"></animateTransform>
-            </use>
-            <use xlink:href="#wave" opacity=".9">
-                <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="6s"
-                    calcMode="spline" values="0 230;-140 200;0 230" keyTimes="0; .4; 1"
-                    keySplines="0.42,0,0.58,1.0;0.42,0,0.58,1.0" repeatCount="indefinite"></animateTransform>
-            </use>
-        </g>
+  <body>
+    <svg
+      id="background-svg"
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      x="0px"
+      y="0px"
+      width="100%"
+      height="100%"
+      viewBox="0 0 1600 900"
+      preserveAspectRatio="xMidYMax slice"
+    >
+      <defs>
+        <linearGradient id="bg">
+          <stop offset="0%" style="stop-color: rgba(139, 92, 246, 0.05)"></stop>
+          <stop
+            offset="50%"
+            style="stop-color: rgba(139, 92, 246, 0.08)"
+          ></stop>
+          <stop
+            offset="100%"
+            style="stop-color: rgba(139, 92, 246, 0.05)"
+          ></stop>
+        </linearGradient>
+        <path
+          id="wave"
+          fill="url(#bg)"
+          d="M-363.852,502.589c0,0,236.988-41.997,505.475,0 s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.995v560.106H-363.852V502.589z"
+        ></path>
+      </defs>
+      <g>
+        <use xlink:href="#wave" opacity=".3">
+          <animateTransform
+            attributeName="transform"
+            attributeType="XML"
+            type="translate"
+            dur="10s"
+            calcMode="spline"
+            values="270 230; -334 180; 270 230"
+            keyTimes="0; .5; 1"
+            keySplines="0.42,0,0.58,1.0;0.42,0,0.58,1.0"
+            repeatCount="indefinite"
+          ></animateTransform>
+        </use>
+        <use xlink:href="#wave" opacity=".6">
+          <animateTransform
+            attributeName="transform"
+            attributeType="XML"
+            type="translate"
+            dur="8s"
+            calcMode="spline"
+            values="-270 230;243 220;-270 230"
+            keyTimes="0; .6; 1"
+            keySplines="0.42,0,0.58,1.0;0.42,0,0.58,1.0"
+            repeatCount="indefinite"
+          ></animateTransform>
+        </use>
+        <use xlink:href="#wave" opacity=".9">
+          <animateTransform
+            attributeName="transform"
+            attributeType="XML"
+            type="translate"
+            dur="6s"
+            calcMode="spline"
+            values="0 230;-140 200;0 230"
+            keyTimes="0; .4; 1"
+            keySplines="0.42,0,0.58,1.0;0.42,0,0.58,1.0"
+            repeatCount="indefinite"
+          ></animateTransform>
+        </use>
+      </g>
     </svg>
 
     <header id="site-header" class="site-header fixed top-0 w-full z-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex items-center justify-between" style="height:4.5rem;">
-                <a href="/" class="font-mono font-semibold text-xl tracking-tight">zubariel<span
-                        style="color:var(--accent);">.</span></a>
-                <nav class="hidden md:flex items-center space-x-9">
-                    <a href="/" class="nav-link">Home</a>
-                    <a href="/portfolio" class="nav-link">Portfolio</a>
-                    <a href="/now" class="nav-link active">Now</a>
-                    <a href="/snippet" class="nav-link">Snippets</a>
-                    <a href="/projects" class="nav-link">Projects</a>
-                </nav>
-                <div class="hidden md:block"><a href="/contact" target="_blank" class="btn btn-primary">Contact</a>
-                </div>
-                <div class="md:hidden"><button id="hamburgerBtn" class="p-2 focus:outline-none"
-                        style="color:var(--text-secondary);"><i class="fa-solid fa-bars-staggered text-xl"></i></button>
-                </div>
-            </div>
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center justify-between" style="height: 4.5rem">
+          <a href="/" class="font-mono font-semibold text-xl tracking-tight"
+            >zubariel<span style="color: var(--accent)">.</span></a
+          >
+          <nav class="hidden md:flex items-center space-x-9">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/portfolio" class="nav-link">Portfolio</a>
+            <a href="/now" class="nav-link active">Now</a>
+            <a href="/snippet" class="nav-link">Snippets</a>
+            <a href="/projects" class="nav-link">Projects</a>
+          </nav>
+          <div class="hidden md:block">
+            <a href="/contact" target="_blank" class="btn btn-primary"
+              >Contact</a
+            >
+          </div>
+          <div class="md:hidden">
+            <button
+              id="hamburgerBtn"
+              class="p-2 focus:outline-none"
+              style="color: var(--text-secondary)"
+            >
+              <i class="fa-solid fa-bars-staggered text-xl"></i>
+            </button>
+          </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden border-t"
-            style="border-color:var(--border-subtle); background:var(--bg-primary);">
-            <nav class="px-6 py-6 space-y-4">
-                <a href="/" class="nav-link block py-2 text-base">Home</a>
-                <a href="/portfolio" class="nav-link block py-2 text-base">Portfolio</a>
-                <a href="/now" class="nav-link block py-2 text-base active">Now</a>
-                <a href="/snippet" class="nav-link block py-2 text-base">Snippets</a>
-                <a href="/projects" class="nav-link block py-2 text-base">Projects</a>
-                <a href="/contact" target="_blank" class="btn btn-primary mt-4 w-full">Contact</a>
-            </nav>
-        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden border-t"
+        style="
+          border-color: var(--border-subtle);
+          background: var(--bg-primary);
+        "
+      >
+        <nav class="px-6 py-6 space-y-4">
+          <a href="/" class="nav-link block py-2 text-base">Home</a>
+          <a href="/portfolio" class="nav-link block py-2 text-base"
+            >Portfolio</a
+          >
+          <a href="/now" class="nav-link block py-2 text-base active">Now</a>
+          <a href="/snippet" class="nav-link block py-2 text-base">Snippets</a>
+          <a href="/projects" class="nav-link block py-2 text-base">Projects</a>
+          <a href="/contact" target="_blank" class="btn btn-primary mt-4 w-full"
+            >Contact</a
+          >
+        </nav>
+      </div>
     </header>
 
     <main class="max-w-4xl mx-auto px-6 pt-32 pb-24 relative z-10">
-        <div class="animated-element">
-            <h1 class="text-4xl md:text-5xl font-bold font-display tracking-tight mb-2"
-                style="font-family:'Unbounded',sans-serif; letter-spacing:-0.04em;">
-                What I'm Doing <span class="text-accent">Now</span>.
-            </h1>
-            <p class="font-mono text-xs mb-8" style="color:var(--text-muted); letter-spacing:0.06em;">// updated April
-                4, 2026</p>
-            <hr
-                style="width:3rem; height:2px; border:none; background:var(--accent); border-radius:2px; margin-bottom:3rem;">
+      <div class="animated-element">
+        <h1
+          class="text-4xl md:text-5xl font-bold font-display tracking-tight mb-2"
+          style="
+            font-family: &quot;Unbounded&quot;, sans-serif;
+            letter-spacing: -0.04em;
+          "
+        >
+          What I'm Doing <span class="text-accent">Now</span>.
+        </h1>
+        <p
+          class="font-mono text-xs mb-8"
+          style="color: var(--text-muted); letter-spacing: 0.06em"
+        >
+          // updated April 4, 2026
+        </p>
+        <hr
+          style="
+            width: 3rem;
+            height: 2px;
+            border: none;
+            background: var(--accent);
+            border-radius: 2px;
+            margin-bottom: 3rem;
+          "
+        />
 
-            <div class="space-y-16 leading-relaxed" style="font-size:1rem; color:var(--text-secondary);">
-
-                <section class="space-y-5">
-                    <h2 class="text-2xl md:text-3xl font-bold font-display tracking-tight"
-                        style="color:var(--text-primary); font-family:'Unbounded',sans-serif; letter-spacing:-0.03em; font-size:1.5rem;">
-                        April <span class="text-accent">'26</span>
-                    </h2>
-                    <p>April just started so there isn't a whole lot to report yet, but so far it's been more <a
-                            href="https://github.com/itszubariel/Statify" target="_blank"
-                            style="color:var(--accent-light);" class="hover:underline">Statify</a> work — a full UI
-                        overhaul, new features, and getting the theme-switching system into a proper state. It's shaping
-                        up to be a real, polished extension rather than just a side thing, and there's a chance it ends
-                        up on the VS Code marketplace as a school-approved tool, which would be a nice outcome.</p>
-                    <p>Still early days. Check back later in the month.</p>
-                </section>
-
-                <div style="border-top:1px solid var(--border-subtle);"></div>
-
-                <section class="space-y-5">
-                    <h2 class="text-2xl font-bold font-display tracking-tight"
-                        style="color:var(--text-primary); font-family:'Unbounded',sans-serif; letter-spacing:-0.03em;">
-                        March <span class="text-accent">'26</span>
-                    </h2>
-                    <p>Honestly, March was probably the most productive month I've had in a while. A lot happened across
-                        a bunch of different areas, and most of it actually shipped — which is the part I'm most happy
-                        about.</p>
-                    <p>On the dev side, I did a full revamp of <a href="https://bdtools.netlify.app/" target="_blank"
-                            style="color:var(--accent-light);" class="hover:underline">BD Tools</a> — my free,
-                        open-source web-based toolkit for the BDFD community. The whole site got a visual overhaul, the
-                        existing tools were cleaned up and improved, and I added a new tool on top of that. I also made
-                        the repos for both my personal website and Auora's (now discontinued) site public, which had
-                        been sitting as private for no real reason. Additionally, I did a solid chunk of contributing to
-                        the BDFP wiki's tool collection — submitted a PR with three new tools for the community. It
-                        hasn't been merged yet, but the work is done and it's sitting there ready.</p>
-                    <p>I also built <a href="https://github.com/itszubariel/Statify" target="_blank"
-                            style="color:var(--accent-light);" class="hover:underline">Statify</a>, a VS Code extension
-                        I made from scratch this month. Started it near the beginning of March, then spent the rest of
-                        the month iterating on it — bug fixes, new features, general polish. It grew into something I'm
-                        actually proud of by the end of the month.</p>
-                    <p>On top of all the frontend work, I also completely redid the backend for BD Tools — rewrote the
-                        API and rebuilt the Gilded List web app from the ground up. The old backend was held together
-                        with tape, so it was long overdue.</p>
-                    <p>On the gaming side, I finally finished Red Dead Redemption 2. I'd been sitting at the very end
-                        for a while, just not wanting to pull the trigger because I knew what was coming (had it spoiled
-                        ages ago). Finished it early March. Even knowing the ending didn't make it hit any less hard.
-                        Also hit Gold 3 in MCSR Ranked right at the start of the month, which felt like a great way to
-                        close out that grind.</p>
-                </section>
-
-                <div style="border-top:1px solid var(--border-subtle);"></div>
-
-                <section class="space-y-5">
-                    <h2 class="text-2xl font-bold font-display tracking-tight"
-                        style="color:var(--text-primary); font-family:'Unbounded',sans-serif; letter-spacing:-0.03em;">
-                        February <span class="text-accent">'26</span>
-                    </h2>
-                    <p>February was basically one big MCSR grind. After getting pulled into Minecraft Speedrunning
-                        Ranked at the tail end of January, I went all in — playing every single day, learning the
-                        routes, improving my PBs, and slowly climbing the ladder. I went from nothing to Gold 3 in a
-                        single month, which from what I understand is actually a pretty rare pace for most players. That
-                        ranked system is brutally competitive and genuinely addictive once it clicks.</p>
-                    <p>Towards the back half of the month I started easing back into dev stuff. I began messing around
-                        with the codebase for BD Tools and also started exploring how VS Code extensions are actually
-                        built — something I'd been curious about for a while but never sat down to properly look into.
-                        Those two threads ended up carrying right into March.</p>
-                </section>
-
-                <div style="border-top:1px solid var(--border-subtle);"></div>
-
-                <section class="space-y-5">
-                    <h2 class="text-2xl font-bold font-display tracking-tight"
-                        style="color:var(--text-primary); font-family:'Unbounded',sans-serif; letter-spacing:-0.03em;">
-                        January <span class="text-accent">'26</span>
-                    </h2>
-                    <p>January was a slower, more personal kind of month. A lot of consuming rather than creating — I
-                        went through a big manhwa and manhua phase, reading a bunch of Korean and Chinese comics across
-                        different genres. I also watched a decent number of movies and re-watched Moon Knight, which
-                        holds up really well on a second viewing. It was just a chill month of sitting with good
-                        stories.</p>
-                    <p>I was also really deep into Minecraft this month — playing on a server with friends almost daily,
-                        building a lot, and just being fully absorbed in the game again the way I used to be. Out of
-                        that came a mod I built called <a href="https://modrinth.com/mod/hol" target="_blank"
-                            style="color:var(--accent-light);" class="hover:underline">Heart of Life</a>. I originally
-                        made it for myself because I needed it for how we were playing — it's a single-player
-                        Lifesteal-style progression mod where dying permanently removes a heart, and rare crafted items
-                        are the only way to get them back. I published it mostly as a "why not" thing, and it ended up
-                        hitting 1.3K downloads on Modrinth, which genuinely surprised me for something I made for
-                        personal use.</p>
-                    <p>Towards the end of the month I started getting pulled into MCSR Ranked — Minecraft speedrunning
-                        in a competitive same-seed head-to-head format. That obsession carried hard into February.</p>
-                </section>
-            </div>
-
-            <hr style="border:none; border-top:1px solid var(--border-subtle); margin:3rem 0;">
-            <p style="font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--text-muted);">
-                Last updated: <strong style="color:var(--text-secondary);">April 4, 2026</strong> — Inspired by
-                <a href="https://nownownow.com/about" target="_blank" rel="noopener noreferrer"
-                    style="color:var(--text-secondary);" class="hover:underline">nownownow.com</a>
+        <div
+          class="space-y-16 leading-relaxed"
+          style="font-size: 1rem; color: var(--text-secondary)"
+        >
+          <section class="space-y-5">
+            <h2
+              class="text-2xl md:text-3xl font-bold font-display tracking-tight"
+              style="
+                color: var(--text-primary);
+                font-family: &quot;Unbounded&quot;, sans-serif;
+                letter-spacing: -0.03em;
+                font-size: 1.5rem;
+              "
+            >
+              April <span class="text-accent">'26</span>
+            </h2>
+            <p>
+              April just started so there isn't a whole lot to report yet, but
+              so far it's been more
+              <a
+                href="https://github.com/itszubariel/Statify"
+                target="_blank"
+                style="color: var(--accent-light)"
+                class="hover:underline"
+                >Statify</a
+              >
+              work — a full UI overhaul, new features, and getting the
+              theme-switching system into a proper state. It's shaping up to be
+              a real, polished extension rather than just a side thing, and
+              there's a chance it ends up on the VS Code marketplace as a
+              school-approved tool, which would be a nice outcome.
             </p>
+            <p>Still early days. Check back later in the month.</p>
+          </section>
+
+          <div style="border-top: 1px solid var(--border-subtle)"></div>
+
+          <section class="space-y-5">
+            <h2
+              class="text-2xl font-bold font-display tracking-tight"
+              style="
+                color: var(--text-primary);
+                font-family: &quot;Unbounded&quot;, sans-serif;
+                letter-spacing: -0.03em;
+              "
+            >
+              March <span class="text-accent">'26</span>
+            </h2>
+            <p>
+              Honestly, March was probably the most productive month I've had in
+              a while. A lot happened across a bunch of different areas, and
+              most of it actually shipped — which is the part I'm most happy
+              about.
+            </p>
+            <p>
+              On the dev side, I did a full revamp of
+              <a
+                href="https://bdtools.netlify.app/"
+                target="_blank"
+                style="color: var(--accent-light)"
+                class="hover:underline"
+                >BD Tools</a
+              >
+              — my free, open-source web-based toolkit for the BDFD community.
+              The whole site got a visual overhaul, the existing tools were
+              cleaned up and improved, and I added a new tool on top of that. I
+              also made the repos for both my personal website and Auora's (now
+              discontinued) site public, which had been sitting as private for
+              no real reason. Additionally, I did a solid chunk of contributing
+              to the BDFP wiki's tool collection — submitted a PR with three new
+              tools for the community. It hasn't been merged yet, but the work
+              is done and it's sitting there ready.
+            </p>
+            <p>
+              I also built
+              <a
+                href="https://github.com/itszubariel/Statify"
+                target="_blank"
+                style="color: var(--accent-light)"
+                class="hover:underline"
+                >Statify</a
+              >, a VS Code extension I made from scratch this month. Started it
+              near the beginning of March, then spent the rest of the month
+              iterating on it — bug fixes, new features, general polish. It grew
+              into something I'm actually proud of by the end of the month.
+            </p>
+            <p>
+              On top of all the frontend work, I also completely redid the
+              backend for BD Tools — rewrote the API and rebuilt the Gilded List
+              web app from the ground up. The old backend was held together with
+              tape, so it was long overdue.
+            </p>
+            <p>
+              On the gaming side, I finally finished Red Dead Redemption 2. I'd
+              been sitting at the very end for a while, just not wanting to pull
+              the trigger because I knew what was coming (had it spoiled ages
+              ago). Finished it early March. Even knowing the ending didn't make
+              it hit any less hard. Also hit Gold 3 in MCSR Ranked right at the
+              start of the month, which felt like a great way to close out that
+              grind.
+            </p>
+          </section>
+
+          <div style="border-top: 1px solid var(--border-subtle)"></div>
+
+          <section class="space-y-5">
+            <h2
+              class="text-2xl font-bold font-display tracking-tight"
+              style="
+                color: var(--text-primary);
+                font-family: &quot;Unbounded&quot;, sans-serif;
+                letter-spacing: -0.03em;
+              "
+            >
+              February <span class="text-accent">'26</span>
+            </h2>
+            <p>
+              February was basically one big MCSR grind. After getting pulled
+              into Minecraft Speedrunning Ranked at the tail end of January, I
+              went all in — playing every single day, learning the routes,
+              improving my PBs, and slowly climbing the ladder. I went from
+              nothing to Gold 3 in a single month, which from what I understand
+              is actually a pretty rare pace for most players. That ranked
+              system is brutally competitive and genuinely addictive once it
+              clicks.
+            </p>
+            <p>
+              Towards the back half of the month I started easing back into dev
+              stuff. I began messing around with the codebase for BD Tools and
+              also started exploring how VS Code extensions are actually built —
+              something I'd been curious about for a while but never sat down to
+              properly look into. Those two threads ended up carrying right into
+              March.
+            </p>
+          </section>
+
+          <div style="border-top: 1px solid var(--border-subtle)"></div>
+
+          <section class="space-y-5">
+            <h2
+              class="text-2xl font-bold font-display tracking-tight"
+              style="
+                color: var(--text-primary);
+                font-family: &quot;Unbounded&quot;, sans-serif;
+                letter-spacing: -0.03em;
+              "
+            >
+              January <span class="text-accent">'26</span>
+            </h2>
+            <p>
+              January was a slower, more personal kind of month. A lot of
+              consuming rather than creating — I went through a big manhwa and
+              manhua phase, reading a bunch of Korean and Chinese comics across
+              different genres. I also watched a decent number of movies and
+              re-watched Moon Knight, which holds up really well on a second
+              viewing. It was just a chill month of sitting with good stories.
+            </p>
+            <p>
+              I was also really deep into Minecraft this month — playing on a
+              server with friends almost daily, building a lot, and just being
+              fully absorbed in the game again the way I used to be. Out of that
+              came a mod I built called
+              <a
+                href="https://modrinth.com/mod/hol"
+                target="_blank"
+                style="color: var(--accent-light)"
+                class="hover:underline"
+                >Heart of Life</a
+              >. I originally made it for myself because I needed it for how we
+              were playing — it's a single-player Lifesteal-style progression
+              mod where dying permanently removes a heart, and rare crafted
+              items are the only way to get them back. I published it mostly as
+              a "why not" thing, and it ended up hitting 1.3K downloads on
+              Modrinth, which genuinely surprised me for something I made for
+              personal use.
+            </p>
+            <p>
+              Towards the end of the month I started getting pulled into MCSR
+              Ranked — Minecraft speedrunning in a competitive same-seed
+              head-to-head format. That obsession carried hard into February.
+            </p>
+          </section>
         </div>
+
+        <hr
+          style="
+            border: none;
+            border-top: 1px solid var(--border-subtle);
+            margin: 3rem 0;
+          "
+        />
+        <p
+          style="
+            font-family: &quot;JetBrains Mono&quot;, monospace;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+          "
+        >
+          Last updated:
+          <strong style="color: var(--text-secondary)">April 4, 2026</strong> —
+          Inspired by
+          <a
+            href="https://nownownow.com/about"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="color: var(--text-secondary)"
+            class="hover:underline"
+            >nownownow.com</a
+          >
+        </p>
+      </div>
     </main>
 
-    <footer style="border-top:1px solid var(--border-subtle);" class="relative z-10">
-        <div class="max-w-7xl mx-auto px-6 py-16 text-center">
-            <h3 class="gradient-text"
-                style="font-family:'Unbounded',sans-serif; font-size:2rem; font-weight:800; letter-spacing:-0.03em; margin-bottom:0.75rem;">
-                Let's Connect</h3>
-            <p style="color:var(--text-secondary); max-width:26rem; margin:0 auto 2.5rem; font-size:0.95rem;">Have a
-                project, a question, or just want to say hi? My inbox is always open.</p>
-            <div class="flex justify-center gap-7 mb-8">
-                <a href="https://discord.com/users/860384146778226699" target="_blank" class="social-link"><i
-                        class="fa-brands fa-discord"></i></a>
-                <a href="https://github.com/itszubariel" target="_blank" class="social-link"><i
-                        class="fa-brands fa-github"></i></a>
-                <a href="https://x.com/itszubariel" target="_blank" class="social-link"><i
-                        class="fa-brands fa-twitter"></i></a>
-                <a href="https://www.youtube.com/channel/UCfzevkQDWFTmAo07B0rR9Jw" target="_blank"
-                    class="social-link"><i class="fa-brands fa-youtube"></i></a>
-            </div>
-            <a href="/contact" target="_blank" class="btn btn-primary mb-12"><i class="fa-solid fa-paper-plane"></i> Get
-                In Touch</a>
-            <p
-                style="font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--text-muted); margin-top:2.5rem;">
-                © Zubariel 2023–2026. All rights reserved.</p>
+    <footer
+      style="border-top: 1px solid var(--border-subtle)"
+      class="relative z-10"
+    >
+      <div class="max-w-7xl mx-auto px-6 py-16 text-center">
+        <h3
+          class="gradient-text"
+          style="
+            font-family: &quot;Unbounded&quot;, sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.75rem;
+          "
+        >
+          Let's Connect
+        </h3>
+        <p
+          style="
+            color: var(--text-secondary);
+            max-width: 26rem;
+            margin: 0 auto 2.5rem;
+            font-size: 0.95rem;
+          "
+        >
+          Have a project, a question, or just want to say hi? My inbox is always
+          open.
+        </p>
+        <div class="flex justify-center gap-7 mb-8">
+          <a
+            href="https://discord.com/users/860384146778226699"
+            target="_blank"
+            class="social-link"
+            ><i class="fa-brands fa-discord"></i
+          ></a>
+          <a
+            href="https://github.com/itszubariel"
+            target="_blank"
+            class="social-link"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+          <a
+            href="https://x.com/itszubariel"
+            target="_blank"
+            class="social-link"
+            ><i class="fa-brands fa-twitter"></i
+          ></a>
+          <a
+            href="https://www.youtube.com/channel/UCfzevkQDWFTmAo07B0rR9Jw"
+            target="_blank"
+            class="social-link"
+            ><i class="fa-brands fa-youtube"></i
+          ></a>
         </div>
+        <a href="/contact" target="_blank" class="btn btn-primary mb-12"
+          ><i class="fa-solid fa-paper-plane"></i> Get In Touch</a
+        >
+        <p
+          style="
+            font-family: &quot;JetBrains Mono&quot;, monospace;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-top: 2.5rem;
+          "
+        >
+          © Zubariel 2023–2026. All rights reserved.
+        </p>
+      </div>
     </footer>
 
     <script>
-        const hamburgerBtn = document.getElementById('hamburgerBtn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        hamburgerBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-        document.querySelectorAll('#mobile-menu a').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
-        document.addEventListener("DOMContentLoaded", () => {
-            const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }); }, { threshold: 0.08 });
-            document.querySelectorAll('.animated-element').forEach(el => observer.observe(el));
-        });
-        window.addEventListener("scroll", () => { const svg = document.getElementById("background-svg"); if (svg) svg.style.transform = `translateY(${window.pageYOffset * 0.2}px)`; });
+      const hamburgerBtn = document.getElementById("hamburgerBtn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      hamburgerBtn.addEventListener("click", () =>
+        mobileMenu.classList.toggle("hidden"),
+      );
+      document
+        .querySelectorAll("#mobile-menu a")
+        .forEach((l) =>
+          l.addEventListener("click", () => mobileMenu.classList.add("hidden")),
+        );
+      document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add("visible");
+                observer.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.08 },
+        );
+        document
+          .querySelectorAll(".animated-element")
+          .forEach((el) => observer.observe(el));
+      });
+      window.addEventListener("scroll", () => {
+        const svg = document.getElementById("background-svg");
+        if (svg)
+          svg.style.transform = `translateY(${window.pageYOffset * 0.2}px)`;
+      });
     </script>
-</body>
-
+  </body>
 </html>

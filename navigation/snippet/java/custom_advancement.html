@@ -1,408 +1,437 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Snippets | Custom Advancement</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/images/2pfp.jpg" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Unbounded:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <title>Snippets | Custom Advancement</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="/images/2pfp.jpg" type="image/x-icon" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Unbounded:wght@400;700;800&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-
-  <style>
-    :root {
-      --bg-primary: #050505;
-      --bg-secondary: #0f0f0f;
-      --bg-code: #0a0a0c;
-      --border-subtle: rgba(255, 255, 255, 0.04);
-      --border-medium: rgba(255, 255, 255, 0.09);
-      --border-accent: rgba(139, 92, 246, 0.3);
-      --text-primary: #e4e4e7;
-      --text-secondary: #a1a1aa;
-      --text-muted: #52525b;
-      --accent: #8b5cf6;
-      --accent-light: #a78bfa;
-      --accent-dim: rgba(139, 92, 246, 0.1);
-      --accent-gradient: linear-gradient(135deg, #a78bfa, #8b5cf6);
-    }
-
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--border-medium);
-      border-radius: 3px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
-      font-family: 'Inter', sans-serif;
-      font-weight: 400;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-      padding: 3rem 1.5rem;
-      background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.018) 1px, transparent 0);
-      background-size: 28px 28px;
-    }
-
-    .page {
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      transition: color 0.2s ease;
-      margin-bottom: 2rem;
-    }
-
-    .back-link:hover {
-      color: var(--accent-light);
-    }
-
-    .meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .meta-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.68rem;
-      color: var(--text-muted);
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-subtle);
-      border-radius: 99px;
-      padding: 0.2rem 0.6rem;
-      letter-spacing: 0.02em;
-    }
-
-    .meta-tag.accent {
-      color: var(--accent-light);
-      border-color: var(--border-accent);
-    }
-
-    h1 {
-      font-family: 'Unbounded', sans-serif;
-      font-size: clamp(1.6rem, 4vw, 2.25rem);
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      line-height: 1.1;
-      margin-bottom: 0.875rem;
-    }
-
-    .gradient-text {
-      background: var(--accent-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .subtitle {
-      color: var(--text-secondary);
-      font-size: 0.92rem;
-      max-width: 36rem;
-      line-height: 1.7;
-      margin-bottom: 2rem;
-    }
-
-    .subtitle code {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem;
-      color: var(--accent-light);
-      background: var(--accent-dim);
-      padding: 0.1rem 0.4rem;
-      border-radius: 0.25rem;
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.875rem;
-      margin-bottom: 2rem;
-    }
-
-    @media (max-width: 560px) {
-      .info-grid {
-        grid-template-columns: 1fr;
+    <style>
+      :root {
+        --bg-primary: #050505;
+        --bg-secondary: #0f0f0f;
+        --bg-code: #0a0a0c;
+        --border-subtle: rgba(255, 255, 255, 0.04);
+        --border-medium: rgba(255, 255, 255, 0.09);
+        --border-accent: rgba(139, 92, 246, 0.3);
+        --text-primary: #e4e4e7;
+        --text-secondary: #a1a1aa;
+        --text-muted: #52525b;
+        --accent: #8b5cf6;
+        --accent-light: #a78bfa;
+        --accent-dim: rgba(139, 92, 246, 0.1);
+        --accent-gradient: linear-gradient(135deg, #a78bfa, #8b5cf6);
       }
-    }
 
-    .info-card {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-subtle);
-      border-radius: 0.75rem;
-      padding: 1.25rem;
-    }
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
 
-    .info-card h4 {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.62rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.5rem;
-    }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
 
-    .info-card p {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      line-height: 1.65;
-    }
+      ::-webkit-scrollbar-thumb {
+        background: var(--border-medium);
+        border-radius: 3px;
+      }
 
-    .code-block {
-      border: 1px solid var(--border-subtle);
-      border-radius: 0.875rem;
-      overflow: hidden;
-      margin-bottom: 1.5rem;
-    }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    .tab-bar {
-      display: flex;
-      flex-wrap: wrap;
-      background: var(--bg-secondary);
-      border-bottom: 1px solid var(--border-subtle);
-      padding: 0 0.875rem;
-    }
+      body {
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        min-height: 100vh;
+        padding: 3rem 1.5rem;
+        background-image: radial-gradient(
+          circle at 1px 1px,
+          rgba(255, 255, 255, 0.018) 1px,
+          transparent 0
+        );
+        background-size: 28px 28px;
+      }
 
-    .tab-btn {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      background: transparent;
-      border: none;
-      border-bottom: 2px solid transparent;
-      padding: 0.625rem 1rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      letter-spacing: 0.03em;
-      margin-bottom: -1px;
-    }
+      .page {
+        max-width: 760px;
+        margin: 0 auto;
+      }
 
-    .tab-btn:hover {
-      color: var(--text-secondary);
-    }
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        text-decoration: none;
+        letter-spacing: 0.04em;
+        transition: color 0.2s ease;
+        margin-bottom: 2rem;
+      }
 
-    .tab-btn.active {
-      color: var(--accent-light);
-      border-bottom-color: var(--accent);
-    }
+      .back-link:hover {
+        color: var(--accent-light);
+      }
 
-    .code-topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.55rem 0.875rem;
-      background: rgba(255, 255, 255, 0.015);
-      border-bottom: 1px solid var(--border-subtle);
-    }
+      .meta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
 
-    .dots {
-      display: flex;
-      gap: 5px;
-    }
+      .meta-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.68rem;
+        color: var(--text-muted);
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-subtle);
+        border-radius: 99px;
+        padding: 0.2rem 0.6rem;
+        letter-spacing: 0.02em;
+      }
 
-    .dots span {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-    }
+      .meta-tag.accent {
+        color: var(--accent-light);
+        border-color: var(--border-accent);
+      }
 
-    .d-r {
-      background: #ff5f57;
-    }
+      h1 {
+        font-family: "Unbounded", sans-serif;
+        font-size: clamp(1.6rem, 4vw, 2.25rem);
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        line-height: 1.1;
+        margin-bottom: 0.875rem;
+      }
 
-    .d-y {
-      background: #febc2e;
-    }
+      .gradient-text {
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
 
-    .d-g {
-      background: #28c840;
-    }
+      .subtitle {
+        color: var(--text-secondary);
+        font-size: 0.92rem;
+        max-width: 36rem;
+        line-height: 1.7;
+        margin-bottom: 2rem;
+      }
 
-    .copy-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.68rem;
-      color: var(--text-muted);
-      background: transparent;
-      border: 1px solid var(--border-medium);
-      border-radius: 0.35rem;
-      padding: 0.25rem 0.65rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
+      .subtitle code {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        color: var(--accent-light);
+        background: var(--accent-dim);
+        padding: 0.1rem 0.4rem;
+        border-radius: 0.25rem;
+      }
 
-    .copy-btn:hover {
-      border-color: var(--border-accent);
-      color: var(--accent-light);
-    }
+      .info-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.875rem;
+        margin-bottom: 2rem;
+      }
 
-    .copy-btn.copied {
-      color: #23a559;
-      border-color: rgba(35, 165, 89, 0.35);
-    }
+      @media (max-width: 560px) {
+        .info-grid {
+          grid-template-columns: 1fr;
+        }
+      }
 
-    pre {
-      margin: 0;
-      padding: 1.25rem 1.5rem;
-      overflow-x: auto;
-      background: var(--bg-code);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem;
-      line-height: 1.8;
-      color: #c4b5fd;
-    }
+      .info-card {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-subtle);
+        border-radius: 0.75rem;
+        padding: 1.25rem;
+      }
 
-    pre::-webkit-scrollbar {
-      height: 3px;
-    }
+      .info-card h4 {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.62rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 0.5rem;
+      }
 
-    pre::-webkit-scrollbar-thumb {
-      background: var(--border-medium);
-    }
+      .info-card p {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        line-height: 1.65;
+      }
 
-    .t-kw {
-      color: #a78bfa;
-    }
+      .code-block {
+        border: 1px solid var(--border-subtle);
+        border-radius: 0.875rem;
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+      }
 
-    .t-str {
-      color: #86efac;
-    }
+      .tab-bar {
+        display: flex;
+        flex-wrap: wrap;
+        background: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-subtle);
+        padding: 0 0.875rem;
+      }
 
-    .t-fn {
-      color: #7dd3fc;
-    }
+      .tab-btn {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid transparent;
+        padding: 0.625rem 1rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        letter-spacing: 0.03em;
+        margin-bottom: -1px;
+      }
 
-    .t-attr {
-      color: #fde68a;
-    }
+      .tab-btn:hover {
+        color: var(--text-secondary);
+      }
 
-    .t-num {
-      color: #fb923c;
-    }
+      .tab-btn.active {
+        color: var(--accent-light);
+        border-bottom-color: var(--accent);
+      }
 
-    .t-cm {
-      color: #3f3f46;
-      font-style: italic;
-    }
+      .code-topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.55rem 0.875rem;
+        background: rgba(255, 255, 255, 0.015);
+        border-bottom: 1px solid var(--border-subtle);
+      }
 
-    .t-type {
-      color: #f472b6;
-    }
+      .dots {
+        display: flex;
+        gap: 5px;
+      }
 
-    .t-key {
-      color: #fde68a;
-    }
+      .dots span {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+      }
 
-    .tab-panel {
-      display: none;
-    }
+      .d-r {
+        background: #ff5f57;
+      }
 
-    .tab-panel.active {
-      display: block;
-    }
+      .d-y {
+        background: #febc2e;
+      }
 
-    .snippet-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 2.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border-subtle);
-    }
+      .d-g {
+        background: #28c840;
+      }
 
-    .snav-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      text-decoration: none;
-      letter-spacing: 0.03em;
-      transition: color 0.2s ease;
-    }
+      .copy-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.68rem;
+        color: var(--text-muted);
+        background: transparent;
+        border: 1px solid var(--border-medium);
+        border-radius: 0.35rem;
+        padding: 0.25rem 0.65rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
 
-    .snav-btn:hover {
-      color: var(--accent-light);
-    }
-  </style>
-</head>
+      .copy-btn:hover {
+        border-color: var(--border-accent);
+        color: var(--accent-light);
+      }
 
-<body>
-  <div class="page">
+      .copy-btn.copied {
+        color: #23a559;
+        border-color: rgba(35, 165, 89, 0.35);
+      }
 
-    <a href="/snippet" class="back-link"><i class="fa-solid fa-arrow-left" style="font-size:0.6rem;"></i>
-      /snippet</a>
+      pre {
+        margin: 0;
+        padding: 1.25rem 1.5rem;
+        overflow-x: auto;
+        background: var(--bg-code);
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        line-height: 1.8;
+        color: #c4b5fd;
+      }
 
-    <div class="meta-row">
-      <span class="meta-tag"><i class="fa-brands fa-java" style="color:#f89820;"></i> Java</span>
-      <span class="meta-tag"><i class="fa-solid fa-file-code" style="color:#34d399;"></i> JSON</span>
-      <span class="meta-tag accent">Fabric API</span>
-    </div>
+      pre::-webkit-scrollbar {
+        height: 3px;
+      }
 
-    <h1>Custom <span class="gradient-text">Advancement</span> Snippet.</h1>
+      pre::-webkit-scrollbar-thumb {
+        background: var(--border-medium);
+      }
 
-    <p class="subtitle">
-      A complete custom advancement setup with custom trigger. Includes the criterion class, registration code,
-      and advancement JSON. Replace <code>yourmod</code> with your mod ID throughout.
-    </p>
+      .t-kw {
+        color: #a78bfa;
+      }
 
-    <div class="info-grid">
-      <div class="info-card">
-        <h4>// how to use</h4>
-        <p>Create the custom criterion class, register it in ModAdvancements, and create the advancement JSON in
-          data/yourmod/advancements.</p>
+      .t-str {
+        color: #86efac;
+      }
+
+      .t-fn {
+        color: #7dd3fc;
+      }
+
+      .t-attr {
+        color: #fde68a;
+      }
+
+      .t-num {
+        color: #fb923c;
+      }
+
+      .t-cm {
+        color: #3f3f46;
+        font-style: italic;
+      }
+
+      .t-type {
+        color: #f472b6;
+      }
+
+      .t-key {
+        color: #fde68a;
+      }
+
+      .tab-panel {
+        display: none;
+      }
+
+      .tab-panel.active {
+        display: block;
+      }
+
+      .snippet-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border-subtle);
+      }
+
+      .snav-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        text-decoration: none;
+        letter-spacing: 0.03em;
+        transition: color 0.2s ease;
+      }
+
+      .snav-btn:hover {
+        color: var(--accent-light);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <a href="/snippet" class="back-link"
+        ><i class="fa-solid fa-arrow-left" style="font-size: 0.6rem"></i>
+        /snippet</a
+      >
+
+      <div class="meta-row">
+        <span class="meta-tag"
+          ><i class="fa-brands fa-java" style="color: #f89820"></i> Java</span
+        >
+        <span class="meta-tag"
+          ><i class="fa-solid fa-file-code" style="color: #34d399"></i>
+          JSON</span
+        >
+        <span class="meta-tag accent">Fabric API</span>
       </div>
-      <div class="info-card">
-        <h4>// requirements</h4>
-        <p>Fabric API, Minecraft 1.20+, Java 17+. Custom triggers allow unique advancement conditions.</p>
-      </div>
-    </div>
 
-    <div class="code-block">
-      <div class="tab-bar">
-        <button class="tab-btn active" onclick="switchTab('json', this)">advancement.json</button>
-        <button class="tab-btn" onclick="switchTab('criterion', this)">Criterion.java</button>
-        <button class="tab-btn" onclick="switchTab('registration', this)">Registration.java</button>
-      </div>
+      <h1>Custom <span class="gradient-text">Advancement</span> Snippet.</h1>
 
-      <div id="tab-json" class="tab-panel active">
-        <div class="code-topbar">
-          <div class="dots"><span class="d-r"></span><span class="d-y"></span><span class="d-g"></span></div>
-          <button class="copy-btn" onclick="copyCode('json-code', this)"><i class="fa-regular fa-copy"></i>
-            Copy</button>
+      <p class="subtitle">
+        A complete custom advancement setup with custom trigger. Includes the
+        criterion class, registration code, and advancement JSON. Replace
+        <code>yourmod</code> with your mod ID throughout.
+      </p>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <h4>// how to use</h4>
+          <p>
+            Create the custom criterion class, register it in ModAdvancements,
+            and create the advancement JSON in data/yourmod/advancements.
+          </p>
         </div>
-        <pre id="json-code">{
+        <div class="info-card">
+          <h4>// requirements</h4>
+          <p>
+            Fabric API, Minecraft 1.20+, Java 17+. Custom triggers allow unique
+            advancement conditions.
+          </p>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="tab-bar">
+          <button class="tab-btn active" onclick="switchTab('json', this)">
+            advancement.json
+          </button>
+          <button class="tab-btn" onclick="switchTab('criterion', this)">
+            Criterion.java
+          </button>
+          <button class="tab-btn" onclick="switchTab('registration', this)">
+            Registration.java
+          </button>
+        </div>
+
+        <div id="tab-json" class="tab-panel active">
+          <div class="code-topbar">
+            <div class="dots">
+              <span class="d-r"></span><span class="d-y"></span
+              ><span class="d-g"></span>
+            </div>
+            <button class="copy-btn" onclick="copyCode('json-code', this)">
+              <i class="fa-regular fa-copy"></i> Copy
+            </button>
+          </div>
+          <pre id="json-code">{
   <span class="t-key">"display"</span>: {
     <span class="t-key">"icon"</span>: { <span class="t-key">"item"</span>: <span class="t-str">"minecraft:diamond"</span> },
     <span class="t-key">"title"</span>: <span class="t-str">"Example Advancement"</span>,
@@ -419,15 +448,21 @@
   },
   <span class="t-key">"rewards"</span>: { <span class="t-key">"experience"</span>: <span class="t-num">100</span> }
 }</pre>
-      </div>
-
-      <div id="tab-criterion" class="tab-panel">
-        <div class="code-topbar">
-          <div class="dots"><span class="d-r"></span><span class="d-y"></span><span class="d-g"></span></div>
-          <button class="copy-btn" onclick="copyCode('criterion-code', this)"><i class="fa-regular fa-copy"></i>
-            Copy</button>
         </div>
-        <pre id="criterion-code"><span class="t-kw">package</span> com.yourmod.advancement;
+
+        <div id="tab-criterion" class="tab-panel">
+          <div class="code-topbar">
+            <div class="dots">
+              <span class="d-r"></span><span class="d-y"></span
+              ><span class="d-g"></span>
+            </div>
+            <button class="copy-btn" onclick="copyCode('criterion-code', this)">
+              <i class="fa-regular fa-copy"></i> Copy
+            </button>
+          </div>
+          <pre
+            id="criterion-code"
+          ><span class="t-kw">package</span> com.yourmod.advancement;
 
 <span class="t-kw">import</span> net.minecraft.advancement.criterion.AbstractCriterion;
 <span class="t-kw">import</span> net.minecraft.entity.player.PlayerEntity;
@@ -453,15 +488,24 @@
         <span class="t-kw">public</span> <span class="t-fn">Conditions</span>() { <span class="t-kw">super</span>(); }
     }
 }</pre>
-      </div>
-
-      <div id="tab-registration" class="tab-panel">
-        <div class="code-topbar">
-          <div class="dots"><span class="d-r"></span><span class="d-y"></span><span class="d-g"></span></div>
-          <button class="copy-btn" onclick="copyCode('registration-code', this)"><i class="fa-regular fa-copy"></i>
-            Copy</button>
         </div>
-        <pre id="registration-code"><span class="t-kw">package</span> com.yourmod.advancement;
+
+        <div id="tab-registration" class="tab-panel">
+          <div class="code-topbar">
+            <div class="dots">
+              <span class="d-r"></span><span class="d-y"></span
+              ><span class="d-g"></span>
+            </div>
+            <button
+              class="copy-btn"
+              onclick="copyCode('registration-code', this)"
+            >
+              <i class="fa-regular fa-copy"></i> Copy
+            </button>
+          </div>
+          <pre
+            id="registration-code"
+          ><span class="t-kw">package</span> com.yourmod.advancement;
 
 <span class="t-kw">import</span> com.yourmod.YourMod;
 <span class="t-kw">import</span> net.minecraft.advancement.criterion.CriterionRegistry;
@@ -473,36 +517,43 @@
         <span class="t-type">CriterionRegistry</span>.<span class="t-fn">register</span>(<span class="t-kw">new</span> <span class="t-fn">ClickedDiamondCriterion</span>());
     }
 }</pre>
+        </div>
+      </div>
+      <div class="snippet-nav">
+        <a href="/snippet/web/clicker" class="snav-btn"
+          ><i class="fa-solid fa-arrow-left" style="font-size: 0.6rem"></i>
+          clicker game (web)</a
+        >
+        <a href="/snippet/mc/block" class="snav-btn"
+          >custom block
+          <i class="fa-solid fa-arrow-right" style="font-size: 0.6rem"></i
+        ></a>
       </div>
     </div>
-    <div class="snippet-nav">
-      <a href="/snippet/web/clicker" class="snav-btn"><i class="fa-solid fa-arrow-left" style="font-size:0.6rem;"></i>
-        clicker game (web)</a>
-      <a href="/snippet/mc/block" class="snav-btn">custom block <i class="fa-solid fa-arrow-right"
-          style="font-size:0.6rem;"></i></a>
-    </div>
-  </div>
 
-  <script>
-    function switchTab(name, btn) {
-      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      document.getElementById('tab-' + name).classList.add('active');
-      btn.classList.add('active');
-    }
+    <script>
+      function switchTab(name, btn) {
+        document
+          .querySelectorAll(".tab-panel")
+          .forEach((p) => p.classList.remove("active"));
+        document
+          .querySelectorAll(".tab-btn")
+          .forEach((b) => b.classList.remove("active"));
+        document.getElementById("tab-" + name).classList.add("active");
+        btn.classList.add("active");
+      }
 
-    function copyCode(id, btn) {
-      const text = document.getElementById(id).innerText;
-      navigator.clipboard.writeText(text).then(() => {
-        btn.classList.add('copied');
-        btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
-        setTimeout(() => {
-          btn.classList.remove('copied');
-          btn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy';
-        }, 2000);
-      });
-    }
-  </script>
-</body>
-
+      function copyCode(id, btn) {
+        const text = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(text).then(() => {
+          btn.classList.add("copied");
+          btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+          setTimeout(() => {
+            btn.classList.remove("copied");
+            btn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy';
+          }, 2000);
+        });
+      }
+    </script>
+  </body>
 </html>

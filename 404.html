@@ -1,171 +1,182 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>404 | Not Found</title>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Unbounded:wght@400;700;800&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Unbounded:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        :root {
-            --bg-primary: #050505;
-            --bg-secondary: #0f0f0f;
-            --border-subtle: rgba(255, 255, 255, 0.055);
-            --border-medium: rgba(255, 255, 255, 0.09);
-            --text-primary: #e4e4e7;
-            --text-secondary: #a1a1aa;
-            --text-muted: #52525b;
-            --accent: #8b5cf6;
-            --accent-light: #a78bfa;
+      :root {
+        --bg-primary: #050505;
+        --bg-secondary: #0f0f0f;
+        --border-subtle: rgba(255, 255, 255, 0.055);
+        --border-medium: rgba(255, 255, 255, 0.09);
+        --text-primary: #e4e4e7;
+        --text-secondary: #a1a1aa;
+        --text-muted: #52525b;
+        --accent: #8b5cf6;
+        --accent-light: #a78bfa;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        font-family: "Inter", sans-serif;
+        color: var(--text-primary);
+        background-color: var(--bg-primary);
+        background-image:
+          radial-gradient(
+            ellipse at 50% 30%,
+            rgba(109, 40, 217, 0.12),
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 1px 1px,
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 0
+          );
+        background-size:
+          auto,
+          28px 28px;
+        -webkit-font-smoothing: antialiased;
+        overflow: hidden;
+      }
+
+      .error-code {
+        font-family: "Unbounded", sans-serif;
+        font-size: clamp(7rem, 18vw, 11rem);
+        font-weight: 800;
+        letter-spacing: -0.06em;
+        line-height: 1;
+        background: linear-gradient(135deg, #a78bfa, #8b5cf6, #6d28d9, #a78bfa);
+        background-size: 300% 300%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradientPan 8s ease infinite;
+        margin-bottom: 1.25rem;
+      }
+
+      @keyframes gradientPan {
+        0% {
+          background-position: 0% 50%;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        50% {
+          background-position: 100% 50%;
         }
 
-        body {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            text-align: center;
-            font-family: 'Inter', sans-serif;
-            color: var(--text-primary);
-            background-color: var(--bg-primary);
-            background-image:
-                radial-gradient(ellipse at 50% 30%, rgba(109, 40, 217, 0.12), transparent 55%),
-                radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.018) 1px, transparent 0);
-            background-size: auto, 28px 28px;
-            -webkit-font-smoothing: antialiased;
-            overflow: hidden;
+        100% {
+          background-position: 0% 50%;
         }
+      }
 
-        .error-code {
-            font-family: 'Unbounded', sans-serif;
-            font-size: clamp(7rem, 18vw, 11rem);
-            font-weight: 800;
-            letter-spacing: -0.06em;
-            line-height: 1;
-            background: linear-gradient(135deg, #a78bfa, #8b5cf6, #6d28d9, #a78bfa);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradientPan 8s ease infinite;
-            margin-bottom: 1.25rem;
-        }
+      .tagline {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 0.75rem;
+      }
 
-        @keyframes gradientPan {
-            0% {
-                background-position: 0% 50%;
-            }
+      .message {
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+        max-width: 380px;
+        line-height: 1.7;
+        margin-bottom: 2.25rem;
+      }
 
-            50% {
-                background-position: 100% 50%;
-            }
+      .buttons {
+        display: flex;
+        gap: 0.75rem;
+      }
 
-            100% {
-                background-position: 0% 50%;
-            }
-        }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.625rem 1.375rem;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.85rem;
+        letter-spacing: 0.01em;
+        transition: all 0.2s ease;
+        cursor: pointer;
+        border: 1px solid transparent;
+        font-family: "Inter", sans-serif;
+      }
 
-        .tagline {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.72rem;
-            color: var(--text-muted);
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            margin-bottom: 0.75rem;
-        }
+      .btn-home {
+        background: var(--accent);
+        color: white;
+        box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+      }
 
-        .message {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            max-width: 380px;
-            line-height: 1.7;
-            margin-bottom: 2.25rem;
-        }
+      .btn-home:hover {
+        background: var(--accent-light);
+        transform: translateY(-1px);
+        box-shadow: 0 0 28px rgba(167, 139, 250, 0.28);
+      }
 
-        .buttons {
-            display: flex;
-            gap: 0.75rem;
-        }
+      .btn-back {
+        background: var(--bg-secondary);
+        color: var(--text-secondary);
+        border: 1px solid var(--border-medium);
+      }
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            padding: 0.625rem 1.375rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.85rem;
-            letter-spacing: 0.01em;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            border: 1px solid transparent;
-            font-family: 'Inter', sans-serif;
-        }
+      .btn-back:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(139, 92, 246, 0.3);
+        color: var(--accent-light);
+        transform: translateY(-1px);
+      }
 
-        .btn-home {
-            background: var(--accent);
-            color: white;
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
-        }
+      .logo {
+        position: fixed;
+        top: 1.5rem;
+        left: 2rem;
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 600;
+        font-size: 1.1rem;
+        text-decoration: none;
+        color: var(--text-primary);
+        letter-spacing: -0.01em;
+      }
 
-        .btn-home:hover {
-            background: var(--accent-light);
-            transform: translateY(-1px);
-            box-shadow: 0 0 28px rgba(167, 139, 250, 0.28);
-        }
-
-        .btn-back {
-            background: var(--bg-secondary);
-            color: var(--text-secondary);
-            border: 1px solid var(--border-medium);
-        }
-
-        .btn-back:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(139, 92, 246, 0.3);
-            color: var(--accent-light);
-            transform: translateY(-1px);
-        }
-
-        .logo {
-            position: fixed;
-            top: 1.5rem;
-            left: 2rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 600;
-            font-size: 1.1rem;
-            text-decoration: none;
-            color: var(--text-primary);
-            letter-spacing: -0.01em;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
+      .logo span {
+        color: var(--accent);
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <a href="/" class="logo">zubariel<span>.</span></a>
 
     <div class="error-code">404</div>
     <p class="tagline">// page not found</p>
-    <p class="message">This page seems to have disappeared into the void. It might have moved, been deleted, or never
-        existed.</p>
+    <p class="message">
+      This page seems to have disappeared into the void. It might have moved,
+      been deleted, or never existed.
+    </p>
     <div class="buttons">
-        <a href="/" class="btn btn-home">Go Home</a>
-        <button onclick="history.back()" class="btn btn-back">Go Back</button>
+      <a href="/" class="btn btn-home">Go Home</a>
+      <button onclick="history.back()" class="btn btn-back">Go Back</button>
     </div>
-</body>
-
+  </body>
 </html>

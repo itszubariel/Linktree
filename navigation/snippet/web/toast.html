@@ -1,399 +1,430 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <title>Snippets | Toast Notification System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/images/2pfp.jpg" type="image/x-icon" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Unbounded:wght@400;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Unbounded:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
 
     <style>
-        :root {
-            --bg-primary: #050505;
-            --bg-secondary: #0f0f0f;
-            --bg-code: #0a0a0c;
-            --border-subtle: rgba(255, 255, 255, 0.04);
-            --border-medium: rgba(255, 255, 255, 0.09);
-            --border-accent: rgba(139, 92, 246, 0.3);
-            --text-primary: #e4e4e7;
-            --text-secondary: #a1a1aa;
-            --text-muted: #52525b;
-            --accent: #8b5cf6;
-            --accent-light: #a78bfa;
-            --accent-dim: rgba(139, 92, 246, 0.1);
-            --accent-gradient: linear-gradient(135deg, #a78bfa, #8b5cf6);
-        }
+      :root {
+        --bg-primary: #050505;
+        --bg-secondary: #0f0f0f;
+        --bg-code: #0a0a0c;
+        --border-subtle: rgba(255, 255, 255, 0.04);
+        --border-medium: rgba(255, 255, 255, 0.09);
+        --border-accent: rgba(139, 92, 246, 0.3);
+        --text-primary: #e4e4e7;
+        --text-secondary: #a1a1aa;
+        --text-muted: #52525b;
+        --accent: #8b5cf6;
+        --accent-light: #a78bfa;
+        --accent-dim: rgba(139, 92, 246, 0.1);
+        --accent-gradient: linear-gradient(135deg, #a78bfa, #8b5cf6);
+      }
 
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
 
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
 
-        ::-webkit-scrollbar-thumb {
-            background: var(--border-medium);
-            border-radius: 3px;
-        }
+      ::-webkit-scrollbar-thumb {
+        background: var(--border-medium);
+        border-radius: 3px;
+      }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-        body {
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            min-height: 100vh;
-            padding: 3rem 1.5rem;
-            background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.018) 1px, transparent 0);
-            background-size: 28px 28px;
-        }
+      body {
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        min-height: 100vh;
+        padding: 3rem 1.5rem;
+        background-image: radial-gradient(
+          circle at 1px 1px,
+          rgba(255, 255, 255, 0.018) 1px,
+          transparent 0
+        );
+        background-size: 28px 28px;
+      }
 
-        .page {
-            max-width: 760px;
-            margin: 0 auto;
-        }
+      .page {
+        max-width: 760px;
+        margin: 0 auto;
+      }
 
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.45rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.72rem;
-            color: var(--text-muted);
-            text-decoration: none;
-            letter-spacing: 0.04em;
-            transition: color 0.2s ease;
-            margin-bottom: 2rem;
-        }
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        text-decoration: none;
+        letter-spacing: 0.04em;
+        transition: color 0.2s ease;
+        margin-bottom: 2rem;
+      }
 
-        .back-link:hover {
-            color: var(--accent-light);
-        }
+      .back-link:hover {
+        color: var(--accent-light);
+      }
 
-        .meta-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
+      .meta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
 
-        .meta-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.68rem;
-            color: var(--text-muted);
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-subtle);
-            border-radius: 99px;
-            padding: 0.2rem 0.6rem;
-            letter-spacing: 0.02em;
-        }
+      .meta-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.68rem;
+        color: var(--text-muted);
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-subtle);
+        border-radius: 99px;
+        padding: 0.2rem 0.6rem;
+        letter-spacing: 0.02em;
+      }
 
-        .meta-tag.accent {
-            color: var(--accent-light);
-            border-color: var(--border-accent);
-        }
+      .meta-tag.accent {
+        color: var(--accent-light);
+        border-color: var(--border-accent);
+      }
 
-        h1 {
-            font-family: 'Unbounded', sans-serif;
-            font-size: clamp(1.6rem, 4vw, 2.25rem);
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            line-height: 1.1;
-            margin-bottom: 0.875rem;
-        }
+      h1 {
+        font-family: "Unbounded", sans-serif;
+        font-size: clamp(1.6rem, 4vw, 2.25rem);
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        line-height: 1.1;
+        margin-bottom: 0.875rem;
+      }
 
-        .gradient-text {
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+      .gradient-text {
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
 
-        .subtitle {
-            color: var(--text-secondary);
-            font-size: 0.92rem;
-            max-width: 36rem;
-            line-height: 1.7;
-            margin-bottom: 2rem;
-        }
+      .subtitle {
+        color: var(--text-secondary);
+        font-size: 0.92rem;
+        max-width: 36rem;
+        line-height: 1.7;
+        margin-bottom: 2rem;
+      }
 
-        .subtitle code {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.78rem;
-            color: var(--accent-light);
-            background: var(--accent-dim);
-            padding: 0.1rem 0.4rem;
-            border-radius: 0.25rem;
-        }
+      .subtitle code {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        color: var(--accent-light);
+        background: var(--accent-dim);
+        padding: 0.1rem 0.4rem;
+        border-radius: 0.25rem;
+      }
 
+      .info-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.875rem;
+        margin-bottom: 2rem;
+      }
+
+      @media (max-width: 560px) {
         .info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.875rem;
-            margin-bottom: 2rem;
+          grid-template-columns: 1fr;
         }
+      }
 
-        @media (max-width: 560px) {
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+      .info-card {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-subtle);
+        border-radius: 0.75rem;
+        padding: 1.25rem;
+      }
 
-        .info-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-subtle);
-            border-radius: 0.75rem;
-            padding: 1.25rem;
-        }
+      .info-card h4 {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.62rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 0.5rem;
+      }
 
-        .info-card h4 {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.62rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 0.5rem;
-        }
+      .info-card p {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        line-height: 1.65;
+      }
 
-        .info-card p {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            line-height: 1.65;
-        }
+      .info-card a {
+        color: var(--accent-light);
+        text-decoration: none;
+      }
 
-        .info-card a {
-            color: var(--accent-light);
-            text-decoration: none;
-        }
+      .info-card a:hover {
+        text-decoration: underline;
+      }
 
-        .info-card a:hover {
-            text-decoration: underline;
-        }
+      .code-block {
+        border: 1px solid var(--border-subtle);
+        border-radius: 0.875rem;
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+      }
 
-        .code-block {
-            border: 1px solid var(--border-subtle);
-            border-radius: 0.875rem;
-            overflow: hidden;
-            margin-bottom: 1.5rem;
-        }
+      .tab-bar {
+        display: flex;
+        background: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-subtle);
+        padding: 0 0.875rem;
+      }
 
-        .tab-bar {
-            display: flex;
-            background: var(--bg-secondary);
-            border-bottom: 1px solid var(--border-subtle);
-            padding: 0 0.875rem;
-        }
+      .tab-btn {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid transparent;
+        padding: 0.625rem 1rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        letter-spacing: 0.03em;
+        margin-bottom: -1px;
+      }
 
-        .tab-btn {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.72rem;
-            color: var(--text-muted);
-            background: transparent;
-            border: none;
-            border-bottom: 2px solid transparent;
-            padding: 0.625rem 1rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            letter-spacing: 0.03em;
-            margin-bottom: -1px;
-        }
+      .tab-btn:hover {
+        color: var(--text-secondary);
+      }
 
-        .tab-btn:hover {
-            color: var(--text-secondary);
-        }
+      .tab-btn.active {
+        color: var(--accent-light);
+        border-bottom-color: var(--accent);
+      }
 
-        .tab-btn.active {
-            color: var(--accent-light);
-            border-bottom-color: var(--accent);
-        }
+      .code-topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.55rem 0.875rem;
+        background: rgba(255, 255, 255, 0.015);
+        border-bottom: 1px solid var(--border-subtle);
+      }
 
-        .code-topbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.55rem 0.875rem;
-            background: rgba(255, 255, 255, 0.015);
-            border-bottom: 1px solid var(--border-subtle);
-        }
+      .dots {
+        display: flex;
+        gap: 5px;
+      }
 
-        .dots {
-            display: flex;
-            gap: 5px;
-        }
+      .dots span {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+      }
 
-        .dots span {
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-        }
+      .d-r {
+        background: #ff5f57;
+      }
 
-        .d-r {
-            background: #ff5f57;
-        }
+      .d-y {
+        background: #febc2e;
+      }
 
-        .d-y {
-            background: #febc2e;
-        }
+      .d-g {
+        background: #28c840;
+      }
 
-        .d-g {
-            background: #28c840;
-        }
+      .copy-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.68rem;
+        color: var(--text-muted);
+        background: transparent;
+        border: 1px solid var(--border-medium);
+        border-radius: 0.35rem;
+        padding: 0.25rem 0.65rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
 
-        .copy-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.68rem;
-            color: var(--text-muted);
-            background: transparent;
-            border: 1px solid var(--border-medium);
-            border-radius: 0.35rem;
-            padding: 0.25rem 0.65rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
+      .copy-btn:hover {
+        border-color: var(--border-accent);
+        color: var(--accent-light);
+      }
 
-        .copy-btn:hover {
-            border-color: var(--border-accent);
-            color: var(--accent-light);
-        }
+      .copy-btn.copied {
+        color: #23a559;
+        border-color: rgba(35, 165, 89, 0.35);
+      }
 
-        .copy-btn.copied {
-            color: #23a559;
-            border-color: rgba(35, 165, 89, 0.35);
-        }
+      pre {
+        margin: 0;
+        padding: 1.25rem 1.5rem;
+        overflow-x: auto;
+        background: var(--bg-code);
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        line-height: 1.8;
+        color: #c4b5fd;
+      }
 
-        pre {
-            margin: 0;
-            padding: 1.25rem 1.5rem;
-            overflow-x: auto;
-            background: var(--bg-code);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.78rem;
-            line-height: 1.8;
-            color: #c4b5fd;
-        }
+      pre::-webkit-scrollbar {
+        height: 3px;
+      }
 
-        pre::-webkit-scrollbar {
-            height: 3px;
-        }
+      pre::-webkit-scrollbar-thumb {
+        background: var(--border-medium);
+      }
 
-        pre::-webkit-scrollbar-thumb {
-            background: var(--border-medium);
-        }
+      .t-kw {
+        color: #a78bfa;
+      }
 
-        .t-kw {
-            color: #a78bfa;
-        }
+      .t-str {
+        color: #86efac;
+      }
 
-        .t-str {
-            color: #86efac;
-        }
+      .t-fn {
+        color: #7dd3fc;
+      }
 
-        .t-fn {
-            color: #7dd3fc;
-        }
+      .t-attr {
+        color: #fde68a;
+      }
 
-        .t-attr {
-            color: #fde68a;
-        }
+      .t-num {
+        color: #fb923c;
+      }
 
-        .t-num {
-            color: #fb923c;
-        }
+      .t-cm {
+        color: #3f3f46;
+        font-style: italic;
+      }
 
-        .t-cm {
-            color: #3f3f46;
-            font-style: italic;
-        }
+      .tab-panel {
+        display: none;
+      }
 
-        .tab-panel {
-            display: none;
-        }
+      .tab-panel.active {
+        display: block;
+      }
 
-        .tab-panel.active {
-            display: block;
-        }
+      .snippet-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border-subtle);
+      }
 
-        .snippet-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 2.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border-subtle);
-        }
+      .snav-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        text-decoration: none;
+        letter-spacing: 0.03em;
+        transition: color 0.2s ease;
+      }
 
-        .snav-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.72rem;
-            color: var(--text-muted);
-            text-decoration: none;
-            letter-spacing: 0.03em;
-            transition: color 0.2s ease;
-        }
-
-        .snav-btn:hover {
-            color: var(--accent-light);
-        }
+      .snav-btn:hover {
+        color: var(--accent-light);
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="page">
-        <a href="/snippet" class="back-link"><i class="fa-solid fa-arrow-left" style="font-size:0.6rem;"></i>
-            /snippet</a>
-        <div class="meta-row">
-            <span class="meta-tag"><i class="fa-brands fa-js" style="color:#facc15;"></i> JavaScript</span>
-            <span class="meta-tag"><i class="fa-brands fa-css3-alt" style="color:#60a5fa;"></i> CSS</span>
-            <span class="meta-tag"><i class="fa-brands fa-html5" style="color:#f97316;"></i> HTML</span>
-            <span class="meta-tag accent"> web</span>
+      <a href="/snippet" class="back-link"
+        ><i class="fa-solid fa-arrow-left" style="font-size: 0.6rem"></i>
+        /snippet</a
+      >
+      <div class="meta-row">
+        <span class="meta-tag"
+          ><i class="fa-brands fa-js" style="color: #facc15"></i>
+          JavaScript</span
+        >
+        <span class="meta-tag"
+          ><i class="fa-brands fa-css3-alt" style="color: #60a5fa"></i>
+          CSS</span
+        >
+        <span class="meta-tag"
+          ><i class="fa-brands fa-html5" style="color: #f97316"></i> HTML</span
+        >
+        <span class="meta-tag accent"> web</span>
+      </div>
+      <h1>Toast <span class="gradient-text">Notifications.</span></h1>
+      <p class="subtitle">
+        Lightweight toast notifications with <code>success</code>,
+        <code>error</code>, <code>warning</code>, and <code>info</code> types.
+        Auto-dismiss after 3 seconds no dependencies.
+      </p>
+      <div class="info-grid">
+        <div class="info-card">
+          <h4>// how to use</h4>
+          <p>
+            Call <code>toast("message", "type")</code> from anywhere in your JS.
+            Types: <code>success</code>, <code>error</code>,
+            <code>warning</code>, <code>info</code>. Stack multiple at once.
+          </p>
         </div>
-        <h1>Toast <span class="gradient-text">Notifications.</span></h1>
-        <p class="subtitle">Lightweight toast notifications with <code>success</code>, <code>error</code>,
-            <code>warning</code>, and <code>info</code> types. Auto-dismiss after 3 seconds no dependencies.</p>
-        <div class="info-grid">
-            <div class="info-card">
-                <h4>// how to use</h4>
-                <p>Call <code>toast("message", "type")</code> from anywhere in your JS. Types: <code>success</code>,
-                    <code>error</code>, <code>warning</code>, <code>info</code>. Stack multiple at once.</p>
-            </div>
-            <div class="info-card">
-                <h4>// credits</h4>
-                <p>A zero-dependency toast system. Inspired by libraries like react-hot-toast but written in ~20 lines
-                    of vanilla JS.</p>
-            </div>
+        <div class="info-card">
+          <h4>// credits</h4>
+          <p>
+            A zero-dependency toast system. Inspired by libraries like
+            react-hot-toast but written in ~20 lines of vanilla JS.
+          </p>
         </div>
-        <div class="code-block">
-            <div class="tab-bar">
-                <button class="tab-btn active">toast.html</button>
+      </div>
+      <div class="code-block">
+        <div class="tab-bar">
+          <button class="tab-btn active">toast.html</button>
+        </div>
+        <div id="tab-main" class="tab-panel active">
+          <div class="code-topbar">
+            <div class="dots">
+              <span class="d-r"></span><span class="d-y"></span
+              ><span class="d-g"></span>
             </div>
-            <div id="tab-main" class="tab-panel active">
-                <div class="code-topbar">
-                    <div class="dots"><span class="d-r"></span><span class="d-y"></span><span class="d-g"></span></div>
-                    <button class="copy-btn" onclick="copyCode('toast-code', this)"><i class="fa-regular fa-copy"></i>
-                        Copy</button>
-                </div>
-                <pre id="toast-code"><span class="t-kw">&lt;div</span> <span class="t-attr">style</span>=<span class="t-str">"display:flex;gap:.5rem;flex-wrap:wrap;"</span><span class="t-kw">&gt;</span>
+            <button class="copy-btn" onclick="copyCode('toast-code', this)">
+              <i class="fa-regular fa-copy"></i> Copy
+            </button>
+          </div>
+          <pre
+            id="toast-code"
+          ><span class="t-kw">&lt;div</span> <span class="t-attr">style</span>=<span class="t-str">"display:flex;gap:.5rem;flex-wrap:wrap;"</span><span class="t-kw">&gt;</span>
   <span class="t-kw">&lt;button</span> <span class="t-attr">onclick</span>=<span class="t-str">"toast('Saved!','success')"</span><span class="t-kw">&gt;</span>Success<span class="t-kw">&lt;/button&gt;</span>
   <span class="t-kw">&lt;button</span> <span class="t-attr">onclick</span>=<span class="t-str">"toast('Something went wrong','error')"</span><span class="t-kw">&gt;</span>Error<span class="t-kw">&lt;/button&gt;</span>
   <span class="t-kw">&lt;button</span> <span class="t-attr">onclick</span>=<span class="t-str">"toast('Heads up!','warning')"</span><span class="t-kw">&gt;</span>Warning<span class="t-kw">&lt;/button&gt;</span>
@@ -423,30 +454,41 @@
     <span class="t-fn">setTimeout</span>(() => el.<span class="t-fn">remove</span>(), <span class="t-num">3000</span>);
   }
 <span class="t-kw">&lt;/script&gt;</span></pre>
-            </div>
         </div>
-        <div class="snippet-nav"><a href="/snippet/web/darkmode-toggle" class="snav-btn"><i
-                    class="fa-solid fa-arrow-left" style="font-size:0.6rem;"></i> darkmode toggle</a><a
-                href="/snippet/web/background" class="snav-btn">animated background <i class="fa-solid fa-arrow-right"
-                    style="font-size:0.6rem;"></i></a></div>
+      </div>
+      <div class="snippet-nav">
+        <a href="/snippet/web/darkmode-toggle" class="snav-btn"
+          ><i class="fa-solid fa-arrow-left" style="font-size: 0.6rem"></i>
+          darkmode toggle</a
+        ><a href="/snippet/web/background" class="snav-btn"
+          >animated background
+          <i class="fa-solid fa-arrow-right" style="font-size: 0.6rem"></i
+        ></a>
+      </div>
     </div>
 
     <script>
-        function switchTab(name, btn) {
-            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById('tab-' + name).classList.add('active');
-            btn.classList.add('active');
-        }
-        function copyCode(id, btn) {
-            const text = document.getElementById(id).innerText;
-            navigator.clipboard.writeText(text).then(() => {
-                btn.classList.add('copied');
-                btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
-                setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy'; }, 2000);
-            });
-        }
+      function switchTab(name, btn) {
+        document
+          .querySelectorAll(".tab-panel")
+          .forEach((p) => p.classList.remove("active"));
+        document
+          .querySelectorAll(".tab-btn")
+          .forEach((b) => b.classList.remove("active"));
+        document.getElementById("tab-" + name).classList.add("active");
+        btn.classList.add("active");
+      }
+      function copyCode(id, btn) {
+        const text = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(text).then(() => {
+          btn.classList.add("copied");
+          btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+          setTimeout(() => {
+            btn.classList.remove("copied");
+            btn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy';
+          }, 2000);
+        });
+      }
     </script>
-</body>
-
+  </body>
 </html>

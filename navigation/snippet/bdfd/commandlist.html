@@ -1,394 +1,428 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <title>Snippets | Functions/Callback</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="/images/2pfp.jpg" type="image/x-icon" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Unbounded:wght@400;700;800&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <style>
-    :root {
-      --bg-primary: #050505;
-      --bg-secondary: #0f0f0f;
-      --bg-code: #0a0a0c;
-      --border-subtle: rgba(255, 255, 255, 0.04);
-      --border-medium: rgba(255, 255, 255, 0.09);
-      --border-accent: rgba(139, 92, 246, 0.3);
-      --text-primary: #e4e4e7;
-      --text-secondary: #a1a1aa;
-      --text-muted: #52525b;
-      --accent: #8b5cf6;
-      --accent-light: #a78bfa;
-      --accent-dim: rgba(139, 92, 246, 0.1);
-      --accent-gradient: linear-gradient(135deg, #a78bfa, #8b5cf6)
-    }
-
-    ::-webkit-scrollbar {
-      width: 6px
-    }
-
-    ::-webkit-scrollbar-track {
-      background: transparent
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--border-medium);
-      border-radius: 3px
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0
-    }
-
-    body {
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
-      font-family: 'Inter', sans-serif;
-      font-weight: 400;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-      padding: 3rem 1.5rem;
-      background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.018) 1px, transparent 0);
-      background-size: 28px 28px
-    }
-
-    .page {
-      max-width: 760px;
-      margin: 0 auto
-    }
-
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: .45rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: .72rem;
-      color: var(--text-muted);
-      text-decoration: none;
-      letter-spacing: .04em;
-      transition: color .2s ease;
-      margin-bottom: 2rem
-    }
-
-    .back-link:hover {
-      color: var(--accent-light)
-    }
-
-    .meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .5rem;
-      margin-bottom: 1rem
-    }
-
-    .meta-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: .35rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: .68rem;
-      color: var(--text-muted);
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-subtle);
-      border-radius: 99px;
-      padding: .2rem .6rem;
-      letter-spacing: .02em
-    }
-
-    .meta-tag.accent {
-      color: var(--accent-light);
-      border-color: var(--border-accent)
-    }
-
-    h1 {
-      font-family: 'Unbounded', sans-serif;
-      font-size: clamp(1.6rem, 4vw, 2.25rem);
-      font-weight: 800;
-      letter-spacing: -.04em;
-      line-height: 1.1;
-      margin-bottom: .875rem
-    }
-
-    .gradient-text {
-      background: var(--accent-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text
-    }
-
-    .subtitle {
-      color: var(--text-secondary);
-      font-size: .92rem;
-      max-width: 36rem;
-      line-height: 1.7;
-      margin-bottom: 2rem
-    }
-
-    .subtitle code,
-    .info-card code {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: .78rem;
-      color: var(--accent-light);
-      background: var(--accent-dim);
-      padding: .1rem .4rem;
-      border-radius: .25rem
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: .875rem;
-      margin-bottom: 2rem
-    }
-
-    @media(max-width:560px) {
-      .info-grid {
-        grid-template-columns: 1fr
+  <head>
+    <meta charset="UTF-8" />
+    <title>Snippets | Functions/Callback</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/images/2pfp.jpg" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Unbounded:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <style>
+      :root {
+        --bg-primary: #050505;
+        --bg-secondary: #0f0f0f;
+        --bg-code: #0a0a0c;
+        --border-subtle: rgba(255, 255, 255, 0.04);
+        --border-medium: rgba(255, 255, 255, 0.09);
+        --border-accent: rgba(139, 92, 246, 0.3);
+        --text-primary: #e4e4e7;
+        --text-secondary: #a1a1aa;
+        --text-muted: #52525b;
+        --accent: #8b5cf6;
+        --accent-light: #a78bfa;
+        --accent-dim: rgba(139, 92, 246, 0.1);
+        --accent-gradient: linear-gradient(135deg, #a78bfa, #8b5cf6);
       }
-    }
 
-    .info-card {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-subtle);
-      border-radius: .75rem;
-      padding: 1.25rem
-    }
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
 
-    .info-card h4 {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: .62rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      margin-bottom: .5rem
-    }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
 
-    .info-card p {
-      font-size: .85rem;
-      color: var(--text-secondary);
-      line-height: 1.65
-    }
+      ::-webkit-scrollbar-thumb {
+        background: var(--border-medium);
+        border-radius: 3px;
+      }
 
-    .info-card a {
-      color: var(--accent-light);
-      text-decoration: none
-    }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    .info-card a:hover {
-      text-decoration: underline
-    }
+      body {
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        min-height: 100vh;
+        padding: 3rem 1.5rem;
+        background-image: radial-gradient(
+          circle at 1px 1px,
+          rgba(255, 255, 255, 0.018) 1px,
+          transparent 0
+        );
+        background-size: 28px 28px;
+      }
 
-    .code-block {
-      border: 1px solid var(--border-subtle);
-      border-radius: .875rem;
-      overflow: hidden;
-      margin-bottom: 1.5rem
-    }
+      .page {
+        max-width: 760px;
+        margin: 0 auto;
+      }
 
-    .tab-bar {
-      display: flex;
-      flex-wrap: wrap;
-      background: var(--bg-secondary);
-      border-bottom: 1px solid var(--border-subtle);
-      padding: 0 .875rem
-    }
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        text-decoration: none;
+        letter-spacing: 0.04em;
+        transition: color 0.2s ease;
+        margin-bottom: 2rem;
+      }
 
-    .tab-btn {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: .72rem;
-      color: var(--text-muted);
-      background: transparent;
-      border: none;
-      border-bottom: 2px solid transparent;
-      padding: .625rem .875rem;
-      cursor: pointer;
-      transition: all .2s ease;
-      letter-spacing: .03em;
-      margin-bottom: -1px;
-      white-space: nowrap
-    }
+      .back-link:hover {
+        color: var(--accent-light);
+      }
 
-    .tab-btn:hover {
-      color: var(--text-secondary)
-    }
+      .meta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
 
-    .tab-btn.active {
-      color: var(--accent-light);
-      border-bottom-color: var(--accent)
-    }
+      .meta-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.68rem;
+        color: var(--text-muted);
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-subtle);
+        border-radius: 99px;
+        padding: 0.2rem 0.6rem;
+        letter-spacing: 0.02em;
+      }
 
-    @media(max-width:480px) {
+      .meta-tag.accent {
+        color: var(--accent-light);
+        border-color: var(--border-accent);
+      }
+
+      h1 {
+        font-family: "Unbounded", sans-serif;
+        font-size: clamp(1.6rem, 4vw, 2.25rem);
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        line-height: 1.1;
+        margin-bottom: 0.875rem;
+      }
+
+      .gradient-text {
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .subtitle {
+        color: var(--text-secondary);
+        font-size: 0.92rem;
+        max-width: 36rem;
+        line-height: 1.7;
+        margin-bottom: 2rem;
+      }
+
+      .subtitle code,
+      .info-card code {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        color: var(--accent-light);
+        background: var(--accent-dim);
+        padding: 0.1rem 0.4rem;
+        border-radius: 0.25rem;
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.875rem;
+        margin-bottom: 2rem;
+      }
+
+      @media (max-width: 560px) {
+        .info-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .info-card {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-subtle);
+        border-radius: 0.75rem;
+        padding: 1.25rem;
+      }
+
+      .info-card h4 {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.62rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 0.5rem;
+      }
+
+      .info-card p {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        line-height: 1.65;
+      }
+
+      .info-card a {
+        color: var(--accent-light);
+        text-decoration: none;
+      }
+
+      .info-card a:hover {
+        text-decoration: underline;
+      }
+
+      .code-block {
+        border: 1px solid var(--border-subtle);
+        border-radius: 0.875rem;
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+      }
+
       .tab-bar {
-        padding: 0 .4rem
+        display: flex;
+        flex-wrap: wrap;
+        background: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-subtle);
+        padding: 0 0.875rem;
       }
 
       .tab-btn {
-        padding: .55rem .55rem;
-        font-size: .67rem
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid transparent;
+        padding: 0.625rem 0.875rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        letter-spacing: 0.03em;
+        margin-bottom: -1px;
+        white-space: nowrap;
       }
-    }
 
-    .code-topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: .55rem .875rem;
-      background: rgba(255, 255, 255, 0.015);
-      border-bottom: 1px solid var(--border-subtle)
-    }
+      .tab-btn:hover {
+        color: var(--text-secondary);
+      }
 
-    .dots {
-      display: flex;
-      gap: 5px
-    }
+      .tab-btn.active {
+        color: var(--accent-light);
+        border-bottom-color: var(--accent);
+      }
 
-    .dots span {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%
-    }
+      @media (max-width: 480px) {
+        .tab-bar {
+          padding: 0 0.4rem;
+        }
 
-    .d-r {
-      background: #ff5f57
-    }
+        .tab-btn {
+          padding: 0.55rem 0.55rem;
+          font-size: 0.67rem;
+        }
+      }
 
-    .d-y {
-      background: #febc2e
-    }
+      .code-topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.55rem 0.875rem;
+        background: rgba(255, 255, 255, 0.015);
+        border-bottom: 1px solid var(--border-subtle);
+      }
 
-    .d-g {
-      background: #28c840
-    }
+      .dots {
+        display: flex;
+        gap: 5px;
+      }
 
-    .copy-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: .3rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: .68rem;
-      color: var(--text-muted);
-      background: transparent;
-      border: 1px solid var(--border-medium);
-      border-radius: .35rem;
-      padding: .25rem .65rem;
-      cursor: pointer;
-      transition: all .2s ease
-    }
+      .dots span {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+      }
 
-    .copy-btn:hover {
-      border-color: var(--border-accent);
-      color: var(--accent-light)
-    }
+      .d-r {
+        background: #ff5f57;
+      }
 
-    .copy-btn.copied {
-      color: #23a559;
-      border-color: rgba(35, 165, 89, 0.35)
-    }
+      .d-y {
+        background: #febc2e;
+      }
 
-    pre {
-      margin: 0;
-      padding: 1.25rem 1.5rem;
-      overflow-x: auto;
-      background: var(--bg-code);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: .78rem;
-      line-height: 1.8
-    }
+      .d-g {
+        background: #28c840;
+      }
 
-    pre::-webkit-scrollbar {
-      height: 3px
-    }
+      .copy-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.68rem;
+        color: var(--text-muted);
+        background: transparent;
+        border: 1px solid var(--border-medium);
+        border-radius: 0.35rem;
+        padding: 0.25rem 0.65rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
 
-    pre::-webkit-scrollbar-thumb {
-      background: var(--border-medium)
-    }
+      .copy-btn:hover {
+        border-color: var(--border-accent);
+        color: var(--accent-light);
+      }
 
-    code.bdscript-highlight {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: .78rem;
-      white-space: pre-wrap;
-      word-break: break-all;
-      line-height: 1.8
-    }
+      .copy-btn.copied {
+        color: #23a559;
+        border-color: rgba(35, 165, 89, 0.35);
+      }
 
-    .tab-panel {
-      display: none
-    }
+      pre {
+        margin: 0;
+        padding: 1.25rem 1.5rem;
+        overflow-x: auto;
+        background: var(--bg-code);
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        line-height: 1.8;
+      }
 
-    .tab-panel.active {
-      display: block
-    }
+      pre::-webkit-scrollbar {
+        height: 3px;
+      }
 
-    .snippet-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 2.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border-subtle)
-    }
+      pre::-webkit-scrollbar-thumb {
+        background: var(--border-medium);
+      }
 
-    .snav-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: .4rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: .72rem;
-      color: var(--text-muted);
-      text-decoration: none;
-      letter-spacing: .03em;
-      transition: color .2s ease
-    }
+      code.bdscript-highlight {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        white-space: pre-wrap;
+        word-break: break-all;
+        line-height: 1.8;
+      }
 
-    .snav-btn:hover {
-      color: var(--accent-light)
-    }
-  </style>
-</head>
+      .tab-panel {
+        display: none;
+      }
 
-<body>
-  <div class="page">
-    <a href="/snippet" class="back-link"><i class="fa-solid fa-arrow-left" style="font-size:.6rem"></i> /snippet</a>
-    <div class="meta-row">
-      <span class="meta-tag"><i class="fa-brands fa-discord" style="color:#5865f2"></i> BDFD</span>
-      <span class="meta-tag accent"> utility</span>
-      <span class="meta-tag accent"> api</span>
-    </div>
-    <h1>Functions / <span class="gradient-text">Callback.</span></h1>
-    <p class="subtitle">Search and browse <code>BDFD Functions</code> and <code>Callbacks</code> right inside your bot
-      using modals and buttons. Auto-fetches the latest tags from the BDFD API for a fully dynamic paginated list.</p>
-    <div class="info-grid">
-      <div class="info-card">
-        <h4>// how to use</h4>
-        <p>Add each command with the correct trigger. Do not change anything unless you know what you're doing. Includes
-          Next and Back buttons for pagination through large function lists.</p>
+      .tab-panel.active {
+        display: block;
+      }
+
+      .snippet-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border-subtle);
+      }
+
+      .snav-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        text-decoration: none;
+        letter-spacing: 0.03em;
+        transition: color 0.2s ease;
+      }
+
+      .snav-btn:hover {
+        color: var(--accent-light);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <a href="/snippet" class="back-link"
+        ><i class="fa-solid fa-arrow-left" style="font-size: 0.6rem"></i>
+        /snippet</a
+      >
+      <div class="meta-row">
+        <span class="meta-tag"
+          ><i class="fa-brands fa-discord" style="color: #5865f2"></i>
+          BDFD</span
+        >
+        <span class="meta-tag accent"> utility</span>
+        <span class="meta-tag accent"> api</span>
       </div>
-      <div class="info-card">
-        <h4>// credits</h4>
-        <p>Powered by the official <a href="https://botdesignerdiscord.com/">BDFD API</a>. Dynamically fetches function
-          and callback tag lists with full argument info and wiki links.</p>
-      </div>
-    </div>
-    <div class="code-block">
-      <div class="tab-bar">
-        <button class="tab-btn active" onclick="switchTab(this,'tab-1')">!bdfd</button>
-        <button class="tab-btn" onclick="switchTab(this,'tab-2')">$onInteraction[bdfd-modal]</button>
-        <button class="tab-btn" onclick="switchTab(this,'tab-3')">$onInteraction</button>
-
-      </div>
-      <div id="tab-1" class="tab-panel active">
-        <div class="code-topbar">
-          <div class="dots"><span class="d-r"></span><span class="d-y"></span><span class="d-g"></span></div><button
-            class="copy-btn" onclick="copyCode('c1',this)"><i class="fa-regular fa-copy"></i> Copy</button>
+      <h1>Functions / <span class="gradient-text">Callback.</span></h1>
+      <p class="subtitle">
+        Search and browse <code>BDFD Functions</code> and
+        <code>Callbacks</code> right inside your bot using modals and buttons.
+        Auto-fetches the latest tags from the BDFD API for a fully dynamic
+        paginated list.
+      </p>
+      <div class="info-grid">
+        <div class="info-card">
+          <h4>// how to use</h4>
+          <p>
+            Add each command with the correct trigger. Do not change anything
+            unless you know what you're doing. Includes Next and Back buttons
+            for pagination through large function lists.
+          </p>
         </div>
-        <pre><code class="bdfd-raw" id="c1">$nomention
+        <div class="info-card">
+          <h4>// credits</h4>
+          <p>
+            Powered by the official
+            <a href="https://botdesignerdiscord.com/">BDFD API</a>. Dynamically
+            fetches function and callback tag lists with full argument info and
+            wiki links.
+          </p>
+        </div>
+      </div>
+      <div class="code-block">
+        <div class="tab-bar">
+          <button class="tab-btn active" onclick="switchTab(this, 'tab-1')">
+            !bdfd
+          </button>
+          <button class="tab-btn" onclick="switchTab(this, 'tab-2')">
+            $onInteraction[bdfd-modal]
+          </button>
+          <button class="tab-btn" onclick="switchTab(this, 'tab-3')">
+            $onInteraction
+          </button>
+        </div>
+        <div id="tab-1" class="tab-panel active">
+          <div class="code-topbar">
+            <div class="dots">
+              <span class="d-r"></span><span class="d-y"></span
+              ><span class="d-g"></span>
+            </div>
+            <button class="copy-btn" onclick="copyCode('c1', this)">
+              <i class="fa-regular fa-copy"></i> Copy
+            </button>
+          </div>
+          <pre><code class="bdfd-raw" id="c1">$nomention
 
 $title[BDFD Functions/Callbacks]
 $description[Use **Search** button below to search for any/every bdfd function available in the [BDFD\](https://botdesignerdiscord.com/) application, or the **Function/Callback List** button to list all the functions/callbacks in bdfd.]
@@ -397,13 +431,18 @@ $color[#36393e]                 $c[Change the color of the embed]
 $addButton[no;bdfd-$authorID;Search;secondary;no;]
 $addButton[no;function-bdfd-list-$authorID;Function List;secondary;no;]
 $addButton[no;callback-bdfd-list-$authorID;Callback List;secondary;no;]</code></pre>
-      </div>
-      <div id="tab-2" class="tab-panel">
-        <div class="code-topbar">
-          <div class="dots"><span class="d-r"></span><span class="d-y"></span><span class="d-g"></span></div><button
-            class="copy-btn" onclick="copyCode('c2',this)"><i class="fa-regular fa-copy"></i> Copy</button>
         </div>
-        <pre><code class="bdfd-raw" id="c2">$var[color;#36393e]                $c[Change the color of the embeds]
+        <div id="tab-2" class="tab-panel">
+          <div class="code-topbar">
+            <div class="dots">
+              <span class="d-r"></span><span class="d-y"></span
+              ><span class="d-g"></span>
+            </div>
+            <button class="copy-btn" onclick="copyCode('c2', this)">
+              <i class="fa-regular fa-copy"></i> Copy
+            </button>
+          </div>
+          <pre><code class="bdfd-raw" id="c2">$var[color;#36393e]                $c[Change the color of the embeds]
 
 $nomention
 $ephemeral
@@ -471,13 +510,18 @@ $addField[$httpResult[arguments;1;name];
 &gt; Required: $httpResult[arguments;1;required]
 &gt; Empty: $httpResult[arguments;1;empty]
 ;yes]$endif</code></pre>
-      </div>
-      <div id="tab-3" class="tab-panel">
-        <div class="code-topbar">
-          <div class="dots"><span class="d-r"></span><span class="d-y"></span><span class="d-g"></span></div><button
-            class="copy-btn" onclick="copyCode('c3',this)"><i class="fa-regular fa-copy"></i> Copy</button>
         </div>
-        <pre><code class="bdfd-raw" id="c3">$var[color;#36393e]                $c[Change the color of the embeds]
+        <div id="tab-3" class="tab-panel">
+          <div class="code-topbar">
+            <div class="dots">
+              <span class="d-r"></span><span class="d-y"></span
+              ><span class="d-g"></span>
+            </div>
+            <button class="copy-btn" onclick="copyCode('c3', this)">
+              <i class="fa-regular fa-copy"></i> Copy
+            </button>
+          </div>
+          <pre><code class="bdfd-raw" id="c3">$var[color;#36393e]                $c[Change the color of the embeds]
 
 $nomention
 $if[$customID==bdfd-$authorID]
@@ -536,23 +580,254 @@ $addButton[no;1more-function-list-bdfd;Next ▶︎;secondary;no;]
 $endif
 
 $c[... pages 3-16 follow the same pattern, incrementing split offsets by 30 each time]</code></pre>
+        </div>
+      </div>
+      <div class="snippet-nav">
+        <a href="/snippet/bdfd/bf-stock" class="snav-btn"
+          ><i class="fa-solid fa-arrow-left" style="font-size: 0.6rem"></i>
+          bloxfruits stock</a
+        >
+        <a href="/snippet" class="snav-btn"
+          >back to snippets
+          <i class="fa-solid fa-arrow-right" style="font-size: 0.6rem"></i
+        ></a>
       </div>
     </div>
-    <div class="snippet-nav">
-      <a href="/snippet/bdfd/bf-stock" class="snav-btn"><i class="fa-solid fa-arrow-left" style="font-size:.6rem"></i> bloxfruits stock</a>
-      <a href="/snippet" class="snav-btn">back to
-        snippets <i class="fa-solid fa-arrow-right"
-          style="font-size:.6rem"></i></a>
-    </div>
-  </div>
-  <script>
-    function switchTab(btn, id) { document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active')); document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active')); btn.classList.add('active'); document.getElementById(id).classList.add('active') }
-    function copyCode(id, btn) { const t = document.getElementById(id).innerText; navigator.clipboard.writeText(t).then(() => { btn.classList.add('copied'); btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!'; setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy' }, 2000) }) }
-    const BDSHighlight = (function () { function intToRgba(n) { if (typeof n !== 'number' || isNaN(n)) return 'rgba(228,228,231,1)'; const r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255; let a = (n >> 24) & 255; a = (isNaN(a) || a < 0 || a > 255) ? 255 : a; return `rgba(${r},${g},${b},${a / 255})` } function esc(s) { if (typeof s !== 'string') return ''; return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;') } function sg(o, p, d) { const k = p.split('.'); let c = o; for (const x of k) { if (c === null || typeof c !== 'object' || !(x in c)) return d; c = c[x] } return c === undefined ? d : c } function css(col, sty) { const color = intToRgba(col); let fw = 'normal', fs = 'normal'; if (sty === 1 || sty === 3) fw = 'bold'; if (sty === 2 || sty === 3) fs = 'italic'; return `color:${color};font-weight:${fw};font-style:${fs};` } function seg(text, dc, bc, sc) { let h = '', buf = '', inS = false, sC = null, ex = false; for (let i = 0; i < text.length; i++) { const c = text[i]; if (ex) { buf += c; ex = false; continue } if (c === '\\') { buf += c; ex = true; continue } if (inS) { buf += c; if (c === sC) inS = false; continue } if (c === "'" || c === '"' || c === '`') { if (buf) { h += `<span style="${dc}">${esc(buf)}</span>`; buf = '' } inS = true; sC = c; buf += c; continue } if (c === '[' || c === ']' || c === ';') { if (buf) { h += `<span style="${dc}">${esc(buf)}</span>`; buf = '' } h += `<span style="${c === ';' ? sc : bc}">${esc(c)}</span>`; continue } buf += c } if (buf) h += `<span style="${dc}">${esc(buf)}</span>`; return h } function highlight(code, theme) { if (typeof code !== 'string') code = ''; if (typeof theme !== 'object' || !theme) theme = {}; const dc = css(sg(theme, 'defaultTextHighlight.color'), sg(theme, 'defaultTextHighlight.style')); const fc = css(sg(theme, 'fallbackHighlight.color'), sg(theme, 'fallbackHighlight.style')); const bc = css(sg(theme, 'bracketHighlight.color'), sg(theme, 'bracketHighlight.style')); const sc = css(sg(theme, 'semicolonHighlight.color'), sg(theme, 'semicolonHighlight.style')); const fm = new Map(); const fh = sg(theme, 'functionsHighlights', {}); for (const k in fh) { if (Object.hasOwnProperty.call(fh, k) && k.startsWith('$')) fm.set(k, css(sg(fh[k], 'color'), sg(fh[k], 'style'))) } let html = '', last = 0; code.replace(/(\$[$a-zA-Z0-9_]+)/g, (m, fn, off) => { if (off > last) html += seg(code.substring(last, off), dc, bc, sc); html += `<span style="${fm.get(fn) || fc}">${esc(fn)}</span>`; last = off + fn.length }); if (last < code.length) html += seg(code.substring(last), dc, bc, sc); return html } return { highlight } })();
-    const TC = { "defaultTextHighlight": { "color": 4288341353, "style": 0 }, "fallbackHighlight": { "color": 4285791231, "style": 0 }, "bracketHighlight": { "color": 4294921292, "style": 1 }, "semicolonHighlight": { "color": 4294920266, "style": 1 }, "functionsHighlights": { "$nomention": { "color": 4294932473, "style": 0 }, "$catch": { "color": 4288905212, "style": 0 }, "$else": { "color": 4288905212, "style": 0 }, "$elseif": { "color": 4288905212, "style": 0 }, "$endif": { "color": 4288905212, "style": 0 }, "$endtry": { "color": 4288905212, "style": 0 }, "$error": { "color": 4288905212, "style": 0 }, "$if": { "color": 4288905212, "style": 0 }, "$try": { "color": 4288905212, "style": 0 } } };
-    ['$deleteIn', '$description', '$image', '$color', '$setServerVar', '$randomText', '$replyIn', '$title', '$getServerVar', '$footer', '$addTimestamp', '$reply', '$onlyIf', '$message', '$setUserVar', '$getUserVar', '$findUser', '$displayName', '$authorID', '$var', '$setVar', '$getVar', '$addButton', '$removeButtons', '$removeAllComponents', '$ephemeral', '$textSplit', '$editSplitText', '$joinSplitText', '$getTextSplitLength', '$splitText', '$checkContains', '$toLowercase', '$replaceText', '$customID', '$newModal', '$addTextInput', '$input', '$httpGet', '$httpResult', '$httpAddHeader', '$addField', '$guildID', '$botID', '$userAvatar', '$username', '$serverName', '$dmChannelID', '$sendEmbedMessage', '$onlyPerms', '$onlyBotPerms', '$suppressErrors', '$allowUserMentions', '$footerIcon', '$globalCooldown', '$getTimestamp', '$multi', '$sum', '$sub', '$divide', '$random', '$addTimestamp', '$replyIn', '$deleteIn'].forEach(fn => { if (!TC.functionsHighlights[fn]) TC.functionsHighlights[fn] = { "color": 4285791231, "style": 0 } });
-    document.addEventListener('DOMContentLoaded', () => { document.querySelectorAll('code.bdfd-raw').forEach(el => { const raw = el.textContent || ''; el.innerHTML = BDSHighlight.highlight(raw, TC); el.classList.add('bdscript-highlight'); el.classList.remove('bdfd-raw') }) }); 
-  </script>
-</body>
-
+    <script>
+      function switchTab(btn, id) {
+        document
+          .querySelectorAll(".tab-btn")
+          .forEach((b) => b.classList.remove("active"));
+        document
+          .querySelectorAll(".tab-panel")
+          .forEach((p) => p.classList.remove("active"));
+        btn.classList.add("active");
+        document.getElementById(id).classList.add("active");
+      }
+      function copyCode(id, btn) {
+        const t = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(t).then(() => {
+          btn.classList.add("copied");
+          btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+          setTimeout(() => {
+            btn.classList.remove("copied");
+            btn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy';
+          }, 2000);
+        });
+      }
+      const BDSHighlight = (function () {
+        function intToRgba(n) {
+          if (typeof n !== "number" || isNaN(n)) return "rgba(228,228,231,1)";
+          const r = (n >> 16) & 255,
+            g = (n >> 8) & 255,
+            b = n & 255;
+          let a = (n >> 24) & 255;
+          a = isNaN(a) || a < 0 || a > 255 ? 255 : a;
+          return `rgba(${r},${g},${b},${a / 255})`;
+        }
+        function esc(s) {
+          if (typeof s !== "string") return "";
+          return s
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+        }
+        function sg(o, p, d) {
+          const k = p.split(".");
+          let c = o;
+          for (const x of k) {
+            if (c === null || typeof c !== "object" || !(x in c)) return d;
+            c = c[x];
+          }
+          return c === undefined ? d : c;
+        }
+        function css(col, sty) {
+          const color = intToRgba(col);
+          let fw = "normal",
+            fs = "normal";
+          if (sty === 1 || sty === 3) fw = "bold";
+          if (sty === 2 || sty === 3) fs = "italic";
+          return `color:${color};font-weight:${fw};font-style:${fs};`;
+        }
+        function seg(text, dc, bc, sc) {
+          let h = "",
+            buf = "",
+            inS = false,
+            sC = null,
+            ex = false;
+          for (let i = 0; i < text.length; i++) {
+            const c = text[i];
+            if (ex) {
+              buf += c;
+              ex = false;
+              continue;
+            }
+            if (c === "\\") {
+              buf += c;
+              ex = true;
+              continue;
+            }
+            if (inS) {
+              buf += c;
+              if (c === sC) inS = false;
+              continue;
+            }
+            if (c === "'" || c === '"' || c === "`") {
+              if (buf) {
+                h += `<span style="${dc}">${esc(buf)}</span>`;
+                buf = "";
+              }
+              inS = true;
+              sC = c;
+              buf += c;
+              continue;
+            }
+            if (c === "[" || c === "]" || c === ";") {
+              if (buf) {
+                h += `<span style="${dc}">${esc(buf)}</span>`;
+                buf = "";
+              }
+              h += `<span style="${c === ";" ? sc : bc}">${esc(c)}</span>`;
+              continue;
+            }
+            buf += c;
+          }
+          if (buf) h += `<span style="${dc}">${esc(buf)}</span>`;
+          return h;
+        }
+        function highlight(code, theme) {
+          if (typeof code !== "string") code = "";
+          if (typeof theme !== "object" || !theme) theme = {};
+          const dc = css(
+            sg(theme, "defaultTextHighlight.color"),
+            sg(theme, "defaultTextHighlight.style"),
+          );
+          const fc = css(
+            sg(theme, "fallbackHighlight.color"),
+            sg(theme, "fallbackHighlight.style"),
+          );
+          const bc = css(
+            sg(theme, "bracketHighlight.color"),
+            sg(theme, "bracketHighlight.style"),
+          );
+          const sc = css(
+            sg(theme, "semicolonHighlight.color"),
+            sg(theme, "semicolonHighlight.style"),
+          );
+          const fm = new Map();
+          const fh = sg(theme, "functionsHighlights", {});
+          for (const k in fh) {
+            if (Object.hasOwnProperty.call(fh, k) && k.startsWith("$"))
+              fm.set(k, css(sg(fh[k], "color"), sg(fh[k], "style")));
+          }
+          let html = "",
+            last = 0;
+          code.replace(/(\$[$a-zA-Z0-9_]+)/g, (m, fn, off) => {
+            if (off > last) html += seg(code.substring(last, off), dc, bc, sc);
+            html += `<span style="${fm.get(fn) || fc}">${esc(fn)}</span>`;
+            last = off + fn.length;
+          });
+          if (last < code.length) html += seg(code.substring(last), dc, bc, sc);
+          return html;
+        }
+        return { highlight };
+      })();
+      const TC = {
+        defaultTextHighlight: { color: 4288341353, style: 0 },
+        fallbackHighlight: { color: 4285791231, style: 0 },
+        bracketHighlight: { color: 4294921292, style: 1 },
+        semicolonHighlight: { color: 4294920266, style: 1 },
+        functionsHighlights: {
+          $nomention: { color: 4294932473, style: 0 },
+          $catch: { color: 4288905212, style: 0 },
+          $else: { color: 4288905212, style: 0 },
+          $elseif: { color: 4288905212, style: 0 },
+          $endif: { color: 4288905212, style: 0 },
+          $endtry: { color: 4288905212, style: 0 },
+          $error: { color: 4288905212, style: 0 },
+          $if: { color: 4288905212, style: 0 },
+          $try: { color: 4288905212, style: 0 },
+        },
+      };
+      [
+        "$deleteIn",
+        "$description",
+        "$image",
+        "$color",
+        "$setServerVar",
+        "$randomText",
+        "$replyIn",
+        "$title",
+        "$getServerVar",
+        "$footer",
+        "$addTimestamp",
+        "$reply",
+        "$onlyIf",
+        "$message",
+        "$setUserVar",
+        "$getUserVar",
+        "$findUser",
+        "$displayName",
+        "$authorID",
+        "$var",
+        "$setVar",
+        "$getVar",
+        "$addButton",
+        "$removeButtons",
+        "$removeAllComponents",
+        "$ephemeral",
+        "$textSplit",
+        "$editSplitText",
+        "$joinSplitText",
+        "$getTextSplitLength",
+        "$splitText",
+        "$checkContains",
+        "$toLowercase",
+        "$replaceText",
+        "$customID",
+        "$newModal",
+        "$addTextInput",
+        "$input",
+        "$httpGet",
+        "$httpResult",
+        "$httpAddHeader",
+        "$addField",
+        "$guildID",
+        "$botID",
+        "$userAvatar",
+        "$username",
+        "$serverName",
+        "$dmChannelID",
+        "$sendEmbedMessage",
+        "$onlyPerms",
+        "$onlyBotPerms",
+        "$suppressErrors",
+        "$allowUserMentions",
+        "$footerIcon",
+        "$globalCooldown",
+        "$getTimestamp",
+        "$multi",
+        "$sum",
+        "$sub",
+        "$divide",
+        "$random",
+        "$addTimestamp",
+        "$replyIn",
+        "$deleteIn",
+      ].forEach((fn) => {
+        if (!TC.functionsHighlights[fn])
+          TC.functionsHighlights[fn] = { color: 4285791231, style: 0 };
+      });
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll("code.bdfd-raw").forEach((el) => {
+          const raw = el.textContent || "";
+          el.innerHTML = BDSHighlight.highlight(raw, TC);
+          el.classList.add("bdscript-highlight");
+          el.classList.remove("bdfd-raw");
+        });
+      });
+    </script>
+  </body>
 </html>
