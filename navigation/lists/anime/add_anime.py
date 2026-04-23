@@ -6,7 +6,7 @@ import os
 import time
 from datetime import datetime
 
-HTML_FILE = "anilist.html"
+HTML_FILE = "animeList.html"
 JSON_FILE = "anime_data.json"
 FALLBACK_IMG = "https://placehold.co/200x300/111/444?text=No+Image"
 
