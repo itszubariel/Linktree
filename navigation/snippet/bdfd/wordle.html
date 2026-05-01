@@ -424,7 +424,7 @@
 $ignoreTriggerCase
 $onlyIf[$getUserVar[active]==no;you already have an active game, use "stop" to stop it.]
 
-$httpGet[https://api-bdtools.netlify.app/random-word]
+$httpGet[https://api.bdtools.xyz/random-word]
 $var[word;$httpResult[word]]
 $var[m;$sendEmbedMessage[$channelID;;Wordle Game!;; Challenge your brain daily with this classic word puzzle.
 Each guess gives you feedback:
@@ -504,7 +504,7 @@ $if[$charCount[$message]!=5]
 Sorry <@$authorID>, but the word has to be under 5 letters.
 $awaitFunc[wordle;$authorID]
 $else
-$httpGet[https://api-bdtools.netlify.app/validate-word?word=$url[encode;$message]]
+$httpGet[https://api.bdtools.xyz/validate-word?word=$url[encode;$message]]
 $if[$or[$checkContains[$message;1;2;3;4;5;6;7;8;9;0;-;_]==true;$httpResult[valid]==false;$httpStatus==400]]
 Sorry <@$authorID>, but that word is not accepted as it's not a real word.
 $awaitFunc[wordle;$authorID]
