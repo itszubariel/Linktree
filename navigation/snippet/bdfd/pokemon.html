@@ -371,14 +371,14 @@
           ><i class="fa-brands fa-discord" style="color: #5865f2"></i>
           BDFD</span
         >
+        <span class="meta-tag accent"> discord-bot</span>
         <span class="meta-tag accent"> game</span>
-        <span class="meta-tag accent"> no-api</span>
       </div>
-      <h1>Pokémon <span class="gradient-text">Catcher.</span></h1>
+      <h1>Pokémon <span class="gradient-text">Game.</span></h1>
       <p class="subtitle">
-        A basic Pokémon catching game in BDFD no external APIs needed. A random
-        Pokémon is shown and users guess the name to catch it. Track your
-        collection with <code>!pinv</code>.
+        A Pokémon catching game in BDFD using the BDTools API. A random Pokémon
+        is fetched and displayed, and users guess the name to catch it. Track
+        your collection with <code>!pinv</code>.
       </p>
       <div class="info-grid">
         <div class="info-card">
@@ -392,8 +392,8 @@
         <div class="info-card">
           <h4>// credits</h4>
           <p>
-            Inspired by classic guessing games. Uses raw BDFD power no external
-            Pokémon API. Sprites served from professorlotus.com.
+            Inspired by classic guessing games. Uses the BDTools API to fetch
+            random Pokémon data and Sprites.
           </p>
         </div>
       </div>
@@ -426,10 +426,12 @@
 $deleteIn[3s]
 
 $description[Thinking of a pokémon..]
-$image[https://media.discordapp.net/stickers/1215481177692180551.png?size=160&amp;name=hmm]
+$image[https://media.discordapp.net/stickers/1215481177692180551.png?size=160&name=hmm]
 $color[#36393e]
 
-$setServerVar[pokemon.spawn;$randomText[Bulbasaur;Ivysaur;Venusaur;Charmander;Charmeleon;Charizard;Squirtle;Wartortle;Blastoise;Caterpie;Metapod;Butterfree;weedle;Kakuna;Beedrill;Pidgey;Pidgeotto;Pidgeot;Rattata;Raticate;Spearow;Fearow;ekans;Arbok;Pikachu;Raichu;Sandshrew;Sandslash;Nidorina;Nidoqueen;Nidorino;Nidoking;clefairy;Clefable;Vulpix;Ninetales;Crobat;Gastly;Talonflame;Granbull;Zubat;Golbat;Diglett;Dugtrio;Oddish;Gloom;Vileplum;Paras;Parasect;Venonat;Venomoth;Meowth;Persian;Psyduck;Golduck;Mankey;Primeape;Growlithe;Arcanine;Poliwag;Poliwhirl;Poliwrath;Abra;Kadabra;Alakazam;Machop;Machoke;Machamp;Bellsprout;Mankey;Mew;Mewtwo]]</code></pre>
+$httpGet[https://api.bdtools.xyz/random-pokemon]
+
+$setServerVar[pokemon.spawn;$httpResult[pokemon]]</code></pre>
         </div>
         <div id="tab-2" class="tab-panel">
           <div class="code-topbar">
@@ -447,9 +449,8 @@ $replyIn[4s]
 $title[Guess The Pokémon]
 $description[Need a Hint? No.
 __Type !pcatch  to catch it.__
-
-**Note**: Make sure the first letter of the pokémon is capitalized.]
-$image[https://professorlotus.com/Sprites/$getServerVar[pokemon.spawn]]
+]
+$image[https://api.bdtools.xyz/random-pokemon?image=true&name=$getServerVar[pokemon.spawn]]
 $footer[Requested by $username]
 $addTimestamp
 $color[#36393e]</code></pre>
@@ -468,10 +469,10 @@ $color[#36393e]</code></pre>
 $reply
 
 $onlyIf[$getServerVar[pokemon.spawn]!=;❌ The Pokémon is already claimed.]
-$onlyIf[$message==$getServerVar[pokemon.spawn];❌ Incorrect Pokémon.]
+$onlyIf[$toLowercase[$message]==$getServerVar[pokemon.spawn];❌ Incorrect Pokémon.]
 
 $title[Pokémon Caught]
-$description[&lt;@$authorID&gt;, You have successfully caught **$message[1;pokemon]** 🎉]
+$description[<@$authorID>, You have successfully caught **$toTitleCase[$message[1;pokemon]]** 🎉]
 $footer[Check your inventory by using !pinv]
 $color[#36393e]
 
@@ -495,8 +496,8 @@ $reply
 $title[Pokémon Inventory]
 $description[
 __**$displayName[$findUser[$message[1;user]]]** 's Pokémon Inventory__
-$if[$getUserVar[pokemon.caught;$findUser[$message[1;user]]]==]&gt; no pokémons yet.
-$else &gt;&gt;&gt; $getUserVar[pokemon.caught;$findUser[$message[1;user]]] $endif
+$if[$getUserVar[pokemon.caught;$findUser[$message[1;user]]]==]> no pokémons yet.
+$else >>> $getUserVar[pokemon.caught;$findUser[$message[1;user]]] $endif
 ]
 $color[#36393e]
 $footer[A game played by $username]
