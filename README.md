@@ -30,4 +30,8 @@ This repository is for **viewing purposes only**. No permission is granted to co
 ## Author
 
 Zubariel  
-[https://zubariel.is-a.dev/](https://zubariel.is-a.dev/)
+[https://zubariel.is-a.dev/](https://zubariel.is-a.dev/) 
+[https://zubs.me/](https://zubs.me/) 
+[https://zubariel.mom/](https://zubariel.mom/)  
+[https://dev.zbrlang.tech/](https://dev.zbrlang.tech/)  
+[https://dev.bdtools.xyz/](https://dev.bdtools.xyz/)
