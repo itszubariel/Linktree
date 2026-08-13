@@ -1,6 +1,6 @@
 # Zubariel.
 
-This repository hosts the source code for my personal website: [https://zubariel.is-a.dev/](https://zubariel.is-a.dev/).  
+This repository hosts the source code for my personal website: [https://zubs.me/](https://zubs.me/).  
 
 It’s a multi-page, static website designed to showcase my portfolio, projects, and personal links in a clean, modern layout.
 
@@ -30,8 +30,8 @@ This repository is for **viewing purposes only**. No permission is granted to co
 ## Author
 
 Zubariel  
-[https://zubariel.is-a.dev/](https://zubariel.is-a.dev/) 
 [https://zubs.me/](https://zubs.me/) 
+[https://zubariel.is-a.dev/](https://zubariel.is-a.dev/) 
 [https://zubariel.mom/](https://zubariel.mom/)  
 [https://dev.zbrlang.tech/](https://dev.zbrlang.tech/)  
 [https://dev.bdtools.xyz/](https://dev.bdtools.xyz/)
