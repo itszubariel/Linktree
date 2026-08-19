@@ -29,9 +29,4 @@ This repository is for **viewing purposes only**. No permission is granted to co
 
 ## Author
 
-Zubariel  
-[https://linktree.zubs.me/](https://linktree.zubs.me/) 
-[https://zubariel.is-a.dev/](https://zubariel.is-a.dev/) 
-[https://zubariel.mom/](https://zubariel.mom/)  
-[https://dev.zbrlang.tech/](https://dev.zbrlang.tech/)  
-[https://dev.bdtools.xyz/](https://dev.bdtools.xyz/)
+[Zubariel](https://linktree.zubs.me/)
