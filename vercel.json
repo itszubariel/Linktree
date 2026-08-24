@@ -1,11 +1,11 @@
 {
   "rewrites": [
     { "source": "/discord", "destination": "discord.html" },
-    { "source": "/portfolio", "destination": "/navigation/portfolio/portfolio.html" },
-    { "source": "/anime-list", "destination": "/navigation/portfolio/anilist.html" },
-    { "source": "/anime_data.json", "destination": "/navigation/portfolio/anime_data.json" },
-    { "source": "/manga-list", "destination": "/navigation/portfolio/manga.html" },
-    { "source": "/manga_data.json", "destination": "/navigation/portfolio/manga_data.json" },
+    { "source": "/portfolio", "destination": "/navigation/portfolio.html" },
+    { "source": "/anime-list", "destination": "/navigation/lists/anime/anilist.html" },
+    { "source": "/anime_data.json", "destination": "/navigation/lists/anime/anime_data.json" },
+    { "source": "/manga-list", "destination": "/navigation/lists/manga/manga.html" },
+    { "source": "/manga_data.json", "destination": "/navigation/lists/manga/manga_data.json" },
     { "source": "/projects", "destination": "/navigation/projects.html" },
     { "source": "/now", "destination": "/navigation/now.html" },
     { "source": "/contact", "destination": "/navigation/contact.html" },
