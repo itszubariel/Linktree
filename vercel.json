@@ -1,46 +1,12 @@
 {
   "rewrites": [
-    { "source": "/discord", "destination": "discord.html" },
-    { "source": "/portfolio", "destination": "/navigation/portfolio.html" },
-    { "source": "/anime-list", "destination": "/navigation/lists/anime/anilist.html" },
-    { "source": "/anime_data.json", "destination": "/navigation/lists/anime/anime_data.json" },
-    { "source": "/manga-list", "destination": "/navigation/lists/manga/manga.html" },
-    { "source": "/manga_data.json", "destination": "/navigation/lists/manga/manga_data.json" },
-    { "source": "/projects", "destination": "/navigation/projects.html" },
-    { "source": "/now", "destination": "/navigation/now.html" },
-    { "source": "/contact", "destination": "/navigation/contact.html" },
-    { "source": "/snippet", "destination": "/navigation/snippet/snippet.html" },
-    { "source": "/snippet/web/signup", "destination": "/navigation/snippet/web/sign.html" },
-    { "source": "/snippet/web/dog", "destination": "/navigation/snippet/web/dog.html" },
-    { "source": "/snippet/web/calculator", "destination": "/navigation/snippet/web/calc.html" },
-    { "source": "/snippet/web/darkmode-toggle", "destination": "/navigation/snippet/web/dark.html" },
-    { "source": "/snippet/web/frosted-profile", "destination": "/navigation/snippet/web/glass.html" },
-    { "source": "/snippet/web/toast-notification", "destination": "/navigation/snippet/web/toast.html" },
-    { "source": "/snippet/web/background", "destination": "/navigation/snippet/web/background.html" },
-    { "source": "/snippet/web/memory", "destination": "/navigation/snippet/web/memory.html" },
-    { "source": "/snippet/web/clicker", "destination": "/navigation/snippet/web/clicker.html" },
-    { "source": "/snippet/mc/advancement", "destination": "/navigation/snippet/java/custom_advancement.html" },
-    { "source": "/snippet/mc/block", "destination": "/navigation/snippet/java/custom_block.html" },
-    { "source": "/snippet/mc/item", "destination": "/navigation/snippet/java/custom_item.html" },
-    { "source": "/snippet/mc/recipe", "destination": "/navigation/snippet/java/custom_recipe.html" },
-    { "source": "/snippet/mc/trigger", "destination": "/navigation/snippet/java/custom_trigger.html" },
-    { "source": "/snippet/bdfd/giveaway", "destination": "/navigation/snippet/bdfd/giveaway.html" },
-    { "source": "/snippet/bdfd/pokemon", "destination": "/navigation/snippet/bdfd/pokemon.html" },
-    { "source": "/snippet/bdfd/voter-only", "destination": "/navigation/snippet/bdfd/voter-only.html" },
-    { "source": "/snippet/bdfd/clicking", "destination": "/navigation/snippet/bdfd/clicker.html" },
-    { "source": "/snippet/bdfd/bf-stock", "destination": "/navigation/snippet/bdfd/bloxfruits.html" },
-    { "source": "/snippet/bdfd/functions", "destination": "/navigation/snippet/bdfd/commandlist.html" },
-    { "source": "/snippet/bdfd/home", "destination": "/navigation/snippet/bdfd/home.html" },
-    { "source": "/snippet/bdfd/wordle", "destination": "/navigation/snippet/bdfd/wordle.html" }
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
   "redirects": [
     {
       "source": "/",
       "has": [
-        {
-          "type": "host",
-          "value": "discord.zubs.me"
-        }
+        { "type": "host", "value": "discord.zubs.me" }
       ],
       "destination": "https://discord.zubs.me",
       "permanent": true
@@ -48,10 +14,7 @@
     {
       "source": "/",
       "has": [
-        {
-          "type": "host",
-          "value": "github.zubs.me"
-        }
+        { "type": "host", "value": "github.zubs.me" }
       ],
       "destination": "https://github.zubs.me",
       "permanent": true
@@ -59,10 +22,7 @@
     {
       "source": "/",
       "has": [
-        {
-          "type": "host",
-          "value": "spotify.zubs.me"
-        }
+        { "type": "host", "value": "spotify.zubs.me" }
       ],
       "destination": "https://spotify.zubs.me",
       "permanent": true
@@ -70,10 +30,7 @@
     {
       "source": "/",
       "has": [
-        {
-          "type": "host",
-          "value": "youtube.zubs.me"
-        }
+        { "type": "host", "value": "youtube.zubs.me" }
       ],
       "destination": "https://youtube.zubs.me",
       "permanent": true
