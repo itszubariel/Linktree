@@ -32,7 +32,11 @@ export function NowPage() {
       <section className="section now-section">
         <div className="now-focus">
           {FOCUS.map((f, i) => (
-            <div key={f.name} className="now-item rise" style={{ animationDelay: `${0.05 * i}s` }}>
+            <div
+              key={f.name}
+              className="now-item rise"
+              style={{ animationDelay: `${0.05 * i}s` }}
+            >
               <div className="now-item-head">
                 <span className="now-name">{f.name}</span>
                 <span className="now-tag">{f.tag}</span>
@@ -44,7 +48,10 @@ export function NowPage() {
 
         <div className="now-footer">
           <p>
-            Check out <Link to="/projects" className="now-link">/projects</Link>{" "}
+            Check out{" "}
+            <Link to="/projects" className="now-link">
+              /projects
+            </Link>{" "}
             for everything else I've built.
           </p>
           <span className="now-footnote">
