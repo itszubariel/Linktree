@@ -362,6 +362,7 @@ body {
   justify-content: space-between;
   gap: 1rem;
   margin-bottom: 1.5rem;
+  flex-wrap: wrap;
 }
 .section-head .kicker {
   font-family: "JetBrains Mono", monospace;
