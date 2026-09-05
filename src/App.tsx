@@ -57,10 +57,22 @@ export function App() {
         <Route path="/snippet" element={<SnippetsPage />} />
         <Route path="/snippet/web/dog" element={<DogApi />} />
         <Route path="/snippet/web/signup" element={<LoginSignup />} />
-        <Route path="/snippet/web/frosted-profile" element={<FrostedProfile />} />
-        <Route path="/snippet/web/darkmode-toggle" element={<DarkModeToggle />} />
-        <Route path="/snippet/web/toast-notification" element={<ToastNotifications />} />
-        <Route path="/snippet/web/background" element={<AnimatedBackground />} />
+        <Route
+          path="/snippet/web/frosted-profile"
+          element={<FrostedProfile />}
+        />
+        <Route
+          path="/snippet/web/darkmode-toggle"
+          element={<DarkModeToggle />}
+        />
+        <Route
+          path="/snippet/web/toast-notification"
+          element={<ToastNotifications />}
+        />
+        <Route
+          path="/snippet/web/background"
+          element={<AnimatedBackground />}
+        />
         <Route path="/snippet/web/calculator" element={<SimpleCalculator />} />
         <Route path="/snippet/web/memory" element={<MemoryMatch />} />
         <Route path="/snippet/web/clicker" element={<SimpleClicker />} />
