@@ -57,12 +57,37 @@ const EXPLORE = [
 ];
 
 const ELSEWHERE = [
-  { icon: "fa-brands fa-github", label: "GitHub", href: "https://github.zubs.me" },
-  { icon: "fa-brands fa-spotify", label: "Spotify", href: "https://spotify.zubs.me" },
-  { icon: "fa-solid fa-envelope", label: "Contact", href: "/contact", internal: true },
-  { icon: "fa-brands fa-discord", label: "Discord", href: "https://discord.zubs.me" },
-  { icon: "fa-brands fa-instagram", label: "Instagram", href: "https://insta.zubs.me" },
-  { icon: "fa-brands fa-youtube", label: "YouTube", href: "https://youtube.zubs.me" },
+  {
+    icon: "fa-brands fa-github",
+    label: "GitHub",
+    href: "https://github.zubs.me",
+  },
+  {
+    icon: "fa-brands fa-spotify",
+    label: "Spotify",
+    href: "https://spotify.zubs.me",
+  },
+  {
+    icon: "fa-solid fa-envelope",
+    label: "Contact",
+    href: "/contact",
+    internal: true,
+  },
+  {
+    icon: "fa-brands fa-discord",
+    label: "Discord",
+    href: "https://discord.zubs.me",
+  },
+  {
+    icon: "fa-brands fa-instagram",
+    label: "Instagram",
+    href: "https://insta.zubs.me",
+  },
+  {
+    icon: "fa-brands fa-youtube",
+    label: "YouTube",
+    href: "https://youtube.zubs.me",
+  },
 ];
 
 export function LinkGrid() {
@@ -74,14 +99,18 @@ export function LinkGrid() {
             <p className="kicker">Explore</p>
             <h2>Where to go</h2>
           </div>
-          <span className="count">{String(EXPLORE.length).padStart(2, "0")} places</span>
+          <span className="count">
+            {String(EXPLORE.length).padStart(2, "0")} places
+          </span>
         </div>
 
         <div className="grid-links">
           {EXPLORE.map((c, i) => {
             const content = (
               <>
-                <span className="card-path">~/{c.title.toLowerCase().replace(/ /g, "-")}</span>
+                <span className="card-path">
+                  ~/{c.title.toLowerCase().replace(/ /g, "-")}
+                </span>
                 <span className="card-body">
                   <span className="card-desc">{c.desc}</span>
                 </span>
