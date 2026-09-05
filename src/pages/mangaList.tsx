@@ -27,18 +27,45 @@ const STATUS_LABELS: Record<string, string> = {
 const FALLBACK_IMG = "https://placehold.co/200x300/111/444?text=No+Image";
 
 const GENRES = [
-  "Action", "Adventure", "Comedy", "Drama", "Fantasy", "Horror", "Mecha",
-  "Mystery", "Psychological", "Romance", "School", "Sci-Fi", "Seinen",
-  "Shounen", "Shoujo", "Slice of Life", "Sports", "Supernatural", "Thriller",
+  "Action",
+  "Adventure",
+  "Comedy",
+  "Drama",
+  "Fantasy",
+  "Horror",
+  "Mecha",
+  "Mystery",
+  "Psychological",
+  "Romance",
+  "School",
+  "Sci-Fi",
+  "Seinen",
+  "Shounen",
+  "Shoujo",
+  "Slice of Life",
+  "Sports",
+  "Supernatural",
+  "Thriller",
   "Webtoon",
 ];
 
-const STATUSES = ["all", "reading", "completed", "on-hold", "plan-to-read", "dropped"];
+const STATUSES = [
+  "all",
+  "reading",
+  "completed",
+  "on-hold",
+  "plan-to-read",
+  "dropped",
+];
 
 function getPP() {
   const w = window.innerWidth;
   const cols =
-    w <= 520 ? 3 : w <= 900 ? Math.floor((w - 36) / 138) : Math.floor((1300 - 80) / 159);
+    w <= 520
+      ? 3
+      : w <= 900
+        ? Math.floor((w - 36) / 138)
+        : Math.floor((1300 - 80) / 159);
   return Math.max(cols, 3) * 6;
 }
 
@@ -81,7 +108,9 @@ export function MangaList() {
     let list = [...data];
     if (status !== "all") list = list.filter((a) => a.status === status);
     if (genre !== "all")
-      list = list.filter((a) => a.genres.some((g) => g.toLowerCase() === genre));
+      list = list.filter((a) =>
+        a.genres.some((g) => g.toLowerCase() === genre),
+      );
     if (query) {
       const q = query.toLowerCase();
       list = list.filter((a) => a.title.toLowerCase().includes(q));
@@ -90,14 +119,17 @@ export function MangaList() {
     if (sort === "za") list.sort((a, b) => b.title.localeCompare(a.title));
     if (sort === "top") list.sort((a, b) => (b.rating || 0) - (a.rating || 0));
     if (sort === "low") list.sort((a, b) => (a.rating || 0) - (b.rating || 0));
-    if (sort === "ch") list.sort((a, b) => (b.chapters || 0) - (a.chapters || 0));
+    if (sort === "ch")
+      list.sort((a, b) => (b.chapters || 0) - (a.chapters || 0));
     return list;
   }, [data, query, status, genre, sort]);
 
   const stats = useMemo(() => {
     const rated = data.filter((a) => a.rating);
     const avg = rated.length
-      ? (rated.reduce((s, r) => s + (r.rating || 0), 0) / rated.length).toFixed(1)
+      ? (rated.reduce((s, r) => s + (r.rating || 0), 0) / rated.length).toFixed(
+          1,
+        )
       : "0";
     return {
       total: data.length,
@@ -360,7 +392,9 @@ export function MangaList() {
                 />
                 <div className="anime-d-info">
                   <h2 className="anime-d-title">{sel.title}</h2>
-                  {sel.japanese_title && <p className="anime-d-jp">{sel.japanese_title}</p>}
+                  {sel.japanese_title && (
+                    <p className="anime-d-jp">{sel.japanese_title}</p>
+                  )}
                   <div className="anime-d-tags">
                     <span className="anime-dtag">
                       {STATUS_LABELS[sel.status] || sel.status}
@@ -433,7 +467,10 @@ export function MangaList() {
 
       {infoOpen && (
         <div className="anime-ovl" onClick={closeInfo}>
-          <div className="anime-info-panel" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="anime-info-panel"
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
               className="anime-d-close"
               onClick={closeInfo}
