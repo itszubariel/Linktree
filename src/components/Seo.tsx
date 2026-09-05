@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 
 const SITE_NAME = "Zubariel";
-const OG_IMAGE = "https://zubs.me/images/2pfp.jpg";
+const OG_IMAGE = "https://zubs.me/images/1pfp.jpg";
 const OG_URL = "https://zubs.me";
-const THEME_COLOR = "#000000";
+const THEME_COLOR = "#fff";
 const AUTHOR = "Zubariel";
 const DEFAULT_DESCRIPTION =
   "This is a linktree for Zubariel. A self-taught developer building apps, scripts, bots, and more.";
