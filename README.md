@@ -29,4 +29,4 @@ This repository is for **viewing purposes only**. No permission is granted to co
 
 ## Author
 
-[@_zubr.l](https://linktree.zubs.me/)
+[@_zubr.l](https://zubs.me/)
