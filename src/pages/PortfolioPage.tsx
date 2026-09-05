@@ -83,9 +83,28 @@ const ABOUT: {
     title: "Languages & Tech",
     type: "tech",
     items: [
-      "TypeScript", "Rust", "Python", "Java", "C", "C++", "SQL", "HTML",
-      "CSS", "React", "Next.js", "Node.js", "PyTorch", "Vosk", "Fabric API",
-      "Vite", "Docker", "PostgreSQL", "Supabase", "Git", "AWS", "Android SDK",
+      "TypeScript",
+      "Rust",
+      "Python",
+      "Java",
+      "C",
+      "C++",
+      "SQL",
+      "HTML",
+      "CSS",
+      "React",
+      "Next.js",
+      "Node.js",
+      "PyTorch",
+      "Vosk",
+      "Fabric API",
+      "Vite",
+      "Docker",
+      "PostgreSQL",
+      "Supabase",
+      "Git",
+      "AWS",
+      "Android SDK",
     ],
   },
   {
@@ -232,7 +251,8 @@ const PROJECTS = [
 
 const TESTIMONIALS = [
   {
-    quote: "Working with Zubariel on Auora was genuinely one of the best dev experiences I've had. He just gets things done, properly. Clean code, fast turnaround, and he actually cares about what he's building",
+    quote:
+      "Working with Zubariel on Auora was genuinely one of the best dev experiences I've had. He just gets things done, properly. Clean code, fast turnaround, and he actually cares about what he's building",
     img: "savior-pfp.png",
     alt: "Saviour",
     name: "Saviour",
@@ -240,7 +260,8 @@ const TESTIMONIALS = [
     href: null as string | null,
   },
   {
-    quote: "Zubariel takes even a rough idea and runs with it in ways you wouldn't expect. Threw some vague design thoughts his way and he turned them into something that actually looked good and worked. Easy person to work with.",
+    quote:
+      "Zubariel takes even a rough idea and runs with it in ways you wouldn't expect. Threw some vague design thoughts his way and he turned them into something that actually looked good and worked. Easy person to work with.",
     img: "placeholder.png",
     alt: "Cam Brown",
     name: "Cam Brown",
@@ -248,7 +269,8 @@ const TESTIMONIALS = [
     href: "https://github.com/cam-br0wn",
   },
   {
-    quote: "Zubariel's one of those devs who just ships. Not just talks about stuff, actually builds it, puts it out there, and moves on to the next thing. The stuff he's made speaks for itself",
+    quote:
+      "Zubariel's one of those devs who just ships. Not just talks about stuff, actually builds it, puts it out there, and moves on to the next thing. The stuff he's made speaks for itself",
     img: "stargraze-pfp.png",
     alt: "riv",
     name: "riv",
@@ -256,7 +278,8 @@ const TESTIMONIALS = [
     href: "https://servermaker.xyz/developer",
   },
   {
-    quote: "Building Statify with Zubariel was pretty smooth honestly. He knows what he wants out of a project and he moves fast. The extension went from a rough idea to something genuinely useful in no time",
+    quote:
+      "Building Statify with Zubariel was pretty smooth honestly. He knows what he wants out of a project and he moves fast. The extension went from a rough idea to something genuinely useful in no time",
     img: "placeholder.png",
     alt: "Oliver",
     name: "Oliver",
@@ -303,37 +326,86 @@ export function PortfolioPage() {
         keywords="HTML, CSS, JS, Portfolio, Developer, Zubariel"
       />
 
-      <section id="home" className="pf-hero" style={{ paddingTop: "12rem", paddingBottom: "6rem" }}>
+      <section
+        id="home"
+        className="pf-hero"
+        style={{ paddingTop: "12rem", paddingBottom: "6rem" }}
+      >
         <div className="pf-hero-grid">
           <div>
             <p className="pf-hello">Hello, I'm Zubariel.</p>
 
             <h1 className="pf-title">
-              Self-Taught<br />Developer &amp; Creator<span className="pf-hero-dot">.</span>
+              Self-Taught
+              <br />
+              Developer &amp; Creator<span className="pf-hero-dot">.</span>
             </h1>
 
             <p className="pf-intro">
-              I've been building software for about{" "}
-              <strong>5 years</strong>, ranging from Discord bots and scripting
-              languages to web tools, mods, and apps. I don't follow a set
-              stack, I just build what I need and keep learning along the way.
+              I've been building software for about <strong>5 years</strong>,
+              ranging from Discord bots and scripting languages to web tools,
+              mods, and apps. I don't follow a set stack, I just build what I
+              need and keep learning along the way.
             </p>
 
             <div className="pf-hero-actions pf-hero-actions-left">
               <Link to="/contact" className="btn btn-primary">
                 <i className="fa-solid fa-paper-plane" /> Contact Me
               </Link>
-              <button onClick={() => scrollToId("about")} className="btn btn-ghost">
+              <button
+                onClick={() => scrollToId("about")}
+                className="btn btn-ghost"
+              >
                 <i className="fa-solid fa-folder-open" /> View My Work
               </button>
             </div>
 
             <div className="pf-socials pf-socials-left">
-              <a href="https://github.zubs.me" target="_blank" rel="noreferrer" aria-label="GitHub" className="pf-social"><i className="fa-brands fa-github" /></a>
-              <a href="https://discord.zubs.me" target="_blank" rel="noreferrer" aria-label="Discord" className="pf-social"><i className="fa-brands fa-discord" /></a>
-              <a href="https://insta.zubs.me" target="_blank" rel="noreferrer" aria-label="Instagram" className="pf-social"><i className="fa-brands fa-instagram" /></a>
-              <a href="https://youtube.zubs.me" target="_blank" rel="noreferrer" aria-label="YouTube" className="pf-social"><i className="fa-brands fa-youtube" /></a>
-              <a href="https://spotify.zubs.me" target="_blank" rel="noreferrer" aria-label="Spotify" className="pf-social"><i className="fa-brands fa-spotify" /></a>
+              <a
+                href="https://github.zubs.me"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub"
+                className="pf-social"
+              >
+                <i className="fa-brands fa-github" />
+              </a>
+              <a
+                href="https://discord.zubs.me"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Discord"
+                className="pf-social"
+              >
+                <i className="fa-brands fa-discord" />
+              </a>
+              <a
+                href="https://insta.zubs.me"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+                className="pf-social"
+              >
+                <i className="fa-brands fa-instagram" />
+              </a>
+              <a
+                href="https://youtube.zubs.me"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="YouTube"
+                className="pf-social"
+              >
+                <i className="fa-brands fa-youtube" />
+              </a>
+              <a
+                href="https://spotify.zubs.me"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Spotify"
+                className="pf-social"
+              >
+                <i className="fa-brands fa-spotify" />
+              </a>
             </div>
           </div>
 
@@ -354,7 +426,11 @@ export function PortfolioPage() {
 
         <div className="pf-about">
           {ABOUT.map((c, i) => (
-            <div key={c.title} className="glass-card rise" style={{ animationDelay: `${(i % 6) * 0.05}s` }}>
+            <div
+              key={c.title}
+              className="glass-card rise"
+              style={{ animationDelay: `${(i % 6) * 0.05}s` }}
+            >
               <h3 className="pf-card-title">
                 <i className={c.icon} /> {c.title}
               </h3>
@@ -363,7 +439,9 @@ export function PortfolioPage() {
                 <ul className="pf-qual">
                   {c.items.map((item, idx) => (
                     <li key={item}>
-                      <span className="pf-qual-num">{String(idx + 1).padStart(2, "0")}</span>
+                      <span className="pf-qual-num">
+                        {String(idx + 1).padStart(2, "0")}
+                      </span>
                       {item}
                     </li>
                   ))}
@@ -438,12 +516,18 @@ export function PortfolioPage() {
             <p className="kicker">// things I've built</p>
             <h2>Featured Projects</h2>
           </div>
-          <span className="count">{String(PROJECTS.length).padStart(2, "0")}</span>
+          <span className="count">
+            {String(PROJECTS.length).padStart(2, "0")}
+          </span>
         </div>
 
         <div className="grid-projects">
           {PROJECTS.map((p, i) => (
-            <div key={p.title} className="project-card rise" style={{ animationDelay: `${(i % 6) * 0.04}s` }}>
+            <div
+              key={p.title}
+              className="project-card rise"
+              style={{ animationDelay: `${(i % 6) * 0.04}s` }}
+            >
               <div className="project-cover">
                 <img src={`${IMG}/${p.img}`} alt={p.alt} loading="lazy" />
               </div>
@@ -459,7 +543,12 @@ export function PortfolioPage() {
                   ))}
                 </div>
                 <div className="project-actions">
-                  <a href={p.href} target="_blank" rel="noreferrer" className="btn btn-ghost pf-project-view">
+                  <a
+                    href={p.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn btn-ghost pf-project-view"
+                  >
                     View Project
                     <i className="fa-solid fa-arrow-up-right-from-square" />
                   </a>
@@ -482,19 +571,38 @@ export function PortfolioPage() {
             <p className="kicker">// kind words</p>
             <h2>What Others Say</h2>
           </div>
-          <span className="count">{String(TESTIMONIALS.length).padStart(2, "0")}</span>
+          <span className="count">
+            {String(TESTIMONIALS.length).padStart(2, "0")}
+          </span>
         </div>
 
         <div className="pf-test-grid">
           {TESTIMONIALS.map((t, i) => (
-            <div key={t.name} className="pf-testimonial rise" style={{ animationDelay: `${(i % 4) * 0.05}s` }}>
-              <div className="pf-quote-mark" aria-hidden="true">”</div>
+            <div
+              key={t.name}
+              className="pf-testimonial rise"
+              style={{ animationDelay: `${(i % 4) * 0.05}s` }}
+            >
+              <div className="pf-quote-mark" aria-hidden="true">
+                ”
+              </div>
               <p className="pf-quote">{t.quote}</p>
               <figcaption className="pf-cap">
-                <img src={`${IMG}/${t.img}`} alt={t.alt} className="pf-cap-img" />
+                <img
+                  src={`${IMG}/${t.img}`}
+                  alt={t.alt}
+                  className="pf-cap-img"
+                />
                 <div>
                   {t.href ? (
-                    <a href={t.href} target="_blank" rel="noreferrer" className="pf-cap-name">{t.name}</a>
+                    <a
+                      href={t.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="pf-cap-name"
+                    >
+                      {t.name}
+                    </a>
                   ) : (
                     <p className="pf-cap-name">{t.name}</p>
                   )}
@@ -512,74 +620,71 @@ export function PortfolioPage() {
             <p className="kicker">// off the clock</p>
             <h2>Beyond Coding</h2>
           </div>
-          <span className="count">03</span>
+          <span className="count">04</span>
         </div>
 
         <div className="pf-interest-grid">
           <div className="glass-card rise">
-            <h3 className="pf-card-title"><i className="fa-solid fa-clapperboard" /> Anime, Manga & TV</h3>
-            <ul className="pf-media">
+            <h3 className="pf-card-title">
+              <i className="fa-solid fa-clapperboard" /> Anime, Manga & TV
+            </h3>
+            <ul className="pf-qual">
               <li>
-                <span className="pf-media-hash">01</span>
-                <div>
-                  <b>Bleach</b>
-                  <span>Bending rules and aesthetics long before it was cool.</span>
-                </div>
+                <span className="pf-qual-num">01</span>
+                <span>
+                  <b>Top animes:</b> Bleach, Code Geass, Vinland Saga
+                </span>
               </li>
               <li>
-                <span className="pf-media-hash">02</span>
-                <div>
-                  <b>Code Geass</b>
-                  <span>A chess-master protagonist, honestly a vibe.</span>
-                </div>
+                <span className="pf-qual-num">02</span>
+                <span>
+                  <b>Also watching:</b> Horimiya, SNAFU
+                </span>
               </li>
               <li>
-                <span className="pf-media-hash">03</span>
-                <div>
-                  <b>Vinland Saga</b>
-                  <span>The character writing hits way too hard.</span>
-                </div>
+                <span className="pf-qual-num">03</span>
+                <span>
+                  <b>Genres:</b> Seinen, psychological thrillers, historical
+                  epics
+                </span>
               </li>
               <li>
-                <span className="pf-media-hash">04</span>
-                <div>
-                  <b>Loki & Moon Knight</b>
-                  <span>The MCU entries that actually took risks.</span>
-                </div>
+                <span className="pf-qual-num">04</span>
+                <span>
+                  <b>MCU:</b> Loki, Moon Knight
+                </span>
               </li>
             </ul>
           </div>
 
           <div className="glass-card rise" style={{ animationDelay: "0.05s" }}>
-            <h3 className="pf-card-title"><i className="fa-solid fa-gamepad" /> Games & Music</h3>
-            <ul className="pf-media">
+            <h3 className="pf-card-title">
+              <i className="fa-solid fa-gamepad" /> Games & Music
+            </h3>
+            <ul className="pf-qual">
               <li>
-                <span className="pf-media-hash">01</span>
-                <div>
-                  <b>RPGs · Souls-likes · Open world</b>
-                  <span>Where the hundreds of hours quietly went.</span>
-                </div>
+                <span className="pf-qual-num">01</span>
+                <span>
+                  <b>Genres:</b> RPG, souls-like, open world
+                </span>
               </li>
               <li>
-                <span className="pf-media-hash">02</span>
-                <div>
-                  <b>God of War · RDR2 · Minecraft</b>
-                  <span>Different eras, all still on the rotation.</span>
-                </div>
+                <span className="pf-qual-num">02</span>
+                <span>
+                  <b>All-time faves:</b> Minecraft, God of War, RDR2
+                </span>
               </li>
               <li>
-                <span className="pf-media-hash">03</span>
-                <div>
-                  <b>Rock · Pop · OSTs</b>
-                  <span>Always on while I build, no exceptions.</span>
-                </div>
+                <span className="pf-qual-num">03</span>
+                <span>
+                  <b>Competitive:</b> Valorant, COD
+                </span>
               </li>
               <li>
-                <span className="pf-media-hash">04</span>
-                <div>
-                  <b>Top artists</b>
-                  <span>You can find my endless music loops on Spotify.</span>
-                </div>
+                <span className="pf-qual-num">04</span>
+                <span>
+                  <b>On repeat:</b> The 1975, Olivia Rodrigo, Noah Kahan
+                </span>
               </li>
             </ul>
           </div>
@@ -597,44 +702,60 @@ export function PortfolioPage() {
 
         <div className="pf-thanks-grid">
           <div className="glass-card rise">
-            <h3 className="pf-card-title"><i className="fa-solid fa-people-group" /> Collaborators</h3>
+            <h3 className="pf-card-title">
+              <i className="fa-solid fa-people-group" /> Collaborators
+            </h3>
             <p className="pf-card-sub">
               Thanks to everyone who's built alongside me and pushed these
               projects further than I could have alone.
             </p>
             <ul className="pf-shout">
               <li>
-                <span className="pf-shout-name">Saviour:</span>
-                <span className="pf-shout-content">Co-built Auora with me</span>
+                <span>
+                  <span className="pf-shout-name">Saviour</span>: Co-built Auora
+                  with me
+                </span>
               </li>
               <li>
-                <span className="pf-shout-name">Cam Brown:</span>
-                <span className="pf-shout-content">Design input on earlier projects</span>
+                <span>
+                  <span className="pf-shout-name">Cam Brown</span>: Design input
+                  on earlier projects
+                </span>
               </li>
               <li>
-                <span className="pf-shout-name">Oliver:</span>
-                <span className="pf-shout-content">Collaborated on Statify, concept to launch</span>
+                <span>
+                  <span className="pf-shout-name">Oliver</span>: Collaborated on
+                  Statify, concept to launch
+                </span>
               </li>
             </ul>
           </div>
 
           <div className="glass-card rise" style={{ animationDelay: "0.05s" }}>
-            <h3 className="pf-card-title"><i className="fa-solid fa-heart" /> Special Thanks</h3>
+            <h3 className="pf-card-title">
+              <i className="fa-solid fa-heart" /> Special Thanks
+            </h3>
             <p className="pf-card-sub">
               And to the people who've been there outside of any one project.
             </p>
             <ul className="pf-shout">
               <li>
-                <span className="pf-shout-name">riv:</span>
-                <span className="pf-shout-content">One of my closest friends, always down to talk ideas through</span>
+                <span>
+                  <span className="pf-shout-name">riv</span>: One of my closest
+                  friends, always down to talk ideas through
+                </span>
               </li>
               <li>
-                <span className="pf-shout-name">Kyll:</span>
-                <span className="pf-shout-content">Pushed me to keep learning and trying new things</span>
+                <span>
+                  <span className="pf-shout-name">Kyll</span>: Pushed me to
+                  keep learning and trying new things
+                </span>
               </li>
               <li>
-                <span className="pf-shout-name">BDFD Community:</span>
-                <span className="pf-shout-content">Supported the work across all these years</span>
+                <span>
+                  <span className="pf-shout-name">BDFD Community</span>:
+                  Supported the work across all these years
+                </span>
               </li>
             </ul>
           </div>
