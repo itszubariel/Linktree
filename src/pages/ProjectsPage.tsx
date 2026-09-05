@@ -71,7 +71,13 @@ interface SectionProps {
   staggered?: boolean;
 }
 
-function Section({ kicker, title, count, items, staggered = true }: SectionProps) {
+function Section({
+  kicker,
+  title,
+  count,
+  items,
+  staggered = true,
+}: SectionProps) {
   return (
     <section className="section">
       <div className="section-head">
@@ -90,7 +96,9 @@ function Section({ kicker, title, count, items, staggered = true }: SectionProps
             key={p.name}
             project={p}
             className={staggered ? "rise" : undefined}
-            style={staggered ? { animationDelay: `${(i % 6) * 0.04}s` } : undefined}
+            style={
+              staggered ? { animationDelay: `${(i % 6) * 0.04}s` } : undefined
+            }
           />
         ))}
       </div>
@@ -135,11 +143,10 @@ export function ProjectsPage() {
       />
 
       <div className="section" style={{ paddingTop: 0, textAlign: "center" }}>
-        <button
-          className="btn btn-ghost"
-          onClick={() => setShowOld((s) => !s)}
-        >
-          {showOld ? "// hide older projects" : `// show older projects (${oldProjects.length})`}
+        <button className="btn btn-ghost" onClick={() => setShowOld((s) => !s)}>
+          {showOld
+            ? "// hide older projects"
+            : `// show older projects (${oldProjects.length})`}
         </button>
       </div>
 
