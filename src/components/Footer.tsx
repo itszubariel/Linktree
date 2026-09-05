@@ -17,7 +17,7 @@ export function Footer() {
           right: "1.5rem",
         }}
       >
-        © 2026 · built by zubariel
+        © 2026 · built by @_zubr.l
       </span>
     </footer>
   );
