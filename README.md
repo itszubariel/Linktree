@@ -15,7 +15,7 @@ The site serves as a centralized hub for my work and online presence. Features i
 - Contact functionality to reach out directly.  
 - Real-time status updates and integrations with platforms like Anilist and MangaList.  
 
-Everything is built with **HTML, CSS, Tailwind CSS, and JavaScript**, keeping the site fast and lightweight.
+Everything is built with **React, TypeScript, Vite, and CSS**, keeping the site fast and lightweight.
 
 ---
 
@@ -29,4 +29,4 @@ This repository is for **viewing purposes only**. No permission is granted to co
 
 ## Author
 
-[Zubariel](https://linktree.zubs.me/)
+[@_zubr.l](https://linktree.zubs.me/)
