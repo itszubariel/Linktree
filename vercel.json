@@ -5,33 +5,25 @@
   "redirects": [
     {
       "source": "/",
-      "has": [
-        { "type": "host", "value": "discord.zubs.me" }
-      ],
+      "has": [{ "type": "host", "value": "discord.zubs.me" }],
       "destination": "https://discord.zubs.me",
       "permanent": true
     },
     {
       "source": "/",
-      "has": [
-        { "type": "host", "value": "github.zubs.me" }
-      ],
+      "has": [{ "type": "host", "value": "github.zubs.me" }],
       "destination": "https://github.zubs.me",
       "permanent": true
     },
     {
       "source": "/",
-      "has": [
-        { "type": "host", "value": "spotify.zubs.me" }
-      ],
+      "has": [{ "type": "host", "value": "spotify.zubs.me" }],
       "destination": "https://spotify.zubs.me",
       "permanent": true
     },
     {
       "source": "/",
-      "has": [
-        { "type": "host", "value": "youtube.zubs.me" }
-      ],
+      "has": [{ "type": "host", "value": "youtube.zubs.me" }],
       "destination": "https://youtube.zubs.me",
       "permanent": true
     }
