@@ -16,9 +16,9 @@ export const META_KEYS = {
 };
 
 function setMeta(attr: "name" | "property", key: string, content: string) {
-  let el = document.head.querySelector(`meta[${attr}="${key}"]`) as
-    | HTMLMetaElement
-    | null;
+  let el = document.head.querySelector(
+    `meta[${attr}="${key}"]`,
+  ) as HTMLMetaElement | null;
   if (!el) {
     el = document.createElement("meta");
     el.setAttribute(attr, key);
