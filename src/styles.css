@@ -2483,7 +2483,9 @@ a.pf-cap-name:hover {
   border: 1px solid var(--line);
   border-radius: 0.7rem;
   background: var(--bg-3);
-  transition: border-color 0.15s ease, transform 0.1s ease;
+  transition:
+    border-color 0.15s ease,
+    transform 0.1s ease;
 }
 .pf-media li:hover {
   border-color: var(--line-2);
@@ -2621,9 +2623,15 @@ section[id] {
   border-radius: 999px;
   background: var(--line-2);
 }
-.notfound-code-head .dot:first-child { background: #f43f5e; }
-.notfound-code-head .dot:nth-child(2) { background: #f59e0b; }
-.notfound-code-head .dot:nth-child(3) { background: #10b981; }
+.notfound-code-head .dot:first-child {
+  background: #f43f5e;
+}
+.notfound-code-head .dot:nth-child(2) {
+  background: #f59e0b;
+}
+.notfound-code-head .dot:nth-child(3) {
+  background: #10b981;
+}
 .notfound-code-title {
   margin-left: 0.5rem;
   font-size: 0.75rem;
