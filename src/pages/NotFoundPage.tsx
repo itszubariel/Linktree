@@ -205,12 +205,42 @@ const FACTS = [
 ];
 
 const QUICK_LINKS = [
-  { to: "/", icon: "fa-solid fa-house", label: "Linktree", desc: "the whole point of this site" },
-  { to: "/projects", icon: "fa-solid fa-code", label: "Projects", desc: "things i've actually built" },
-  { to: "/portfolio", icon: "fa-solid fa-briefcase", label: "Portfolio", desc: "the fancy extended resume" },
-  { to: "/snippet", icon: "fa-solid fa-scissors", label: "Snippets", desc: "useful code scraps" },
-  { to: "/now", icon: "fa-solid fa-bolt", label: "Now", desc: "what i'm focused on right now" },
-  { to: "/contact", icon: "fa-solid fa-envelope", label: "Contact", desc: "shout at me about this page" },
+  {
+    to: "/",
+    icon: "fa-solid fa-house",
+    label: "Linktree",
+    desc: "the whole point of this site",
+  },
+  {
+    to: "/projects",
+    icon: "fa-solid fa-code",
+    label: "Projects",
+    desc: "things i've actually built",
+  },
+  {
+    to: "/portfolio",
+    icon: "fa-solid fa-briefcase",
+    label: "Portfolio",
+    desc: "the fancy extended resume",
+  },
+  {
+    to: "/snippet",
+    icon: "fa-solid fa-scissors",
+    label: "Snippets",
+    desc: "useful code scraps",
+  },
+  {
+    to: "/now",
+    icon: "fa-solid fa-bolt",
+    label: "Now",
+    desc: "what i'm focused on right now",
+  },
+  {
+    to: "/contact",
+    icon: "fa-solid fa-envelope",
+    label: "Contact",
+    desc: "shout at me about this page",
+  },
 ];
 
 function pick(arr: string[], seed: number, offset: number): string {
@@ -270,7 +300,9 @@ export function NotFoundPage() {
             <p className="kicker">/usr/bin/404</p>
             <h2>system diagnostics</h2>
           </div>
-          <span className="count">{String(diagnostics.length).padStart(2, "0")} lines</span>
+          <span className="count">
+            {String(diagnostics.length).padStart(2, "0")} lines
+          </span>
         </div>
         <div className="notfound-code">
           <div className="notfound-code-head">
@@ -280,7 +312,9 @@ export function NotFoundPage() {
             <span className="notfound-code-title">~/zubs.me/_lost</span>
           </div>
           <div className="notfound-code-body">
-            <p className="notfound-line">$ curl -v {window.location.pathname}</p>
+            <p className="notfound-line">
+              $ curl -v {window.location.pathname}
+            </p>
             {diagnostics.map(([k, v]) => (
               <p key={k} className="notfound-log">
                 <span className="notfound-key">{k}</span>
@@ -297,13 +331,22 @@ export function NotFoundPage() {
             <p className="kicker">alternatives</p>
             <h2>You were probably looking for</h2>
           </div>
-          <span className="count">{String(QUICK_LINKS.length).padStart(2, "0")} places</span>
+          <span className="count">
+            {String(QUICK_LINKS.length).padStart(2, "0")} places
+          </span>
         </div>
 
         <div className="grid-links">
           {QUICK_LINKS.map((l, i) => (
-            <Link key={l.to} to={l.to} className="card rise" style={{ animationDelay: `${0.05 * i}s` }}>
-              <span className="card-path">~/{l.label.toLowerCase().replace(/ /g, "-")}</span>
+            <Link
+              key={l.to}
+              to={l.to}
+              className="card rise"
+              style={{ animationDelay: `${0.05 * i}s` }}
+            >
+              <span className="card-path">
+                ~/{l.label.toLowerCase().replace(/ /g, "-")}
+              </span>
               <span className="card-body">
                 <span className="card-desc">{l.desc}</span>
               </span>
@@ -319,7 +362,9 @@ export function NotFoundPage() {
             <p className="kicker">trivia</p>
             <h2>Useless facts</h2>
           </div>
-          <span className="count">{String(facts.length).padStart(2, "0")} facts</span>
+          <span className="count">
+            {String(facts.length).padStart(2, "0")} facts
+          </span>
         </div>
         <div className="notfound-facts">
           {facts.map((f) => (
