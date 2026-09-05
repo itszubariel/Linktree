@@ -2,7 +2,7 @@ import { useState } from "react";
 import type { FormEvent, ChangeEvent } from "react";
 import { Seo } from "../components/Seo";
 
-const EMAIL = "hi@zubs.me";
+const EMAIL = "zubariel@gmail.com";
 
 const initial = { username: "", email: "", subject: "", message: "" };
 
