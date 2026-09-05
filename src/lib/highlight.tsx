@@ -17,7 +17,9 @@ function escapeHtml(s: string): string {
 
 function pushToken(out: string[], cls: string, text: string) {
   if (!text) return;
-  out.push(cls ? `<span class="${cls}">${escapeHtml(text)}</span>` : escapeHtml(text));
+  out.push(
+    cls ? `<span class="${cls}">${escapeHtml(text)}</span>` : escapeHtml(text),
+  );
 }
 
 export function highlight(code: string, lang: SnippetLang): ReactNode {
@@ -49,7 +51,9 @@ export function highlight(code: string, lang: SnippetLang): ReactNode {
       }
     }
 
-    const str = rest.match(/^"(?:[^"\\]|\\.)*"|^'(?:[^'\\]|\\.)*'|^`(?:[^`\\]|\\.)*`/);
+    const str = rest.match(
+      /^"(?:[^"\\]|\\.)*"|^'(?:[^'\\]|\\.)*'|^`(?:[^`\\]|\\.)*`/,
+    );
     if (str) {
       pushToken(out, "tok-str", str[0]);
       i += str[0].length;
