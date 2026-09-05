@@ -32,7 +32,10 @@ function SnippetCard({ snippet, style }: SnippetCardProps) {
         <p className="project-desc">{snippet.desc}</p>
 
         <div className="project-actions">
-          <Link to={`/snippet/${snippet.link}`} className="btn btn-ghost project-view">
+          <Link
+            to={`/snippet/${snippet.link}`}
+            className="btn btn-ghost project-view"
+          >
             View Snippet
             <i className="fa-solid fa-code" />
           </Link>
